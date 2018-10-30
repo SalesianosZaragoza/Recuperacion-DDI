@@ -28,9 +28,9 @@ public class UserRepository {
 			throw new RuntimeException(e);
 		} finally {
 			manager.close(preparedStatement);
+			manager.close(conn);
 		}
 
-		manager.close(conn);
 	}
 
 }
