@@ -25,7 +25,7 @@ public class ListadoServlet extends HttpServlet {
 	}
 
 	protected void redirect(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/listado.jsp");
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/Listado.jsp");
 		dispatcher.forward(req, resp);
 	}
 

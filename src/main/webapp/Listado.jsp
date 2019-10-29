@@ -12,9 +12,11 @@
 </form>
 
 <table>
-	<c:forEach items="listOfUsers" var="user">
+	<c:forEach items="${listOfUsers}" var="user">
 	    <tr>
-	        <td>#{user}</td>
+	        <td>${user.nombre}</td>
+	        <td>${user.apellido}</td>
+	        <td>${user.apellido}</td>
 	    </tr>
 	</c:forEach>
 </table>

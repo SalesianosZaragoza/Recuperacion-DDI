@@ -46,7 +46,7 @@ public class UserRepository {
 			while (resultSet.next()) {
 				User user = new User();
 				user.setNombre(resultSet.getString("nombre"));
-				user.setApellido(resultSet.getString("apellid"));
+				user.setApellido(resultSet.getString("apellido"));
 				users.add(user);
 			}
 
