@@ -1,5 +1,7 @@
 package es.salesianos.service;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 
 import es.salesianos.assembler.UserAssembler;
@@ -19,6 +21,11 @@ public class UserService implements Service {
 
 	public void insertUser(User user) {
 			repository.insert(user);
+	}
+
+	@Override
+	public List<User> listAll() {
+		return repository.listAll();
 	}
 
 }

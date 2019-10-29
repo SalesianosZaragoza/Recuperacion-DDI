@@ -3,6 +3,7 @@ package es.salesianos.repository;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.List;
 
 import es.salesianos.connection.AbstractConnection;
 import es.salesianos.connection.H2Connection;
@@ -31,6 +32,11 @@ public class UserRepository {
 			manager.close(conn);
 		}
 
+	}
+
+	public List<User> listAll() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

@@ -8,9 +8,19 @@
 		<servlet-class>es.salesianos.servlet.WelcomeServlet</servlet-class>
 	</servlet>
 
+	<servlet>
+		<servlet-name>ListadoServlet</servlet-name>
+		<servlet-class>es.salesianos.servlet.ListadoServlet</servlet-class>
+	</servlet>
+
 	<servlet-mapping>
 		<servlet-name>WelcomeServlet</servlet-name>
 		<url-pattern>/welcome</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>ListadoServlet</servlet-name>
+		<url-pattern>/listado</url-pattern>
 	</servlet-mapping>
 
 	<welcome-file-list>
