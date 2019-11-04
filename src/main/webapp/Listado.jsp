@@ -16,10 +16,18 @@
 <table>
 <!-- TAGLIB -->
 	<c:forEach items="${listOfUsers}" var="user">
+	    <thead>
+	       <th>Nombre</th>
+	       <th>Apellido</th>
+	       <th>Eliminar</th>
+	    </thead>
+	    
+	    
 	    <tr>
 	        <td>${user.nombre}</td>
 	        <td>${user.apellido}</td>
-	        <td>${user.apellido}</td>
+	        <td></td>
+	        
 	    </tr>
 	</c:forEach>
 </table>
@@ -37,7 +45,14 @@
  List<User> users = (List<User>)request.getAttribute("listOfUsers");
 if(users!= null && !users.isEmpty()){
 	for(User user : users){
-		out.println(user.getNombre());
+	    out.println("<tr>");
+	    out.println("<td>");
+	    out.println(user.getNombre());
+	    out.println("</td>");
+	    out.println("<td>");
+        out.println(user.getApellido());
+        out.println("</td>");
+	    out.println("</tr>");
 		
 	}
 }
