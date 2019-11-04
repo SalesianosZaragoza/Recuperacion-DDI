@@ -15,18 +15,19 @@
 
 <table>
 <!-- TAGLIB -->
+    <thead>
+       <th>Nombre</th>
+       <th>Apellido</th>
+       <th>Eliminar</th>
+    </thead>
+
 	<c:forEach items="${listOfUsers}" var="user">
-	    <thead>
-	       <th>Nombre</th>
-	       <th>Apellido</th>
-	       <th>Eliminar</th>
-	    </thead>
 	    
 	    
 	    <tr>
 	        <td>${user.nombre}</td>
 	        <td>${user.apellido}</td>
-	        <td></td>
+	        <td><a href="/delete?name=${user.nombre}&surname=${user.apellido}">Eliminar</a></td>
 	        
 	    </tr>
 	</c:forEach>
