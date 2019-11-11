@@ -28,6 +28,7 @@
 	        <td>${user.nombre}</td>
 	        <td>${user.apellido}</td>
 	        <td><a href="/delete?name=${user.nombre}&surname=${user.apellido}">Eliminar</a></td>
+	        <td><a href="/update?id=${user.id}">Update</a></td>
 	        
 	    </tr>
 	</c:forEach>

@@ -2,6 +2,7 @@ package es.salesianos.model;
 
 public class User {
 
+	private Integer id;
 	String nombre;
 	String apellido;
 
@@ -19,6 +20,14 @@ public class User {
 
 	public void setApellido(String apellido) {
 		this.apellido = apellido;
+	}
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
 	}
 
 
