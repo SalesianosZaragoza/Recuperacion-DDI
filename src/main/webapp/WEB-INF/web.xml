@@ -12,6 +12,10 @@
         <servlet-name>DeleteServlet</servlet-name>
         <servlet-class>es.salesianos.servlet.DeleteServlet</servlet-class>
     </servlet>
+	<servlet>
+        <servlet-name>UpdateServlet</servlet-name>
+        <servlet-class>es.salesianos.servlet.UpdateServlet</servlet-class>
+    </servlet>
 	
 
 	<servlet>
