@@ -61,4 +61,28 @@ public class UserRepository {
 
 	}
 
+	public User listByUser(Integer idUser) {
+		// TODO Auto-generated method stub
+		Connection conn = manager.open(jdbcUrl);
+		PreparedStatement preparedStatement = null;
+		User user;
+		try {
+			preparedStatement = conn.prepareStatement("SELECT * FROM USER WHERE id=?");
+			preparedStatement.setInt(1, idUser);
+			ResultSet resultSet = preparedStatement.executeQuery();
+			user = new User();
+			user.setId(resultSet.getInt("id"));
+			user.setNombre(resultSet.getString("nombre"));
+			user.setApellido(resultSet.getString("apellido"));
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new RuntimeException(e);
+		} finally {
+			manager.close(preparedStatement);
+			manager.close(conn);
+		}
+		return user;
+	}
+
 }

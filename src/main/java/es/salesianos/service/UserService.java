@@ -28,4 +28,8 @@ public class UserService implements Service {
 		return repository.listAll();
 	}
 
+	public User listById(Integer idUser) {
+		return repository.listByUser(idUser);
+	}
+
 }
