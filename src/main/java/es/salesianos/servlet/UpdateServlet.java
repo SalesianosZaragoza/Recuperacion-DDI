@@ -19,15 +19,34 @@ public class UpdateServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String parameter = req.getParameter("id");
 		Integer idUser = Integer.parseInt(parameter);
-		// Select * from USER where id=?
 		User user = service.listById(idUser);
 		req.setAttribute("usuario", user);
-		redirect(req, resp);
+		redirect(req, resp, "Update.jsp");
 
 	}
 
-	protected void redirect(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/Update.jsp");
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		/*
+		 * aqui deberia usar UserAssembler.createUserFromRequest y no esta ñapa en la
+		 * cual estoy repitiendo codigo NO NO NO NO por fabor
+		 */
+		String id = req.getParameter("id");
+		String nombre = req.getParameter("nombre");
+		String apellido = req.getParameter("apellido");
+		User user = new User();
+		user.setId(Integer.parseInt(id));
+		user.setNombre(nombre);
+		user.setApellido(apellido);
+		service.update(user);
+		redirect(req, resp, "Listado.jsp");
+
+	}
+
+
+	protected void redirect(HttpServletRequest req, HttpServletResponse resp, String page)
+			throws IOException, ServletException {
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/" + page);
 		dispatcher.forward(req, resp);
 	}
 

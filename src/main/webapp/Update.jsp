@@ -5,14 +5,13 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>Actualiza los datos</title>
 </head>
 <body>
-<form action="welcome" method="post">
-
-        <span>ID:</span> <input type="text" name="id" value="${user.id}" disabled="disabled"> <br />
-        <span>nombre:</span> <input type="text" value="${user.nombre}" name="nombre"> <br />
-        <span>apellido:</span> <input type="text" value="${user.apellido}" name="apellido"> <br />
+<form action="/update" method="post">
+        <span>ID:</span> <input type="text" name="id" value="${usuario.id}" disabled="disabled"> <br />
+        <span>nombre:</span> <input type="text" value="${usuario.nombre}" name="nombre"> <br />
+        <span>apellido:</span> <input type="text" value="${usuario.apellido}" name="apellido"> <br />
         <input type="submit">
     </form>
 </body>

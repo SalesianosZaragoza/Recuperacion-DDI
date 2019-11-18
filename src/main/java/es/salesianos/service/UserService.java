@@ -32,4 +32,8 @@ public class UserService implements Service {
 		return repository.listByUser(idUser);
 	}
 
+	public void update(User user) {
+		repository.update(user);
+	}
+
 }

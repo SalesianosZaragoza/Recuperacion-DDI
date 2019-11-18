@@ -45,6 +45,7 @@ public class UserRepository {
 			ResultSet resultSet = preparedStatement.executeQuery();
 			while (resultSet.next()) {
 				User user = new User();
+				user.setId(resultSet.getInt("id"));
 				user.setNombre(resultSet.getString("nombre"));
 				user.setApellido(resultSet.getString("apellido"));
 				users.add(user);
@@ -62,7 +63,6 @@ public class UserRepository {
 	}
 
 	public User listByUser(Integer idUser) {
-		// TODO Auto-generated method stub
 		Connection conn = manager.open(jdbcUrl);
 		PreparedStatement preparedStatement = null;
 		User user;
@@ -70,6 +70,7 @@ public class UserRepository {
 			preparedStatement = conn.prepareStatement("SELECT * FROM USER WHERE id=?");
 			preparedStatement.setInt(1, idUser);
 			ResultSet resultSet = preparedStatement.executeQuery();
+			resultSet.next();
 			user = new User();
 			user.setId(resultSet.getInt("id"));
 			user.setNombre(resultSet.getString("nombre"));
@@ -83,6 +84,24 @@ public class UserRepository {
 			manager.close(conn);
 		}
 		return user;
+	}
+
+	public void update(User user) {
+		Connection conn = manager.open(jdbcUrl);
+		PreparedStatement preparedStatement = null;
+		try {
+			preparedStatement = conn.prepareStatement("UPDATE USER SET nombre=? , apellido=? WHERE id=?");
+			preparedStatement.setString(1, user.getNombre());
+			preparedStatement.setString(2, user.getApellido());
+			preparedStatement.setInt(3, user.getId());
+			preparedStatement.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new RuntimeException(e);
+		} finally {
+			manager.close(preparedStatement);
+			manager.close(conn);
+		}
 	}
 
 }
