@@ -6,13 +6,14 @@ import javax.servlet.http.HttpServletRequest;
 
 import es.salesianos.assembler.UserAssembler;
 import es.salesianos.model.User;
+import es.salesianos.repository.Repository;
 import es.salesianos.repository.UserRepository;
 
 public class UserService implements Service {
 
 	private UserAssembler assembler = new UserAssembler();
 
-	private UserRepository repository = new UserRepository();
+	private Repository repository = new UserRepository();
 
 	public User createNewUserFromRequest(HttpServletRequest req) {
 		User user = assembler.createUserFromRequest(req);

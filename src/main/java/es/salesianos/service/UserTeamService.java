@@ -10,7 +10,7 @@ public class UserTeamService {
 	UserTeamRepository repository = new UserTeamRepository();
 
 	private List<UserTeam> listUserTeam() {
-		return repository.listUserTeam();
+		return repository.listAll();
 	}
 
 }

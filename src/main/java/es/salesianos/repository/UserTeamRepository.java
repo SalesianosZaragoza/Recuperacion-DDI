@@ -9,11 +9,11 @@ import java.util.List;
 
 import es.salesianos.model.UserTeam;
 
-public class UserTeamRepository extends AbstractRepository {
+public class UserTeamRepository extends AbstractRepository implements Repository {
 	
 
 
-	public List<UserTeam> listUserTeam() {
+	public List<UserTeam> listAll() {
 		Connection conn = manager.open(jdbcUrl);
 		PreparedStatement preparedStatement = null;
 		ArrayList<UserTeam> users = new ArrayList<UserTeam>();
@@ -38,6 +38,12 @@ public class UserTeamRepository extends AbstractRepository {
 			manager.close(conn);
 		}
 		return users;
+	}
+
+	@Override
+	public Object findBy(Integer id) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

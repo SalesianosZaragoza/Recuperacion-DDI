@@ -1,7 +1,5 @@
 package es.salesianos.repository;
 
-import static es.salesianos.repository.AbstractRepository.jdbcUrl;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -11,7 +9,7 @@ import java.util.List;
 
 import es.salesianos.model.User;
 
-public class UserRepository extends AbstractRepository {
+public class UserRepository extends AbstractRepository implements Repository<User> {
 
 
 
@@ -100,6 +98,12 @@ public class UserRepository extends AbstractRepository {
 			manager.close(preparedStatement);
 			manager.close(conn);
 		}
+	}
+
+	@Override
+	public Object findBy(Integer id) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
