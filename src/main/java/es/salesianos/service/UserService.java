@@ -18,7 +18,7 @@ public class UserService implements Service {
 		User user = assembler.createUserFromRequest(req);
 		return user;
 	}
-
+	
 	public void insertUser(User user) {
 			repository.insert(user);
 	}

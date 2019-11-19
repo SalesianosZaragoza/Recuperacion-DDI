@@ -1,5 +1,7 @@
 package es.salesianos.repository;
 
+import static es.salesianos.repository.AbstractRepository.jdbcUrl;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -7,14 +9,10 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import es.salesianos.connection.AbstractConnection;
-import es.salesianos.connection.H2Connection;
 import es.salesianos.model.User;
 
-public class UserRepository {
+public class UserRepository extends AbstractRepository {
 
-	private static final String jdbcUrl = "jdbc:h2:file:./src/main/resources/test;INIT=RUNSCRIPT FROM 'classpath:scripts/create.sql'";
-	AbstractConnection manager = new H2Connection();
 
 
 	public void insert(User userFormulario) {
