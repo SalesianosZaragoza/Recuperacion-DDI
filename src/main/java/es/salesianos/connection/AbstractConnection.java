@@ -7,7 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public abstract class AbstractConnection {
+public abstract class AbstractConnection implements OpenClose {
 
 	public abstract String getDriver();
 
