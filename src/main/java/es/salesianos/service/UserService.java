@@ -13,7 +13,7 @@ public class UserService implements Service {
 
 	private UserAssembler assembler = new UserAssembler();
 
-	private Repository repository = new UserRepository();
+	private Repository<User> repository = new UserRepository();
 
 	public User createNewUserFromRequest(HttpServletRequest req) {
 		User user = assembler.createUserFromRequest(req);
@@ -30,7 +30,7 @@ public class UserService implements Service {
 	}
 
 	public User listById(Integer idUser) {
-		return repository.listByUser(idUser);
+		return repository.findBy(idUser);
 	}
 
 	public void update(User user) {

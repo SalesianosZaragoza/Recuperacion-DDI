@@ -101,7 +101,7 @@ public class UserRepository extends AbstractRepository implements Repository<Use
 	}
 
 	@Override
-	public Object findBy(Integer id) {
+	public User findBy(Integer id) {
 		// TODO Auto-generated method stub
 		return null;
 	}

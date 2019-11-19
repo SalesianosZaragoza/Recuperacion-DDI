@@ -4,10 +4,12 @@ import java.util.List;
 
 public interface Repository<E> {
 	
-	public List listAll();
+	public List<E> listAll();
 
-	public Object findBy(Integer id);
+	public E findBy(Integer id);
 
 	public void insert(E user);
+
+	public void update(E user);
 
 }

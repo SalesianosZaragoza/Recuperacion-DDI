@@ -9,7 +9,7 @@ import java.util.List;
 
 import es.salesianos.model.UserTeam;
 
-public class UserTeamRepository extends AbstractRepository implements Repository {
+public class UserTeamRepository extends AbstractRepository implements Repository<UserTeam> {
 	
 
 
@@ -41,9 +41,21 @@ public class UserTeamRepository extends AbstractRepository implements Repository
 	}
 
 	@Override
-	public Object findBy(Integer id) {
+	public UserTeam findBy(Integer id) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public void insert(UserTeam user) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void update(UserTeam user) {
+		// TODO Auto-generated method stub
+
 	}
 
 }
