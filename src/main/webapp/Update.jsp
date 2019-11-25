@@ -9,7 +9,7 @@
 </head>
 <body>
 <form action="/update" method="post">
-        <span>ID:</span> <input type="text" name="id" value="${usuario.id}" disabled="disabled"> <br />
+        <span>ID:</span> <input type="text" value="${usuario.id}" disabled="disabled" name="id"> <br />
         <span>nombre:</span> <input type="text" value="${usuario.nombre}" name="nombre"> <br />
         <span>apellido:</span> <input type="text" value="${usuario.apellido}" name="apellido"> <br />
         <input type="submit">

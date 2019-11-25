@@ -12,5 +12,6 @@
 		<span>apellido:</span> <input type="text" name="apellido"> <br />
 		<input type="submit">
 	</form>
+	<a href="Listado.jsp">Listado</a>
 </body>
 </html>

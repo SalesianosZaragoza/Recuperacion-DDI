@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>Listado del usuarios</title>
 </head>
 <body>
 <form method="post" action="/listado">
@@ -19,6 +19,7 @@
        <th>Nombre</th>
        <th>Apellido</th>
        <th>Eliminar</th>
+       <th>Actualizar</th>
     </thead>
 
 	<c:forEach items="${listOfUsers}" var="user">
