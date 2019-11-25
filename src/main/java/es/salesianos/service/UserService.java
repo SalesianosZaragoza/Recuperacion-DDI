@@ -5,6 +5,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.context.support.SpringBeanAutowiringSupport;
 
 import es.salesianos.assembler.UserAssembler;
 import es.salesianos.model.User;
@@ -13,6 +14,10 @@ import es.salesianos.repository.Repository;
 public class UserService implements Service {
 
 	private UserAssembler assembler = new UserAssembler();
+
+	public UserService() {
+		SpringBeanAutowiringSupport.processInjectionBasedOnCurrentContext(this);
+	}
 
 	@Autowired
 	private Repository<User> repository;
