@@ -4,16 +4,18 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import es.salesianos.assembler.UserAssembler;
 import es.salesianos.model.User;
 import es.salesianos.repository.Repository;
-import es.salesianos.repository.UserRepository;
 
 public class UserService implements Service {
 
 	private UserAssembler assembler = new UserAssembler();
 
-	private Repository<User> repository = new UserRepository();
+	@Autowired
+	private Repository<User> repository;
 
 	public User createNewUserFromRequest(HttpServletRequest req) {
 		User user = assembler.createUserFromRequest(req);

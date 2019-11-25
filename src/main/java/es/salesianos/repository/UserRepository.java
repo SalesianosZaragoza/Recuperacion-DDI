@@ -7,8 +7,11 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.stereotype.Component;
+
 import es.salesianos.model.User;
 
+@Component
 public class UserRepository extends AbstractRepository implements Repository<User> {
 
 
