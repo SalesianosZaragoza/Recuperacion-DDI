@@ -34,10 +34,15 @@ public class UpdateServlet extends HttpServlet {
 		String id = req.getParameter("id");
 		String nombre = req.getParameter("nombre");
 		String apellido = req.getParameter("apellido");
+		String dni = req.getParameter("dni");
 		User user = new User();
+		System.out.println(id+""+nombre + " " + apellido + " "+ dni);
+		
 		user.setId(Integer.parseInt(id));
 		user.setNombre(nombre);
 		user.setApellido(apellido);
+		user.setDni(dni);
+		
 		service.update(user);
 		redirect(req, resp, "Listado.jsp");
 

@@ -5,6 +5,7 @@ public class User {
 	private Integer id;
 	String nombre;
 	String apellido;
+	String dni;
 
 	public String getNombre() {
 		return nombre;
@@ -20,6 +21,14 @@ public class User {
 
 	public void setApellido(String apellido) {
 		this.apellido = apellido;
+	}
+
+	public String getDni() {
+		return dni;
+	}
+
+	public void setDni(String dni) {
+		this.dni = dni;
 	}
 
 	public Integer getId() {

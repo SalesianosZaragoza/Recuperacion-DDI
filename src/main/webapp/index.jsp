@@ -10,6 +10,7 @@
 	<form action="welcome" method="post">
 		<span>nombre:</span> <input type="text" name="nombre"> <br />
 		<span>apellido:</span> <input type="text" name="apellido"> <br />
+		<span>dni:</span> <input type="text" name="dni"> <br />
 		<input type="submit">
 	</form>
 	<a href="Listado.jsp">Listado</a>

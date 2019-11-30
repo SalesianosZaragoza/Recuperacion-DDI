@@ -8,10 +8,11 @@
 <title>Actualiza los datos</title>
 </head>
 <body>
-<form action="/update" method="post">
+<form action="/update?id=${usuario.id}" method="post">
         <span>ID:</span> <input type="text" value="${usuario.id}" disabled="disabled" name="id"> <br />
         <span>nombre:</span> <input type="text" value="${usuario.nombre}" name="nombre"> <br />
         <span>apellido:</span> <input type="text" value="${usuario.apellido}" name="apellido"> <br />
+        <span>dni:</span> <input type="text" value="${usuario.dni}" name="dni"> <br />
         <input type="submit">
     </form>
 </body>
