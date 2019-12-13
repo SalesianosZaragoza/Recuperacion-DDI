@@ -20,7 +20,8 @@ public class DeleteServlet extends HttpServlet {
 
 		String name = req.getParameter("name");
 		String surname = req.getParameter("surname");
-		System.out.println(name + " " + surname);
+		String dni= req.getParameter("dni");
+		System.out.println(name + " " + surname + " "+ dni);
 		Connection conn;
 		try {
 			Class.forName("org.h2.Driver");
@@ -31,9 +32,10 @@ public class DeleteServlet extends HttpServlet {
 		}
 		PreparedStatement preparedStatement = null;
 		try {
-			preparedStatement = conn.prepareStatement("DELETE FROM USER WHERE nombre = ? and apellido = ?");
+			preparedStatement = conn.prepareStatement("DELETE FROM USER WHERE nombre = ? and apellido = ? and dni = ?");
 			preparedStatement.setString(1, name);
 			preparedStatement.setString(2, surname);
+			preparedStatement.setString(3, dni);
 			preparedStatement.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();

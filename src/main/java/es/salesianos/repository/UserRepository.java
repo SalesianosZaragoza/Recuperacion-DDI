@@ -21,9 +21,10 @@ public class UserRepository extends AbstractRepository implements Repository<Use
 		PreparedStatement preparedStatement = null;
 		try {
 			preparedStatement = conn
-					.prepareStatement("INSERT INTO USER (nombre,apellido)" + "VALUES (?, ?)");
+					.prepareStatement("INSERT INTO USER (nombre,apellido,dni)" + "VALUES (?, ?,?)");
 			preparedStatement.setString(1, userFormulario.getNombre());
 			preparedStatement.setString(2, userFormulario.getApellido());
+			preparedStatement.setString(3, userFormulario.getDni());
 			preparedStatement.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -47,6 +48,7 @@ public class UserRepository extends AbstractRepository implements Repository<Use
 				user.setId(resultSet.getInt("id"));
 				user.setNombre(resultSet.getString("nombre"));
 				user.setApellido(resultSet.getString("apellido"));
+				user.setDni(resultSet.getString("dni"));
 				users.add(user);
 			}
 
@@ -74,6 +76,7 @@ public class UserRepository extends AbstractRepository implements Repository<Use
 			user.setId(resultSet.getInt("id"));
 			user.setNombre(resultSet.getString("nombre"));
 			user.setApellido(resultSet.getString("apellido"));
+			user.setDni(resultSet.getString("dni"));
 
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -89,10 +92,11 @@ public class UserRepository extends AbstractRepository implements Repository<Use
 		Connection conn = manager.open(jdbcUrl);
 		PreparedStatement preparedStatement = null;
 		try {
-			preparedStatement = conn.prepareStatement("UPDATE USER SET nombre=? , apellido=? WHERE id=?");
+			preparedStatement = conn.prepareStatement("UPDATE USER SET nombre=? , apellido=? , dni=? WHERE id=?");
 			preparedStatement.setString(1, user.getNombre());
 			preparedStatement.setString(2, user.getApellido());
-			preparedStatement.setInt(3, user.getId());
+			preparedStatement.setString(3, user.getDni());
+			preparedStatement.setInt(4, user.getId());
 			preparedStatement.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -105,8 +109,30 @@ public class UserRepository extends AbstractRepository implements Repository<Use
 
 	@Override
 	public User findBy(Integer id) {
-		// TODO Auto-generated method stub
-		return null;
+		Connection conn = manager.open(jdbcUrl);
+		PreparedStatement preparedStatement = null;
+		User user;
+		try {
+			preparedStatement = conn.prepareStatement("SELECT * FROM USER WHERE id=?");
+			preparedStatement.setInt(1, id);
+			ResultSet resultSet = preparedStatement.executeQuery();
+			resultSet.next();
+			user = new User();
+			user.setId(resultSet.getInt("id"));
+			user.setNombre(resultSet.getString("nombre"));
+			user.setApellido(resultSet.getString("apellido"));
+			user.setDni(resultSet.getString("dni"));
+			
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new RuntimeException(e);
+		} finally {
+			manager.close(preparedStatement);
+			manager.close(conn);
+		}
+		return user;
+		
 	}
 
 }
