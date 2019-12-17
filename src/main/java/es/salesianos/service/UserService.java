@@ -41,7 +41,6 @@ public class UserService implements Service {
 		repository.update(user);
 	}
 
-<<<<<<< HEAD
 	public Repository<User> getRepository() {
 		return repository;
 	}
@@ -49,8 +48,6 @@ public class UserService implements Service {
 	public void setRepository(Repository<User> repository) {
 		this.repository = repository;
 	}
-=======
 	
->>>>>>> 84f294532a77d2027c0c80fb50ef4e48f3dfddef
 
 }
