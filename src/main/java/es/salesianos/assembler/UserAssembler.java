@@ -14,6 +14,7 @@ public class UserAssembler {
 		User user = new User();
 		user.setNombre(request.getParameter("nombre"));
 		user.setApellido(request.getParameter("apellido"));
+		user.setDni(request.getParameter("dni"));
 		return user;
 	}
 

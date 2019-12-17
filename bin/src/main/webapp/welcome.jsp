@@ -10,6 +10,5 @@
 Bienvenido
 <b><%= request.getParameter("nombre") %></b>
 <b><%= request.getParameter("apellido") %></b>
-<b><%= request.getParameter("dni") %></b>
 </body>
 </html>

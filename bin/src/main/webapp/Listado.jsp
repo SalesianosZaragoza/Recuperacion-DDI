@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Listado del usuarios</title>
+<title>Insert title here</title>
 </head>
 <body>
 <form method="post" action="/listado">
@@ -18,9 +18,7 @@
     <thead>
        <th>Nombre</th>
        <th>Apellido</th>
-       <th>DNI</th>
        <th>Eliminar</th>
-       <th>Actualizar</th>
     </thead>
 
 	<c:forEach items="${listOfUsers}" var="user">
@@ -29,8 +27,7 @@
 	    <tr>
 	        <td>${user.nombre}</td>
 	        <td>${user.apellido}</td>
-	        <td>${user.dni}</td>
-	        <td><a href="/delete?name=${user.nombre}&surname=${user.apellido}&dni=${user.dni}">Eliminar</a></td>
+	        <td><a href="/delete?name=${user.nombre}&surname=${user.apellido}">Eliminar</a></td>
 	        <td><a href="/update?id=${user.id}">Update</a></td>
 	        
 	    </tr>
@@ -56,9 +53,6 @@ if(users!= null && !users.isEmpty()){
 	    out.println("</td>");
 	    out.println("<td>");
         out.println(user.getApellido());
-        out.println("</td>");
-	    out.println("<td>");
-	    out.println(user.getDni());
         out.println("</td>");
 	    out.println("</tr>");
 		
