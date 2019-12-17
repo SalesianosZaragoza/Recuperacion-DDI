@@ -5,17 +5,18 @@ import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import es.salesianos.model.User;
 import es.salesianos.service.Service;
-import es.salesianos.service.UserService;
 
-public class ListadoServlet extends HttpServlet {
+public class ListadoServlet extends SpringBaseServlet {
 
-	Service service = new UserService();
+	@Autowired
+	Service service;
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

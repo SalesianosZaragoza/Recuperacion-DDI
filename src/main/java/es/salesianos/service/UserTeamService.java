@@ -1,16 +1,13 @@
 package es.salesianos.service;
 
-import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
 
-import es.salesianos.model.UserTeam;
-import es.salesianos.repository.UserTeamRepository;
+import es.salesianos.model.User;
+import es.salesianos.repository.Repository;
 
 public class UserTeamService {
 
-	UserTeamRepository repository = new UserTeamRepository();
-
-	private List<UserTeam> listUserTeam() {
-		return repository.listAll();
-	}
+	@Autowired
+	private Repository<User> repository;
 
 }
