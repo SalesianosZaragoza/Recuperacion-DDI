@@ -7,7 +7,7 @@
 <title>Insertar datos</title>
 </head>
 <body>
-	<form action="raza" method="post">
+	<form action="race" method="post">
 		<span>Especie:</span> <input type="text" name="specie"> <br />
 		<input type="submit">
 	</form>
