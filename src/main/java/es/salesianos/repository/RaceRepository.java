@@ -7,25 +7,22 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import es.salesianos.model.Character;
 import es.salesianos.model.Race;
 
 public class RaceRepository extends AbstractRepository implements Repository<Race> {
-	
-
 
 	public List<Race> listAll() {
 		Connection conn = manager.open(jdbcUrl);
 		PreparedStatement preparedStatement = null;
-		ArrayList<Race> users = new ArrayList<Race>();
+		ArrayList<Race> races = new ArrayList<Race>();
 		try {
 			preparedStatement = conn.prepareStatement("SELECT * FROM raza");
 			ResultSet resultSet = preparedStatement.executeQuery();
 			while (resultSet.next()) {
-				Race user = new Race();
-				user.setId(resultSet.getInt("id"));
-				user.setSpecie(resultSet.getString("especie"));
-				users.add(user);
+				Race race = new Race();
+				race.setId(resultSet.getInt("id"));
+				race.setSpecie(resultSet.getString("especie"));
+				races.add(race);
 			}
 
 		} catch (SQLException e) {
@@ -35,7 +32,7 @@ public class RaceRepository extends AbstractRepository implements Repository<Rac
 			manager.close(preparedStatement);
 			manager.close(conn);
 		}
-		return users;
+		return races;
 	}
 
 	public Race findBy(Integer id) {

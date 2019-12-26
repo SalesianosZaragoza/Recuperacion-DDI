@@ -12,8 +12,6 @@ import es.salesianos.model.Character;
 
 public class CharacterRepository extends AbstractRepository implements Repository<Character> {
 
-
-
 	public void insert(Character character) {
 		Connection conn = manager.open(jdbcUrl);
 		PreparedStatement preparedStatement = null;
@@ -66,34 +64,9 @@ public class CharacterRepository extends AbstractRepository implements Repositor
 
 	}
 
-	public Character listByCharacter(Integer idCharacter) {
-		Connection conn = manager.open(jdbcUrl);
-		PreparedStatement preparedStatement = null;
-		Character character;
-		try {
-			preparedStatement = conn.prepareStatement("SELECT * FROM personaje  WHERE id=?");
-			preparedStatement.setInt(1, idCharacter);
-			ResultSet resultSet = preparedStatement.executeQuery();
-			resultSet.next();
-			character = new Character();
-			character.setId(resultSet.getInt("id"));
-			character.setName(resultSet.getString("nombre"));
-			character.setCarrier(resultSet.getString("portador"));
-			try {
-				character.setCodRace(resultSet.getString("codRaza"));
-			} catch (ParseException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-
-		} catch (SQLException e) {
-			e.printStackTrace();
-			throw new RuntimeException(e);
-		} finally {
-			manager.close(preparedStatement);
-			manager.close(conn);
-		}
-		return character;
+	public Character findBy(Integer id) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	public void update(Character character) {
@@ -113,11 +86,6 @@ public class CharacterRepository extends AbstractRepository implements Repositor
 			manager.close(preparedStatement);
 			manager.close(conn);
 		}
-	}
-
-	public Character findBy(Integer id) {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 
