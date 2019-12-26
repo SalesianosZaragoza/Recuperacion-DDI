@@ -1,6 +1,7 @@
 package es.salesianos.servlet;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletConfig;
@@ -39,7 +40,7 @@ public class CharacterServlet extends HttpServlet {
 	}
 
 	protected void redirect(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/welcome.jsp");
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/welcomeCharacter.jsp");
 		dispatcher.forward(req, resp);
 	}
 }

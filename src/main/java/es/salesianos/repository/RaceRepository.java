@@ -7,10 +7,15 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import es.salesianos.connection.AbstractConnection;
+import es.salesianos.connection.H2Connection;
 import es.salesianos.model.Race;
 
-public class RaceRepository extends AbstractRepository implements Repository<Race> {
+public class RaceRepository{
 
+	protected static final String jdbcUrl = "jdbc:h2:file:./src/main/resources/test;INIT=RUNSCRIPT FROM 'classpath:scripts/create.sql'";
+	protected AbstractConnection manager = new H2Connection();
+	
 	public List<Race> listAll() {
 		Connection conn = manager.open(jdbcUrl);
 		PreparedStatement preparedStatement = null;

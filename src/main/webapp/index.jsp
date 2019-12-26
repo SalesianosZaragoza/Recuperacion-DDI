@@ -7,19 +7,19 @@
 <title>Insertar datos</title>
 </head>
 <body>
-	<form action="race" method="post">
-		<span>Raza:</span> <input type="text" name="specie"> <br /> <input
-			type="submit" value="Insertar raza">
+	<form action="welcomeRace" method="post">
+		<span>Raza:</span> <input type="text" name="specie"> <br/>
+		<input type="submit" value="Insertar raza">
 	</form>
-	<br />
-	<br />
-	<form action="character" method="post">
+	<br/>
+	<br/>
+	<form action="welcomeCharacter" method="post">
 		<span>Nombre:</span> <input type="text" name="name"> <br /> <span>Raza:</span>
 		<input type="number" name="race" min="0"> <br /> <span>Portador:</span>
 		<select name="carrier">
 			<option value="YES">YES</option>
 			<option value="NO">NO</option>
-		</select> <br /> <input type="submit" value="Insertar personaje">
+		</select> <br/> <input type="submit" value="Insertar personaje">
 	</form>
 </body>
 </html>

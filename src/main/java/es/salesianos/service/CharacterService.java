@@ -5,14 +5,14 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 
 import es.salesianos.assembler.CharacterAssembler;
-import es.salesianos.repository.Repository;
+import es.salesianos.repository.CharacterRepository;
 import es.salesianos.model.Character;
 import es.salesianos.model.Race;
 
 public class CharacterService implements Service {
 
 	private CharacterAssembler assembler = new CharacterAssembler();
-	private Repository<Character> repository;
+	private CharacterRepository repository = new CharacterRepository();
 	
 	public CharacterService() {
 
@@ -23,8 +23,8 @@ public class CharacterService implements Service {
 		return character;
 	}
 	
-	public void insertCharacter(Character user) {
-			repository.insert(user);
+	public void insertCharacter(Character character) {
+			repository.insert(character);
 	}
 
 	public List<Character> listAll() {
@@ -43,6 +43,16 @@ public class CharacterService implements Service {
 	public void insertRace(Race user) {
 		// TODO Auto-generated method stub
 		
+	}
+
+	public List<Character> listCharacters() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public List<Race> listRaces() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

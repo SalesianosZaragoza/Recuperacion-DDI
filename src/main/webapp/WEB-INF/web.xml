@@ -16,12 +16,12 @@
 
 	<servlet-mapping>
 		<servlet-name>CharacterServlet</servlet-name>
-		<url-pattern>/character</url-pattern>
+		<url-pattern>/welcomeCharacter</url-pattern>
 	</servlet-mapping>
 
 	<servlet-mapping>
 		<servlet-name>RaceServlet</servlet-name>
-		<url-pattern>/race</url-pattern>
+		<url-pattern>/welcomeRace</url-pattern>
 	</servlet-mapping>
 	
 	<welcome-file-list>

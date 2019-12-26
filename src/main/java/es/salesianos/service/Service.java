@@ -17,4 +17,8 @@ public interface Service {
 	
 	public void insertRace(Race user);
 
+	public List<Character> listCharacters();
+	
+	public List<Race> listRaces();
+
 }
