@@ -21,5 +21,6 @@
 			<option value="NO">NO</option>
 		</select> <br/> <input type="submit" value="Insertar personaje">
 	</form>
+	<a href="listcharacters">Ver el listado de personajes</a>
 </body>
 </html>

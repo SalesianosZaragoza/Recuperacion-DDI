@@ -14,14 +14,26 @@
 		<servlet-class>es.salesianos.servlet.RaceServlet</servlet-class>
 	</servlet>
 
+	<servlet>
+		<servlet-name>ListCharacterServlet</servlet-name>
+		<servlet-class>es.salesianos.servlet.ListCharacterServlet</servlet-class>
+	</servlet>
+	
+	
+	
 	<servlet-mapping>
 		<servlet-name>CharacterServlet</servlet-name>
 		<url-pattern>/welcomeCharacter</url-pattern>
 	</servlet-mapping>
-
+	
 	<servlet-mapping>
 		<servlet-name>RaceServlet</servlet-name>
 		<url-pattern>/welcomeRace</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>ListCharacterServlet</servlet-name>
+		<url-pattern>/listcharacters</url-pattern>
 	</servlet-mapping>
 	
 	<welcome-file-list>
