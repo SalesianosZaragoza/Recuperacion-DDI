@@ -8,19 +8,20 @@
 </head>
 <body>
 	<form action="welcomeRace" method="post">
-		<span>Raza:</span> <input type="text" name="specie"> <br/>
-		<input type="submit" value="Insertar raza">
+		<span>Raza:</span> <input type="text" name="specie"> <br /> <input
+			type="submit" value="Insertar raza">
 	</form>
-	<br/>
-	<br/>
+	<br />
+	<br />
 	<form action="welcomeCharacter" method="post">
 		<span>Nombre:</span> <input type="text" name="name"> <br /> <span>Raza:</span>
 		<input type="number" name="race" min="0"> <br /> <span>Portador:</span>
 		<select name="carrier">
 			<option value="YES">YES</option>
 			<option value="NO">NO</option>
-		</select> <br/> <input type="submit" value="Insertar personaje">
+		</select> <br /> <input type="submit" value="Insertar personaje">
 	</form>
 	<a href="listcharacters">Ver el listado de personajes</a>
+	<a href="listraces">Ver el listado de razas</a>
 </body>
 </html>

@@ -12,21 +12,15 @@
 
     <thead>
        <th>ID</th>
-       <th>Nombre</th>
-       <th>Portador</th>    
-       <th>Cod.Raza</th>   
+       <th>Raza</th>   
        <th>Eliminar</th>
-       <th>Actualizar</th>
     </thead>
     
-	<c:forEach items="${listOfCharacters}" var="character">
+	<c:forEach items="${listOfRaces}" var="race">
 	    <tr>
-			<td>${character.id}</td>
-	        <td>${character.name}</td>
-	        <td>${character.carrier}</td>
-	        <td>${character.race}</td>
-	        <td><a href="/delete?id=${character.id}">Eliminar</a></td>
-	        <td><a href="/update?id=${character.id}">Actualizar</a></td>   
+			<td>${race.id}</td>
+	        <td>${race.specie}</td>
+	        <td><a href="/delete?id=${race.id}">Eliminar</a></td> 
 	    </tr>
 	</c:forEach>
 </table>

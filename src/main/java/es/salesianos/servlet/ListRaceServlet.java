@@ -1,6 +1,7 @@
 package es.salesianos.servlet;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletConfig;
@@ -14,11 +15,12 @@ import es.salesianos.service.RaceService;
 import es.salesianos.service.Service;
 
 
-public class RaceServlet extends HttpServlet {
+
+public class ListRaceServlet extends HttpServlet {
 
 
 	private static final long serialVersionUID = 1L;
-
+	
 	private Service service = new RaceService();
 
 
@@ -33,13 +35,13 @@ public class RaceServlet extends HttpServlet {
 	}
 
 	private void doAction(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
-		Race race = service.createNewRaceFromRequest(req);
-		service.insertRace(race);
+		List<Race> races = service.listRaces();
+		req.setAttribute("listOfRaces", races);
 		redirect(req, resp);
 	}
 
 	protected void redirect(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/welcomeRace.jsp");
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/ListRaces.jsp");
 		dispatcher.forward(req, resp);
 	}
 }
