@@ -20,7 +20,7 @@
 	    <tr>
 			<td>${race.id}</td>
 	        <td>${race.specie}</td>
-	        <td><a href="/delete?id=${race.id}">Eliminar</a></td> 
+	        <td><a href="/deleteRace?id=${race.id}">Eliminar</a></td> 
 	    </tr>
 	</c:forEach>
 </table>
