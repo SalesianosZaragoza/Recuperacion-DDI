@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Personaje creado</title>
+<title>Raza creada</title>
 </head>
 <body>
 	<h2>Raza creada</h2>

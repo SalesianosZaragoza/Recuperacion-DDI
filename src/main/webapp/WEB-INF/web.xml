@@ -29,6 +29,11 @@
 		<servlet-class>es.salesianos.servlet.DeleteRaceServlet</servlet-class>
 	</servlet>
 	
+	<servlet>
+		<servlet-name>DeleteCharacterServlet</servlet-name>
+		<servlet-class>es.salesianos.servlet.DeleteCharacterServlet</servlet-class>
+	</servlet>
+	
 	<servlet-mapping>
 		<servlet-name>CharacterServlet</servlet-name>
 		<url-pattern>/welcomeCharacter</url-pattern>
@@ -52,6 +57,11 @@
 	<servlet-mapping>
 		<servlet-name>DeleteRaceServlet</servlet-name>
 		<url-pattern>/deleteRace</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>DeleteCharacterServlet</servlet-name>
+		<url-pattern>/deleteCharacter</url-pattern>
 	</servlet-mapping>
 	
 	<welcome-file-list>

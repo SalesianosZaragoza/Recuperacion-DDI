@@ -52,8 +52,8 @@ public class CharacterRepository {
 				try {
 					character.setCodRace(resultSet.getString("codRaza"));
 				} catch (ParseException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
+					throw new RuntimeException(e);
 				}
 				characters.add(character);
 			}
