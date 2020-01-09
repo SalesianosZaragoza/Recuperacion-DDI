@@ -1,24 +1,24 @@
 package es.salesianos.service;
 
+import java.io.IOException;
 import java.util.List;
 
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 
 import es.salesianos.model.Character;
 import es.salesianos.model.Race;
 
-public interface Service {
-
-	public Character createNewCharacterFromRequest(HttpServletRequest req);
+public interface Service<E> {
 	
-	public Race createNewRaceFromRequest(HttpServletRequest req);
+	public E createNewDataFromRequest(HttpServletRequest req);
 
-	public void insertCharacter(Character user);
-	
-	public void insertRace(Race user);
+	public void insert(E user);
 
-	public List<Character> listCharacters();
+	public List<E> listAll();
 	
-	public List<Race> listRaces();
+	public void update(E element);
+	
+	public void delete(HttpServletRequest req)  throws IOException, ServletException;
 
 }

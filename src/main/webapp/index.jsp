@@ -4,20 +4,20 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insertar datos</title>
+<title>Insertar datos del personaje o raza</title>
 </head>
 <body>
-	<form action="welcomeRace" method="post">
+	<form action="insertRace" method="post">
 		<span>Raza:</span> <input type="text" name="specie"> <br /> <input
 			type="submit" value="Insertar raza">
 	</form>
 	<br />
 	<br />
-	<form action="welcomeCharacter" method="post">
+	<form action="insertCharacter" method="post">
 		<span>Nombre:</span> <input type="text" name="name"> <br /> <span>Raza:</span>
 		<input type="number" name="race" min="0"> <br /> <span>Portador:</span>
 		<select name="carrier">
-			<option value="YES">YES</option>
+			<option value="YES">SI</option>
 			<option value="NO">NO</option>
 		</select> <br /> <input type="submit" value="Insertar personaje">
 	</form>

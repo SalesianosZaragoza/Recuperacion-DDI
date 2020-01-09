@@ -5,11 +5,9 @@ import java.text.ParseException;
 public class Character {
 
 	private Integer id;
-	String name;
-	String carrier;
+	private String name;
+	private String carrier;
 	private Integer codRace;
-
-
 
 	public Integer getId() {
 		return id;
@@ -42,5 +40,4 @@ public class Character {
 	public void setCodRace(String codRace) throws ParseException {
 		this.codRace = Integer.parseInt(codRace);
 	}
-
 }

@@ -14,7 +14,7 @@
        <th>ID</th>
        <th>Nombre</th>
        <th>Portador</th>
-       <th>Cod.Raza</th>        
+       <th>Codigo Raza</th>        
        <th>Eliminar</th>
        <th>Actualizar</th>
     </thead>

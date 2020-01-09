@@ -16,13 +16,10 @@ import es.salesianos.service.CharacterService;
 
 
 public class CharacterServlet extends HttpServlet {
-
-
-	private static final long serialVersionUID = 1L;
 	
-	private Service service = new CharacterService();
-
-
+	private static final long serialVersionUID = 1L;
+	private Service<Character> service = new CharacterService(); 
+	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		doAction(req, resp);
@@ -34,8 +31,8 @@ public class CharacterServlet extends HttpServlet {
 	}
 
 	private void doAction(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
-		Character character = service.createNewCharacterFromRequest(req);
-		service.insertCharacter(character);
+		Character character = service.createNewDataFromRequest(req);
+		service.insert(character);
 		redirect(req, resp);
 	}
 

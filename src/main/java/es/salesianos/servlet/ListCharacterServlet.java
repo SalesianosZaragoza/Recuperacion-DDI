@@ -20,7 +20,7 @@ public class ListCharacterServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
 	
-	private Service service = new CharacterService();
+	private Service<Character> service = new CharacterService();
 
 
 	@Override
@@ -34,7 +34,7 @@ public class ListCharacterServlet extends HttpServlet {
 	}
 
 	private void doAction(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
-		List<Character> characters = service.listCharacters();
+		List<Character> characters = service.listAll();
 		req.setAttribute("listOfCharacters", characters);
 		redirect(req, resp);
 	}

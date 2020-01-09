@@ -1,5 +1,6 @@
 package es.salesianos.repository;
 
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -7,15 +8,20 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import es.salesianos.connection.AbstractConnection;
 import es.salesianos.connection.H2Connection;
 import es.salesianos.model.Race;
 
-public class RaceRepository{
+public class RaceRepository implements Repository<Race>{
 
 	protected static final String jdbcUrl = "jdbc:h2:file:./src/main/resources/test;INIT=RUNSCRIPT FROM 'classpath:scripts/create.sql'";
 	protected AbstractConnection manager = new H2Connection();
-	
+
+	@Override
 	public List<Race> listAll() {
 		Connection conn = manager.open(jdbcUrl);
 		PreparedStatement preparedStatement = null;
@@ -40,11 +46,7 @@ public class RaceRepository{
 		return races;
 	}
 
-	public Race findBy(Integer id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
+	@Override
 	public void insert(Race race) {
 		Connection conn = manager.open(jdbcUrl);
 		PreparedStatement preparedStatement = null;
@@ -59,10 +61,9 @@ public class RaceRepository{
 			manager.close(preparedStatement);
 			manager.close(conn);
 		}
-
-
 	}
 
+	@Override
 	public void update(Race race) {
 		Connection conn = manager.open(jdbcUrl);
 		PreparedStatement preparedStatement = null;
@@ -78,6 +79,27 @@ public class RaceRepository{
 			manager.close(preparedStatement);
 			manager.close(conn);
 		}
+	}
+
+	@Override
+	public void delete(HttpServletRequest req) throws ServletException, IOException {
+		String parameter = req.getParameter("id");
+		Integer idRace = Integer.parseInt(parameter);
+		Connection conn = manager.open(jdbcUrl);
+		PreparedStatement preparedStatement = null;
+		try {
+			preparedStatement = conn.prepareStatement("DELETE FROM raza WHERE id=?");
+			preparedStatement.setInt(1, idRace);
+			preparedStatement.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new RuntimeException(e);
+		} finally {
+			manager.close(preparedStatement);
+			manager.close(conn);
+		}
+		
+		
 	}
 
 }

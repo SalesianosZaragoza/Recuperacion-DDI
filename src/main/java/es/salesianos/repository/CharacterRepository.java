@@ -1,6 +1,8 @@
 package es.salesianos.repository;
 
+import java.io.IOException;
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -8,15 +10,20 @@ import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import es.salesianos.connection.AbstractConnection;
 import es.salesianos.connection.H2Connection;
 import es.salesianos.model.Character;
 
-public class CharacterRepository {
+public class CharacterRepository implements Repository<Character>{
 
 	protected static final String jdbcUrl = "jdbc:h2:file:./src/main/resources/test;INIT=RUNSCRIPT FROM 'classpath:scripts/create.sql'";
 	protected AbstractConnection manager = new H2Connection();
 
+	@Override
 	public void insert(Character character) {
 		Connection conn = manager.open(jdbcUrl);
 		PreparedStatement preparedStatement = null;
@@ -34,9 +41,9 @@ public class CharacterRepository {
 			manager.close(preparedStatement);
 			manager.close(conn);
 		}
-
 	}
 
+	@Override
 	public List<Character> listAll() {
 		Connection conn = manager.open(jdbcUrl);
 		PreparedStatement preparedStatement = null;
@@ -66,14 +73,9 @@ public class CharacterRepository {
 			manager.close(conn);
 		}
 		return characters;
-
 	}
 
-	public Character findBy(Integer id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
+	@Override
 	public void update(Character character) {
 		Connection conn = manager.open(jdbcUrl);
 		PreparedStatement preparedStatement = null;
@@ -93,5 +95,30 @@ public class CharacterRepository {
 		}
 	}
 
-
+	@Override
+	public void delete(HttpServletRequest req) throws ServletException, IOException {
+		String parameter = req.getParameter("id");
+		Integer idCharacter = Integer.parseInt(parameter);
+		System.out.println(idCharacter);
+		Connection conn;
+		try {
+			Class.forName("org.h2.Driver");
+			conn = DriverManager.getConnection(jdbcUrl, "sa", "");
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new RuntimeException(e);
+		}
+		PreparedStatement preparedStatement = null;
+		try {
+			preparedStatement = conn.prepareStatement("DELETE FROM personaje WHERE id=?");
+			preparedStatement.setInt(1, idCharacter);
+			preparedStatement.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new RuntimeException(e);
+		} finally {
+			manager.close(preparedStatement);
+			manager.close(conn);
+		}
+	}
 }

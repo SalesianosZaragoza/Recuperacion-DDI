@@ -1,58 +1,47 @@
 package es.salesianos.service;
 
+import java.io.IOException;
 import java.util.List;
 
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
-
 import es.salesianos.assembler.CharacterAssembler;
 import es.salesianos.repository.CharacterRepository;
+import es.salesianos.repository.Repository;
 import es.salesianos.model.Character;
 import es.salesianos.model.Race;
 
-public class CharacterService implements Service {
+public class CharacterService implements Service<Character> {
 
 	private CharacterAssembler assembler = new CharacterAssembler();
-	private CharacterRepository repository = new CharacterRepository();
+	private Repository<Character> repository = new CharacterRepository();
 	
 	public CharacterService() {
 
 	}
-
-	public Character createNewCharacterFromRequest(HttpServletRequest req) {
+	@Override
+	public Character createNewDataFromRequest(HttpServletRequest req) {
 		Character character = assembler.createCharacterFromRequest(req);
 		return character;
 	}
-	
-	public void insertCharacter(Character character) {
+	@Override
+	public void insert(Character character) {
 			repository.insert(character);
 	}
-
+	@Override
 	public List<Character> listAll() {
 		return repository.listAll();
 	}
-
+	@Override
 	public void update(Character character) {
 		repository.update(character);
 	}
 
-	public Race createNewRaceFromRequest(HttpServletRequest req) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public void insertRace(Race user) {
-		// TODO Auto-generated method stub
+	@Override
+	public void delete(HttpServletRequest req) throws IOException, ServletException {
+		repository.delete(req);
 		
 	}
 
-	public List<Character> listCharacters() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public List<Race> listRaces() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 }

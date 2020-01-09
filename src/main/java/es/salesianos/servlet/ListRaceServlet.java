@@ -21,7 +21,7 @@ public class ListRaceServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
 	
-	private Service service = new RaceService();
+	private Service<Race> service = new RaceService();
 
 
 	@Override
@@ -35,7 +35,7 @@ public class ListRaceServlet extends HttpServlet {
 	}
 
 	private void doAction(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
-		List<Race> races = service.listRaces();
+		List<Race> races = service.listAll();
 		req.setAttribute("listOfRaces", races);
 		redirect(req, resp);
 	}

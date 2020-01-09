@@ -36,12 +36,12 @@
 	
 	<servlet-mapping>
 		<servlet-name>CharacterServlet</servlet-name>
-		<url-pattern>/welcomeCharacter</url-pattern>
+		<url-pattern>/insertCharacter</url-pattern>
 	</servlet-mapping>
 	
 	<servlet-mapping>
 		<servlet-name>RaceServlet</servlet-name>
-		<url-pattern>/welcomeRace</url-pattern>
+		<url-pattern>/insertRace</url-pattern>
 	</servlet-mapping>
 	
 	<servlet-mapping>
