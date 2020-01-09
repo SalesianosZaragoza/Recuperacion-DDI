@@ -17,28 +17,25 @@ import es.salesianos.service.CharacterService;
 
 public class ListCharacterServlet extends HttpServlet {
 
-
 	private static final long serialVersionUID = 1L;
-	
 	private Service<Character> service = new CharacterService();
-
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		doAction(req, resp);
 	}
-
+	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		doAction(req, resp);
 	}
-
+	
 	private void doAction(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
 		List<Character> characters = service.listAll();
 		req.setAttribute("listOfCharacters", characters);
 		redirect(req, resp);
 	}
-
+	
 	protected void redirect(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
 		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/ListCharacters.jsp");
 		dispatcher.forward(req, resp);

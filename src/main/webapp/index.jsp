@@ -15,7 +15,7 @@
 	<br />
 	<form action="insertCharacter" method="post">
 		<span>Nombre:</span> <input type="text" name="name"> <br /> <span>Raza:</span>
-		<input type="number" name="race" min="0"> <br /> <span>Portador:</span>
+		<input type="text" name="race"> <br /> <span>Portador:</span>
 		<select name="carrier">
 			<option value="YES">SI</option>
 			<option value="NO">NO</option>

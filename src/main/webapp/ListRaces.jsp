@@ -5,11 +5,10 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Lista de personajes</title>
+<title>Lista de razas</title>
 </head>
 <body>
 <table>
-
     <thead>
        <th>ID</th>
        <th>Raza</th>   
@@ -24,5 +23,7 @@
 	    </tr>
 	</c:forEach>
 </table>
+<br/>
+<a href="index.jsp">Volver al inicio</a>
 </body>
 </html>

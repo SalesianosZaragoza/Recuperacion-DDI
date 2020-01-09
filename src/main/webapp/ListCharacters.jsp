@@ -9,7 +9,6 @@
 </head>
 <body>
 <table>
-
     <thead>
        <th>ID</th>
        <th>Nombre</th>
@@ -30,5 +29,7 @@
 	    </tr>
 	</c:forEach>
 </table>
+<br/>
+<a href="index.jsp">Volver al inicio</a>
 </body>
 </html>

@@ -12,7 +12,7 @@
 	<h2>Personaje creado</h2>
 	<span>Nombre:</span><b><%=request.getParameter("name")%></b>
 	<span>Portador:</span><b><%=request.getParameter("carrier")%></b>
-	<span>Cod.Raza:</span><b><%=request.getParameter("race")%></b>
+	<span>Cod. Raza:</span><b><%=request.getParameter("race")%></b>
 	<a href="listcharacters">Ver el listado de personajes</a>
 </body>
 </html>

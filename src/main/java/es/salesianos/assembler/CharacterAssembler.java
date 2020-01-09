@@ -1,9 +1,7 @@
 package es.salesianos.assembler;
 
 import java.text.ParseException;
-
 import javax.servlet.http.HttpServletRequest;
-
 import es.salesianos.model.Character;
 
 public class CharacterAssembler {

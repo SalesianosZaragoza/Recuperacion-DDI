@@ -1,6 +1,7 @@
 package es.salesianos.model;
 
 public class Race {
+	
 	private Integer id;
 	private String specie;
 

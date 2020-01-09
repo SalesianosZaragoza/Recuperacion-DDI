@@ -64,7 +64,6 @@ public class CharacterRepository implements Repository<Character>{
 				}
 				characters.add(character);
 			}
-
 		} catch (SQLException e) {
 			e.printStackTrace();
 			throw new RuntimeException(e);

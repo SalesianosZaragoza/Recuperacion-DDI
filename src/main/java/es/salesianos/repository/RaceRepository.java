@@ -98,8 +98,6 @@ public class RaceRepository implements Repository<Race>{
 			manager.close(preparedStatement);
 			manager.close(conn);
 		}
-		
-		
 	}
 
 }
