@@ -46,5 +46,8 @@ public class RaceService implements Service<Race>{
 	public void delete(HttpServletRequest req) throws IOException, ServletException {
 		repository.delete(req);
 	}
-
+	@Override
+	public Race listById(Integer id) {
+		return repository.selectById(id);
+	}
 }

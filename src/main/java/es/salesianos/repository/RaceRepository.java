@@ -5,6 +5,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,6 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import es.salesianos.connection.AbstractConnection;
 import es.salesianos.connection.H2Connection;
+import es.salesianos.model.Character;
 import es.salesianos.model.Race;
 import es.salesianos.util.DbQueryConstants;
 
@@ -27,7 +29,7 @@ public class RaceRepository implements Repository<Race>{
 		PreparedStatement preparedStatement = null;
 		ArrayList<Race> races = new ArrayList<Race>();
 		try {
-			preparedStatement = conn.prepareStatement(DbQueryConstants.SELECT_RACE_QUERY);
+			preparedStatement = conn.prepareStatement(DbQueryConstants.SELECT_ALL_RACE);
 			ResultSet resultSet = preparedStatement.executeQuery();
 			while (resultSet.next()) {
 				Race race = new Race();
@@ -50,7 +52,7 @@ public class RaceRepository implements Repository<Race>{
 		Connection conn = manager.open(jdbcUrl);
 		PreparedStatement preparedStatement = null;
 		try {
-			preparedStatement = conn.prepareStatement(DbQueryConstants.INSERT_RACE_QUERY);
+			preparedStatement = conn.prepareStatement(DbQueryConstants.INSERT_RACE);
 			preparedStatement.setString(1, race.getSpecie());
 			preparedStatement.executeUpdate();
 		} catch (SQLException e) {
@@ -67,7 +69,7 @@ public class RaceRepository implements Repository<Race>{
 		Connection conn = manager.open(jdbcUrl);
 		PreparedStatement preparedStatement = null;
 		try {
-			preparedStatement = conn.prepareStatement(DbQueryConstants.UPDATE_RACE_QUERY);
+			preparedStatement = conn.prepareStatement(DbQueryConstants.UPDATE_RACE);
 			preparedStatement.setString(1, race.getSpecie());
 			preparedStatement.setInt(2, race.getId());
 			preparedStatement.executeUpdate();
@@ -87,7 +89,7 @@ public class RaceRepository implements Repository<Race>{
 		Connection conn = manager.open(jdbcUrl);
 		PreparedStatement preparedStatement = null;
 		try {
-			preparedStatement = conn.prepareStatement(DbQueryConstants.DELETE_RACE_QUERY);
+			preparedStatement = conn.prepareStatement(DbQueryConstants.DELETE_RACE);
 			preparedStatement.setInt(1, idRace);
 			preparedStatement.executeUpdate();
 		} catch (SQLException e) {
@@ -99,4 +101,29 @@ public class RaceRepository implements Repository<Race>{
 		}
 	}
 
+	@Override
+	public Race selectById(Integer idCharacter) {
+		Connection conn = manager.open(jdbcUrl);
+		PreparedStatement preparedStatement = null;
+		Race race;
+		try {
+			preparedStatement = conn.prepareStatement(DbQueryConstants.SELECT_CHARACTER_BY_ID);
+			preparedStatement.setInt(1, idCharacter);
+			ResultSet resultSet = preparedStatement.executeQuery();
+
+			resultSet.next();
+
+			race = new Race();
+			race.setId(resultSet.getInt("id"));
+			race.setSpecie(resultSet.getString("especie"));
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new RuntimeException(e);
+		} finally {
+			manager.close(preparedStatement);
+			manager.close(conn);
+		}
+		return race;
+	}
 }

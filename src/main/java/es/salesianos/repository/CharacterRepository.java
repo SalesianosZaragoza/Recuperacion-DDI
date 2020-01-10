@@ -29,7 +29,7 @@ public class CharacterRepository implements Repository<Character> {
 		PreparedStatement preparedStatement = null;
 		try {
 			preparedStatement = conn
-					.prepareStatement(DbQueryConstants.INSERT_CHARACTER_QUERY);
+					.prepareStatement(DbQueryConstants.INSERT_CHARACTER);
 			preparedStatement.setString(1, character.getName());
 			preparedStatement.setString(2, character.getCarrier());
 			preparedStatement.setInt(3, character.getCodRace());
@@ -49,7 +49,7 @@ public class CharacterRepository implements Repository<Character> {
 		PreparedStatement preparedStatement = null;
 		ArrayList<Character> characters = new ArrayList<Character>();
 		try {
-			preparedStatement = conn.prepareStatement(DbQueryConstants.SELECT_CHARACTER_QUERY);
+			preparedStatement = conn.prepareStatement(DbQueryConstants.SELECT_ALL_CHARACTER);
 			ResultSet resultSet = preparedStatement.executeQuery();
 			while (resultSet.next()) {
 				Character character = new Character();
@@ -79,7 +79,8 @@ public class CharacterRepository implements Repository<Character> {
 		Connection conn = manager.open(jdbcUrl);
 		PreparedStatement preparedStatement = null;
 		try {
-			preparedStatement = conn.prepareStatement(DbQueryConstants.UPDATE_CHARACTER_QUERY);
+			updateCarrier();
+			preparedStatement = conn.prepareStatement(DbQueryConstants.UPDATE_CHARACTER);
 			preparedStatement.setString(1, character.getName());
 			preparedStatement.setString(2, character.getCarrier());
 			preparedStatement.setInt(3, character.getCodRace());
@@ -109,7 +110,7 @@ public class CharacterRepository implements Repository<Character> {
 		}
 		PreparedStatement preparedStatement = null;
 		try {
-			preparedStatement = conn.prepareStatement(DbQueryConstants.DELETE_CHARACTER_QUERY);
+			preparedStatement = conn.prepareStatement(DbQueryConstants.DELETE_CHARACTER);
 			preparedStatement.setInt(1, idCharacter);
 			preparedStatement.executeUpdate();
 		} catch (SQLException e) {
@@ -119,5 +120,50 @@ public class CharacterRepository implements Repository<Character> {
 			manager.close(preparedStatement);
 			manager.close(conn);
 		}
+	}
+	//este metodo pone a todos los personajes como NO portador del anillo
+	public void updateCarrier() {
+		Connection conn = manager.open(jdbcUrl);
+		PreparedStatement preparedStatement = null;
+		try {
+			preparedStatement = conn.prepareStatement(DbQueryConstants.UPDATE_CARRIER);
+			preparedStatement.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new RuntimeException(e);
+		}
+	}
+	//se llama a este metodo cuando se selecciona un personaje para actualizarlo
+	@Override
+	public Character selectById(Integer idCharacter) {
+		Connection conn = manager.open(jdbcUrl);
+		PreparedStatement preparedStatement = null;
+		Character character;
+		try {
+			preparedStatement = conn.prepareStatement(DbQueryConstants.SELECT_CHARACTER_BY_ID);
+			preparedStatement.setInt(1, idCharacter);
+			ResultSet resultSet = preparedStatement.executeQuery();
+
+			resultSet.next();
+
+			character = new Character();
+			character.setId(resultSet.getInt("id"));
+			character.setName(resultSet.getString("nombre"));
+			character.setCarrier("portador");
+			try {
+				character.setCodRace(resultSet.getString("codRaza"));
+			} catch (ParseException e) {
+				e.printStackTrace();
+				throw new RuntimeException(e);
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new RuntimeException(e);
+		} finally {
+			manager.close(preparedStatement);
+			manager.close(conn);
+		}
+		return character;
 	}
 }

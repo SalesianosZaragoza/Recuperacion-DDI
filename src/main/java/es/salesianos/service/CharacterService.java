@@ -36,12 +36,13 @@ public class CharacterService implements Service<Character> {
 	public void update(Character character) {
 		repository.update(character);
 	}
-
 	@Override
 	public void delete(HttpServletRequest req) throws IOException, ServletException {
 		repository.delete(req);
 		
 	}
-
+	public Character listById(Integer idCharacter) {
+		return repository.selectById(idCharacter);
+	}
 
 }

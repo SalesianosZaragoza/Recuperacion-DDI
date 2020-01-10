@@ -21,4 +21,6 @@ public interface Service<E> {
 	
 	public void delete(HttpServletRequest req)  throws IOException, ServletException;
 
+	public E listById(Integer id);
+
 }

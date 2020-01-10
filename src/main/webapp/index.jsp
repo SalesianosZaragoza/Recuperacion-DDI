@@ -7,12 +7,14 @@
 <title>Insertar datos del personaje o raza</title>
 </head>
 <body>
+	<h4>Insertar raza</h4>
 	<form action="insertRace" method="post">
 		<span>Raza:</span> <input type="text" name="specie"> <br /> <input
 			type="submit" value="Insertar raza">
 	</form>
 	<br />
 	<br />
+	<h4>Insertar personaje</h4>
 	<form action="insertCharacter" method="post">
 		<span>Nombre:</span> <input type="text" name="name"> <br /> <span>Raza:</span>
 		<input type="text" name="race"> <br /> <span>Portador:</span>
