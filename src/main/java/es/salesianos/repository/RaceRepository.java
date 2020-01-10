@@ -15,9 +15,9 @@ import javax.servlet.http.HttpServletResponse;
 import es.salesianos.connection.AbstractConnection;
 import es.salesianos.connection.H2Connection;
 import es.salesianos.model.Race;
+import es.salesianos.util.DbQueryConstants;
 
 public class RaceRepository implements Repository<Race>{
-
 	protected static final String jdbcUrl = "jdbc:h2:file:./src/main/resources/test;INIT=RUNSCRIPT FROM 'classpath:scripts/create.sql'";
 	protected AbstractConnection manager = new H2Connection();
 
@@ -27,7 +27,7 @@ public class RaceRepository implements Repository<Race>{
 		PreparedStatement preparedStatement = null;
 		ArrayList<Race> races = new ArrayList<Race>();
 		try {
-			preparedStatement = conn.prepareStatement("SELECT * FROM raza");
+			preparedStatement = conn.prepareStatement(DbQueryConstants.SELECT_RACE_QUERY);
 			ResultSet resultSet = preparedStatement.executeQuery();
 			while (resultSet.next()) {
 				Race race = new Race();
@@ -35,7 +35,6 @@ public class RaceRepository implements Repository<Race>{
 				race.setSpecie(resultSet.getString("especie"));
 				races.add(race);
 			}
-
 		} catch (SQLException e) {
 			e.printStackTrace();
 			throw new RuntimeException(e);
@@ -51,7 +50,7 @@ public class RaceRepository implements Repository<Race>{
 		Connection conn = manager.open(jdbcUrl);
 		PreparedStatement preparedStatement = null;
 		try {
-			preparedStatement = conn.prepareStatement("INSERT INTO raza (especie)" + "VALUES (?)");
+			preparedStatement = conn.prepareStatement(DbQueryConstants.INSERT_RACE_QUERY);
 			preparedStatement.setString(1, race.getSpecie());
 			preparedStatement.executeUpdate();
 		} catch (SQLException e) {
@@ -68,7 +67,7 @@ public class RaceRepository implements Repository<Race>{
 		Connection conn = manager.open(jdbcUrl);
 		PreparedStatement preparedStatement = null;
 		try {
-			preparedStatement = conn.prepareStatement("UPDATE raza  SET especie=? WHERE id=?");
+			preparedStatement = conn.prepareStatement(DbQueryConstants.UPDATE_RACE_QUERY);
 			preparedStatement.setString(1, race.getSpecie());
 			preparedStatement.setInt(2, race.getId());
 			preparedStatement.executeUpdate();
@@ -88,7 +87,7 @@ public class RaceRepository implements Repository<Race>{
 		Connection conn = manager.open(jdbcUrl);
 		PreparedStatement preparedStatement = null;
 		try {
-			preparedStatement = conn.prepareStatement("DELETE FROM raza WHERE id=?");
+			preparedStatement = conn.prepareStatement(DbQueryConstants.DELETE_RACE_QUERY);
 			preparedStatement.setInt(1, idRace);
 			preparedStatement.executeUpdate();
 		} catch (SQLException e) {

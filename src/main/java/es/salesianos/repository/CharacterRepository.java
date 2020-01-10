@@ -13,12 +13,12 @@ import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
+ import es.salesianos.util.DbQueryConstants;
 import es.salesianos.connection.AbstractConnection;
 import es.salesianos.connection.H2Connection;
 import es.salesianos.model.Character;
 
-public class CharacterRepository implements Repository<Character>{
+public class CharacterRepository implements Repository<Character> {
 
 	protected static final String jdbcUrl = "jdbc:h2:file:./src/main/resources/test;INIT=RUNSCRIPT FROM 'classpath:scripts/create.sql'";
 	protected AbstractConnection manager = new H2Connection();
@@ -29,7 +29,7 @@ public class CharacterRepository implements Repository<Character>{
 		PreparedStatement preparedStatement = null;
 		try {
 			preparedStatement = conn
-					.prepareStatement("INSERT INTO personaje (nombre,portador,codRaza)" + "VALUES (?, ?, ?)");
+					.prepareStatement(DbQueryConstants.INSERT_CHARACTER_QUERY);
 			preparedStatement.setString(1, character.getName());
 			preparedStatement.setString(2, character.getCarrier());
 			preparedStatement.setInt(3, character.getCodRace());
@@ -49,7 +49,7 @@ public class CharacterRepository implements Repository<Character>{
 		PreparedStatement preparedStatement = null;
 		ArrayList<Character> characters = new ArrayList<Character>();
 		try {
-			preparedStatement = conn.prepareStatement("SELECT * FROM personaje");
+			preparedStatement = conn.prepareStatement(DbQueryConstants.SELECT_CHARACTER_QUERY);
 			ResultSet resultSet = preparedStatement.executeQuery();
 			while (resultSet.next()) {
 				Character character = new Character();
@@ -79,7 +79,7 @@ public class CharacterRepository implements Repository<Character>{
 		Connection conn = manager.open(jdbcUrl);
 		PreparedStatement preparedStatement = null;
 		try {
-			preparedStatement = conn.prepareStatement("UPDATE personaje  SET nombre=? , portador=?,codRaza=? WHERE id=?");
+			preparedStatement = conn.prepareStatement(DbQueryConstants.UPDATE_CHARACTER_QUERY);
 			preparedStatement.setString(1, character.getName());
 			preparedStatement.setString(2, character.getCarrier());
 			preparedStatement.setInt(3, character.getCodRace());
@@ -109,7 +109,7 @@ public class CharacterRepository implements Repository<Character>{
 		}
 		PreparedStatement preparedStatement = null;
 		try {
-			preparedStatement = conn.prepareStatement("DELETE FROM personaje WHERE id=?");
+			preparedStatement = conn.prepareStatement(DbQueryConstants.DELETE_CHARACTER_QUERY);
 			preparedStatement.setInt(1, idCharacter);
 			preparedStatement.executeUpdate();
 		} catch (SQLException e) {

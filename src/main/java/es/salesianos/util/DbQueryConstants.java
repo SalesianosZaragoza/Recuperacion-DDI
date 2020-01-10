@@ -1,27 +1,10 @@
-package es.salesianos.repository;
+package es.salesianos.util;
 
-import java.io.IOException;
-import java.util.List;
-
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
-public interface Repository<E> {
-	//METODOS A IMPLEMENTAR
-	public List<E> listAll();
-
-	public void insert(E element);
-
-	public void update(E element);
-	
-	public void delete(HttpServletRequest req)throws ServletException, IOException;
-	
-	//CONSULTAS SQL
+public abstract class DbQueryConstants {
 	//SELECT
 	public static final String SELECT_CHARACTER_QUERY = "SELECT * FROM personaje";
 	public static final String SELECT_RACE_QUERY = "SELECT * FROM raza";	
-	
+
 	// INSERT
 	public static final String INSERT_CHARACTER_QUERY = "INSERT INTO personaje (nombre,portador,codRaza)" + "VALUES (?, ?, ?)";
 	public static final String INSERT_RACE_QUERY = "INSERT INTO raza (especie)" + "VALUES (?)";
