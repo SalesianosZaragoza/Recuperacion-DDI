@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import es.salesianos.model.User;
+import es.salesianos.model.Character;
 import es.salesianos.service.UserService;
 
 public class UpdateServlet extends SpringBaseServlet {
@@ -21,7 +21,7 @@ public class UpdateServlet extends SpringBaseServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String parameter = req.getParameter("id");
 		Integer idUser = Integer.parseInt(parameter);
-		User user = service.listById(idUser);
+		Character user = service.listById(idUser);
 		req.setAttribute("usuario", user);
 		redirect(req, resp, "Update.jsp");
 
@@ -37,7 +37,7 @@ public class UpdateServlet extends SpringBaseServlet {
 		String nombre = req.getParameter("nombre");
 		String apellido = req.getParameter("apellido");
 		String dni = req.getParameter("dni");
-		User user = new User();
+		Character user = new Character();
 		System.out.println(id+""+nombre + " " + apellido + " "+ dni);
 		
 		user.setId(Integer.parseInt(id));
