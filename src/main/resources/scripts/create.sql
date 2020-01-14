@@ -1,13 +1,6 @@
-create table IF NOT EXISTS TEAM(
+create table IF NOT EXISTS Character(
     id identity primary key,
-    nombre varchar(25),
-    
-);
-create table IF NOT EXISTS USER(
-    id identity primary key,
-	nombre varchar(25),
-	apellido varchar(25),
-	dni varchar(25),
-    codEquipo int,
-    foreign key (codEquipo) references TEAM(id)
+	name varchar(25),
+	age varchar(25),
+	holder varchar(25),
 );
