@@ -9,47 +9,44 @@ import java.util.List;
 
 import org.springframework.stereotype.Component;
 
-import es.salesianos.model.User;
+import es.salesianos.model.Character;
 
 @Component
-public class UserRepository extends AbstractRepository implements Repository<User> {
-
-
-
-	public void insert(User userFormulario) {
-		Connection conn = manager.open(jdbcUrl);
+public class CharacterRepository extends AbstractRepository implements Repository<Character> {
+	public void insert(Character character) {
+		Connection connection = manager.open(jdbcUrl);
 		PreparedStatement preparedStatement = null;
 		try {
-			preparedStatement = conn
-					.prepareStatement("INSERT INTO USER (nombre,apellido,dni)" + "VALUES (?, ?,?)");
-			preparedStatement.setString(1, userFormulario.getNombre());
-			preparedStatement.setString(2, userFormulario.getApellido());
-			preparedStatement.setString(3, userFormulario.getDni());
+			preparedStatement = connection
+					.prepareStatement("INSERT INTO Character(name, age, holder)" + "VALUES (?, ?, ?)");
+			preparedStatement.setString(1, character.getName());
+			preparedStatement.setInt(2, character.getAge());
+			preparedStatement.setBoolean(3, character.getHolder());
 			preparedStatement.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
 			throw new RuntimeException(e);
 		} finally {
 			manager.close(preparedStatement);
-			manager.close(conn);
+			manager.close(connection);
 		}
 
 	}
 
-	public List<User> listAll() {
+	public List<Character> listAll() {
 		Connection conn = manager.open(jdbcUrl);
 		PreparedStatement preparedStatement = null;
-		ArrayList<User> users = new ArrayList<User>();
+		ArrayList<Character> characters = new ArrayList<Character>();
 		try {
-			preparedStatement = conn.prepareStatement("SELECT * FROM USER");
+			preparedStatement = conn.prepareStatement("SELECT * FROM Character");
 			ResultSet resultSet = preparedStatement.executeQuery();
 			while (resultSet.next()) {
-				User user = new User();
-				user.setId(resultSet.getInt("id"));
-				user.setNombre(resultSet.getString("nombre"));
-				user.setApellido(resultSet.getString("apellido"));
-				user.setDni(resultSet.getString("dni"));
-				users.add(user);
+				Character character = new Character();
+				character.setId(resultSet.getInt("id"));
+				character.setName(resultSet.getString("name"));
+				character.setAge(resultSet.getInt("age"));
+				character.setHolder(resultSet.getBoolean("holder"));
+				characters.add(character);
 			}
 
 		} catch (SQLException e) {
@@ -59,44 +56,42 @@ public class UserRepository extends AbstractRepository implements Repository<Use
 			manager.close(preparedStatement);
 			manager.close(conn);
 		}
-		return users;
-
+		return characters;
 	}
 
-	public User listByUser(Integer idUser) {
-		Connection conn = manager.open(jdbcUrl);
+	public Character listByCharacter(Integer idCharacter) {
+		Connection connection = manager.open(jdbcUrl);
 		PreparedStatement preparedStatement = null;
-		User user;
+		Character character;
 		try {
-			preparedStatement = conn.prepareStatement("SELECT * FROM USER WHERE id=?");
-			preparedStatement.setInt(1, idUser);
+			preparedStatement = connection.prepareStatement("SELECT * FROM Character WHERE id = ?");
+			preparedStatement.setInt(1, idCharacter);
 			ResultSet resultSet = preparedStatement.executeQuery();
 			resultSet.next();
-			user = new User();
-			user.setId(resultSet.getInt("id"));
-			user.setNombre(resultSet.getString("nombre"));
-			user.setApellido(resultSet.getString("apellido"));
-			user.setDni(resultSet.getString("dni"));
-
+			character = new Character();
+			character.setId(resultSet.getInt("id"));
+			character.setName(resultSet.getString("name"));
+			character.setAge(resultSet.getInt("age"));
+			character.setHolder(resultSet.getBoolean("holder"));
 		} catch (SQLException e) {
 			e.printStackTrace();
 			throw new RuntimeException(e);
 		} finally {
 			manager.close(preparedStatement);
-			manager.close(conn);
+			manager.close(connection);
 		}
-		return user;
+		return character;
 	}
 
-	public void update(User user) {
+	public void update(Character character) {
 		Connection conn = manager.open(jdbcUrl);
 		PreparedStatement preparedStatement = null;
 		try {
-			preparedStatement = conn.prepareStatement("UPDATE USER SET nombre=? , apellido=? , dni=? WHERE id=?");
-			preparedStatement.setString(1, user.getNombre());
-			preparedStatement.setString(2, user.getApellido());
-			preparedStatement.setString(3, user.getDni());
-			preparedStatement.setInt(4, user.getId());
+			preparedStatement = conn.prepareStatement("UPDATE Character SET name = ?, age = ?, holder = ? WHERE id = ?");
+			preparedStatement.setString(1, character.getName());
+			preparedStatement.setInt(2, character.getAge());
+			preparedStatement.setBoolean(3, character.getHolder());
+			preparedStatement.setInt(4, character.getId());
 			preparedStatement.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -108,31 +103,28 @@ public class UserRepository extends AbstractRepository implements Repository<Use
 	}
 
 	@Override
-	public User findBy(Integer id) {
-		Connection conn = manager.open(jdbcUrl);
+	public Character findBy(Integer id) {
+		Connection connection = manager.open(jdbcUrl);
 		PreparedStatement preparedStatement = null;
-		User user;
+		Character character;
 		try {
-			preparedStatement = conn.prepareStatement("SELECT * FROM USER WHERE id=?");
+			preparedStatement = connection.prepareStatement("SELECT * FROM Character WHERE id = ?");
 			preparedStatement.setInt(1, id);
 			ResultSet resultSet = preparedStatement.executeQuery();
 			resultSet.next();
-			user = new User();
-			user.setId(resultSet.getInt("id"));
-			user.setNombre(resultSet.getString("nombre"));
-			user.setApellido(resultSet.getString("apellido"));
-			user.setDni(resultSet.getString("dni"));
-			
-
+			character = new Character();
+			character.setId(resultSet.getInt("id"));
+			character.setName(resultSet.getString("name"));
+			character.setAge(resultSet.getInt("age"));
+			character.setHolder(resultSet.getBoolean("holder"));
 		} catch (SQLException e) {
 			e.printStackTrace();
 			throw new RuntimeException(e);
 		} finally {
 			manager.close(preparedStatement);
-			manager.close(conn);
+			manager.close(connection);
 		}
-		return user;
-		
+		return character;
 	}
 
 }
