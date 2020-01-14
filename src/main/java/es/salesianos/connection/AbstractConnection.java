@@ -10,9 +10,7 @@ import java.sql.Statement;
 public abstract class AbstractConnection implements OpenClose {
 
 	public abstract String getDriver();
-
 	public abstract String getDatabaseUser();
-
 	public abstract String getDatabasePassword();
 
 	public Connection open(String jdbcUrl) {
