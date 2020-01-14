@@ -4,14 +4,14 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
-import es.salesianos.model.User;
+import es.salesianos.model.Character;
 
 public interface Service {
 
-	public User createNewUserFromRequest(HttpServletRequest req);
+	public Character createNewUserFromRequest(HttpServletRequest req);
 
-	public void insertUser(User user);
+	public void insertUser(Character user);
 
-	public List<User> listAll();
+	public List<Character> listAll();
 
 }
