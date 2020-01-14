@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import es.salesianos.model.User;
+import es.salesianos.model.Character;
 import es.salesianos.service.Service;
 
 public class ListadoServlet extends SpringBaseServlet {
@@ -20,7 +20,7 @@ public class ListadoServlet extends SpringBaseServlet {
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		List<User> users = service.listAll();
+		List<Character> users = service.listAll();
 		req.setAttribute("listOfUsers", users);
 		redirect(req, resp);
 	}
