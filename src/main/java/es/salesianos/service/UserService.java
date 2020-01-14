@@ -7,45 +7,45 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import es.salesianos.assembler.UserAssembler;
-import es.salesianos.model.User;
+import es.salesianos.assembler.CharacterAssembler;
+import es.salesianos.model.Character;
 import es.salesianos.repository.Repository;
 
 @Component
 public class UserService implements Service {
 	@Autowired
-	private UserAssembler assembler;
+	private CharacterAssembler assembler;
 
 	@Autowired
-	private Repository<User> repository;
+	private Repository<Character> repository;
 
-	public User createNewUserFromRequest(HttpServletRequest req) {
-		User user = assembler.createUserFromRequest(req);
+	public Character createNewUserFromRequest(HttpServletRequest req) {
+		Character user = assembler.createUserFromRequest(req);
 		return user;
 	}
 	
-	public void insertUser(User user) {
+	public void insertUser(Character user) {
 			repository.insert(user);
 	}
 
 	@Override
-	public List<User> listAll() {
+	public List<Character> listAll() {
 		return repository.listAll();
 	}
 
-	public User listById(Integer idUser) {
+	public Character listById(Integer idUser) {
 		return repository.findBy(idUser);
 	}
 
-	public void update(User user) {
+	public void update(Character user) {
 		repository.update(user);
 	}
 
-	public Repository<User> getRepository() {
+	public Repository<Character> getRepository() {
 		return repository;
 	}
 
-	public void setRepository(Repository<User> repository) {
+	public void setRepository(Repository<Character> repository) {
 		this.repository = repository;
 	}
 	
