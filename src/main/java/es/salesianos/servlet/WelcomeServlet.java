@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import es.salesianos.model.User;
+import es.salesianos.model.Character;
 import es.salesianos.service.Service;
 
 public class WelcomeServlet extends SpringBaseServlet {
@@ -31,7 +31,7 @@ public class WelcomeServlet extends SpringBaseServlet {
 	}
 
 	private void doAction(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
-		User user = service.createNewUserFromRequest(req);
+		Character user = service.createNewUserFromRequest(req);
 		service.insertUser(user);
 		redirect(req, resp);
 	}
