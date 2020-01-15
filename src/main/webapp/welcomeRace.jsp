@@ -4,13 +4,14 @@
 <%@ page import="java.io.*,java.util.*,es.salesianos.model.*"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Raza insertada</title>
-</head>
-<body>
-	<h2>Raza insertada</h2>
-	<span>Raza:</span><b><%=request.getParameter("specie")%></b>
-	<a href="listRaces">Ver listado de razas</a>
-</body>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+		<title>Raza insertada</title>
+	</head>
+	<body>
+		<h2>Raza insertada</h2>
+		<span>Raza:</span><b><%=request.getParameter("specie")%></b>
+		<br>
+		<a href="listRaces">Ver listado de razas</a>
+	</body>
 </html>

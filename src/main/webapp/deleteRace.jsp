@@ -2,11 +2,12 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
-
-</body>
+	<head>
+		<meta charset="UTF-8">
+		<title>Registro Borrado</title>
+	</head>
+	<body>
+		<p>Registro borrado correctamente</p>
+		<a href="listRaces">Pulse para volver</a>
+	</body>
 </html>

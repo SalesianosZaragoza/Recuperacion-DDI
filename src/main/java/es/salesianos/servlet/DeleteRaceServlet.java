@@ -58,7 +58,7 @@ public class DeleteRaceServlet extends HttpServlet {
 	}
 
 	protected void redirect(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/listRaces.jsp");
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/deleteRace.jsp");
 		dispatcher.forward(req, resp);
 	}
 
