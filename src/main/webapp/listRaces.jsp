@@ -18,6 +18,7 @@
 					<td style="text-align: center">${race.id}</td>
 			        <td style="text-align: center">${race.specie}</td>
 			        <td><a href="/deleteRace?id=${race.id}">Eliminar</a></td> 
+			        <td><a href="/updateRace?id=${race.id}">Actualizar</a></td>
 			    </tr>
 			</c:forEach>
 		</table>

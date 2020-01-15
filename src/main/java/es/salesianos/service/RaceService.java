@@ -12,9 +12,6 @@ public class RaceService implements Service<Race> {
 	private RaceAssembler assembler = new RaceAssembler();
 	private RaceRepository repository = new RaceRepository();
 
-	public RaceService() {
-	}
-
 	public Race createNewFromRequest(HttpServletRequest req) {
 		Race race = assembler.createRaceFromRequest(req);
 		return race;
@@ -24,11 +21,15 @@ public class RaceService implements Service<Race> {
 		repository.insert(race);
 	}
 
+	public List<Race> listAll() {
+		return repository.listAll();
+	}
+
 	public void update(Race race) {
 		repository.update(race);
 	}
 
-	public List<Race> listAll() {
-		return repository.listAll();
+	public Race findById(Integer id) {
+		return repository.findById(id);
 	}
 }

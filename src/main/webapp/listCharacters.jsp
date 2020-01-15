@@ -22,7 +22,7 @@
 			        <td style="text-align: center">${character.holder}</td>
 			        <td style="text-align: center">${character.codRace}</td>
 			        <td><a href="/deleteCharacter?id=${character.id}">Eliminar</a></td>
-			        <td><a href="/update?id=${character.id}">Actualizar</a></td>   
+			        <td><a href="/updateCharacter?id=${character.id}">Actualizar</a></td>   
 			    </tr>
 			</c:forEach>
 		</table>

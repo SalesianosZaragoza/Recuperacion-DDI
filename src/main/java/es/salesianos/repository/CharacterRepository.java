@@ -57,8 +57,29 @@ public class CharacterRepository extends AbstractRepository implements Repositor
 		return characters;
 	}
 
-	public Character findBy(Integer id) {
-		return null;
+	public Character findById(Integer id) {
+		Connection conn = manager.open(jdbcUrl);
+		PreparedStatement preparedStatement = null;
+		Character character;
+		try {
+			preparedStatement = conn.prepareStatement("SELECT * FROM PERSONAJE WHERE id=?");
+			preparedStatement.setInt(1, id);
+			ResultSet resultSet = preparedStatement.executeQuery();
+			resultSet.next();
+			character = new Character();
+			character.setId(resultSet.getInt("id"));
+			character.setName(resultSet.getString("nombre"));
+			character.setHolder(resultSet.getBoolean("portador"));
+			character.setCodRace(resultSet.getLong("codRaza"));
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new RuntimeException(e);
+		} finally {
+			manager.close(preparedStatement);
+			manager.close(conn);
+		}
+		return character;
 	}
 
 	public void update(Character character) {

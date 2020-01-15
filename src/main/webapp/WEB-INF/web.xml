@@ -13,6 +13,16 @@
 		<servlet-name>DeleteCharacterServlet</servlet-name>
 		<servlet-class>es.salesianos.servlet.DeleteCharacterServlet</servlet-class>
 	</servlet>
+	
+	<servlet>
+		<servlet-name>UpdateCharacterServlet</servlet-name>
+		<servlet-class>es.salesianos.servlet.UpdateCharacterServlet</servlet-class>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>UpdateRaceServlet</servlet-name>
+		<servlet-class>es.salesianos.servlet.UpdateRaceServlet</servlet-class>
+	</servlet>
 
 	<servlet>
 		<servlet-name>DeleteRaceServlet</servlet-name>
@@ -57,6 +67,16 @@
 	<servlet-mapping>
 		<servlet-name>DeleteCharacterServlet</servlet-name>
 		<url-pattern>/deleteCharacter</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>UpdateCharacterServlet</servlet-name>
+		<url-pattern>/updateCharacter</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>UpdateRaceServlet</servlet-name>
+		<url-pattern>/updateRace</url-pattern>
 	</servlet-mapping>
 	
 	<servlet-mapping>

@@ -12,4 +12,6 @@ public interface Service<E> {
 
 	public List<E> listAll();
 
+	public void update(E element);
+
 }

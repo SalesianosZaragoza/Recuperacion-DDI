@@ -12,9 +12,6 @@ public class CharacterService implements Service<Character> {
 	private CharacterAssembler assembler = new CharacterAssembler();
 	private CharacterRepository repository = new CharacterRepository();
 
-	public CharacterService() {
-	}
-
 	public Character createNewFromRequest(HttpServletRequest req) {
 		Character character = assembler.createCharacterFromRequest(req);
 		return character;
@@ -30,5 +27,9 @@ public class CharacterService implements Service<Character> {
 
 	public void update(Character character) {
 		repository.update(character);
+	}
+
+	public Character findById(Integer id) {
+		return repository.findById(id);
 	}
 }
