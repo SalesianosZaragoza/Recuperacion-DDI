@@ -5,51 +5,30 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 
 import es.salesianos.assembler.RaceAssembler;
-import es.salesianos.model.Character;
 import es.salesianos.model.Race;
-import es.salesianos.repository.CharacterRepository;
 import es.salesianos.repository.RaceRepository;
-import es.salesianos.repository.Repository;
 
-public class RaceService implements Service{
-
+public class RaceService implements Service<Race> {
 	private RaceAssembler assembler = new RaceAssembler();
 	private RaceRepository repository = new RaceRepository();
-	
-	public RaceService() {
 
+	public RaceService() {
 	}
-	
-	public Race createNewRaceFromRequest(HttpServletRequest req) {
+
+	public Race createNewFromRequest(HttpServletRequest req) {
 		Race race = assembler.createRaceFromRequest(req);
 		return race;
 	}
 
-	public void insertRace(Race race) {
+	public void insert(Race race) {
 		repository.insert(race);
 	}
 
-	
 	public void update(Race race) {
 		repository.update(race);
 	}
 
-	public List<Race> listRaces() {
+	public List<Race> listAll() {
 		return repository.listAll();
-	}
-
-	public Character createNewCharacterFromRequest(HttpServletRequest req) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public void insertCharacter(Character user) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	public List<Character> listCharacters() {
-		// TODO Auto-generated method stub
-		return null;
 	}
 }

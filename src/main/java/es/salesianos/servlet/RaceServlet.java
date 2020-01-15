@@ -13,9 +13,7 @@ import es.salesianos.service.RaceService;
 import es.salesianos.service.Service;
 
 public class RaceServlet extends HttpServlet {
-
 	private static final long serialVersionUID = 1L;
-
 	private Service service = new RaceService();
 
 	@Override
@@ -29,8 +27,8 @@ public class RaceServlet extends HttpServlet {
 	}
 
 	private void doAction(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
-		Race race = service.createNewRaceFromRequest(req);
-		service.insertRace(race);
+		Race race = (Race) service.createNewFromRequest(req);
+		service.insert(race);
 		redirect(req, resp);
 	}
 

@@ -14,7 +14,6 @@ import es.salesianos.service.RaceService;
 import es.salesianos.service.Service;
 
 public class ListRacesServlet extends HttpServlet {
-
 	private static final long serialVersionUID = 1L;
 	Service service = new RaceService();
 
@@ -29,7 +28,7 @@ public class ListRacesServlet extends HttpServlet {
 	}
 
 	private void doAction(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
-		List<Race> races = service.listRaces();
+		List<Race> races = service.listAll();
 		req.setAttribute("listOfRaces", races);
 		redirect(req, resp);
 	}

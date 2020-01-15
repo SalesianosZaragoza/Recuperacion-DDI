@@ -14,7 +14,6 @@ import es.salesianos.service.CharacterService;
 import es.salesianos.service.Service;
 
 public class ListCharactersServlet extends HttpServlet {
-
 	private static final long serialVersionUID = 1L;
 	Service service = new CharacterService();
 
@@ -29,7 +28,7 @@ public class ListCharactersServlet extends HttpServlet {
 	}
 
 	private void doAction(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
-		List<Character> characters = service.listCharacters();
+		List<Character> characters = service.listAll();
 		req.setAttribute("listOfCharacters", characters);
 		redirect(req, resp);
 	}

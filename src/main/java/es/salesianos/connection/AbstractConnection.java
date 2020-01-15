@@ -33,7 +33,6 @@ public abstract class AbstractConnection {
 				throw new RuntimeException(e);
 			}
 		}
-
 	}
 
 	public void close(Statement statement) {

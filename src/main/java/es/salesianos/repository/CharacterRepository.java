@@ -80,5 +80,4 @@ public class CharacterRepository extends AbstractRepository implements Repositor
 			manager.close(conn);
 		}
 	}
-
 }

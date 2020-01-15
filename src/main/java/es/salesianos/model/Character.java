@@ -37,5 +37,4 @@ public class Character {
 	public void setCodRace(Long codRace) {
 		this.codRace = codRace;
 	}
-
 }

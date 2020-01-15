@@ -19,5 +19,4 @@ public class Race {
 	public void setSpecie(String specie) {
 		this.specie = specie;
 	}
-
 }
