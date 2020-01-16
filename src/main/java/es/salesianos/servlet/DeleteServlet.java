@@ -17,33 +17,32 @@ public class DeleteServlet extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
 		String name = req.getParameter("name");
-		String surname = req.getParameter("surname");
-		String dni= req.getParameter("dni");
-		System.out.println(name + " " + surname + " "+ dni);
-		Connection conn;
+		String age = req.getParameter("age");
+		String holder = req.getParameter("holder");
+		System.out.println(name + " " + age + " "+ holder);
+		Connection connection;
 		try {
 			Class.forName("org.h2.Driver");
-			conn = DriverManager.getConnection(jdbcUrl, "sa", "");
+			connection = DriverManager.getConnection(jdbcUrl, "sa", "");
 		} catch (Exception e) {
 			e.printStackTrace();
 			throw new RuntimeException(e);
 		}
 		PreparedStatement preparedStatement = null;
 		try {
-			preparedStatement = conn.prepareStatement("DELETE FROM USER WHERE nombre = ? and apellido = ? and dni = ?");
+			preparedStatement = connection.prepareStatement("DELETE FROM Character WHERE name = ? and age = ? and holder = ?");
 			preparedStatement.setString(1, name);
-			preparedStatement.setString(2, surname);
-			preparedStatement.setString(3, dni);
+			preparedStatement.setString(2, age);
+			preparedStatement.setString(3, holder);
 			preparedStatement.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
 			throw new RuntimeException(e);
 		} finally {
-			if (null != conn) {
+			if (null != connection) {
 				try {
-					conn.close();
+					connection.close();
 				} catch (SQLException e) {
 					e.printStackTrace();
 					throw new RuntimeException(e);

@@ -8,9 +8,9 @@ import es.salesianos.model.Character;
 
 public interface Service {
 
-	public Character createNewUserFromRequest(HttpServletRequest req);
+	public Character createNewCharacterFromRequest(HttpServletRequest req);
 
-	public void insertUser(Character user);
+	public void insertCharacter(Character character);
 
 	public List<Character> listAll();
 

@@ -10,44 +10,38 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import es.salesianos.model.Character;
-import es.salesianos.service.UserService;
+import es.salesianos.service.CharacterService;
 
 public class UpdateServlet extends SpringBaseServlet {
 
 	@Autowired
-	UserService service;
+	CharacterService service;
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String parameter = req.getParameter("id");
-		Integer idUser = Integer.parseInt(parameter);
-		Character user = service.listById(idUser);
-		req.setAttribute("usuario", user);
+		Integer idCharacter = Integer.parseInt(parameter);
+		Character character = service.listById(idCharacter);
+		req.setAttribute("character", character);
 		redirect(req, resp, "Update.jsp");
-
 	}
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		/*
-		 * aqui deberia usar UserAssembler.createUserFromRequest y no esta ñapa en la
-		 * cual estoy repitiendo codigo NO NO NO NO por fabor
-		 */
 		String id = req.getParameter("id");
-		String nombre = req.getParameter("nombre");
-		String apellido = req.getParameter("apellido");
-		String dni = req.getParameter("dni");
-		Character user = new Character();
-		System.out.println(id+""+nombre + " " + apellido + " "+ dni);
+		String name = req.getParameter("name");
+		String age = req.getParameter("age");
+		String holder = req.getParameter("holder");
+		Character character = new Character();
+		System.out.println(id + " " + name + " " + age + " "+ holder);
 		
-		user.setId(Integer.parseInt(id));
-		user.setNombre(nombre);
-		user.setApellido(apellido);
-		user.setDni(dni);
+		character.setId(Integer.parseInt(id));
+		character.setName(name);
+		character.setAge(Integer.parseInt(age));
+		character.setHolder(Boolean.parseBoolean(holder));
 		
-		service.update(user);
-		redirect(req, resp, "Listado.jsp");
-
+		service.update(character);
+		redirect(req, resp, "List.jsp");
 	}
 
 

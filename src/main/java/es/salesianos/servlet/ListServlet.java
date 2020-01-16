@@ -1,6 +1,7 @@
 package es.salesianos.servlet;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -12,32 +13,22 @@ import org.springframework.beans.factory.annotation.Autowired;
 import es.salesianos.model.Character;
 import es.salesianos.service.Service;
 
-public class WelcomeServlet extends SpringBaseServlet {
-
-
-	private static final long serialVersionUID = 1L;
+public class ListServlet extends SpringBaseServlet {
 
 	@Autowired
-	private Service service;
+	Service service;
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		doAction(req, resp);
-	}
-
-	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		doAction(req, resp);
-	}
-
-	private void doAction(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
-		Character character = service.createNewCharacterFromRequest(req);
-		service.insertCharacter(character);
+		List<Character> characters = service.listAll();
+		req.setAttribute("listOfCharacters", characters);
 		redirect(req, resp);
 	}
 
 	protected void redirect(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/welcome.jsp");
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/Listado.jsp");
 		dispatcher.forward(req, resp);
 	}
+
+
 }

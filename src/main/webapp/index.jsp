@@ -8,11 +8,11 @@
 </head>
 <body>
 	<form action="welcome" method="post">
-		<span>nombre:</span> <input type="text" name="nombre"> <br />
-		<span>apellido:</span> <input type="text" name="apellido"> <br />
-		<span>dni:</span> <input type="text" name="dni"> <br />
+		<span>Name:</span> <input type="text" name="name"> <br />
+		<span>Age:</span> <input type="number" name="age"> <br />
+		<span>Holder:</span> <input type="checkbox" name="holder"> <br />
 		<input type="submit">
 	</form>
-	<a href="Listado.jsp">Listado</a>
+	<a href="List.jsp">List</a>
 </body>
 </html>
