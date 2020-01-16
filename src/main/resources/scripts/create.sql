@@ -7,6 +7,6 @@ CREATE TABLE IF NOT EXISTS PERSONAJE(
 	id identity primary key,
 	nombre varchar(50),
 	portador boolean,
-	codRaza int,
-	foreign key (codRaza) references RAZA(id)
+	codRaza int NOT NULL,
+	CONSTRAINT fk_raza foreign key (codRaza) references RAZA(id) ON DELETE CASCADE
 );
