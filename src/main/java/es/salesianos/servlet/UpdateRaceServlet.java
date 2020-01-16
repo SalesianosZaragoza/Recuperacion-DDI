@@ -13,6 +13,8 @@ import es.salesianos.model.Race;
 import es.salesianos.service.RaceService;
 
 public class UpdateRaceServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+	private static final String jdbcUrl = "jdbc:h2:file:./src/main/resources/test;INIT=RUNSCRIPT FROM 'classpath:scripts/create.sql'";
 
 	RaceService service = new RaceService();
 	RaceAssembler assembler = new RaceAssembler();
@@ -22,21 +24,22 @@ public class UpdateRaceServlet extends HttpServlet {
 		String parameter = req.getParameter("id");
 		Integer idRace = Integer.parseInt(parameter);
 		Race race = service.findById(idRace);
-		req.setAttribute("raza", race);
+		req.setAttribute("race", race);
 		redirect(req, resp, "updateRace.jsp");
 
 	}
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		assembler.createRaceFromRequest(req);
+		Race race = service.createNewFromRequest(req);
+		race.setId(Integer.parseInt(req.getParameter("id")));
+		service.update(race);
 		redirect(req, resp, "listRaces.jsp");
-	}
 
-	protected void redirect(HttpServletRequest req, HttpServletResponse resp, String page)
+	}
+	protected void redirect(HttpServletRequest req, HttpServletResponse resp, String url)
 		throws IOException, ServletException {
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/" + page);
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/" + url);
 		dispatcher.forward(req, resp);
 	}
-
 }

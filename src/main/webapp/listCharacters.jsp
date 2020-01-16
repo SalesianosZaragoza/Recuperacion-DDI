@@ -26,5 +26,7 @@
 			    </tr>
 			</c:forEach>
 		</table>
+		<br>
+		<button onclick="window.location.href='listCharacters'">Refrescar Página</button>
 	</body>
 </html>

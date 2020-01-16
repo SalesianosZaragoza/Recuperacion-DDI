@@ -22,5 +22,7 @@
 			    </tr>
 			</c:forEach>
 		</table>
+		<br>
+		<button onclick="window.location.href='listRaces'">Refrescar Página</button>
 	</body>
 </html>

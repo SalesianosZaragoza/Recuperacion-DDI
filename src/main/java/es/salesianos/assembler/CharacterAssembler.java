@@ -10,7 +10,7 @@ public class CharacterAssembler {
 		Character character = new Character();
 		character.setName(request.getParameter("name"));
 		character.setHolder(Boolean.parseBoolean(request.getParameter("holder")));
-		character.setCodRace(Long.parseLong(request.getParameter("race")));
+		character.setCodRace(Long.parseLong(request.getParameter("codRace")));
 
 		return character;
 	}

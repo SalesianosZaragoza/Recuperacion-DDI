@@ -15,7 +15,7 @@
 		<span>Portador:</span>
 		<b><%=request.getParameter("holder")%></b>
 		<span>Cod.Raza:</span>
-		<b><%=request.getParameter("race")%></b>
+		<b><%=request.getParameter("codRace")%></b>
 		<br>
 		<a href="listCharacters">Ver listado de personajes</a>
 	</body>

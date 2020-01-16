@@ -13,7 +13,7 @@
 		<br />
 		<form action="welcomeCharacter" method="post">
 			<span>Nombre:</span> <input type="text" name="name"> &nbsp; <span>Raza:</span>
-			<input type="number" name="race" min="0"> &nbsp; <span>Portador:</span>
+			<input type="number" name="codRace" min="0"> &nbsp; <span>Portador:</span>
 			<select name="holder">
 				<option value="true">Sí</option>
 				<option value="false">No</option>

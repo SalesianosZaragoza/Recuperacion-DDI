@@ -8,9 +8,9 @@
 		<title>Actualiza los datos</title>
 	</head>
 	<body>
-		<form action="/updateRace?id=${raza.id}" method="post">
-		        <span>ID:</span> <input type="text" value="${raza.id}" disabled="disabled" name="id"> <br />
-		        <span>Especie:</span> <input type="text" value="${raza.specie}" name="specie"> <br />
+		<form action="/updateRace?id=${race.id}" method="post">
+		        <span>ID:</span> <input type="text" value="${race.id}" disabled="disabled" name="id"> <br />
+		        <span>Especie:</span> <input type="text" value="${race.specie}" name="specie"> <br />
 		        <input type="submit">
 		 </form>
 	</body>
