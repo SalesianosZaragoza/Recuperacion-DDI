@@ -8,7 +8,6 @@ import javax.servlet.http.HttpServletRequest;
 
 import es.salesianos.model.Character;
 import es.salesianos.repository.AbstractRepository;
-import es.salesianos.repository.CharacterRepository;
 
 public class CharacterAssembler extends AbstractRepository {
 	private String portador;
@@ -33,7 +32,6 @@ public class CharacterAssembler extends AbstractRepository {
 	}
 
 	public Character createCharacterFromRequest(HttpServletRequest request) {
-		CharacterRepository charrepo = new CharacterRepository();
 		Character character = new Character();
 		if (portador == "1" && request.getParameter("holder") != "false")
 			throw new RuntimeException("Solo puede haber un portador");
