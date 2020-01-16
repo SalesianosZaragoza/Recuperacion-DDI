@@ -1,10 +1,15 @@
 package es.salesianos.model;
 
+import java.util.List;
+
+import es.salesianos.repository.CharacterRepository;
+
 public class Character {
 
 	private Integer id;
 	private String name;
 	private Integer age ;
+	// There can be only one "holder" character
 	private Boolean holder;
 	
 	public Integer getId() {
@@ -31,12 +36,30 @@ public class Character {
 		this.age = age;
 	}
 	
-	public Boolean getHolder() {
+	public Boolean isHolder() {
 		return holder;
 	}
 	
 	public void setHolder(Boolean holder) {
 		this.holder = holder;
+	}
+	
+	public Boolean setHolderIfThereIsNotOne(List<Character> allCharacters) {	
+		List<Character> characters = allCharacters;
+		boolean thereIsAlreadyAHolder = false;
+		
+		if(characters.size() == 0) {
+			return true;
+		}
+		
+		for(Character character : characters) {
+			if(character.isHolder()) {
+				thereIsAlreadyAHolder = true;
+				return true;
+			}
+		}
+		
+		return false;
 	}
 	
 	public void switchHolder() {

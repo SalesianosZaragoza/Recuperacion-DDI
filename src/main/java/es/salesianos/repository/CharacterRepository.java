@@ -21,7 +21,7 @@ public class CharacterRepository extends AbstractRepository implements Repositor
 					.prepareStatement("INSERT INTO Character(name, age, holder)" + "VALUES (?, ?, ?)");
 			preparedStatement.setString(1, character.getName());
 			preparedStatement.setInt(2, character.getAge());
-			preparedStatement.setBoolean(3, character.getHolder());
+			preparedStatement.setBoolean(3, character.setHolderIfThereIsNotOne(listAll()));
 			preparedStatement.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -90,7 +90,7 @@ public class CharacterRepository extends AbstractRepository implements Repositor
 			preparedStatement = conn.prepareStatement("UPDATE Character SET name = ?, age = ?, holder = ? WHERE id = ?");
 			preparedStatement.setString(1, character.getName());
 			preparedStatement.setInt(2, character.getAge());
-			preparedStatement.setBoolean(3, character.getHolder());
+			preparedStatement.setBoolean(3, character.isHolder());
 			preparedStatement.setInt(4, character.getId());
 			preparedStatement.executeUpdate();
 		} catch (SQLException e) {
@@ -126,5 +126,5 @@ public class CharacterRepository extends AbstractRepository implements Repositor
 		}
 		return character;
 	}
-
+	
 }
