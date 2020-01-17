@@ -24,5 +24,4 @@ public class RaceAssembler {
 		race.setSpecie(specie);
 		return race;
 	}
-	
 }

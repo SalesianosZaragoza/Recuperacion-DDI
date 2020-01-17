@@ -26,8 +26,8 @@ public class DeleteRaceServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		service.delete(req);
 		redirect(req, resp);
-
 	}
+	
 	protected void redirect(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
 		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/ListRaces.jsp");
 		dispatcher.forward(req, resp);
