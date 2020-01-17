@@ -12,7 +12,7 @@ import es.salesianos.repository.AbstractRepository;
 public class CharacterAssembler extends AbstractRepository {
 	private String portador;
 
-	public String checkPortador() {
+	public String countHowManyCarriers() {
 		Connection conn = manager.open(jdbcUrl);
 		PreparedStatement preparedStatement = null;
 		try {

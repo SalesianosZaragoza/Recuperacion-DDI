@@ -35,7 +35,9 @@ public class CharacterRepository extends AbstractRepository implements Repositor
 		PreparedStatement preparedStatement = null;
 		ArrayList<Character> characters = new ArrayList<Character>();
 		try {
-			preparedStatement = conn.prepareStatement("SELECT * FROM PERSONAJE");
+			preparedStatement = conn.prepareStatement(
+				"SELECT p.id as id, p.nombre as nombre, p.portador as portador, p.codRaza as codRaza, r.especie as especie "
+					+ "FROM PERSONAJE p JOIN RAZA r ON p.codRaza=r.id");
 			ResultSet resultSet = preparedStatement.executeQuery();
 			while (resultSet.next()) {
 				Character character = new Character();
@@ -43,6 +45,7 @@ public class CharacterRepository extends AbstractRepository implements Repositor
 				character.setName(resultSet.getString("nombre"));
 				character.setHolder(Boolean.parseBoolean(resultSet.getString("portador")));
 				character.setCodRace(resultSet.getLong("codRaza"));
+				character.setRaceName(resultSet.getString("especie"));
 
 				characters.add(character);
 			}

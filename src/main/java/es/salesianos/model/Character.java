@@ -5,6 +5,7 @@ public class Character {
 	private String name;
 	private boolean holder;
 	private Long codRace;
+	private String raceName; //Se usa en el JOIN
 
 	public Integer getId() {
 		return id;
@@ -36,5 +37,13 @@ public class Character {
 
 	public void setCodRace(Long codRace) {
 		this.codRace = codRace;
+	}
+
+	public String getRaceName() {
+		return raceName;
+	}
+
+	public void setRaceName(String raceName) {
+		this.raceName = raceName;
 	}
 }

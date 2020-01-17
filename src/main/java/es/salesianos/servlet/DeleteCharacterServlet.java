@@ -2,7 +2,6 @@ package es.salesianos.servlet;
 
 import java.io.IOException;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
@@ -23,14 +22,8 @@ public class DeleteCharacterServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String parameter = req.getParameter("id");
 		Integer idChar = Integer.parseInt(parameter);
-		Connection conn;
-		try {
-			Class.forName("org.h2.Driver");
-			conn = DriverManager.getConnection(jdbcUrl, "sa", "");
-		} catch (Exception e) {
-			e.printStackTrace();
-			throw new RuntimeException(e);
-		}
+
+		Connection conn = connect.open(jdbcUrl);
 		PreparedStatement preparedStatement = null;
 		try {
 			preparedStatement = conn.prepareStatement("DELETE FROM PERSONAJE WHERE id=?");
