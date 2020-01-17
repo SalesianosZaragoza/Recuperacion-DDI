@@ -14,7 +14,6 @@ import es.salesianos.service.CharacterService;
 
 public class UpdateCharacterServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private static final String jdbcUrl = "jdbc:h2:file:./src/main/resources/test;INIT=RUNSCRIPT FROM 'classpath:scripts/create.sql'";
 
 	CharacterService service = new CharacterService();
 	CharacterAssembler assembler = new CharacterAssembler();

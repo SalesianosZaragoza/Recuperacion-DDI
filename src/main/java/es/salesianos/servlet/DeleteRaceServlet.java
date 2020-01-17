@@ -12,9 +12,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import es.salesianos.connection.AbstractConnection;
+
 public class DeleteRaceServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private static final String jdbcUrl = "jdbc:h2:file:./src/main/resources/test;INIT=RUNSCRIPT FROM 'classpath:scripts/create.sql'";
+	AbstractConnection connect;
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -38,21 +41,8 @@ public class DeleteRaceServlet extends HttpServlet {
 			e.printStackTrace();
 			throw new RuntimeException(e);
 		} finally {
-			if (null != conn) {
-				try {
-					conn.close();
-				} catch (SQLException e) {
-					e.printStackTrace();
-					throw new RuntimeException(e);
-				}
-			}
-			if (preparedStatement != null) {
-				try {
-					preparedStatement.close();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
-			}
+			connect.close(conn);
+			connect.close(preparedStatement);
 		}
 		redirect(req, resp);
 	}
