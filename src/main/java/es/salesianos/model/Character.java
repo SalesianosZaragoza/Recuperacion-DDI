@@ -44,24 +44,6 @@ public class Character {
 		this.holder = holder;
 	}
 	
-	public Boolean setHolderIfThereIsNotOne(List<Character> allCharacters) {	
-		List<Character> characters = allCharacters;
-		boolean thereIsAlreadyAHolder = false;
-		
-		if(characters.size() == 0) {
-			return true;
-		}
-		
-		for(Character character : characters) {
-			if(character.isHolder()) {
-				thereIsAlreadyAHolder = true;
-				return true;
-			}
-		}
-		
-		return false;
-	}
-	
 	public void switchHolder() {
 		this.holder = !this.holder;
 	}

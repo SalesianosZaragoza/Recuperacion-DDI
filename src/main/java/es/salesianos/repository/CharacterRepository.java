@@ -13,6 +13,7 @@ import es.salesianos.model.Character;
 
 @Component
 public class CharacterRepository extends AbstractRepository implements Repository<Character> {
+	@SuppressWarnings("resource")
 	public void insert(Character character) {
 		Connection connection = manager.open(jdbcUrl);
 		PreparedStatement preparedStatement = null;
@@ -21,7 +22,12 @@ public class CharacterRepository extends AbstractRepository implements Repositor
 					.prepareStatement("INSERT INTO Character(name, age, holder)" + "VALUES (?, ?, ?)");
 			preparedStatement.setString(1, character.getName());
 			preparedStatement.setInt(2, character.getAge());
-			preparedStatement.setBoolean(3, character.setHolderIfThereIsNotOne(listAll()));
+			if(character.isHolder()) {
+				preparedStatement = connection.prepareStatement("UPDATE Character SET holder = 'false'");
+				preparedStatement.setBoolean(3, true);
+			}else {
+				preparedStatement.setBoolean(3, false);
+			}
 			preparedStatement.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
