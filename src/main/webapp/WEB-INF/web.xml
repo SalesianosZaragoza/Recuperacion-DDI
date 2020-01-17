@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_3_1.xsd"
+    version="3.1">
+	<display-name>Archetype Created Web Application</display-name>
+	
+	<listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
+	
+	<servlet>
+		<servlet-name>WelcomeServlet</servlet-name>
+		<servlet-class>es.salesianos.servlet.WelcomeServlet</servlet-class>
+	</servlet>
+	
+	<servlet>
+        <servlet-name>DeleteServlet</servlet-name>
+        <servlet-class>es.salesianos.servlet.DeleteServlet</servlet-class>
+    </servlet>
+	<servlet>
+        <servlet-name>UpdateServlet</servlet-name>
+        <servlet-class>es.salesianos.servlet.UpdateServlet</servlet-class>
+    </servlet>
+	
+
+	<servlet>
+		<servlet-name>ListadoServlet</servlet-name>
+		<servlet-class>es.salesianos.servlet.ListadoServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>WelcomeServlet</servlet-name>
+		<url-pattern>/welcome</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>ListadoServlet</servlet-name>
+		<url-pattern>/listado</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>DeleteServlet</servlet-name>
+		<url-pattern>/delete</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>UpdateServlet</servlet-name>
+		<url-pattern>/update</url-pattern>
+	</servlet-mapping>
+	
+	
+
+	<welcome-file-list>
+		<welcome-file>index.jsp</welcome-file>
+	</welcome-file-list>
+
+</web-app>
