@@ -12,7 +12,8 @@
     <thead>
        <th>ID</th>
        <th>Nombre</th>
-       <th>Portador</th>    
+       <th>Portador</th>
+       <th>Cod. Raza</th>   
        <th>Eliminar</th>
        <th>Actualizar</th>
     </thead>
@@ -22,6 +23,7 @@
 			<td>${character.id}</td>
 	        <td>${character.name}</td>
 	        <td>${character.carrier}</td>
+	        <td>${character.codRace}</td>
 
 	        <td><a href="/deleteCharacter?id=${character.id}">Eliminar</a></td>
 	        <td><a href="/updateCharacter?id=${character.id}">Actualizar</a></td>   
