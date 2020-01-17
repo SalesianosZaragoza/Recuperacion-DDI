@@ -16,7 +16,7 @@ import es.salesianos.service.Service;
 public class ListServlet extends SpringBaseServlet {
 
 	@Autowired
-	Service service;
+	private Service service;
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
