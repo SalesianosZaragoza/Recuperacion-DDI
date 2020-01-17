@@ -7,7 +7,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public abstract class AbstractConnection implements OpenClose {
+import javax.servlet.http.HttpServlet;
+
+public abstract class AbstractConnection extends HttpServlet implements OpenClose {
 
 	public abstract String getDriver();
 	public abstract String getDatabaseUser();

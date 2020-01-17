@@ -11,7 +11,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class DeleteServlet extends HttpServlet {
+import es.salesianos.connection.AbstractConnection;
+import es.salesianos.connection.H2Connection;
+
+public class DeleteServlet extends H2Connection {
 	private static final String jdbcUrl = "jdbc:h2:file:./src/main/resources/test;INIT=RUNSCRIPT FROM 'classpath:scripts/create.sql'";
 
 
@@ -20,7 +23,7 @@ public class DeleteServlet extends HttpServlet {
 		String name = req.getParameter("name");
 		String age = req.getParameter("age");
 		String holder = req.getParameter("holder");
-		System.out.println(name + " " + age + " "+ holder);
+		System.out.println(name + " " + age + " " + holder);
 		Connection connection;
 		try {
 			Class.forName("org.h2.Driver");
@@ -40,23 +43,8 @@ public class DeleteServlet extends HttpServlet {
 			e.printStackTrace();
 			throw new RuntimeException(e);
 		} finally {
-			if (null != connection) {
-				try {
-					connection.close();
-				} catch (SQLException e) {
-					e.printStackTrace();
-					throw new RuntimeException(e);
-				}
-			}
-			if (preparedStatement != null) {
-				try {
-					preparedStatement.close();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
-			}
+			close(connection);
+			close(preparedStatement);
 		}
-
 	}
-
 }
