@@ -89,6 +89,7 @@ public class RaceRepository implements Repository<Race>{
 		Connection conn = manager.open(jdbcUrl);
 		PreparedStatement preparedStatement = null;
 		try {
+			deleteCharacterbyRace(req);
 			preparedStatement = conn.prepareStatement(DbQueryConstants.DELETE_RACE);
 			preparedStatement.setInt(1, idRace);
 			preparedStatement.executeUpdate();
@@ -126,4 +127,22 @@ public class RaceRepository implements Repository<Race>{
 		}
 		return race;
 	}
+	public void deleteCharacterbyRace(HttpServletRequest req){
+		String parameter = req.getParameter("id");
+		Integer idRace = Integer.parseInt(parameter);
+		Connection conn = manager.open(jdbcUrl);
+		PreparedStatement preparedStatement = null;
+		try {
+			preparedStatement = conn.prepareStatement(DbQueryConstants.DELETE_CHARACTER_BY_RACE);
+			preparedStatement.setInt(1, idRace);
+			preparedStatement.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new RuntimeException(e);
+		} finally {
+			manager.close(preparedStatement);
+			manager.close(conn);
+		}
+	}
+
 }

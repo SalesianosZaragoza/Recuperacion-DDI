@@ -20,4 +20,5 @@ public abstract class DbQueryConstants {
 	// DELETE
 	public static final String DELETE_CHARACTER = "DELETE FROM personaje WHERE id=?";
 	public static final String DELETE_RACE = "DELETE FROM raza WHERE id=?";
+	public static final String DELETE_CHARACTER_BY_RACE = "DELETE FROM personaje WHERE codRaza=?";
 }

@@ -12,7 +12,7 @@
     <thead>
        <th>ID</th>
        <th>Nombre</th>
-       <th>Portador Anillo</th>    
+       <th>Portador</th>    
        <th>Eliminar</th>
        <th>Actualizar</th>
     </thead>
