@@ -31,10 +31,14 @@ public class UpdateCharacterServlet extends HttpServlet{
 		Character character = service.updateDataFromRequest(req);
 		service.update(character);
 		req.setAttribute("character", character);
-		redirect(req, resp);
+		redirectToList(req, resp);
 	}
 	
 	protected void redirect(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/updateCharacter.jsp");
+		dispatcher.forward(req, resp);
+	}
+	protected void redirectToList(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
 		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/ListCharacters.jsp");
 		dispatcher.forward(req, resp);
 	}

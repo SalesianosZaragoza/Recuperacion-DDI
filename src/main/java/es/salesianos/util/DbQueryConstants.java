@@ -13,7 +13,7 @@ public abstract class DbQueryConstants {
 	public static final String INSERT_RACE = "INSERT INTO raza (especie)" + " VALUES (?)";
 
 	// UPDATE
-	public static final String UPDATE_CARRIER = "UPDATE personaje SET portador= NO";
+	public static final String UPDATE_CARRIER = "UPDATE personaje SET portador='NO'";
 	public static final String UPDATE_CHARACTER = "UPDATE personaje SET nombre=? , portador=?,codRaza=? WHERE id=?";
 	public static final String UPDATE_RACE = "UPDATE raza SET especie=? WHERE id=?";
 
