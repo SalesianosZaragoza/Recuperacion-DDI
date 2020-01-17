@@ -19,8 +19,10 @@ public interface Service<E> {
 	
 	public void update(E element);
 	
-	public void delete(HttpServletRequest req)  throws IOException, ServletException;
+	public void delete(HttpServletRequest req);
 
 	public E listById(Integer id);
+
+	public E updateDataFromRequest(HttpServletRequest req);
 
 }

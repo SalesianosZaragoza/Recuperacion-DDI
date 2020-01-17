@@ -18,4 +18,22 @@ public class CharacterAssembler {
 		}
 		return character;
 	}
+	public Character updateCharacterFromRequest(HttpServletRequest req) {
+		String parameterId = req.getParameter("id");
+		Integer id = Integer.parseInt(parameterId);
+		String name = req.getParameter("name");
+		String carrier = req.getParameter("carrier");
+		String idRace = req.getParameter("race");
+		Character character = new Character();
+		character.setId(id);
+		character.setName(name);
+		character.setCarrier(carrier);
+		try {
+			character.setCodRace(idRace);
+		} catch (ParseException e) {
+			e.printStackTrace();
+			throw new RuntimeException(e);
+		}
+		return character;
+	}
 }

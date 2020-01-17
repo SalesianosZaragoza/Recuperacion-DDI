@@ -43,11 +43,16 @@ public class RaceService implements Service<Race>{
 	}
 	
 	@Override
-	public void delete(HttpServletRequest req) throws IOException, ServletException {
+	public void delete(HttpServletRequest req){
 		repository.delete(req);
 	}
 	@Override
 	public Race listById(Integer id) {
 		return repository.selectById(id);
+	}
+	@Override
+	public Race updateDataFromRequest(HttpServletRequest req) {
+		Race race= assembler.updateRaceFromRequest(req);
+		return race;
 	}
 }

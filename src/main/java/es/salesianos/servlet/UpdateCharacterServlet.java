@@ -28,29 +28,14 @@ public class UpdateCharacterServlet extends HttpServlet{
 	}
 	
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		String parameterId = req.getParameter("id");
-		Integer id = Integer.parseInt(parameterId);
-		String name = req.getParameter("name");
-		String carrier = req.getParameter("carrier");
-		String idRace = req.getParameter("race");
-		Character character = new Character();
-		character.setId(id);
-		character.setName(name);
-		character.setCarrier(carrier);
-		try {
-			character.setCodRace(idRace);
-		} catch (ParseException e) {
-			e.printStackTrace();
-			throw new RuntimeException(e);
-		}
+		Character character = service.updateDataFromRequest(req);
 		service.update(character);
-
 		req.setAttribute("character", character);
 		redirect(req, resp);
 	}
 	
 	protected void redirect(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/updateCharacter.jsp");
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/ListCharacters.jsp");
 		dispatcher.forward(req, resp);
 	}
 }

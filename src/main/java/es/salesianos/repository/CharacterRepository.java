@@ -96,7 +96,7 @@ public class CharacterRepository implements Repository<Character> {
 	}
 
 	@Override
-	public void delete(HttpServletRequest req) throws ServletException, IOException {
+	public void delete(HttpServletRequest req){
 		String parameter = req.getParameter("id");
 		Integer idCharacter = Integer.parseInt(parameter);
 		System.out.println(idCharacter);

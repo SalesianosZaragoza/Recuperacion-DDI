@@ -40,7 +40,4 @@ public class Character {
 	public void setCodRace(String codRace) throws ParseException {
 		this.codRace = Integer.parseInt(codRace);
 	}
-	public String CodRacetoString(){
-		return String.valueOf(codRace);
-	}
 }

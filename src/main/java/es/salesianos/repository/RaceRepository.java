@@ -83,7 +83,7 @@ public class RaceRepository implements Repository<Race>{
 	}
 
 	@Override
-	public void delete(HttpServletRequest req) throws ServletException, IOException {
+	public void delete(HttpServletRequest req){
 		String parameter = req.getParameter("id");
 		Integer idRace = Integer.parseInt(parameter);
 		Connection conn = manager.open(jdbcUrl);
@@ -102,13 +102,13 @@ public class RaceRepository implements Repository<Race>{
 	}
 
 	@Override
-	public Race selectById(Integer idCharacter) {
+	public Race selectById(Integer idRace) {
 		Connection conn = manager.open(jdbcUrl);
 		PreparedStatement preparedStatement = null;
 		Race race;
 		try {
-			preparedStatement = conn.prepareStatement(DbQueryConstants.SELECT_CHARACTER_BY_ID);
-			preparedStatement.setInt(1, idCharacter);
+			preparedStatement = conn.prepareStatement(DbQueryConstants.SELECT_RACE_BY_ID);
+			preparedStatement.setInt(1, idRace);
 			ResultSet resultSet = preparedStatement.executeQuery();
 
 			resultSet.next();

@@ -26,7 +26,7 @@ public class CharacterService implements Service<Character> {
 	}
 	@Override
 	public void insert(Character character) {
-			repository.insert(character);
+		repository.insert(character);
 	}
 	@Override
 	public List<Character> listAll() {
@@ -37,12 +37,15 @@ public class CharacterService implements Service<Character> {
 		repository.update(character);
 	}
 	@Override
-	public void delete(HttpServletRequest req) throws IOException, ServletException {
+	public void delete(HttpServletRequest req) {
 		repository.delete(req);
 		
 	}
 	public Character listById(Integer idCharacter) {
 		return repository.selectById(idCharacter);
 	}
-
+	public Character updateDataFromRequest(HttpServletRequest req) {
+		Character character = assembler.updateCharacterFromRequest(req);
+		return character;
+	}
 }
