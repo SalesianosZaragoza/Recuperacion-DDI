@@ -12,9 +12,12 @@
 
 <form action="updateCharacter?id=${character.id}" method="post"> <!-- al llamarlo por post entraremos al servlet por post  -->
 		<span>ID: </span> <input type="text" name="id" value="${character.id}" disabled="disabled"> <br />
-		<span>Nombre: </span> <input type="text" name="nombre" value="${character.name}"> <br />
-		<span>Portador Anillo: </span> <input type="text" name="apellido" value="${character.carrier}"> <br />
-		<span>Codigo Raza: </span> <input type="text" name="race" value="${character.race}"> <br />
+		<span>Nombre: </span> <input type="text" name="name" value="${character.name}"> <br />
+		<span>Portador Anillo: </span><select name="carrier">
+			<option value="SI">SI</option>
+			<option value="NO">NO</option>
+		</select><br />
+		<span>Codigo Raza: </span> <input type="text" name="race" value="${character.codRace}"> <br />
 		<input type="submit">
 	</form>
 
