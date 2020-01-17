@@ -1,0 +1,13 @@
+CREATE TABLE  IF NOT EXISTS RACE(
+    id IDENTITY,
+    species VARCHAR(255)
+);
+
+CREATE TABLE  IF NOT EXISTS CHARACTER(
+    id IDENTITY,
+    name VARCHAR(255),
+    bearer VARCHAR(3),
+    codRace INT,
+    FOREIGN KEY (codRace) REFERENCES RACE(id)
+);
+
