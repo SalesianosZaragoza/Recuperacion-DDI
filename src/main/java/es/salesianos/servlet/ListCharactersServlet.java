@@ -15,7 +15,7 @@ import es.salesianos.service.Service;
 
 public class ListCharactersServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	Service service = new CharacterService();
+	private Service<Character> service = new CharacterService();
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

@@ -14,9 +14,7 @@ import es.salesianos.service.RaceService;
 
 public class UpdateRaceServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
-	RaceService service = new RaceService();
-	RaceAssembler assembler = new RaceAssembler();
+	private RaceService service = new RaceService();
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

@@ -14,9 +14,7 @@ import es.salesianos.service.CharacterService;
 
 public class UpdateCharacterServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
-	CharacterService service = new CharacterService();
-	CharacterAssembler assembler = new CharacterAssembler();
+	private CharacterService service = new CharacterService();
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

@@ -15,7 +15,7 @@ import es.salesianos.service.Service;
 
 public class ListRacesServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	Service service = new RaceService();
+	private Service<Race> service = new RaceService();
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
