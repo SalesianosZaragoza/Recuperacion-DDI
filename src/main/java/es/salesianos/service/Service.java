@@ -16,5 +16,9 @@ public interface Service<E> {
 	public List<E> listAll();
 
 	public void update(E element);
+	
+	public void delete(HttpServletRequest req);
+	
+//	public E updateDataFromRequest(HttpServletRequest req);
 
 }

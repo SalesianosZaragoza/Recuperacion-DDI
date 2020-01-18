@@ -15,7 +15,7 @@ import es.salesianos.service.CharacterService;
 public class UpdateCharacterServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	CharacterService service = new CharacterService();
+	private CharacterService service = new CharacterService();
 	CharacterAssembler assembler = new CharacterAssembler();
 
 	@Override
@@ -25,7 +25,6 @@ public class UpdateCharacterServlet extends HttpServlet {
 		Character character = service.findBy(id);
 		req.setAttribute("character", character);
 		redirect(req, resp, "updateCharacter.jsp");
-
 	}
 
 	@Override

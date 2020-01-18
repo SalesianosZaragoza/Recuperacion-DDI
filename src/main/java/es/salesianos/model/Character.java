@@ -38,8 +38,8 @@ public class Character {
 		return codRace;
 	}
 
-	public void setCodRace(String codRace) throws ParseException {
-		this.codRace = Integer.parseInt(codRace);
+	public void setCodRace(Integer codRace) {
+		this.codRace = codRace;
 	}
 
 	public String getRaceName() {

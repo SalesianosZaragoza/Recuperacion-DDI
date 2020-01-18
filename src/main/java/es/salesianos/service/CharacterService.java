@@ -20,7 +20,7 @@ public class CharacterService implements Service<Character> {
 	}
 
 	public void insert(Character character) {
-			repository.insert(character);
+		repository.insert(character);
 	}
 
 	public List<Character> listAll() {
@@ -33,6 +33,11 @@ public class CharacterService implements Service<Character> {
 	
 	public Character findBy(Integer id) {
 		return repository.findBy(id);
+	}
+
+	@Override
+	public void delete(HttpServletRequest req) {
+		repository.delete(req);
 	}
 	
 }

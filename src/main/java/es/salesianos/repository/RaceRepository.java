@@ -7,6 +7,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import es.salesianos.connection.AbstractConnection;
 import es.salesianos.connection.H2Connection;
 import es.salesianos.model.Race;
@@ -62,7 +64,7 @@ public class RaceRepository extends AbstractRepository implements Repository<Rac
 		Connection conn = manager.open(jdbcUrl);
 		PreparedStatement preparedStatement = null;
 		try {
-			preparedStatement = conn.prepareStatement("UPDATE race  SET specie=? WHERE id=?");
+			preparedStatement = conn.prepareStatement("UPDATE race SET specie=? WHERE id=?");
 			preparedStatement.setString(1, race.getSpecie());
 			preparedStatement.setInt(2, race.getId());
 			preparedStatement.executeUpdate();
@@ -97,5 +99,42 @@ public class RaceRepository extends AbstractRepository implements Repository<Rac
 			manager.close(conn);
 		}
 		return race;
+	}
+
+	public void delete(HttpServletRequest req) {
+		String parameter = req.getParameter("id");
+		Integer idRace = Integer.parseInt(parameter);
+		Connection conn = manager.open(jdbcUrl);
+		PreparedStatement preparedStatement = null;
+		try {
+			deleteCharacterbyRace(req);
+			preparedStatement = conn.prepareStatement("DELETE FROM race WHERE id=?");
+			preparedStatement.setInt(1, idRace);
+			preparedStatement.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new RuntimeException(e);
+		} finally {
+			manager.close(preparedStatement);
+			manager.close(conn);
+		}	
+	}
+	
+	public void deleteCharacterbyRace(HttpServletRequest req){
+		String parameter = req.getParameter("id");
+		Integer idRace = Integer.parseInt(parameter);
+		Connection conn = manager.open(jdbcUrl);
+		PreparedStatement preparedStatement = null;
+		try {
+			preparedStatement = conn.prepareStatement("DELETE FROM character WHERE id=?");
+			preparedStatement.setInt(1, idRace);
+			preparedStatement.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new RuntimeException(e);
+		} finally {
+			manager.close(preparedStatement);
+			manager.close(conn);
+		}
 	}
 }

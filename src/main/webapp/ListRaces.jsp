@@ -8,7 +8,7 @@
 <title>Race List</title>
 </head>
 <body>
-<form method="post" action="/ListRaces.jsp">
+<form method="post" action="/ListRaces">
     <input type="submit" value="ShowList">
 </form>
 <table>
@@ -19,7 +19,7 @@
        <th>Delete</th>
     </thead>
 
-	<c:forEach items="${listraces}" var="race">
+	<c:forEach items="${ListRaces}" var="race">
 	    <tr>
 			<td>${race.id}</td>
 	        <td>${race.specie}</td>

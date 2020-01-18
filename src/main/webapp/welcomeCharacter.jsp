@@ -14,7 +14,7 @@
 	<br>
 	<span>Ring Bearer:</span><b><%=request.getParameter("ringBearer")%></b>
 	<br>
-	<span>Race Code:</span><b><%=request.getParameter("race")%></b>
+	<span>Race Code:</span><b><%=request.getParameter("codRace")%></b>
 	<br>
 	<br>
 	<a href="ListCharacter">Show the full list of characters</a>

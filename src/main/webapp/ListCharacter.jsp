@@ -27,7 +27,7 @@
 			<td>${character.id}</td>
 	        <td>${character.name}</td>
 	        <td>${character.ringBearer}</td>
-	        <td>${character.raceName}</td>
+	        <td>${character.codRace}</td>
 	        <td><a href="/deleteCharacter?id=${character.id}">Delete</a></td>
 	        <td><a href="/updateCharacter?id=${character.id}">Update</a></td>   
 	    </tr>

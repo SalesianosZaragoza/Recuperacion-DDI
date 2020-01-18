@@ -1,12 +1,15 @@
 package es.salesianos.repository;
 
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
 
 import es.salesianos.connection.AbstractConnection;
 import es.salesianos.connection.H2Connection;
@@ -50,12 +53,7 @@ public class CharacterRepository extends AbstractRepository implements Repositor
 				character.setId(resultSet.getInt("id"));
 				character.setName(resultSet.getString("name"));
 				character.setRingBearer(resultSet.getString("ringBearer"));
-				try {
-					character.setCodRace(resultSet.getString("codRace"));
-				} catch (ParseException e) {
-					e.printStackTrace();
-					throw new RuntimeException(e);
-				}
+				character.setCodRace(resultSet.getInt("codRace"));
 				characters.add(character);
 			}
 
@@ -83,12 +81,7 @@ public class CharacterRepository extends AbstractRepository implements Repositor
 			character.setId(resultSet.getInt("id"));
 			character.setName(resultSet.getString("name"));
 			character.setRingBearer(resultSet.getString("ringBearer"));
-			try {
-				character.setCodRace(resultSet.getString("codRace"));
-			} catch (ParseException e) {
-				e.printStackTrace();
-				throw new RuntimeException(e);
-			}
+			character.setCodRace(resultSet.getInt("codRace"));
 		} catch (SQLException e) {
 			e.printStackTrace();
 			throw new RuntimeException(e);
@@ -103,7 +96,7 @@ public class CharacterRepository extends AbstractRepository implements Repositor
 			Connection conn = manager.open(jdbcUrl);
 			PreparedStatement preparedStatement = null;
 			try {
-				preparedStatement = conn.prepareStatement("UPDATE character  SET nombre=? , ringBearer=?,codRace=? WHERE id=?");
+				preparedStatement = conn.prepareStatement("UPDATE character  SET name=? , ringBearer=?,codRace=? WHERE id=?");
 				preparedStatement.setString(1, character.getName());
 				preparedStatement.setString(2, character.getRingBearer());
 				preparedStatement.setInt(3, character.getCodRace());
@@ -117,6 +110,45 @@ public class CharacterRepository extends AbstractRepository implements Repositor
 				manager.close(conn);
 			}
 		}
+		
+		@Override
+		public void delete(HttpServletRequest req){
+			String parameter = req.getParameter("id");
+			Integer idCharacter = Integer.parseInt(parameter);
+			System.out.println(idCharacter);
+			Connection conn;
+			try {
+				Class.forName("org.h2.Driver");
+				conn = DriverManager.getConnection(jdbcUrl, "sa", "");
+			} catch (Exception e) {
+				e.printStackTrace();
+				throw new RuntimeException(e);
+			}
+			PreparedStatement preparedStatement = null;
+			try {
+				preparedStatement = conn.prepareStatement("DELETE FROM character WHERE id=?");
+				preparedStatement.setInt(1, idCharacter);
+				preparedStatement.executeUpdate();
+			} catch (SQLException e) {
+				e.printStackTrace();
+				throw new RuntimeException(e);
+			} finally {
+				manager.close(preparedStatement);
+				manager.close(conn);
+			}
+		}
+		
+		public void updateRingBearer() {
+			Connection conn = manager.open(jdbcUrl);
+			PreparedStatement preparedStatement = null;
+			try {
+				preparedStatement = conn.prepareStatement("UPDATE character SET ringBearer='NO'");
+				preparedStatement.executeUpdate();
+			} catch (SQLException e) {
+				e.printStackTrace();
+				throw new RuntimeException(e);
+			}
+		}
 
-
+		
 	}
