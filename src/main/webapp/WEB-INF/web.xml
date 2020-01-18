@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_3_1.xsd"
+	version="3.1">
+	<display-name>RecuperacionServlet</display-name>
+
+	<servlet>
+		<servlet-name>CharacterServlet</servlet-name>
+		<servlet-class>es.salesianos.servlet.CharacterServlet</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>RaceServlet</servlet-name>
+		<servlet-class>es.salesianos.servlet.RaceServlet</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>ListCharacterServlet</servlet-name>
+		<servlet-class>es.salesianos.servlet.ListCharacterServlet</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>ListRaceServlet</servlet-name>
+		<servlet-class>es.salesianos.servlet.ListRaceServlet</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>UpdateCharacterServlet</servlet-name>
+		<servlet-class>es.salesianos.servlet.UpdateCharacterServlet</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>UpdateRaceServlet</servlet-name>
+		<servlet-class>es.salesianos.servlet.UpdateRaceServlet</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>DeleteRaceServlet</servlet-name>
+		<servlet-class>es.salesianos.servlet.DeleteRaceServlet</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>DeleteCharacterServlet</servlet-name>
+		<servlet-class>es.salesianos.servlet.DeleteCharacterServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>CharacterServlet</servlet-name>
+		<url-pattern>/welcomeCharacter</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>RaceServlet</servlet-name>
+		<url-pattern>/welcomeRace</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>ListCharacterServlet</servlet-name>
+		<url-pattern>/ListCharacter</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>ListRaceServlet</servlet-name>
+		<url-pattern>/ListRaces</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>UpdateCharacterServlet</servlet-name>
+		<url-pattern>/updateCharacter</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>UpdateRaceServlet</servlet-name>
+		<url-pattern>/updateRace</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>DeleteRaceServlet</servlet-name>
+		<url-pattern>/deleteRace</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>DeleteCharacterServlet</servlet-name>
+		<url-pattern>/deleteCharacter</url-pattern>
+	</servlet-mapping>
+
+	<welcome-file-list>
+		<welcome-file>index.jsp</welcome-file>
+	</welcome-file-list>
+</web-app> 
