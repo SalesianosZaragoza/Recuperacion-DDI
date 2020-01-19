@@ -1,13 +1,8 @@
 package es.salesianos.repository;
 
-import java.io.IOException;
 import java.util.List;
 
-import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
-import es.salesianos.model.Character;
 
 public interface Repository<E> {
 	//METODOS A IMPLEMENTAR

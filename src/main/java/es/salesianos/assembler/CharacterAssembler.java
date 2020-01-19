@@ -1,6 +1,5 @@
 package es.salesianos.assembler;
 
-import java.text.ParseException;
 import javax.servlet.http.HttpServletRequest;
 import es.salesianos.model.Character;
 
@@ -10,12 +9,7 @@ public class CharacterAssembler {
 		Character character = new Character();
 		character.setName(request.getParameter("name"));
 		character.setCarrier(request.getParameter("carrier"));
-		try {
-			character.setCodRace(request.getParameter("race"));
-		} catch (ParseException e) {
-			e.printStackTrace();
-			throw new RuntimeException(e);
-		}
+		character.setCodRace(request.getParameter("race"));
 		return character;
 	}
 	public Character updateCharacterFromRequest(HttpServletRequest req) {
@@ -28,12 +22,7 @@ public class CharacterAssembler {
 		character.setId(id);
 		character.setName(name);
 		character.setCarrier(carrier);
-		try {
-			character.setCodRace(idRace);
-		} catch (ParseException e) {
-			e.printStackTrace();
-			throw new RuntimeException(e);
-		}
+		character.setCodRace(idRace);
 		return character;
 	}
 }

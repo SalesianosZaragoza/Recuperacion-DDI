@@ -1,13 +1,8 @@
 package es.salesianos.service;
 
-import java.io.IOException;
 import java.util.List;
 
-import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
-
-import es.salesianos.model.Character;
-import es.salesianos.model.Race;
 
 public interface Service<E> {
 	

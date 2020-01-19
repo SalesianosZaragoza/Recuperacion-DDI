@@ -1,19 +1,15 @@
 package es.salesianos.repository;
 
-import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
- import es.salesianos.util.DbQueryConstants;
+import es.salesianos.util.DbQueryConstants;
 import es.salesianos.connection.AbstractConnection;
 import es.salesianos.connection.H2Connection;
 import es.salesianos.model.Character;
@@ -56,12 +52,7 @@ public class CharacterRepository implements Repository<Character> {
 				character.setId(resultSet.getInt("id"));
 				character.setName(resultSet.getString("nombre"));
 				character.setCarrier(resultSet.getString("portador"));
-				try {
-					character.setCodRace(resultSet.getString("codRaza"));
-				} catch (ParseException e) {
-					e.printStackTrace();
-					throw new RuntimeException(e);
-				}
+				character.setCodRace(resultSet.getString("codRaza"));
 				characters.add(character);
 			}
 		} catch (SQLException e) {
@@ -150,13 +141,8 @@ public class CharacterRepository implements Repository<Character> {
 			character.setId(resultSet.getInt("id"));
 			character.setName(resultSet.getString("nombre"));
 			character.setCarrier("portador");
-			try {
-				character.setCodRace(resultSet.getString("codRaza"));
-			} catch (ParseException e) {
-				e.printStackTrace();
-				throw new RuntimeException(e);
-			}
-			
+			character.setCodRace(resultSet.getString("codRaza"));
+
 		} catch (SQLException e) {
 			e.printStackTrace();
 			throw new RuntimeException(e);

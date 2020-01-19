@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -14,15 +13,10 @@ import es.salesianos.model.Race;
 import es.salesianos.service.RaceService;
 import es.salesianos.service.Service;
 
-
-
 public class ListRaceServlet extends HttpServlet {
 
-
 	private static final long serialVersionUID = 1L;
-	
 	private Service<Race> service = new RaceService();
-
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

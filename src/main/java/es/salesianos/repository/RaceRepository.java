@@ -1,21 +1,16 @@
 package es.salesianos.repository;
 
-import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 import es.salesianos.connection.AbstractConnection;
 import es.salesianos.connection.H2Connection;
-import es.salesianos.model.Character;
 import es.salesianos.model.Race;
 import es.salesianos.util.DbQueryConstants;
 
@@ -144,5 +139,4 @@ public class RaceRepository implements Repository<Race>{
 			manager.close(conn);
 		}
 	}
-
 }

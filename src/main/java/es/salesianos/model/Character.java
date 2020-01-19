@@ -1,7 +1,5 @@
 package es.salesianos.model;
 
-import java.text.ParseException;
-
 public class Character {
 
 	private Integer id;
@@ -37,7 +35,12 @@ public class Character {
 		return codRace;
 	}
 
-	public void setCodRace(String codRace) throws ParseException {
-		this.codRace = Integer.parseInt(codRace);
+	public void setCodRace(String codRace) {
+		try {
+			this.codRace = Integer.parseInt(codRace);
+		}catch (NumberFormatException e) {
+			e.printStackTrace();
+			throw new RuntimeException(e);
+		}
 	}
 }
