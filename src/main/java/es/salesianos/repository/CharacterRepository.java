@@ -10,7 +10,7 @@ import java.util.List;
 import org.springframework.stereotype.Component;
 
 import es.salesianos.model.Character;
-import es.salesianos.model.Race;
+
 
 @Component
 public class CharacterRepository extends AbstractRepository implements Repository<Character> {
@@ -18,13 +18,13 @@ public class CharacterRepository extends AbstractRepository implements Repositor
 	public void insert(Character userFormulario) {
 		Connection conn = manager.open(jdbcUrl);
 		PreparedStatement preparedStatement = null;
-		String isBeaber = userFormulario.getBearer();
-		if(isBeaber.equalsIgnoreCase("si")) {
+		String isBearer = userFormulario.getBearer();
+		if(isBearer.equalsIgnoreCase("si")) {
 			try {
 				preparedStatement = conn.prepareStatement("UPDATE CHARACTER SET bearer = ?");
 				preparedStatement.setString(1, "no");
 				preparedStatement.executeUpdate();
-				System.out.println("CHECK" + isBeaber);
+				System.out.println("CHECK" + isBearer);
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
@@ -49,7 +49,7 @@ public class CharacterRepository extends AbstractRepository implements Repositor
 	public List<Character> listAll() {
 		Connection conn = manager.open(jdbcUrl);
 		PreparedStatement preparedStatement = null;
-		ArrayList<Character> personajes = new ArrayList<Character>();
+		ArrayList<Character> characteres = new ArrayList<Character>();
 		try {
 			preparedStatement = conn.prepareStatement("SELECT * FROM CHARACTER");
 			ResultSet resultSet = preparedStatement.executeQuery();
@@ -59,7 +59,7 @@ public class CharacterRepository extends AbstractRepository implements Repositor
 				character.setName(resultSet.getString("name"));
 				character.setCodRace(resultSet.getInt("codRace"));
 				character.setBearer(resultSet.getString("bearer"));
-				personajes.add(character);
+				characteres.add(character);
 			}
 
 		} catch (SQLException e) {
@@ -69,24 +69,25 @@ public class CharacterRepository extends AbstractRepository implements Repositor
 			manager.close(preparedStatement);
 			manager.close(conn);
 		}
-		return personajes;
+		return characteres;
 
 	}
 
 	public Character listByPersonaje(Integer idCharacter) {
 		Connection conn = manager.open(jdbcUrl);
 		PreparedStatement preparedStatement = null;
-		Character personaje;
+		Character character;
+		
 		try {
 			preparedStatement = conn.prepareStatement("SELECT * FROM CHARACETER WHERE id=?");
 			preparedStatement.setInt(1, idCharacter);
 			ResultSet resultSet = preparedStatement.executeQuery();
 			resultSet.next();
-			personaje = new Character();
-			personaje.setId(resultSet.getInt("id"));
-			personaje.setName(resultSet.getString("name"));
-			personaje.setCodRace(resultSet.getInt("codRace"));
-			personaje.setBearer(resultSet.getString("bearer"));
+			character = new Character();
+			character.setId(resultSet.getInt("id"));
+			character.setName(resultSet.getString("name"));
+			character.setCodRace(resultSet.getInt("codRace"));
+			character.setBearer(resultSet.getString("bearer"));
 
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -95,12 +96,15 @@ public class CharacterRepository extends AbstractRepository implements Repositor
 			manager.close(preparedStatement);
 			manager.close(conn);
 		}
-		return personaje;
+		return character;
 	}
 
 	public void update(Character user) {
 		Connection conn = manager.open(jdbcUrl);
+		PreparedStatement preparedStatementBearer = null;
 		PreparedStatement preparedStatement = null;
+		
+		
 		try {
 			preparedStatement = conn.prepareStatement("UPDATE CHARACTER SET name=? , codRace=?, bearer=? WHERE id=?");
 			preparedStatement.setString(1, user.getName());
@@ -121,17 +125,17 @@ public class CharacterRepository extends AbstractRepository implements Repositor
 	public Character findBy(Integer id) {
 		Connection conn = manager.open(jdbcUrl);
 		PreparedStatement preparedStatement = null;
-		Character personaje;
+		Character character;
 		try {
 			preparedStatement = conn.prepareStatement("SELECT * FROM CHARACTER  WHERE id=?");
 			preparedStatement.setInt(1, id);
 			ResultSet resultSet = preparedStatement.executeQuery();
 			resultSet.next();
-			personaje = new Character();
-			personaje.setId(resultSet.getInt("id"));
-			personaje.setName(resultSet.getString("name"));
-			personaje.setCodRace(resultSet.getInt("codRace"));
-			personaje.setBearer(resultSet.getString("bearer"));
+			character = new Character();
+			character.setId(resultSet.getInt("id"));
+			character.setName(resultSet.getString("name"));
+			character.setCodRace(resultSet.getInt("codRace"));
+			character.setBearer(resultSet.getString("bearer"));
 
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -140,13 +144,9 @@ public class CharacterRepository extends AbstractRepository implements Repositor
 			manager.close(preparedStatement);
 			manager.close(conn);
 		}
-		return personaje;
+		return character;
 		
 	}
 
-	@Override
-	public void insert(Race user) {
-		// TODO Auto-generated method stub
-		
-	}
+
 }

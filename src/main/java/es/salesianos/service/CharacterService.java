@@ -46,7 +46,20 @@ public class CharacterService implements Service {
 	}
 
 	@Override
+	public Race createNewRaceFromRequest(HttpServletRequest req) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Race> listAllRace() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
 	public void insertRace(Race race) {
-		repository.insert(race);
+		
+		
 	}
 }

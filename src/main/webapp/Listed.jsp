@@ -27,7 +27,7 @@
 				        <td> ${user.codRace} </td>
 				        <td> ${user.species} </td>
 				        <td> ${user.bearer} </td>
-				        <td> <a href="/delete?consulta1=${user.id}"> Eliminar </a> </td> <!-- deletec consulta 1 -->
+				        <td> <a href="/delete?queryCharacter=${user.id}"> Eliminar </a> </td> <!-- deletec consulta 1 -->
 				        <td> <a href="/update?id=${user.id}"> Actualizar </a> </td>
 				    </tr>
 				</c:forEach>
@@ -47,7 +47,7 @@
 				    <tr>
 				    	<td> ${races.id} </td>
 				        <td> ${races.species} </td>
-				        <td> <a href="/delete?consulta2=${races.id}"> Eliminar </a> </td> <!-- delete consulta 2 -->
+				        <td> <a href="/delete?queryRace=${races.id}"> Eliminar </a> </td> <!-- delete consulta 2 -->
 				    </tr>
 				</c:forEach>
 			</table>

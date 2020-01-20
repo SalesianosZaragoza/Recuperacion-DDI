@@ -21,8 +21,9 @@ public class UpdateServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-		String parameter = req.getParameter("id");
-		Integer idCharacter= Integer.parseInt(parameter);
+		//String parameter = req.getParameter("id");
+		Integer idCharacter= Integer.parseInt(req.getParameter("id"));
+		
 		Character character = service.listById(idCharacter);
 
 		req.setAttribute("character", character);

@@ -5,10 +5,11 @@ import es.salesianos.repository.RaceRepository;
 public class Character {
 
 	private Integer id;
-	String name;
-	String bearer;
-	Integer codRace;
-	String species;
+	private String name;
+	private String bearer;
+	private Integer codRace;
+	private String species;	
+	
 
 	public String getBearer() {
 		return bearer;
@@ -19,10 +20,13 @@ public class Character {
 	}
 
 	public String getSpecies() {
-		RaceRepository er = new RaceRepository();
-		species = er.showSpecies(this.getCodRace());
 		return species;
 	}
+//	public String getSpecies() {
+//		RaceRepository er = new RaceRepository();
+//		species = er.showSpecies(this.getCodRace());
+//		return species;
+//	}
 
 	public void setEspecie(String species) {
 		this.species = species;

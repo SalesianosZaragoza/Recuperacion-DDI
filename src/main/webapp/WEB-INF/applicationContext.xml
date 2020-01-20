@@ -14,9 +14,6 @@
     <context:annotation-config/>
     <context:spring-configured/>
     
-    <!-- 
-    <bean id="identificadorquemedalanga" class="es.salesianos.repository.UserRepository">
-    </bean>
-     -->
+   
 
 </beans>

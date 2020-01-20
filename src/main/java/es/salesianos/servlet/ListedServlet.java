@@ -32,7 +32,9 @@ public class ListedServlet extends HttpServlet {
 		List<Character> users = service.listAll();
 		req.setAttribute("listOfUsers", users);
 		Connection conn;
+		PreparedStatement preparedStatement = null;
 		ArrayList<Race> userst = new ArrayList<Race>();
+		
 		try {
 			Class.forName("org.h2.Driver");
 			conn = DriverManager.getConnection(jdbcUrl, "sa", "");
@@ -40,7 +42,7 @@ public class ListedServlet extends HttpServlet {
 			e.printStackTrace();
 			throw new RuntimeException(e);
 		}
-		PreparedStatement preparedStatement = null;
+		
 		try {
 			preparedStatement = conn.prepareStatement("SELECT * FROM RACE");
 			ResultSet resultSet = preparedStatement.executeQuery();

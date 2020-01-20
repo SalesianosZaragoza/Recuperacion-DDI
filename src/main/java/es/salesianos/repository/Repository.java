@@ -14,5 +14,5 @@ public interface Repository<E> {
 
 	public void update(E element);
 
-	public void insert(Race race);
+	//public void insert(Race race);
 }

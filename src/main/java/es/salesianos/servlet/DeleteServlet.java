@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+
+
 public class DeleteServlet extends HttpServlet {
 
 	private static final String jdbcUrl = "jdbc:h2:file:./src/main/resources/test;INIT=RUNSCRIPT FROM 'classpath:scripts/create.sql'";
@@ -18,11 +20,11 @@ public class DeleteServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-		String query1 = req.getParameter("consulta1");
-		String query2 = req.getParameter("consulta2");
+		String queryIdCharacter = req.getParameter("queryCharacter");
+		String queryCodRace = req.getParameter("queryRace");
 
-		System.out.println(query1);
-		System.out.println(query2);
+		System.out.println(queryIdCharacter);
+		System.out.println(queryCodRace);
 
 		Connection conn;
 		try {
@@ -42,9 +44,9 @@ public class DeleteServlet extends HttpServlet {
 			preparedStatement1 = conn.prepareStatement("DELETE FROM CHARACTER WHERE codRace = ?");
 			preparedStatement2 = conn.prepareStatement("DELETE FROM RACE WHERE id = ?");
 
-			preparedStatement0.setString(1, query1);
-			preparedStatement1.setString(1, query2);
-			preparedStatement2.setString(1, query2);
+			preparedStatement0.setString(1, queryIdCharacter);
+			preparedStatement1.setString(1, queryCodRace);
+			preparedStatement2.setString(1, queryCodRace);
 
 			preparedStatement0.executeUpdate();
 			preparedStatement1.executeUpdate();

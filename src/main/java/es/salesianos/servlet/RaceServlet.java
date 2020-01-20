@@ -13,12 +13,19 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import es.salesianos.model.Race;
+import es.salesianos.service.CharacterService;
+import es.salesianos.service.RaceService;
+import es.salesianos.service.Service;
 
 public class RaceServlet extends HttpServlet {
+	
+	private Service service = new RaceService();
 
-	private static final String jdbcUrl = "jdbc:h2:file:./src/main/resources/test;INIT=RUNSCRIPT FROM 'classpath:scripts/create.sql'";
+	//private static final String jdbcUrl = "jdbc:h2:file:./src/main/resources/test;INIT=RUNSCRIPT FROM 'classpath:scripts/create.sql'";
 
 	private static final long serialVersionUID = 1L;
+	
+	
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -31,6 +38,13 @@ public class RaceServlet extends HttpServlet {
 	}
 
 	private void doAction(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
+		Race race2 =  service.createNewRaceFromRequest(req);
+		service.insertRace(race2);
+		redirect(req, resp);
+		
+		/*
+	//////////////////////////////////////////////MOVERLO A RACEREPOSITORY/////////////////////////////////////////////////
+		
 		Race race = new Race();
 		race.setSpecies(req.getParameter("race"));
 		Connection conn;
@@ -69,6 +83,7 @@ public class RaceServlet extends HttpServlet {
 		}
 		
 		redirect(req, resp);
+		*/
 	}
 
 	protected void redirect(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
