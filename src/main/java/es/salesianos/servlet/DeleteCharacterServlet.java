@@ -24,7 +24,7 @@ public class DeleteCharacterServlet extends HttpServlet {
 	}
 
 	protected void redirect(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/ListCharacters.jsp");
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/index.jsp");
 		dispatcher.forward(req, resp);
 	}
 

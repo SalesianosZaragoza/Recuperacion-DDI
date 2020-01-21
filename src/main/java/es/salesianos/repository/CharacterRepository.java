@@ -1,7 +1,6 @@
 package es.salesianos.repository;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -9,10 +8,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
-import es.salesianos.util.DbQueryConstants;
+
 import es.salesianos.connection.AbstractConnection;
 import es.salesianos.connection.H2Connection;
 import es.salesianos.model.Character;
+import es.salesianos.util.DbQueryConstants;
 
 public class CharacterRepository implements Repository<Character> {
 
@@ -90,15 +90,7 @@ public class CharacterRepository implements Repository<Character> {
 	public void delete(HttpServletRequest req){
 		String parameter = req.getParameter("id");
 		Integer idCharacter = Integer.parseInt(parameter);
-		System.out.println(idCharacter);
-		Connection conn;
-		try {
-			Class.forName("org.h2.Driver");
-			conn = DriverManager.getConnection(jdbcUrl, "sa", "");
-		} catch (Exception e) {
-			e.printStackTrace();
-			throw new RuntimeException(e);
-		}
+		Connection conn = manager.open(jdbcUrl);
 		PreparedStatement preparedStatement = null;
 		try {
 			preparedStatement = conn.prepareStatement(DbQueryConstants.DELETE_CHARACTER);

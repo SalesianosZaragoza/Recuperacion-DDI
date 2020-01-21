@@ -17,6 +17,7 @@ public class UpdateCharacterServlet extends HttpServlet{
 	private static final long serialVersionUID = 1L;
 	Service<Character> service = new CharacterService();
 
+	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String parameter = req.getParameter("id");
 		Integer idCharacter = Integer.parseInt(parameter);
@@ -26,6 +27,7 @@ public class UpdateCharacterServlet extends HttpServlet{
 		redirect(req, resp);
 	}
 
+	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		Character character = service.updateDataFromRequest(req);
 		service.update(character);
@@ -38,7 +40,7 @@ public class UpdateCharacterServlet extends HttpServlet{
 		dispatcher.forward(req, resp);
 	}
 	protected void redirectToList(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/ListCharacters.jsp");
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/index.jsp");
 		dispatcher.forward(req, resp);
 	}
 }
