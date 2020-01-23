@@ -23,9 +23,6 @@ public class DeleteServlet extends HttpServlet {
 		String queryIdCharacter = req.getParameter("queryCharacter");
 		String queryCodRace = req.getParameter("queryRace");
 
-		System.out.println(queryIdCharacter);
-		System.out.println(queryCodRace);
-
 		Connection conn;
 		try {
 			Class.forName("org.h2.Driver");

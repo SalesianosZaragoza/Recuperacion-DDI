@@ -2,7 +2,7 @@ package es.salesianos.model;
 
 import es.salesianos.repository.RaceRepository;
 
-public class Character {
+public class Character  {
 
 	private Integer id;
 	private String name;

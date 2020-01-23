@@ -10,7 +10,7 @@ import org.springframework.web.context.support.SpringBeanAutowiringSupport;
 import es.salesianos.repository.Repository;
 import es.salesianos.model.Character;
 import es.salesianos.model.Race;
-
+import es.salesianos.model.RaceCharacter;
 import es.salesianos.assembler.RaceAssembler;
 
 public class RaceService implements Service{
@@ -23,6 +23,7 @@ public class RaceService implements Service{
 	
 	@Autowired
 	private Repository<Race> repository;
+	private Repository<RaceCharacter> repository2;
 	
 	public Race createNewRaceFromRequest(HttpServletRequest req) {
 		Race race = assembler.CreateRaceFromRequest(req);
@@ -36,8 +37,8 @@ public class RaceService implements Service{
 	
 	
 	@Override
-	public List<Race> listAllRace() {
-		return repository.listAll();
+	public List<RaceCharacter> listAllRace() {
+		return repository2.listAll();
 		
 	}
 
@@ -55,6 +56,30 @@ public class RaceService implements Service{
 	}
 	@Override
 	public List<Character> listAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void deleteCharacter(Character character) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void deleteRace(Race race) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Character updateDataFromRequest(HttpServletRequest req) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Race> listAll2() {
 		// TODO Auto-generated method stub
 		return null;
 	}

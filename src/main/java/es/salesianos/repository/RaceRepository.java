@@ -10,9 +10,10 @@ import java.util.List;
 
 
 import es.salesianos.model.Race;
+import es.salesianos.model.RaceCharacter;
 import es.salesianos.repository.Repository;
 
-public class RaceRepository extends AbstractRepository implements Repository<Race> {
+public class RaceRepository extends AbstractRepository implements Repository<RaceCharacter> {
 	
 
 	public void insert (Race raceFormulario) {
@@ -32,17 +33,18 @@ public class RaceRepository extends AbstractRepository implements Repository<Rac
 
 	}
 
-	public List<Race> listAll() {
+	public List<RaceCharacter> listAll() {
 		Connection conn = manager.open(jdbcUrl);
 		PreparedStatement preparedStatement = null;
-		ArrayList<Race> races = new ArrayList<Race>();
+		ArrayList<RaceCharacter> races = new ArrayList<RaceCharacter>();
 		try {
-			preparedStatement = conn.prepareStatement("SELECT c.name as nb,  r.species as ne* "
-							+ "FROM Character p JOIN Race r ON p.codRace = r.id");
+			preparedStatement = conn.prepareStatement("SELECT c.name as nb,  r.species as ne "
+							+ "FROM Character c JOIN Race r ON p.codRace = r.id");
 			ResultSet resultSet = preparedStatement.executeQuery();
 			while (resultSet.next()) {
-				Race race = new Race();
-				race.setSpecies(resultSet.getString("ne"));
+				RaceCharacter race = new RaceCharacter();
+				race.setRace(resultSet.getString("ne"));
+				race.setNameChar(resultSet.getString("nb"));
 				races.add(race);
 			}
 
@@ -57,17 +59,26 @@ public class RaceRepository extends AbstractRepository implements Repository<Rac
 	}
 
 	@Override
-	public Race findBy(Integer id) {
+	public RaceCharacter findBy(Integer id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 
 	@Override
-	public void update(Race user) {
+	public void update(RaceCharacter user) {
 		// TODO Auto-generated method stub
 
 	}
+
+	@Override
+	public void insert(RaceCharacter element) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+
 
 	/*public String showSpecies(Integer codRace) {
 		

@@ -38,8 +38,8 @@ public class RaceServlet extends HttpServlet {
 	}
 
 	private void doAction(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
-		Race race2 =  service.createNewRaceFromRequest(req);
-		service.insertRace(race2);
+		Race race =  service.createNewRaceFromRequest(req);
+		service.insertRace(race);
 		redirect(req, resp);
 		
 		/*
