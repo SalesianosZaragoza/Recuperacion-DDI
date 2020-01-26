@@ -25,14 +25,14 @@
 <title>Raza creada</title>
 </head>
 <body>
-	<div class="card">
-		<div class="card-body">
-			<h4 class="card-title">Raza creada</h4>
-			<p class="card-text">
-				La raza <b><%=request.getParameter("specie")%></b> ha sido creada
-			</p>
-			<a href="listraces" class="card-link">Ver el listado de razas</a>
-		</div>
-	</div>
+	<h2>
+		<span class="badge badge-success">Raza creada</span>
+	</h2>
+	<label>Raza:</label>
+	<b><%=request.getParameter("specie")%></b>
+	<form action="listraces" method="post">
+		<input class="btn btn-primary" type="submit"
+			value="Ver el listado de razas">
+	</form>
 </body>
 </html>
