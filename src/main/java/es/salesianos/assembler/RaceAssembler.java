@@ -1,8 +1,12 @@
 package es.salesianos.assembler;
 
 import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.stereotype.Component;
+
 import es.salesianos.model.Race;
 
+@Component
 public class RaceAssembler {
 
 	public Race createRaceFromRequest(HttpServletRequest request) {

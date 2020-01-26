@@ -23,33 +23,34 @@
 <title>Insertar datos del personaje o raza</title>
 </head>
 <body>
-	<div class="card-deck text-justify col-lg-6">
-		<div class="card">
-			<div class="card-body">
-				<h4 class="card-title">Insertar raza</h4>
-				<form action="insertRace" method="post">
-					<label>Raza:</label> <input type="text" name="specie"><br/> <input
-						class="btn btn-primary" type="submit" value="Insertar raza">
-				</form>
-				<a class="btn btn-success" href="listraces">Ver el listado de
-					razas</a>
-
-			</div>
-		</div>
-		<div class="card">
+	<div class="card-deck">
+		<div class="card col-lg-4 col-md-6 col-7">
 			<div class="card-body">
 				<h4 class="card-title">Insertar personaje</h4>
 				<form action="insertCharacter" method="post">
 					<label>Nombre:</label> <input type="text" name="name"> <br />
-					<label>Raza:</label> <input type="text" name="race"> <br />
-					<label>Portador:</label> <select class="custom-select" name="carrier">
+					<label>Codigo Raza:</label> <input type="text" name="race"> <br />
+					<label>Portador:</label> <select class="custom-select"
+						name="carrier">
 						<option value="SI">SI</option>
 						<option value="NO">NO</option>
-					</select> <br />
-					<input type="submit" class="btn btn-primary"
-						value="Insertar personaje"><br/><br/> <a class="btn btn-success"
-						href="listcharacters">Ver el listado de personajes</a>
+					</select> <br /> <input type="submit" class="btn btn-primary"
+						value="Insertar personaje"><br />
+					<br /> <a class="btn btn-success" href="listcharacters">Ver el
+						listado de personajes</a>
 				</form>
+			</div>
+		</div>
+		
+		<div class="card col-lg-4 col-md-6 col-7" style="height: fit-content;">
+			<div class="card-body">
+				<h4 class="card-title">Insertar raza</h4>
+				<form action="insertRace" method="post">
+					<label>Raza:</label> <input type="text" name="specie"><br />
+					<input class="btn btn-primary" type="submit" value="Insertar raza">
+				</form>
+				<a class="btn btn-success" href="listraces">Ver el listado de
+					razas</a>
 			</div>
 		</div>
 	</div>

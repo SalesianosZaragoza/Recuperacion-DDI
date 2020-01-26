@@ -13,7 +13,7 @@ import es.salesianos.connection.AbstractConnection;
 import es.salesianos.connection.H2Connection;
 import es.salesianos.model.Character;
 import es.salesianos.util.DbQueryConstants;
-
+@org.springframework.stereotype.Repository("characterRepository")
 public class CharacterRepository implements Repository<Character> {
 
 	protected static final String jdbcUrl = "jdbc:h2:file:./src/main/resources/test;INIT=RUNSCRIPT FROM 'classpath:scripts/create.sql'";

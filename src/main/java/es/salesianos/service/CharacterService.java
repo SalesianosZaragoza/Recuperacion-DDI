@@ -3,11 +3,13 @@ package es.salesianos.service;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+
 import es.salesianos.assembler.CharacterAssembler;
+import es.salesianos.model.Character;
 import es.salesianos.repository.CharacterRepository;
 import es.salesianos.repository.Repository;
-import es.salesianos.model.Character;
 
+@org.springframework.stereotype.Service("characterService")
 public class CharacterService implements Service<Character> {
 
 	private CharacterAssembler assembler = new CharacterAssembler();
@@ -39,10 +41,12 @@ public class CharacterService implements Service<Character> {
 		repository.delete(req);
 	}
 
+	@Override
 	public Character listById(Integer idCharacter) {
 		return repository.selectById(idCharacter);
 	}
 
+	@Override
 	public Character updateDataFromRequest(HttpServletRequest req) {
 		Character character = assembler.updateCharacterFromRequest(req);
 		return character;

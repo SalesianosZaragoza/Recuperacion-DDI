@@ -9,6 +9,7 @@ import es.salesianos.model.Race;
 import es.salesianos.repository.RaceRepository;
 import es.salesianos.repository.Repository;
 
+@org.springframework.stereotype.Service("raceService")
 public class RaceService implements Service<Race>{
 
 	private RaceAssembler assembler = new RaceAssembler();

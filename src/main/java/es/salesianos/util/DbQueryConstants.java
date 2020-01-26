@@ -1,5 +1,8 @@
 package es.salesianos.util;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public abstract class DbQueryConstants {
 	//SELECT
 	public static final String SELECT_ALL_CHARACTER = "SELECT * FROM personaje INNER JOIN raza "

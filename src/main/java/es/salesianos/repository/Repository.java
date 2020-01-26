@@ -3,7 +3,7 @@ package es.salesianos.repository;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
-
+@org.springframework.stereotype.Repository
 public interface Repository<E> {
 	//METODOS A IMPLEMENTAR
 	public List<E> listAll();

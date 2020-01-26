@@ -1,8 +1,12 @@
 package es.salesianos.assembler;
 
 import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.stereotype.Component;
+
 import es.salesianos.model.Character;
 
+@Component
 public class CharacterAssembler {
 
 	public Character createCharacterFromRequest(HttpServletRequest request) {

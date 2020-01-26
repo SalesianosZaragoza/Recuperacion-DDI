@@ -25,7 +25,7 @@
 <title>Lista de razas</title>
 </head>
 <body>
-	<table class="table table-striped col-lg-4">
+	<table class="table table-striped col-lg-3">
 		<thead class="thead-dark">
 			<th>ID</th>
 			<th>Raza</th>
