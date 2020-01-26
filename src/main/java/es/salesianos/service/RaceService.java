@@ -4,6 +4,9 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+
 import es.salesianos.assembler.RaceAssembler;
 import es.salesianos.model.Race;
 import es.salesianos.repository.RaceRepository;
@@ -11,8 +14,12 @@ import es.salesianos.repository.Repository;
 
 @org.springframework.stereotype.Service("raceService")
 public class RaceService implements Service<Race>{
-
+	
+	@Autowired
 	private RaceAssembler assembler = new RaceAssembler();
+	
+	@Autowired
+	@Qualifier("raceRepository")
 	private Repository<Race> repository = new RaceRepository();
 
 	@Override
