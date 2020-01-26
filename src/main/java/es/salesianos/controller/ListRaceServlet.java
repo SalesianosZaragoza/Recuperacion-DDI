@@ -1,9 +1,10 @@
-package es.salesianos.servlet;
+package es.salesianos.controller;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -11,6 +12,7 @@ import es.salesianos.model.Race;
 import es.salesianos.service.RaceService;
 import es.salesianos.service.Service;
 
+@Controller
 public class ListRaceServlet {
 
 	@Autowired

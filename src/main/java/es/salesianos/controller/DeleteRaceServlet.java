@@ -1,4 +1,4 @@
-package es.salesianos.servlet;
+package es.salesianos.controller;
 
 import java.io.IOException;
 
@@ -12,29 +12,19 @@ import es.salesianos.model.Race;
 import es.salesianos.service.RaceService;
 import es.salesianos.service.Service;
 
-public class RaceServlet extends HttpServlet {
+public class DeleteRaceServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
-	private Service<Race> service = new RaceService();
-
-	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		doAction(req, resp);
-	}
+	private Service<Race> service = new RaceService(); 
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		doAction(req, resp);
-	}
-
-	private void doAction(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
-		Race race = service.createNewDataFromRequest(req);
-		service.insert(race);
+		service.delete(req);
 		redirect(req, resp);
 	}
 
 	protected void redirect(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/welcomeRace.jsp");
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/index.jsp");
 		dispatcher.forward(req, resp);
 	}
 }

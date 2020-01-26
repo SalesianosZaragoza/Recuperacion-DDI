@@ -1,4 +1,4 @@
-package es.salesianos.servlet;
+package es.salesianos.controller;
 
 import java.io.IOException;
 
@@ -8,14 +8,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import es.salesianos.model.Race;
-import es.salesianos.service.RaceService;
+import es.salesianos.model.Character;
+import es.salesianos.service.CharacterService;
 import es.salesianos.service.Service;
 
-public class DeleteRaceServlet extends HttpServlet {
+public class DeleteCharacterServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
-	private Service<Race> service = new RaceService(); 
+	private Service<Character> service = new CharacterService(); 
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -27,4 +27,5 @@ public class DeleteRaceServlet extends HttpServlet {
 		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/index.jsp");
 		dispatcher.forward(req, resp);
 	}
+
 }
