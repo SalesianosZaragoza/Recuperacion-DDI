@@ -42,9 +42,6 @@
 		</c:forEach>
 	</table>
 	<br />
-	<form>
-		<input action="getindex" method="post" class="btn btn-secondary"
-			type="submit" value="Volver al inicio">
-	</form>
+	<a class="btn btn-secondary" href="index">Volver al inicio</a>
 </body>
 </html>

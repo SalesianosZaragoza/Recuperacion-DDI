@@ -32,7 +32,7 @@ public class ListCharacterController{
 		return "ListCharacters";
 	}
 	
-	@PostMapping(path="/getindex")
+	@PostMapping(path="/index")
 	public String getIndex() {
 		return "index";
 	}
