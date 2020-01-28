@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import es.salesianos.model.Character;
@@ -24,9 +25,11 @@ public class UpdateCharacterController{
 		service.update(character);
 		return "ListCharacters";
 	}
-	@GetMapping(path="/updateCharacter")
-	public ModelAndView getupdateCharacterPage(@ModelAttribute Character character) {
+	
+	@GetMapping("updateCharacter")
+	protected ModelAndView editOwner(@RequestParam Integer idCharacter) {
 		ModelAndView model = new ModelAndView("updateCharacter");
+		Character character = service.listAll().get(idCharacter);
 		model.addObject("character", character);
 		return model;
 	}

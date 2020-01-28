@@ -50,10 +50,10 @@
 		</c:forEach>
 	</table>
 	<br />
-	<form>
+	<form:form>
 		<input action="index" method="post" class="btn btn-secondary"
 			type="submit" value="Volver al inicio">
-	</form>
+	</form:form>
 
 </body>
 </html>
