@@ -4,9 +4,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Error page</title>
+<title>Error</title>
 </head>
 <body>
-<h2>Oh no!! Ha habido un error!!</h2>
+<h2>ERROR #1999</h2>
+<h3>Este error sale por que le ha dado la gana</h3>
 </body>
 </html>
