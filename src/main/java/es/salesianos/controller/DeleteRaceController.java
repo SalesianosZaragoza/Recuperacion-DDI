@@ -18,8 +18,8 @@ public class DeleteRaceController{
 	private Service<Race> service = new RaceService(); 
 
 	@GetMapping("deleteRace")
-	protected String deleteCharacter(@RequestParam Integer idRace){
+	protected String deleteCharacter(@RequestParam("id") Integer idRace){
 		service.delete(idRace);
-		return "index";
+		return "ListRaces";
 	}
 }

@@ -21,7 +21,7 @@ public class UpdateCharacterController{
 	Service<Character> service = new CharacterService();
 
 	@GetMapping("/updateCharacter")
-	protected ModelAndView editOwner(@RequestParam Integer idCharacter) {
+	protected ModelAndView editOwner(@RequestParam("id") Integer idCharacter) {
 		ModelAndView model = new ModelAndView("updateCharacter");
 		Character character = service.listAll().get(idCharacter);
 		model.addObject("character", character);

@@ -23,7 +23,7 @@ public class CharacterController {
 		return "welcomeCharacter";
 	}
 	@GetMapping(path="index")
-	public String getIndexPàge()  {
+	public String getIndexPage()  {
 		return "index";
 	}
 }
