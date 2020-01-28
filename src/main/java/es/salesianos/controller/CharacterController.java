@@ -22,8 +22,9 @@ public class CharacterController {
 		service.insert(character);
 		return "welcomeCharacter";
 	}
+	
 	@GetMapping(path="index")
-	public String getIndexPage()  {
+	public String getIndexPage() {
 		return "index";
 	}
 }
