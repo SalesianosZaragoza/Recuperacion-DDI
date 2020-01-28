@@ -1,46 +1,29 @@
 package es.salesianos.controller;
 
-import java.io.IOException;
-
-import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import es.salesianos.model.Character;
 import es.salesianos.service.CharacterService;
 import es.salesianos.service.Service;
 
+@Controller
+public class CharacterServlet {
 
-public class CharacterServlet extends HttpServlet {
-
-	private static final long serialVersionUID = 1L;
 	@Autowired
 	@Qualifier("characterService")
 	private Service<Character> service = new CharacterService(); 
 
-	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		doAction(req, resp);
-	}
-
-	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		doAction(req, resp);
-	}
-
-	private void doAction(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
-		Character character = service.createNewDataFromRequest(req);
+	@PostMapping(path="/insertCharacter")
+	public String saveCharacter(Character character)  {
 		service.insert(character);
-		redirect(req, resp);
+		return "welcomeCharacter";
+	}
+	@PostMapping(path = "/index")
+	public String getIndexPage() {
+		return "index";
 	}
 
-	protected void redirect(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/welcomeCharacter.jsp");
-		dispatcher.forward(req, resp);
-	}
 }

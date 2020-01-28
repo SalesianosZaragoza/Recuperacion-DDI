@@ -42,6 +42,9 @@
 		</c:forEach>
 	</table>
 	<br />
-	<a class="btn btn-secondary" href="index.jsp">Volver al inicio</a>
+	<form>
+		<input action="index" method="post" class="btn btn-secondary"
+			type="submit" value="Volver al inicio">
+	</form>
 </body>
 </html>

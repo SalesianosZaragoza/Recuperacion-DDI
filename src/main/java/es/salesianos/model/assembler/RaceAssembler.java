@@ -1,4 +1,4 @@
-package es.salesianos.assembler;
+package es.salesianos.model.assembler;
 
 import javax.servlet.http.HttpServletRequest;
 

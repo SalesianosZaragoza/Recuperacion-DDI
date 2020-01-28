@@ -29,13 +29,15 @@
 				<h4 class="card-title">Insertar personaje</h4>
 				<form action="insertCharacter" method="post">
 					<label>Nombre:</label> <input type="text" name="name"> <br />
-					<label>Codigo Raza:</label> <input type="text" name="race">
-					<br /> <label>Portador:</label> <select class="custom-select"
+					 <label>Portador:</label> <select class="custom-select"
 						name="carrier">
 						<option value="SI">SI</option>
 						<option value="NO">NO</option>
-					</select> <br /> <input type="submit" class="btn btn-primary"
-						value="Insertar personaje"><br /> <br />
+					</select> 
+					<br />
+					<label>Codigo Raza:</label> <input type="text" name="race">
+					<br /><input type="submit" class="btn btn-primary"
+						value="Insertar personaje"><br />
 				</form>
 				<form action="listcharacters" method="post">
 					<input class="btn btn-success" type="submit"

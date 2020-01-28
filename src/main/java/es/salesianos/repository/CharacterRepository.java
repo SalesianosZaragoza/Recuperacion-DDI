@@ -7,8 +7,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
-
 import es.salesianos.connection.AbstractConnection;
 import es.salesianos.connection.H2Connection;
 import es.salesianos.model.Character;
@@ -87,9 +85,7 @@ public class CharacterRepository implements Repository<Character> {
 	}
 
 	@Override
-	public void delete(HttpServletRequest req){
-		String parameter = req.getParameter("id");
-		Integer idCharacter = Integer.parseInt(parameter);
+	public void delete(Integer idCharacter){
 		Connection conn = manager.open(jdbcUrl);
 		PreparedStatement preparedStatement = null;
 		try {

@@ -1,8 +1,6 @@
 package es.salesianos.repository;
 
 import java.util.List;
-
-import javax.servlet.http.HttpServletRequest;
 @org.springframework.stereotype.Repository
 public interface Repository<E> {
 	//METODOS A IMPLEMENTAR
@@ -12,7 +10,7 @@ public interface Repository<E> {
 
 	public void update(E element);
 	
-	public void delete(HttpServletRequest req);
+	public void delete(Integer id);
 
 	E selectById(Integer idCharacter);
 }

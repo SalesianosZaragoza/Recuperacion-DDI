@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+    pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+    <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ page import="java.io.*,java.util.*,es.salesianos.model.*"%>
 
 <!DOCTYPE html>
@@ -30,7 +31,7 @@
 		<span class="badge badge-warning">Actualizar personaje</span>
 	</h2>
 	<br />
-	<form class="col-lg-2 col-md-2 col-2" action="updateCharacter?id=${character.id}" method="post">
+	<form:form class="col-lg-2 col-md-2 col-2" action="updateCharacter?id=${character.id}" method="post" modelAttribute="character">
 		<!-- al llamarlo por post entraremos al servlet por post  -->
 		<label>ID: </label> <input type="text" name="id"
 			value="${character.id}" disabled="disabled"> <br /> <label>Nombre:
@@ -41,6 +42,6 @@
 		</select><br /> <label>Codigo Raza: </label> <input type="text" name="race"
 			value="${character.codRace}"> <br /> <input
 			class="btn btn-outline-primary" value="Actualizar" type="submit">
-	</form>
+	</form:form>
 </body>
 </html>

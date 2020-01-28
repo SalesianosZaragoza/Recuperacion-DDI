@@ -1,12 +1,8 @@
 package es.salesianos.service;
 
 import java.util.List;
-
-import javax.servlet.http.HttpServletRequest;
 @org.springframework.stereotype.Service
 public interface Service<E> {
-	
-	public E createNewDataFromRequest(HttpServletRequest req);
 
 	public void insert(E user);
 
@@ -14,10 +10,8 @@ public interface Service<E> {
 	
 	public void update(E element);
 	
-	public void delete(HttpServletRequest req);
+	public void delete(Integer id);
 
 	public E listById(Integer id);
-
-	public E updateDataFromRequest(HttpServletRequest req);
 
 }

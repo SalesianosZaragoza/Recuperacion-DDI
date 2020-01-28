@@ -2,31 +2,19 @@ package es.salesianos.service;
 
 import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 
-import es.salesianos.assembler.RaceAssembler;
 import es.salesianos.model.Race;
 import es.salesianos.repository.RaceRepository;
 import es.salesianos.repository.Repository;
 
 @org.springframework.stereotype.Service("raceService")
 public class RaceService implements Service<Race>{
-	
-	@Autowired
-	private RaceAssembler assembler = new RaceAssembler();
-	
+
 	@Autowired
 	@Qualifier("raceRepository")
 	private Repository<Race> repository = new RaceRepository();
-
-	@Override
-	public Race createNewDataFromRequest(HttpServletRequest req) {
-		Race race = assembler.createRaceFromRequest(req);
-		return race;
-	}
 
 	@Override
 	public void insert(Race race) {
@@ -44,8 +32,8 @@ public class RaceService implements Service<Race>{
 	}
 
 	@Override
-	public void delete(HttpServletRequest req){
-		repository.delete(req);
+	public void delete(Integer id){
+		repository.delete(id);
 	}
 
 	@Override
@@ -53,9 +41,4 @@ public class RaceService implements Service<Race>{
 		return repository.selectById(id);
 	}
 
-	@Override
-	public Race updateDataFromRequest(HttpServletRequest req) {
-		Race race= assembler.updateRaceFromRequest(req);
-		return race;
-	}
 }

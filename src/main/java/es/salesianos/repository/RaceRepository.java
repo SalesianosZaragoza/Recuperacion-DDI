@@ -7,14 +7,13 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
-
 import es.salesianos.connection.AbstractConnection;
 import es.salesianos.connection.H2Connection;
 import es.salesianos.model.Race;
 import es.salesianos.util.DbQueryConstants;
 @org.springframework.stereotype.Repository("raceRepository")
 public class RaceRepository implements Repository<Race>{
+	
 	protected static final String jdbcUrl = "jdbc:h2:file:./src/main/resources/test;INIT=RUNSCRIPT FROM 'classpath:scripts/create.sql'";
 	protected AbstractConnection manager = new H2Connection();
 
@@ -78,13 +77,11 @@ public class RaceRepository implements Repository<Race>{
 	}
 
 	@Override
-	public void delete(HttpServletRequest req){
-		String parameter = req.getParameter("id");
-		Integer idRace = Integer.parseInt(parameter);
+	public void delete(Integer idRace){
 		Connection conn = manager.open(jdbcUrl);
 		PreparedStatement preparedStatement = null;
 		try {
-			deleteCharacterbyRace(req);
+			deleteCharacterbyRace(idRace);
 			preparedStatement = conn.prepareStatement(DbQueryConstants.DELETE_RACE);
 			preparedStatement.setInt(1, idRace);
 			preparedStatement.executeUpdate();
@@ -122,14 +119,12 @@ public class RaceRepository implements Repository<Race>{
 		}
 		return race;
 	}
-	public void deleteCharacterbyRace(HttpServletRequest req){
-		String parameter = req.getParameter("id");
-		Integer idRace = Integer.parseInt(parameter);
+	public void deleteCharacterbyRace(Integer id){
 		Connection conn = manager.open(jdbcUrl);
 		PreparedStatement preparedStatement = null;
 		try {
 			preparedStatement = conn.prepareStatement(DbQueryConstants.DELETE_CHARACTER_BY_RACE);
-			preparedStatement.setInt(1, idRace);
+			preparedStatement.setInt(1, id);
 			preparedStatement.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();

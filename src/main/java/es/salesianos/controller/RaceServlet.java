@@ -1,40 +1,25 @@
 package es.salesianos.controller;
 
-import java.io.IOException;
-
-import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import es.salesianos.model.Race;
 import es.salesianos.service.RaceService;
 import es.salesianos.service.Service;
 
-public class RaceServlet extends HttpServlet {
+@Controller
+public class RaceServlet{
 
-	private static final long serialVersionUID = 1L;
+	@Autowired
+	@Qualifier("raceService")
 	private Service<Race> service = new RaceService();
 
-	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		doAction(req, resp);
-	}
-
-	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		doAction(req, resp);
-	}
-
-	private void doAction(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
-		Race race = service.createNewDataFromRequest(req);
+	@PostMapping(path="/insertRace")
+	public String saveRace(Race race)  {
 		service.insert(race);
-		redirect(req, resp);
+		return "welcomeRace";
 	}
 
-	protected void redirect(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/welcomeRace.jsp");
-		dispatcher.forward(req, resp);
-	}
 }
