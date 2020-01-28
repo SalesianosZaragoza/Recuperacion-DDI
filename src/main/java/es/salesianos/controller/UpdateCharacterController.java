@@ -20,18 +20,18 @@ public class UpdateCharacterController{
 	@Qualifier("characterService")
 	Service<Character> service = new CharacterService();
 
-	@PostMapping(path="/updateCharacter")
-	public String updateCharacter(@ModelAttribute Character character) {
-		service.update(character);
-		return "ListCharacters";
-	}
-	
-	@GetMapping("updateCharacter")
+	@GetMapping("/updateCharacter")
 	protected ModelAndView editOwner(@RequestParam Integer idCharacter) {
 		ModelAndView model = new ModelAndView("updateCharacter");
 		Character character = service.listAll().get(idCharacter);
 		model.addObject("character", character);
 		return model;
+	}
+	
+	@PostMapping(path="/updateCharacter")
+	public String updateCharacter(@ModelAttribute Character character) {
+		service.update(character);
+		return "ListCharacters";
 	}
 
 }

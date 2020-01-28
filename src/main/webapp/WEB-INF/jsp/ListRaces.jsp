@@ -43,7 +43,7 @@
 	</table>
 	<br />
 	<form>
-		<input action="index" method="post" class="btn btn-secondary"
+		<input action="getindex" method="post" class="btn btn-secondary"
 			type="submit" value="Volver al inicio">
 	</form>
 </body>

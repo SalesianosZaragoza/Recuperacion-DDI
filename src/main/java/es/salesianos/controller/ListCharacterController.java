@@ -31,4 +31,9 @@ public class ListCharacterController{
 	public String getListCharacterPage() {
 		return "ListCharacters";
 	}
+	
+	@PostMapping(path="/getindex")
+	public String getIndex() {
+		return "index";
+	}
 }
