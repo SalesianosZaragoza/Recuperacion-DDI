@@ -10,7 +10,7 @@ import es.salesianos.service.CharacterService;
 import es.salesianos.service.Service;
 
 @Controller
-public class CharacterServlet {
+public class CharacterController {
 
 	@Autowired
 	@Qualifier("characterService")

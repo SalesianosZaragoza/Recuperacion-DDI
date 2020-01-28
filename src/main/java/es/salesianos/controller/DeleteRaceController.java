@@ -3,23 +3,23 @@ package es.salesianos.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import es.salesianos.model.Race;
 import es.salesianos.service.RaceService;
 import es.salesianos.service.Service;
 
 @Controller
-public class RaceServlet{
-
+public class DeleteRaceController{
+	
 	@Autowired
 	@Qualifier("raceService")
-	private Service<Race> service = new RaceService();
+	private Service<Race> service = new RaceService(); 
 
-	@PostMapping(path="/insertRace")
-	public String saveRace(Race race)  {
-		service.insert(race);
-		return "welcomeRace";
+	@GetMapping("deleteRace")
+	protected String deleteCharacter(@RequestParam Integer idRace){
+		service.delete(idRace);
+		return "index";
 	}
-
 }
