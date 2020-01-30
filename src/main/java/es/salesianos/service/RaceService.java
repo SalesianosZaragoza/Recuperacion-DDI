@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 
 import es.salesianos.model.Race;
-import es.salesianos.repository.RaceRepository;
 import es.salesianos.repository.Repository;
 
 @org.springframework.stereotype.Service("raceService")
@@ -14,7 +13,7 @@ public class RaceService implements Service<Race>{
 
 	@Autowired
 	@Qualifier("raceRepository")
-	private Repository<Race> repository = new RaceRepository();
+	private Repository<Race> repository;
 
 	@Override
 	public void insert(Race race) {

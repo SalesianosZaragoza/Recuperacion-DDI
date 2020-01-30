@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import es.salesianos.model.Race;
-import es.salesianos.service.RaceService;
 import es.salesianos.service.Service;
 
 @Controller
@@ -18,7 +17,7 @@ public class ListRaceController {
 
 	@Autowired
 	@Qualifier("raceService")
-	private Service<Race> service = new RaceService();
+	private Service<Race> service;
 
 	@PostMapping(path = "/listraces")
 	private ModelAndView listAllRaces() {

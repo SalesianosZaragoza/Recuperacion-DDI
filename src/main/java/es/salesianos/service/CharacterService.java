@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 
 import es.salesianos.model.Character;
-import es.salesianos.repository.CharacterRepository;
 import es.salesianos.repository.Repository;
 
 @org.springframework.stereotype.Service("characterService")
@@ -14,7 +13,7 @@ public class CharacterService implements Service<Character> {
 
 	@Autowired
 	@Qualifier("characterRepository")
-	private Repository<Character> repository = new CharacterRepository();
+	private Repository<Character> repository;
 
 	@Override
 	public void insert(Character character) {

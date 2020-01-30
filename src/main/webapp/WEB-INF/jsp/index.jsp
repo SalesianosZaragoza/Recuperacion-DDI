@@ -33,7 +33,7 @@
 						class="custom-select col-lg-6 col-md-6 col-6" name="carrier">
 						<option value="SI">SI</option>
 						<option value="NO">NO</option>
-					</select> <br /> <label>Codigo Raza:</label> <input type="text" name="race">
+					</select> <br /> <label>Codigo Raza:</label> <input type="text" name="codRace">
 					<br />
 					<input type="submit" class="btn btn-primary"
 						value="Insertar personaje"><br />

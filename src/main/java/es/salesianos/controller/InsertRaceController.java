@@ -10,7 +10,7 @@ import es.salesianos.service.RaceService;
 import es.salesianos.service.Service;
 
 @Controller
-public class RaceController{
+public class InsertRaceController{
 
 	@Autowired
 	@Qualifier("raceService")

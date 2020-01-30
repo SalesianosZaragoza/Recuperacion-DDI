@@ -39,7 +39,7 @@
 		<label>Portador Anillo:</label><select class="custom-select" name="carrier">
 			<option value="SI">SI</option>
 			<option value="NO">NO</option>
-		</select><br /> <label>Codigo Raza: </label> <input type="text" name="race"
+		</select><br /> <label>Codigo Raza: </label> <input type="text" name="codRace"
 			value="${character.codRace}"> <br /> <input
 			class="btn btn-outline-primary" value="Actualizar" type="submit">
 	</form:form>

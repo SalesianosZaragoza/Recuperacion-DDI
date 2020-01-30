@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import es.salesianos.model.Character;
-import es.salesianos.service.CharacterService;
 import es.salesianos.service.Service;
 
 @Controller
@@ -18,7 +17,7 @@ public class UpdateCharacterController{
 	
 	@Autowired
 	@Qualifier("characterService")
-	Service<Character> service = new CharacterService();
+	Service<Character> service;
 
 	@GetMapping("/updateCharacter")
 	protected ModelAndView editCharacter(@RequestParam("id") Integer idCharacter) {

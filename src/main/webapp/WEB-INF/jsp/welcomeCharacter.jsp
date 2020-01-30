@@ -35,7 +35,7 @@
 	<b><%=request.getParameter("carrier")%></b>
 	<br />
 	<label>Cod. Raza:</label>
-	<b><%=request.getParameter("race")%></b>
+	<b><%=request.getParameter("codRace")%></b>
 	<br />
 	<form action="listcharacters" method="post">
 		<input class="btn btn-primary" type="submit"
