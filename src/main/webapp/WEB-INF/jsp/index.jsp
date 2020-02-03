@@ -36,8 +36,9 @@
 					</select> <br /> <label>Codigo Raza:</label> <input type="text" name="codRace">
 					<br />
 					<input type="submit" class="btn btn-primary"
-						value="Insertar personaje"><br />
+						value="Insertar personaje">
 				</form>
+				<br />
 				<form action="listcharacters" method="post">
 					<input class="btn btn-success" type="submit"
 						value="Ver el listado de personajes">
@@ -52,6 +53,7 @@
 					<label>Raza:</label> <input type="text" name="specie"><br />
 					<input class="btn btn-primary" type="submit" value="Insertar raza">
 				</form>
+				<br />
 				<form action="listraces" method="post">
 					<input class="btn btn-success" type="submit"
 						value="Ver el listado de razas">

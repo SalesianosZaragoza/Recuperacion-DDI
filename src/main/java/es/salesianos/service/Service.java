@@ -1,7 +1,7 @@
 package es.salesianos.service;
 
 import java.util.List;
-@org.springframework.stereotype.Service
+
 public interface Service<E> {
 
 	public void insert(E user);

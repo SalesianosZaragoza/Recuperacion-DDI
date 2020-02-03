@@ -1,7 +1,7 @@
 package es.salesianos.repository;
 
 import java.util.List;
-@org.springframework.stereotype.Repository
+
 public interface Repository<E> {
 	//METODOS A IMPLEMENTAR
 	public List<E> listAll();
