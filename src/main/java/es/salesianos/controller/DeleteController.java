@@ -15,21 +15,21 @@ public class DeleteController {
 
 	@Autowired
 	@Qualifier("characterService")
-	private Service<Character> serviceCharacter;
+	private Service<Character> characterService;
 	
 	@Autowired
 	@Qualifier("raceService")
-	private Service<Race> serviceRace;
+	private Service<Race> raceService;
 	
 	@GetMapping("deleteCharacter")
 	protected String deleteCharacter(@RequestParam("id") Integer idCharacter){
-		serviceCharacter.delete(idCharacter);
+		characterService.delete(idCharacter);
 		return "ListCharacters";
 	}
 	
 	@GetMapping("deleteRace")
 	protected String deleteRace(@RequestParam("id") Integer idRace){
-		serviceRace.delete(idRace);
+		raceService.delete(idRace);
 		return "ListRaces";
 	}
 }

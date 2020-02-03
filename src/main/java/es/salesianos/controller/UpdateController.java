@@ -13,7 +13,7 @@ import es.salesianos.model.Character;
 import es.salesianos.service.Service;
 
 @Controller
-public class UpdateCharacterController{
+public class UpdateController{
 	
 	@Autowired
 	@Qualifier("characterService")
