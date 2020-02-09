@@ -13,8 +13,7 @@ import es.salesianos.model.Race;
 import es.salesianos.util.DbQueryConstants;
 @org.springframework.stereotype.Repository("raceRepository")
 public class RaceRepository implements Repository<Race>{
-	
-	protected static final String jdbcUrl = "jdbc:h2:file:./src/main/resources/test;INIT=RUNSCRIPT FROM 'classpath:scripts/create.sql'";
+
 	protected AbstractConnection manager = new H2Connection();
 
 	@Override
