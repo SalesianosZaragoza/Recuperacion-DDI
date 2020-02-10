@@ -24,7 +24,7 @@ public class ListController{
 	private Service<Race> raceService;
 
 	@PostMapping(path = "/listcharacters")
-	private ModelAndView listAllCharacters() {
+	protected ModelAndView listAllCharacters() {
 		List<Character> characters = characterService.listAll();
 		ModelAndView model = new ModelAndView("ListCharacters");
 		model.addObject("listOfCharacters", characters);
@@ -32,7 +32,7 @@ public class ListController{
 	}
 	
 	@PostMapping(path = "/listraces")
-	private ModelAndView listAllRaces() {
+	protected ModelAndView listAllRaces() {
 		List<Race> races = raceService.listAll();
 		ModelAndView model = new ModelAndView("ListRaces");
 		model.addObject("listOfRaces", races);

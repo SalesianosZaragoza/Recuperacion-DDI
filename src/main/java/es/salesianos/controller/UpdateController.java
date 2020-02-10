@@ -16,6 +16,9 @@ import es.salesianos.service.Service;
 public class UpdateController{
 	
 	@Autowired
+	ListController controller;
+	
+	@Autowired
 	@Qualifier("characterService")
 	Service<Character> service;
 
@@ -28,9 +31,9 @@ public class UpdateController{
 	}
 	
 	@PostMapping(path="/updateCharacter")
-	public String updateCharacter(@ModelAttribute Character character) {
+	protected ModelAndView updateCharacter(@ModelAttribute Character character) {
 		service.update(character);
-		return "ListCharacters";
+		return controller.listAllCharacters();
 	}
 
 }

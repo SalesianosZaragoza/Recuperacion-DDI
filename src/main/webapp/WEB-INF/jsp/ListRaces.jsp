@@ -25,22 +25,28 @@
 <title>Lista de razas</title>
 </head>
 <body>
-	<table class="table table-striped col-lg-3">
-		<thead class="thead-dark">
-			<th>ID</th>
-			<th>Raza</th>
-			<th>Eliminar</th>
-		</thead>
+	<c:if test="${empty listOfRaces}">
+		<strong>La tabla de razas esta vacia</strong>
+		<br />
+	</c:if>
+	<c:if test="${not empty listOfRaces}">
+		<table class="table table-striped col-lg-3">
+			<thead class="thead-dark">
+				<th>ID</th>
+				<th>Raza</th>
+				<th>Eliminar</th>
+			</thead>
 
-		<c:forEach items="${listOfRaces}" var="race">
-			<tr>
-				<td>${race.id}</td>
-				<td>${race.specie}</td>
-				<td><a class="btn btn-outline-danger"
-					href="/deleteRace?id=${race.id}">Eliminar</a></td>
-			</tr>
-		</c:forEach>
-	</table>
+			<c:forEach items="${listOfRaces}" var="race">
+				<tr>
+					<td>${race.id}</td>
+					<td>${race.specie}</td>
+					<td><a class="btn btn-outline-danger"
+						href="/deleteRace?id=${race.id}">Eliminar</a></td>
+				</tr>
+			</c:forEach>
+		</table>
+	</c:if>
 	<br />
 	<a class="btn btn-secondary" href="index">Volver al inicio</a>
 </body>

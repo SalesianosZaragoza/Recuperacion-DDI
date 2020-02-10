@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
 import es.salesianos.model.Character;
 import es.salesianos.model.Race;
@@ -14,6 +15,9 @@ import es.salesianos.service.Service;
 public class DeleteController {
 
 	@Autowired
+	ListController controller;
+	
+	@Autowired
 	@Qualifier("characterService")
 	private Service<Character> characterService;
 	
@@ -22,14 +26,14 @@ public class DeleteController {
 	private Service<Race> raceService;
 	
 	@GetMapping("deleteCharacter")
-	protected String deleteCharacter(@RequestParam("id") Integer idCharacter){
+	protected ModelAndView deleteCharacter(@RequestParam("id") Integer idCharacter){
 		characterService.delete(idCharacter);
-		return "ListCharacters";
+		return controller.listAllCharacters();
 	}
 	
 	@GetMapping("deleteRace")
-	protected String deleteRace(@RequestParam("id") Integer idRace){
+	protected ModelAndView deleteRace(@RequestParam("id") Integer idRace){
 		raceService.delete(idRace);
-		return "ListRaces";
+		return controller.listAllRaces();
 	}
 }

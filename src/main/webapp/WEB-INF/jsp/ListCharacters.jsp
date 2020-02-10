@@ -25,30 +25,36 @@
 <title>Lista de personajes</title>
 </head>
 <body>
-	<table class="table table-striped col-lg-6">
-		<thead class="thead-dark">
-			<th>ID</th>
-			<th>Nombre</th>
-			<th>Portador</th>
-			<th>Cod. Raza</th>
-			<th>Eliminar</th>
-			<th>Actualizar</th>
-		</thead>
+	<c:if test="${empty listOfCharacters}">
+		<strong>La tabla de personajes esta vacia</strong>
+		<br />
+	</c:if>
+	<c:if test="${not empty listOfCharacters}">
+		<table class="table table-striped col-lg-6">
+			<thead class="thead-dark">
+				<th>ID</th>
+				<th>Nombre</th>
+				<th>Portador</th>
+				<th>Cod. Raza</th>
+				<th>Eliminar</th>
+				<th>Actualizar</th>
+			</thead>
 
-		<c:forEach items="${listOfCharacters}" var="character">
-			<tr>
-				<td>${character.id}</td>
-				<td>${character.name}</td>
-				<td>${character.carrier}</td>
-				<td>${character.codRace}</td>
+			<c:forEach items="${listOfCharacters}" var="character">
+				<tr>
+					<td>${character.id}</td>
+					<td>${character.name}</td>
+					<td>${character.carrier}</td>
+					<td>${character.codRace}</td>
 
-				<td><a class="btn btn-outline-danger"
-					href="/deleteCharacter?id=${character.id}">Eliminar</a></td>
-				<td><a class="btn btn-outline-warning"
-					href="/updateCharacter?id=${character.id}">Actualizar</a></td>
-			</tr>
-		</c:forEach>
-	</table>
+					<td><a class="btn btn-outline-danger"
+						href="/deleteCharacter?id=${character.id}">Eliminar</a></td>
+					<td><a class="btn btn-outline-warning"
+						href="/updateCharacter?id=${character.id}">Actualizar</a></td>
+				</tr>
+			</c:forEach>
+		</table>
+	</c:if>
 	<br />
 	<a class="btn btn-secondary" href="index">Volver al inicio</a>
 </body>
