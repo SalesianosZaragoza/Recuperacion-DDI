@@ -2,7 +2,7 @@ package es.salesianos.model;
 
 public class Race {
 	private Integer id;
-	private String race;
+	private String specie;
 
 	public Integer getId() {
 		return id;
@@ -12,12 +12,12 @@ public class Race {
 		this.id = id;
 	}
 
-	public String getRace() {
-		return race;
+	public String getSpecie() {
+		return specie;
 	}
 
-	public void setRace(String race) {
-		this.race = race;
+	public void setSpecie(String specie) {
+		this.specie = specie;
 	}
 	
 }
