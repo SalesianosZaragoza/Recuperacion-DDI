@@ -10,16 +10,18 @@ import java.util.List;
 import es.salesianos.connection.AbstractConnection;
 import es.salesianos.connection.H2Connection;
 import es.salesianos.model.Race;
+import es.salesianos.sql.DbSqlQuery;
 
 @org.springframework.stereotype.Repository(value = "raceRepository")
 public class RaceRepository implements Repository<Race> {
 	private AbstractConnection manager = new H2Connection();
 
+	@Override
 	public void insert(Race race) {
 		Connection conn = manager.open(Repository.jdbcUrl);
 		PreparedStatement preparedStatement = null;
 		try {
-			preparedStatement = conn.prepareStatement("INSERT INTO RAZA (especie)" + "VALUES (?)");
+			preparedStatement = conn.prepareStatement(DbSqlQuery.INSERT_RACE);
 			preparedStatement.setString(1, race.getSpecie());
 			preparedStatement.executeUpdate();
 		} catch (SQLException e) {
@@ -31,12 +33,13 @@ public class RaceRepository implements Repository<Race> {
 		}
 	}
 
+	@Override
 	public List<Race> listAll() {
 		Connection conn = manager.open(Repository.jdbcUrl);
 		PreparedStatement preparedStatement = null;
 		ArrayList<Race> races = new ArrayList<Race>();
 		try {
-			preparedStatement = conn.prepareStatement("SELECT * FROM RAZA");
+			preparedStatement = conn.prepareStatement(DbSqlQuery.SELECT_RACES);
 			ResultSet resultSet = preparedStatement.executeQuery();
 			while (resultSet.next()) {
 				Race race = new Race();
@@ -56,12 +59,13 @@ public class RaceRepository implements Repository<Race> {
 		return races;
 	}
 
+	@Override
 	public Race findById(Integer id) {
 		Connection conn = manager.open(Repository.jdbcUrl);
 		PreparedStatement preparedStatement = null;
 		Race race;
 		try {
-			preparedStatement = conn.prepareStatement("SELECT * FROM RAZA WHERE id=?");
+			preparedStatement = conn.prepareStatement(DbSqlQuery.SELECT_RACE_BY_ID);
 			preparedStatement.setInt(1, id);
 			ResultSet resultSet = preparedStatement.executeQuery();
 			resultSet.next();
@@ -79,13 +83,31 @@ public class RaceRepository implements Repository<Race> {
 		return race;
 	}
 
+	@Override
 	public void update(Race race) {
 		Connection conn = manager.open(Repository.jdbcUrl);
 		PreparedStatement preparedStatement = null;
 		try {
-			preparedStatement = conn.prepareStatement("UPDATE RAZA SET especie=? WHERE id=?");
+			preparedStatement = conn.prepareStatement(DbSqlQuery.UPDATE_RACE);
 			preparedStatement.setString(1, race.getSpecie());
 			preparedStatement.setInt(2, race.getId());
+			preparedStatement.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new RuntimeException(e);
+		} finally {
+			manager.close(preparedStatement);
+			manager.close(conn);
+		}
+	}
+
+	@Override
+	public void delete(Integer idRace) {
+		Connection conn = manager.open(jdbcUrl);
+		PreparedStatement preparedStatement = null;
+		try {
+			preparedStatement = conn.prepareStatement(DbSqlQuery.DELETE_RACE);
+			preparedStatement.setInt(1, idRace);
 			preparedStatement.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();

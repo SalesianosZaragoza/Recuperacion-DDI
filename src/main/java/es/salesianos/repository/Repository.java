@@ -13,4 +13,6 @@ public interface Repository<E> {
 
 	public E findById(Integer id);
 
+	public void delete(Integer id);
+
 }

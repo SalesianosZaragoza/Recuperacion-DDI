@@ -2,34 +2,40 @@ package es.salesianos.service;
 
 import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 
-import es.salesianos.assembler.CharacterAssembler;
 import es.salesianos.model.Character;
-import es.salesianos.repository.CharacterRepository;
+import es.salesianos.repository.Repository;
 
 @org.springframework.stereotype.Service("CharacterService")
 public class CharacterService implements Service<Character> {
-	private CharacterAssembler assembler = new CharacterAssembler();
-	private CharacterRepository repository = new CharacterRepository();
 
-	public Character createNewFromRequest(HttpServletRequest req) {
-		Character character = assembler.createCharacterFromRequest(req);
-		return character;
-	}
+	@Autowired
+	@Qualifier("characterRepository")
+	private Repository<Character> repository;
 
+	@Override
 	public void insert(Character character) {
 		repository.insert(character);
 	}
 
+	@Override
 	public List<Character> listAll() {
 		return repository.listAll();
 	}
 
+	@Override
 	public void update(Character character) {
 		repository.update(character);
 	}
 
+	@Override
+	public void delete(Integer id) {
+		repository.delete(id);
+	}
+
+	@Override
 	public Character findById(Integer id) {
 		return repository.findById(id);
 	}

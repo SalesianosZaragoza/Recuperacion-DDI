@@ -7,11 +7,11 @@
 		<title>Formulario</title>
 	</head>
 	<body style="text-align: center; margin-top: 15px">
-		<form action="welcomeRace" method="post">
+		<form action="insertRace" method="post">
 			<span>Raza:</span> <input type="text" name="specie"> &nbsp; <input type="submit" value="Insertar raza">
 		</form>
 		<br />
-		<form action="welcomeCharacter" method="post">
+		<form action="insertCharacter" method="post">
 			<span>Nombre:</span> <input type="text" name="name"> &nbsp; <span>Raza:</span>
 			<input type="number" name="codRace" min="0"> &nbsp; <span>Portador:</span>
 			<select name="holder">
