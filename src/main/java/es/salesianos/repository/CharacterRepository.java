@@ -7,12 +7,16 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import es.salesianos.connection.AbstractConnection;
+import es.salesianos.connection.H2Connection;
 import es.salesianos.model.Character;
 
-public class CharacterRepository extends AbstractRepository implements Repository<Character> {
+@org.springframework.stereotype.Repository("characterRepository")
+public class CharacterRepository implements Repository<Character> {
+	private AbstractConnection manager = new H2Connection();
 
 	public void insert(Character character) {
-		Connection conn = manager.open(jdbcUrl);
+		Connection conn = manager.open(Repository.jdbcUrl);
 		PreparedStatement preparedStatement = null;
 		try {
 			preparedStatement = conn
@@ -31,7 +35,7 @@ public class CharacterRepository extends AbstractRepository implements Repositor
 	}
 
 	public List<Character> listAll() {
-		Connection conn = manager.open(jdbcUrl);
+		Connection conn = manager.open(Repository.jdbcUrl);
 		PreparedStatement preparedStatement = null;
 		ArrayList<Character> characters = new ArrayList<Character>();
 		try {
@@ -61,7 +65,7 @@ public class CharacterRepository extends AbstractRepository implements Repositor
 	}
 
 	public Character findById(Integer id) {
-		Connection conn = manager.open(jdbcUrl);
+		Connection conn = manager.open(Repository.jdbcUrl);
 		PreparedStatement preparedStatement = null;
 		Character character;
 		try {
@@ -86,7 +90,7 @@ public class CharacterRepository extends AbstractRepository implements Repositor
 	}
 
 	public void update(Character character) {
-		Connection conn = manager.open(jdbcUrl);
+		Connection conn = manager.open(Repository.jdbcUrl);
 		PreparedStatement preparedStatement = null;
 		try {
 			preparedStatement = conn

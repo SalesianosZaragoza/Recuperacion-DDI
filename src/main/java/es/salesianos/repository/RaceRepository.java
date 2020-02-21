@@ -7,12 +7,16 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import es.salesianos.connection.AbstractConnection;
+import es.salesianos.connection.H2Connection;
 import es.salesianos.model.Race;
 
-public class RaceRepository extends AbstractRepository implements Repository<Race> {
+@org.springframework.stereotype.Repository(value = "raceRepository")
+public class RaceRepository implements Repository<Race> {
+	private AbstractConnection manager = new H2Connection();
 
 	public void insert(Race race) {
-		Connection conn = manager.open(jdbcUrl);
+		Connection conn = manager.open(Repository.jdbcUrl);
 		PreparedStatement preparedStatement = null;
 		try {
 			preparedStatement = conn.prepareStatement("INSERT INTO RAZA (especie)" + "VALUES (?)");
@@ -28,7 +32,7 @@ public class RaceRepository extends AbstractRepository implements Repository<Rac
 	}
 
 	public List<Race> listAll() {
-		Connection conn = manager.open(jdbcUrl);
+		Connection conn = manager.open(Repository.jdbcUrl);
 		PreparedStatement preparedStatement = null;
 		ArrayList<Race> races = new ArrayList<Race>();
 		try {
@@ -53,7 +57,7 @@ public class RaceRepository extends AbstractRepository implements Repository<Rac
 	}
 
 	public Race findById(Integer id) {
-		Connection conn = manager.open(jdbcUrl);
+		Connection conn = manager.open(Repository.jdbcUrl);
 		PreparedStatement preparedStatement = null;
 		Race race;
 		try {
@@ -76,7 +80,7 @@ public class RaceRepository extends AbstractRepository implements Repository<Rac
 	}
 
 	public void update(Race race) {
-		Connection conn = manager.open(jdbcUrl);
+		Connection conn = manager.open(Repository.jdbcUrl);
 		PreparedStatement preparedStatement = null;
 		try {
 			preparedStatement = conn.prepareStatement("UPDATE RAZA SET especie=? WHERE id=?");

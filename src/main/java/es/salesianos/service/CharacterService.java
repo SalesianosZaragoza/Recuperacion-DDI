@@ -8,6 +8,7 @@ import es.salesianos.assembler.CharacterAssembler;
 import es.salesianos.model.Character;
 import es.salesianos.repository.CharacterRepository;
 
+@org.springframework.stereotype.Service("CharacterService")
 public class CharacterService implements Service<Character> {
 	private CharacterAssembler assembler = new CharacterAssembler();
 	private CharacterRepository repository = new CharacterRepository();

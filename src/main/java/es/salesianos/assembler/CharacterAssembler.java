@@ -6,14 +6,17 @@ import java.sql.SQLException;
 
 import javax.servlet.http.HttpServletRequest;
 
+import es.salesianos.connection.AbstractConnection;
+import es.salesianos.connection.H2Connection;
 import es.salesianos.model.Character;
-import es.salesianos.repository.AbstractRepository;
+import es.salesianos.repository.Repository;
 
-public class CharacterAssembler extends AbstractRepository {
+public class CharacterAssembler {
+	private AbstractConnection manager = new H2Connection();
 	private String portador;
 
 	public String countHowManyCarriers() {
-		Connection conn = manager.open(jdbcUrl);
+		Connection conn = manager.open(Repository.jdbcUrl);
 		PreparedStatement preparedStatement = null;
 		try {
 			preparedStatement = conn
