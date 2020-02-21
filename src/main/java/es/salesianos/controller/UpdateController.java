@@ -16,11 +16,11 @@ import es.salesianos.service.Service;
 public class UpdateController{
 	
 	@Autowired
-	ListController controller;
+	private ListController controller;
 	
 	@Autowired
 	@Qualifier("characterService")
-	Service<Character> service;
+	private Service<Character> service;
 
 	@GetMapping("/updateCharacter")
 	protected ModelAndView editCharacter(@RequestParam("id") Integer idCharacter) {

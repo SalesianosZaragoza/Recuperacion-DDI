@@ -137,4 +137,30 @@ public class RaceRepository extends AbstractRepository implements Repository<Rac
 			manager.close(conn);
 		}
 	}
+
+	@Override
+	public Race selectById(Integer id) {
+		Connection conn = manager.open(jdbcUrl);
+		PreparedStatement preparedStatement = null;
+		Race race;
+		try {
+			preparedStatement = conn.prepareStatement("SELECT * FROM character WHERE id=?");
+			preparedStatement.setInt(1, id);
+			ResultSet resultSet = preparedStatement.executeQuery();
+
+			resultSet.next();
+
+			race = new Race();
+			race.setId(resultSet.getInt("id"));
+			race.setSpecie(resultSet.getString("specie"));
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new RuntimeException(e);
+		} finally {
+			manager.close(preparedStatement);
+			manager.close(conn);
+		}
+		return race;
+	}
 }

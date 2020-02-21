@@ -37,5 +37,10 @@ public class CharacterService implements Service<Character> {
 	public void delete(HttpServletRequest req) {
 		repository.delete(req);
 	}
+
+	@Override
+	public Character listById(Integer idCharacter) {
+		return repository.selectById(idCharacter);
+	}
 	
 }

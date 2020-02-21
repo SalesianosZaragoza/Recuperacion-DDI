@@ -9,7 +9,6 @@ public class Character {
 	private String name;
 	private String ringBearer;
 	private Integer codRace;
-	private List<Character> characters = new ArrayList<>();
 	
 
 	public String getName() {
@@ -41,14 +40,6 @@ public class Character {
 	
 	public void setCodRace(Integer codRace) {
 		this.codRace = codRace;
-	}
-	
-	public List<Character> getCharacters() {
-		return characters;
-	}
-	
-	public void setCharacters(List<Character> characters) {
-		this.characters = characters;
 	}
 	
 	

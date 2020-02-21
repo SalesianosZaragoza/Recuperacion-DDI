@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 
+import es.salesianos.model.Character;
 import es.salesianos.model.Race;
 import es.salesianos.repository.RaceRepository;
 import es.salesianos.repository.Repository;
@@ -37,5 +38,10 @@ public class RaceService implements Service<Race> {
 	@Override
 	public void delete(HttpServletRequest req) {
 		repository.delete(req);
+	}
+
+	@Override
+	public Race listById(Integer idRace) {
+		return repository.selectById(idRace);
 	}
 }

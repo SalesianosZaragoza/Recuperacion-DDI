@@ -15,4 +15,6 @@ public interface Repository<E> {
 	public void update(E element);
 
 	public void delete(HttpServletRequest req);
+	
+	E selectById(Integer id);
 }

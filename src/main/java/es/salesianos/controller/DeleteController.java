@@ -17,7 +17,7 @@ import es.salesianos.service.Service;
 public class DeleteController {
 
 	@Autowired
-	ListController controller;
+	private ListController controller;
 	
 	@Autowired
 	@Qualifier("characterService")

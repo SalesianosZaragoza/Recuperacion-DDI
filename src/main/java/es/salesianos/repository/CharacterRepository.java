@@ -5,7 +5,6 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,6 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import es.salesianos.connection.AbstractConnection;
 import es.salesianos.connection.H2Connection;
 import es.salesianos.model.Character;
+
 @org.springframework.stereotype.Repository("characterRepository")
 public class CharacterRepository implements Repository<Character>{
 
@@ -148,6 +148,34 @@ public class CharacterRepository implements Repository<Character>{
 				e.printStackTrace();
 				throw new RuntimeException(e);
 			}
+		}
+
+		@Override
+		public Character selectById(Integer id) {
+			Connection conn = manager.open(jdbcUrl);
+			PreparedStatement preparedStatement = null;
+			Character character;
+			try {
+				preparedStatement = conn.prepareStatement("SELECT * FROM race WHERE id=?");
+				preparedStatement.setInt(1, id);
+				ResultSet resultSet = preparedStatement.executeQuery();
+
+				resultSet.next();
+
+				character = new Character();
+				character.setId(resultSet.getInt("id"));
+				character.setName(resultSet.getString("name"));
+				character.setRingBearer("ringBearer");
+				character.setCodRace(resultSet.getInt("codRace"));
+
+			} catch (SQLException e) {
+				e.printStackTrace();
+				throw new RuntimeException(e);
+			} finally {
+				manager.close(preparedStatement);
+				manager.close(conn);
+			}
+			return character;
 		}
 
 		

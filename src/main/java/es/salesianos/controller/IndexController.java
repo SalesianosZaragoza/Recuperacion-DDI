@@ -15,9 +15,9 @@ public class IndexController {
 	public String getListCharacterPage() {
 		return "ListCharacters";
 	}
-//	
-//	@GetMapping(path = "/listraces")
-//	public String getListRacePage() {
-//		return "ListRaces";
-//	}
+	
+	@GetMapping(path = "/listraces")
+	public String getListRacePage() {
+		return "ListRaces";
+	}
 }
