@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import es.salesianos.connection.AbstractConnection;
 import es.salesianos.connection.H2Connection;
 import es.salesianos.model.Race;
-
+@org.springframework.stereotype.Repository("raceRepository")
 public class RaceRepository extends AbstractRepository implements Repository<Race> {
 
 	protected static final String jdbcUrl = "jdbc:h2:file:./src/main/resources/test;INIT=RUNSCRIPT FROM 'classpath:scripts/create.sql'";

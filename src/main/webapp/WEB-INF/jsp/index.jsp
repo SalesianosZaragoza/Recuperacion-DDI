@@ -24,10 +24,6 @@
 						value="Insert character">
 				</form>
 				<br />
-				<form action="listcharacters" method="post">
-					<input class="btn btn-success" type="submit"
-						value="Character List">
-				</form>
 
 </body>
 </html>
