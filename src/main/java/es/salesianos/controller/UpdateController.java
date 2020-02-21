@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import es.salesianos.model.Character;
+import es.salesianos.model.Race;
 import es.salesianos.service.Service;
 
 @Controller

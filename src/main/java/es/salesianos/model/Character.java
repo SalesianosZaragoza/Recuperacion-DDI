@@ -3,12 +3,18 @@ package es.salesianos.model;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Component;
+
+@Component
+@Qualifier("Character")
 public class Character {
 
 	private Integer id;
 	private String name;
 	private String ringBearer;
 	private Integer codRace;
+	private String raceName;
 	
 
 	public String getName() {
@@ -41,6 +47,14 @@ public class Character {
 	public void setCodRace(Integer codRace) {
 		this.codRace = codRace;
 	}
+	public String getRaceName() {
+		return raceName;
+	}
+	public void setRaceName(String raceName) {
+		this.raceName = raceName;
+	}
+	
+	
 	
 	
 }
