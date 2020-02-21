@@ -14,29 +14,24 @@
 <body>
 				<form action="insertCharacter" method="post">
 					<label>Name:</label> <input type="text" name="name"> <br />
-					<label>Ring Bearer:</label> <select name="ringBearer">
+					<label>Ring Bearer:</label> 
+					<select name="ringBearer">
 						<option value="YES">YES</option>
 						<option value="NO">NO</option>
 					</select> 
-					<label>Race Code:</label> <input type="text" name="codRace">
+					<label>Race Code:</label> <input type="text" name="race">
 					<br />
-					<input type="submit" class="btn btn-primary"
+					<input type="submit"
 						value="Insert character">
 				</form>
-				<form action="listcharacters" method="post">
-					<input class="btn btn-success" type="submit"
-						value="List characters">
-				</form>
+				<a href="ListCharacters">Show the full list of characters</a>
 				<br />
 				<form action="insertRace" method="post">
 					<label>Race:</label> <input type="text" name="specie"><br />
-					<input class="btn btn-primary" type="submit" value="Insert race">
+					<input type="submit" value="Insert race">
 				</form>
 				<br />
-				<form action="listraces" method="post">
-					<input class="btn btn-success" type="submit"
-						value="List races">
-				</form>
+				<a href="ListRaces">Show the full list of races</a>
 
 </body>
 </html>

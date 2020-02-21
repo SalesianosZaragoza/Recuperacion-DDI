@@ -31,6 +31,6 @@
 			</c:forEach>
 		</table>
 	<br />
-	<a class="btn btn-secondary" href="index">Index</a>
+	<a href="index">Index</a>
 </body>
 </html>
