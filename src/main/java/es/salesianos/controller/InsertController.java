@@ -26,10 +26,10 @@ public class InsertController {
 		return "welcomeCharacter";
 	}
 	
-//	@PostMapping(path="/insertRace")
-//	public String insertRace(Race race)  {
-//		raceService.insert(race);
-//		return "welcomeRace";
-//	}
+	@PostMapping(path="/insertRace")
+	public String insertRace(Race race)  {
+		raceService.insert(race);
+		return "welcomeRace";
+	}
 
 }

@@ -31,4 +31,12 @@ public class ListController{
 		return model;
 	}
 	
+	@PostMapping(path = "/listraces")
+	protected ModelAndView listAllRaces() {
+		List<Race> races = raceService.listAll();
+		ModelAndView model = new ModelAndView("ListRaces");
+		model.addObject("listOfRaces", races);
+		return model;
+	}
+	
 }

@@ -23,7 +23,20 @@
 					<input type="submit" class="btn btn-primary"
 						value="Insert character">
 				</form>
+				<form action="listcharacters" method="post">
+					<input class="btn btn-success" type="submit"
+						value="List characters">
+				</form>
 				<br />
+				<form action="insertRace" method="post">
+					<label>Race:</label> <input type="text" name="specie"><br />
+					<input class="btn btn-primary" type="submit" value="Insert race">
+				</form>
+				<br />
+				<form action="listraces" method="post">
+					<input class="btn btn-success" type="submit"
+						value="List races">
+				</form>
 
 </body>
 </html>
