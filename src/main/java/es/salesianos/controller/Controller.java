@@ -1,5 +1,8 @@
 package es.salesianos.controller;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,21 +13,29 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import es.salesianos.connection.AbstractConnection;
+import es.salesianos.connection.H2Connection;
 import es.salesianos.model.Character;
 import es.salesianos.model.Race;
+import es.salesianos.repository.CharacterRepository;
+import es.salesianos.repository.Repository;
+import es.salesianos.service.CharacterService;
+import es.salesianos.service.RaceService;
 import es.salesianos.service.Service;
+import es.salesianos.sql.DbSqlQuery;
 
+@org.springframework.stereotype.Controller
 public class Controller {
 
 	@Autowired
-	@Qualifier("characterService")
-	private Service<Character> characterService;
+	@Qualifier("CharacterService")
+	private CharacterService characterService;
 
 	@Autowired
-	@Qualifier("raceService")
-	private Service<Race> raceService;
+	@Qualifier("RaceService")
+	private RaceService raceService;
 
-	@GetMapping("index")
+	@GetMapping("/index")
 	public String getIndexPage() {
 		return "index";
 	}
@@ -57,7 +68,15 @@ public class Controller {
 
 	@PostMapping("/insertCharacter")
 	public String insertCharacter(Character character) {
-		characterService.insert(character);
+		CharacterRepository repo = new CharacterRepository();
+		int holders = 0;
+		holders = repo.countHolders();
+		if (holders == 0) {
+			characterService.insert(character);
+		} else {
+			updateHolders();
+			characterService.insert(character);
+		}
 		return "welcomeCharacter";
 	}
 
@@ -91,5 +110,22 @@ public class Controller {
 	protected ModelAndView deleteRace(@RequestParam("id") Integer id) {
 		raceService.delete(id);
 		return listAllRaces();
+	}
+
+	//Pone todos los portadores a 'false'
+	public void updateHolders() {
+		AbstractConnection manager = new H2Connection();
+		Connection conn = manager.open(Repository.jdbcUrl);
+		PreparedStatement preparedStatement = null;
+		try {
+			preparedStatement = conn.prepareStatement(DbSqlQuery.UPDATE_CARRIER);
+			preparedStatement.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new RuntimeException(e);
+		} finally {
+			manager.close(preparedStatement);
+			manager.close(conn);
+		}
 	}
 }

@@ -12,7 +12,7 @@ import es.salesianos.connection.H2Connection;
 import es.salesianos.model.Character;
 import es.salesianos.sql.DbSqlQuery;
 
-@org.springframework.stereotype.Repository("characterRepository")
+@org.springframework.stereotype.Repository("CharacterRepository")
 public class CharacterRepository implements Repository<Character> {
 	private AbstractConnection manager = new H2Connection();
 
@@ -113,7 +113,7 @@ public class CharacterRepository implements Repository<Character> {
 
 	@Override
 	public void delete(Integer idCharacter) {
-		Connection conn = manager.open(jdbcUrl);
+		Connection conn = manager.open(Repository.jdbcUrl);
 		PreparedStatement preparedStatement = null;
 		try {
 			preparedStatement = conn.prepareStatement(DbSqlQuery.DELETE_CHARACTER_BY_ID);
@@ -126,5 +126,26 @@ public class CharacterRepository implements Repository<Character> {
 			manager.close(preparedStatement);
 			manager.close(conn);
 		}
+	}
+
+	//Cuenta numero portadores.
+	public int countHolders() {
+		int portador = 0;
+		String aux;
+		Connection conn = manager.open(Repository.jdbcUrl);
+		PreparedStatement preparedStatement = null;
+		try {
+			preparedStatement = conn.prepareStatement(DbSqlQuery.COUNT_HOLDERS);
+			preparedStatement.executeUpdate();
+			aux = preparedStatement.toString();
+			portador = Integer.parseInt(aux);
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new RuntimeException(e);
+		} finally {
+			manager.close(preparedStatement);
+			manager.close(conn);
+		}
+		return portador;
 	}
 }

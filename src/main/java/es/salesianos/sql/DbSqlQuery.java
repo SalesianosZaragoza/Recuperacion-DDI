@@ -18,4 +18,7 @@ public abstract class DbSqlQuery {
 	public static final String DELETE_CHARACTER_BY_ID = "DELETE FROM PERSONAJE WHERE id=?";
 	public static final String DELETE_CHARACTER_BY_RACE = "DELETE FROM PERSONAJE WHERE codRaza=?";
 	public static final String DELETE_RACE = "DELETE FROM RAZA WHERE id=?";
+
+	//Cuenta número de portadores
+	public static final String COUNT_HOLDERS = "SELECT p.ID, COUNT (p.ID) AS Cantidad FROM PERSONAJE p WHERE p.PORTADOR=TRUE";
 }

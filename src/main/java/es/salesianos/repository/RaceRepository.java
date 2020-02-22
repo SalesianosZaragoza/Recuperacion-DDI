@@ -12,7 +12,7 @@ import es.salesianos.connection.H2Connection;
 import es.salesianos.model.Race;
 import es.salesianos.sql.DbSqlQuery;
 
-@org.springframework.stereotype.Repository(value = "raceRepository")
+@org.springframework.stereotype.Repository("RaceRepository")
 public class RaceRepository implements Repository<Race> {
 	private AbstractConnection manager = new H2Connection();
 

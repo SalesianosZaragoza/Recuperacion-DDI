@@ -39,4 +39,5 @@ public class CharacterService implements Service<Character> {
 	public Character findById(Integer id) {
 		return repository.findById(id);
 	}
+
 }
