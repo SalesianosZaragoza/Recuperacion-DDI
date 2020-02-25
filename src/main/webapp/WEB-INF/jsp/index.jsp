@@ -20,7 +20,11 @@
 			</select> &nbsp; <input type="submit" value="Insertar personaje">
 		</form>
 		<br>
-		<a href="listCharacters">Ver listado de personajes</a> &nbsp;
-		<a href="listRaces">Ver listado de razas</a>
+		<form action="listcharacters" method="post">
+			<input type="submit" value="Ver el listado de personajes">
+		</form> &nbsp;
+		<form action="listraces" method="post">
+			<input type="submit" value="Ver el listado de especies">
+		</form>
 	</body>
 </html>

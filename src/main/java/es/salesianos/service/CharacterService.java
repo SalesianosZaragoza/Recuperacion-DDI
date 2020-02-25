@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import es.salesianos.model.Character;
 import es.salesianos.repository.Repository;
 
-@org.springframework.stereotype.Service("CharacterService")
+@org.springframework.stereotype.Service("characterService")
 public class CharacterService implements Service<Character> {
 
 	@Autowired

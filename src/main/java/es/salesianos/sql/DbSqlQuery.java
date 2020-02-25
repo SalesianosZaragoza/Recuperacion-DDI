@@ -20,5 +20,5 @@ public abstract class DbSqlQuery {
 	public static final String DELETE_RACE = "DELETE FROM RAZA WHERE id=?";
 
 	//Cuenta número de portadores
-	public static final String COUNT_HOLDERS = "SELECT p.ID, COUNT (p.ID) AS Cantidad FROM PERSONAJE p WHERE p.PORTADOR=TRUE";
+	public static final String COUNT_HOLDERS = "SELECT p.id, COUNT (p.id) AS Cantidad FROM PERSONAJE p WHERE p.portador='true' GROUP BY p.ID";
 }

@@ -12,6 +12,8 @@
 		<h2>Raza insertada</h2>
 		<span>Raza:</span><b><%=request.getParameter("specie")%></b>
 		<br>
-		<a href="listRaces">Ver listado de razas</a>
+		<form action="listraces" method="post">
+			<input type="submit" value="Ver el listado de especies">
+		</form>
 	</body>
 </html>

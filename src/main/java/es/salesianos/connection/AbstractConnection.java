@@ -7,12 +7,12 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import javax.servlet.http.HttpServlet;
+public abstract class AbstractConnection implements OpenClose {
 
-public abstract class AbstractConnection extends HttpServlet implements OpenClose {
-	private static final long serialVersionUID = 1L;
 	public abstract String getDriver();
+
 	public abstract String getDatabaseUser();
+
 	public abstract String getDatabasePassword();
 
 	public Connection open(String jdbcUrl) {
@@ -36,6 +36,7 @@ public abstract class AbstractConnection extends HttpServlet implements OpenClos
 				throw new RuntimeException(e);
 			}
 		}
+
 	}
 
 	public void close(Statement statement) {

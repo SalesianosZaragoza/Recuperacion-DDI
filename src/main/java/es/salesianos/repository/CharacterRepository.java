@@ -12,13 +12,14 @@ import es.salesianos.connection.H2Connection;
 import es.salesianos.model.Character;
 import es.salesianos.sql.DbSqlQuery;
 
-@org.springframework.stereotype.Repository("CharacterRepository")
+@org.springframework.stereotype.Repository("characterRepository")
 public class CharacterRepository implements Repository<Character> {
 	private AbstractConnection manager = new H2Connection();
+	protected static final String jdbcUrl = "jdbc:h2:file:./src/main/resources/test;INIT=RUNSCRIPT FROM 'classpath:scripts/create.sql'";
 
 	@Override
 	public void insert(Character character) {
-		Connection conn = manager.open(Repository.jdbcUrl);
+		Connection conn = manager.open(jdbcUrl);
 		PreparedStatement preparedStatement = null;
 		try {
 			preparedStatement = conn.prepareStatement(DbSqlQuery.INSERT_CHARACTER);
@@ -37,7 +38,7 @@ public class CharacterRepository implements Repository<Character> {
 
 	@Override
 	public List<Character> listAll() {
-		Connection conn = manager.open(Repository.jdbcUrl);
+		Connection conn = manager.open(jdbcUrl);
 		PreparedStatement preparedStatement = null;
 		ArrayList<Character> characters = new ArrayList<Character>();
 		try {
@@ -66,7 +67,7 @@ public class CharacterRepository implements Repository<Character> {
 
 	@Override
 	public Character findById(Integer id) {
-		Connection conn = manager.open(Repository.jdbcUrl);
+		Connection conn = manager.open(jdbcUrl);
 		PreparedStatement preparedStatement = null;
 		Character character;
 		try {
@@ -79,7 +80,7 @@ public class CharacterRepository implements Repository<Character> {
 			character.setName(resultSet.getString("nombre"));
 			character.setHolder(resultSet.getBoolean("portador"));
 			character.setCodRace(resultSet.getLong("codRaza"));
-			character.setRaceName(resultSet.getString("especie"));
+			character.setRaceName(resultSet.getString("raceName"));
 
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -93,7 +94,7 @@ public class CharacterRepository implements Repository<Character> {
 
 	@Override
 	public void update(Character character) {
-		Connection conn = manager.open(Repository.jdbcUrl);
+		Connection conn = manager.open(jdbcUrl);
 		PreparedStatement preparedStatement = null;
 		try {
 			preparedStatement = conn.prepareStatement(DbSqlQuery.UPDATE_CHARACTER);
@@ -113,7 +114,7 @@ public class CharacterRepository implements Repository<Character> {
 
 	@Override
 	public void delete(Integer idCharacter) {
-		Connection conn = manager.open(Repository.jdbcUrl);
+		Connection conn = manager.open(jdbcUrl);
 		PreparedStatement preparedStatement = null;
 		try {
 			preparedStatement = conn.prepareStatement(DbSqlQuery.DELETE_CHARACTER_BY_ID);
@@ -128,24 +129,4 @@ public class CharacterRepository implements Repository<Character> {
 		}
 	}
 
-	//Cuenta numero portadores.
-	public int countHolders() {
-		int portador = 0;
-		String aux;
-		Connection conn = manager.open(Repository.jdbcUrl);
-		PreparedStatement preparedStatement = null;
-		try {
-			preparedStatement = conn.prepareStatement(DbSqlQuery.COUNT_HOLDERS);
-			preparedStatement.executeUpdate();
-			aux = preparedStatement.toString();
-			portador = Integer.parseInt(aux);
-		} catch (SQLException e) {
-			e.printStackTrace();
-			throw new RuntimeException(e);
-		} finally {
-			manager.close(preparedStatement);
-			manager.close(conn);
-		}
-		return portador;
-	}
 }

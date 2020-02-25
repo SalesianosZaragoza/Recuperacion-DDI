@@ -28,12 +28,12 @@ import es.salesianos.sql.DbSqlQuery;
 public class Controller {
 
 	@Autowired
-	@Qualifier("CharacterService")
-	private CharacterService characterService;
+	@Qualifier("characterService")
+	private Service<Character> characterService;
 
 	@Autowired
-	@Qualifier("RaceService")
-	private RaceService raceService;
+	@Qualifier("raceService")
+	private Service<Race> raceService;
 
 	@GetMapping("/index")
 	public String getIndexPage() {
@@ -42,18 +42,18 @@ public class Controller {
 
 	@GetMapping("/listCharacters")
 	public String getListCharacterPage() {
-		return "ListCharacters";
+		return "listCharacters";
 	}
 
 	@GetMapping("/listRaces")
 	public String getListRacePage() {
-		return "ListRaces";
+		return "listRaces";
 	}
 
 	@PostMapping("/listcharacters")
 	protected ModelAndView listAllCharacters() {
 		List<Character> characters = characterService.listAll();
-		ModelAndView model = new ModelAndView("ListCharacters");
+		ModelAndView model = new ModelAndView("listCharacters");
 		model.addObject("listOfCharacters", characters);
 		return model;
 	}
@@ -61,22 +61,16 @@ public class Controller {
 	@PostMapping("/listraces")
 	protected ModelAndView listAllRaces() {
 		List<Race> races = raceService.listAll();
-		ModelAndView model = new ModelAndView("ListRaces");
+		ModelAndView model = new ModelAndView("listRaces");
 		model.addObject("listOfRaces", races);
 		return model;
 	}
 
 	@PostMapping("/insertCharacter")
 	public String insertCharacter(Character character) {
-		CharacterRepository repo = new CharacterRepository();
-		int holders = 0;
-		holders = repo.countHolders();
-		if (holders == 0) {
-			characterService.insert(character);
-		} else {
-			updateHolders();
-			characterService.insert(character);
-		}
+		updateHolders();
+		characterService.insert(character);
+
 		return "welcomeCharacter";
 	}
 

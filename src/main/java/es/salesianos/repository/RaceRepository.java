@@ -12,13 +12,14 @@ import es.salesianos.connection.H2Connection;
 import es.salesianos.model.Race;
 import es.salesianos.sql.DbSqlQuery;
 
-@org.springframework.stereotype.Repository("RaceRepository")
+@org.springframework.stereotype.Repository("raceRepository")
 public class RaceRepository implements Repository<Race> {
 	private AbstractConnection manager = new H2Connection();
+	protected static final String jdbcUrl = "jdbc:h2:file:./src/main/resources/test;INIT=RUNSCRIPT FROM 'classpath:scripts/create.sql'";
 
 	@Override
 	public void insert(Race race) {
-		Connection conn = manager.open(Repository.jdbcUrl);
+		Connection conn = manager.open(jdbcUrl);
 		PreparedStatement preparedStatement = null;
 		try {
 			preparedStatement = conn.prepareStatement(DbSqlQuery.INSERT_RACE);
@@ -35,7 +36,7 @@ public class RaceRepository implements Repository<Race> {
 
 	@Override
 	public List<Race> listAll() {
-		Connection conn = manager.open(Repository.jdbcUrl);
+		Connection conn = manager.open(jdbcUrl);
 		PreparedStatement preparedStatement = null;
 		ArrayList<Race> races = new ArrayList<Race>();
 		try {
@@ -61,7 +62,7 @@ public class RaceRepository implements Repository<Race> {
 
 	@Override
 	public Race findById(Integer id) {
-		Connection conn = manager.open(Repository.jdbcUrl);
+		Connection conn = manager.open(jdbcUrl);
 		PreparedStatement preparedStatement = null;
 		Race race;
 		try {
@@ -85,7 +86,7 @@ public class RaceRepository implements Repository<Race> {
 
 	@Override
 	public void update(Race race) {
-		Connection conn = manager.open(Repository.jdbcUrl);
+		Connection conn = manager.open(jdbcUrl);
 		PreparedStatement preparedStatement = null;
 		try {
 			preparedStatement = conn.prepareStatement(DbSqlQuery.UPDATE_RACE);

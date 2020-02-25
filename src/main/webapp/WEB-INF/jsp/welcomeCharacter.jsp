@@ -17,6 +17,8 @@
 		<span>Cod.Raza:</span>
 		<b><%=request.getParameter("codRace")%></b>
 		<br>
-		<a href="listCharacters">Ver listado de personajes</a>
+		<form action="listcharacters" method="post">
+			<input type="submit" value="Ver el listado de caracteres">
+		</form>
 	</body>
 </html>

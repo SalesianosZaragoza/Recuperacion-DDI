@@ -6,7 +6,7 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
-@ComponentScan(basePackages = { "es.salesianos.*" })
+@ComponentScan(basePackages = {"es.salesianos.*"})
 public class SpringBootWebApplication {
 
 	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
