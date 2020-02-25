@@ -11,7 +11,7 @@
 		<table>
 		    <thead>
 		       <th>| ID |</th>
-		       <th>Raza |</th>   
+		       <th>Especie |</th>   
 		    </thead>
 			<c:forEach items="${listOfRaces}" var="race">
 			    <tr>

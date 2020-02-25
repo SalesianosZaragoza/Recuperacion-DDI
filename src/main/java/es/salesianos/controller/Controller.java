@@ -94,6 +94,20 @@ public class Controller {
 		return listAllCharacters();
 	}
 
+	@GetMapping("/updateRace")
+	protected ModelAndView editRaceById(@RequestParam("id") Integer id) {
+		ModelAndView model = new ModelAndView("updateRace");
+		Race race = raceService.findById(id);
+		model.addObject("race", race);
+		return model;
+	}
+
+	@PostMapping("/updateRace")
+	protected ModelAndView updateRace(@ModelAttribute Race race) {
+		raceService.update(race);
+		return listAllRaces();
+	}
+
 	@GetMapping("deleteCharacter")
 	protected ModelAndView deleteCharacter(@RequestParam("id") Integer id) {
 		characterService.delete(id);
