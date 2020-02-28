@@ -67,7 +67,7 @@ public class Controller {
 
 	@PostMapping("/insertCharacter")
 	public String insertCharacter(Character character) {
-		updateHolders();
+		updateRingBearer();
 		characterService.insert(character);
 
 		return "welcomeCharacter";
@@ -89,6 +89,7 @@ public class Controller {
 
 	@PostMapping("/updateCharacter")
 	protected ModelAndView updateCharacter(@ModelAttribute Character character) {
+		updateRingBearer();
 		characterService.update(character);
 		return listAllCharacters();
 	}
@@ -119,8 +120,7 @@ public class Controller {
 		return listAllRaces();
 	}
 
-	//Pone todos los portadores a 'false'
-	public void updateHolders() {
+	public void updateRingBearer() {
 		AbstractConnection manager = new H2Connection();
 		Connection conn = manager.open(Repository.jdbcUrl);
 		PreparedStatement preparedStatement = null;

@@ -4,16 +4,25 @@
 <%@ page import="java.io.*,java.util.*,es.salesianos.model.*"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
+<style>
+body {
+    background-image: url("img/background.jpg");
+}
+</style>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-		<title>Raza insertada</title>
+		<title>Race insert</title>
 	</head>
 	<body>
-		<h2>Raza insertada</h2>
-		<span>Raza:</span><b><%=request.getParameter("specie")%></b>
+		<h2>Done!</h2>
+		<span>Race:</span><b><%=request.getParameter("specie")%></b>
 		<br>
 		<form action="listraces" method="post">
-			<input type="submit" value="Ver el listado de especies">
+			<input type="submit" value="Race List">
+		</form>
+								<span>Index</span>
+		<form action="index">
+			<input type="submit" value="index">
 		</form>
 	</body>
 </html>
