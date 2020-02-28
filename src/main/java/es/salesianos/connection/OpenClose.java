@@ -3,9 +3,7 @@ package es.salesianos.connection;
 import java.sql.Connection;
 
 public interface OpenClose {
-
-	Connection open(String ruta);
+	Connection open(String route);
 
 	void close(Connection conn);
-
 }

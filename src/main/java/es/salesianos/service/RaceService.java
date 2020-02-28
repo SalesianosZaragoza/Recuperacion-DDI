@@ -2,46 +2,42 @@ package es.salesianos.service;
 
 import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 
-import es.salesianos.model.Character;
 import es.salesianos.model.Race;
-import es.salesianos.repository.RaceRepository;
 import es.salesianos.repository.Repository;
 
 @org.springframework.stereotype.Service("raceService")
 public class RaceService implements Service<Race> {
-	
+
 	@Autowired
 	@Qualifier("raceRepository")
-	private Repository<Race> repository = new RaceRepository();
+	private Repository<Race> repository;
 
+	@Override
 	public void insert(Race race) {
 		repository.insert(race);
 	}
 
+	@Override
 	public void update(Race race) {
 		repository.update(race);
 	}
 
+	@Override
 	public List<Race> listAll() {
 		return repository.listAll();
 	}
-	
-	public Race findBy(Integer id) {
-		return repository.findBy(id);
+
+	@Override
+	public void delete(Integer id) {
+		repository.delete(id);
 	}
 
 	@Override
-	public void delete(HttpServletRequest req) {
-		repository.delete(req);
+	public Race findById(Integer id) {
+		return repository.findById(id);
 	}
 
-	@Override
-	public Race listById(Integer idRace) {
-		return repository.selectById(idRace);
-	}
 }

@@ -1,0 +1,9 @@
+2020-02-28 20:04:28 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "RAZA" not found; SQL statement:
+INSERT INTO RAZA (especie)VALUES (?) [42102-196]
+2020-02-28 20:05:12 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "RAZA" not found; SQL statement:
+INSERT INTO RAZA (especie)VALUES (?) [42102-196]
+2020-02-28 20:07:33 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "RAZA" not found; SQL statement:
+INSERT INTO RAZA (especie)VALUES (?) [42102-196]

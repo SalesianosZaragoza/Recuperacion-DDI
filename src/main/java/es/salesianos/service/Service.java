@@ -4,8 +4,6 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
-import es.salesianos.model.Character;
-
 public interface Service<E> {
 
 	public void insert(E element);
@@ -13,9 +11,9 @@ public interface Service<E> {
 	public List<E> listAll();
 
 	public void update(E element);
-	
-	public void delete(HttpServletRequest req);
 
-	public E listById(Integer id);
+	public void delete(Integer id);
+
+	public E findById(Integer id);
 
 }

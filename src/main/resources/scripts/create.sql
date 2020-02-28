@@ -1,13 +1,13 @@
-CREATE TABLE IF NOT EXISTS race(
-	id IDENTITY,
-	specie VARCHAR(255)
+CREATE TABLE IF NOT EXISTS RAZA(
+	id identity primary key,
+	especie varchar(30)
 );
 
-CREATE TABLE IF NOT EXISTS character(
-	id IDENTITY,
-	name VARCHAR(255),
-	ringBearer VARCHAR(3),
-	codRace INT,
+CREATE TABLE IF NOT EXISTS PERSONAJE(
+	id identity primary key,
+	nombre varchar(50),
+	portador boolean,
+	codRaza int NOT NULL,
 	raceName varchar(50),
-	CONSTRAINT fk_race foreign key (codRace) references race(id) ON DELETE CASCADE
+	CONSTRAINT fk_raza foreign key (codRaza) references RAZA(id) ON DELETE CASCADE
 );
