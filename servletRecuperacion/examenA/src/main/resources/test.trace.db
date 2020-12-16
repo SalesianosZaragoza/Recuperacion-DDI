@@ -1,0 +1,528 @@
+2020-11-30 12:03:50 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "EMPRESA" no encontrada
+Table "EMPRESA" not found; SQL statement:
+INSERT INTO EMPRESA VALUES (?) [42102-200]
+2020-11-30 12:04:44 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "EMPRESA" no encontrada
+Table "EMPRESA" not found; SQL statement:
+INSERT INTO EMPRESA VALUES (?) [42102-200]
+2020-11-30 12:05:18 jdbc[3]: exception
+java.sql.SQLClientInfoException: Client info name 'ApplicationName' not supported.
+	at org.h2.jdbc.JdbcConnection.setClientInfo(JdbcConnection.java:1749)
+	at org.jkiss.dbeaver.ext.generic.model.GenericDataSource.populateClientAppName(GenericDataSource.java:164)
+	at org.jkiss.dbeaver.ext.generic.model.GenericDataSource.openConnection(GenericDataSource.java:127)
+	at org.jkiss.dbeaver.ext.h2.model.H2DataSource.openConnection(H2DataSource.java:74)
+	at org.jkiss.dbeaver.model.impl.jdbc.JDBCExecutionContext.connect(JDBCExecutionContext.java:101)
+	at org.jkiss.dbeaver.model.impl.jdbc.JDBCRemoteInstance.initializeMainContext(JDBCRemoteInstance.java:95)
+	at org.jkiss.dbeaver.model.impl.jdbc.JDBCRemoteInstance.<init>(JDBCRemoteInstance.java:57)
+	at org.jkiss.dbeaver.model.impl.jdbc.JDBCDataSource.initializeRemoteInstance(JDBCDataSource.java:110)
+	at org.jkiss.dbeaver.ext.generic.model.GenericDataSource.<init>(GenericDataSource.java:106)
+	at org.jkiss.dbeaver.ext.h2.model.H2DataSource.<init>(H2DataSource.java:43)
+	at org.jkiss.dbeaver.ext.h2.model.H2MetaModel.createDataSourceImpl(H2MetaModel.java:47)
+	at org.jkiss.dbeaver.ext.generic.GenericDataSourceProvider.openDataSource(GenericDataSourceProvider.java:106)
+	at org.jkiss.dbeaver.registry.DataSourceDescriptor.connect(DataSourceDescriptor.java:880)
+	at org.jkiss.dbeaver.runtime.jobs.ConnectJob.run(ConnectJob.java:70)
+	at org.jkiss.dbeaver.runtime.jobs.ConnectionTestJob.run(ConnectionTestJob.java:103)
+	at org.jkiss.dbeaver.model.runtime.AbstractJob.run(AbstractJob.java:105)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+2020-11-30 12:05:33 jdbc[3]: exception
+java.sql.SQLClientInfoException: Client info name 'ApplicationName' not supported.
+	at org.h2.jdbc.JdbcConnection.setClientInfo(JdbcConnection.java:1749)
+	at org.jkiss.dbeaver.ext.generic.model.GenericDataSource.populateClientAppName(GenericDataSource.java:164)
+	at org.jkiss.dbeaver.ext.generic.model.GenericDataSource.openConnection(GenericDataSource.java:127)
+	at org.jkiss.dbeaver.ext.h2.model.H2DataSource.openConnection(H2DataSource.java:74)
+	at org.jkiss.dbeaver.model.impl.jdbc.JDBCExecutionContext.connect(JDBCExecutionContext.java:101)
+	at org.jkiss.dbeaver.model.impl.jdbc.JDBCRemoteInstance.initializeMainContext(JDBCRemoteInstance.java:95)
+	at org.jkiss.dbeaver.model.impl.jdbc.JDBCRemoteInstance.<init>(JDBCRemoteInstance.java:57)
+	at org.jkiss.dbeaver.model.impl.jdbc.JDBCDataSource.initializeRemoteInstance(JDBCDataSource.java:110)
+	at org.jkiss.dbeaver.ext.generic.model.GenericDataSource.<init>(GenericDataSource.java:106)
+	at org.jkiss.dbeaver.ext.h2.model.H2DataSource.<init>(H2DataSource.java:43)
+	at org.jkiss.dbeaver.ext.h2.model.H2MetaModel.createDataSourceImpl(H2MetaModel.java:47)
+	at org.jkiss.dbeaver.ext.generic.GenericDataSourceProvider.openDataSource(GenericDataSourceProvider.java:106)
+	at org.jkiss.dbeaver.registry.DataSourceDescriptor.connect(DataSourceDescriptor.java:880)
+	at org.jkiss.dbeaver.runtime.jobs.ConnectJob.run(ConnectJob.java:70)
+	at org.jkiss.dbeaver.runtime.jobs.ConnectJob.runSync(ConnectJob.java:98)
+	at org.jkiss.dbeaver.ui.actions.datasource.DataSourceHandler.connectToDataSource(DataSourceHandler.java:106)
+	at org.jkiss.dbeaver.ui.actions.datasource.UIServiceConnectionsImpl.initConnection(UIServiceConnectionsImpl.java:65)
+	at org.jkiss.dbeaver.model.navigator.DBNDataSource.initializeNode(DBNDataSource.java:157)
+	at org.jkiss.dbeaver.model.navigator.DBNDatabaseNode.getChildren(DBNDatabaseNode.java:203)
+	at org.jkiss.dbeaver.model.navigator.DBNDatabaseNode.getChildren(DBNDatabaseNode.java:1)
+	at org.jkiss.dbeaver.model.navigator.DBNUtils.getNodeChildrenFiltered(DBNUtils.java:70)
+	at org.jkiss.dbeaver.ui.navigator.database.load.TreeLoadService.evaluate(TreeLoadService.java:49)
+	at org.jkiss.dbeaver.ui.navigator.database.load.TreeLoadService.evaluate(TreeLoadService.java:1)
+	at org.jkiss.dbeaver.ui.LoadingJob.run(LoadingJob.java:88)
+	at org.jkiss.dbeaver.ui.LoadingJob.run(LoadingJob.java:72)
+	at org.jkiss.dbeaver.model.runtime.AbstractJob.run(AbstractJob.java:105)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+2020-11-30 12:05:52 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "EMPRESA" no encontrada
+Table "EMPRESA" not found; SQL statement:
+create table IF NOT EXISTS ALUMNO(
+    id bigint auto_increment,
+nombre varchar(25),
+edad bigint,
+asisteFCT boolean,
+empresa INT,
+FOREIGN KEY (empresa ) REFERENCES EMPRESA(id)
+) [42102-200]
+2020-11-30 12:06:27 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "EMPRESA" no encontrada
+Table "EMPRESA" not found; SQL statement:
+create table IF NOT EXISTS ALUMNO(
+    id bigint auto_increment,
+nombre varchar(25),
+edad bigint,
+asisteFCT boolean,
+empresa INT,
+FOREIGN KEY (empresa ) REFERENCES EMPRESA(id)
+) [42102-200]
+2020-11-30 12:07:18 jdbc[3]: exception
+java.sql.SQLClientInfoException: Client info name 'ApplicationName' not supported.
+	at org.h2.jdbc.JdbcConnection.setClientInfo(JdbcConnection.java:1749)
+	at org.jkiss.dbeaver.ext.generic.model.GenericDataSource.populateClientAppName(GenericDataSource.java:164)
+	at org.jkiss.dbeaver.ext.generic.model.GenericDataSource.openConnection(GenericDataSource.java:127)
+	at org.jkiss.dbeaver.ext.h2.model.H2DataSource.openConnection(H2DataSource.java:74)
+	at org.jkiss.dbeaver.model.impl.jdbc.JDBCExecutionContext.connect(JDBCExecutionContext.java:101)
+	at org.jkiss.dbeaver.model.impl.jdbc.JDBCRemoteInstance.initializeMainContext(JDBCRemoteInstance.java:95)
+	at org.jkiss.dbeaver.model.impl.jdbc.JDBCRemoteInstance.<init>(JDBCRemoteInstance.java:57)
+	at org.jkiss.dbeaver.model.impl.jdbc.JDBCDataSource.initializeRemoteInstance(JDBCDataSource.java:110)
+	at org.jkiss.dbeaver.ext.generic.model.GenericDataSource.<init>(GenericDataSource.java:106)
+	at org.jkiss.dbeaver.ext.h2.model.H2DataSource.<init>(H2DataSource.java:43)
+	at org.jkiss.dbeaver.ext.h2.model.H2MetaModel.createDataSourceImpl(H2MetaModel.java:47)
+	at org.jkiss.dbeaver.ext.generic.GenericDataSourceProvider.openDataSource(GenericDataSourceProvider.java:106)
+	at org.jkiss.dbeaver.registry.DataSourceDescriptor.connect(DataSourceDescriptor.java:880)
+	at org.jkiss.dbeaver.runtime.jobs.ConnectJob.run(ConnectJob.java:70)
+	at org.jkiss.dbeaver.runtime.jobs.ConnectJob.runSync(ConnectJob.java:98)
+	at org.jkiss.dbeaver.ui.actions.datasource.DataSourceHandler.connectToDataSource(DataSourceHandler.java:106)
+	at org.jkiss.dbeaver.ui.actions.datasource.UIServiceConnectionsImpl.initConnection(UIServiceConnectionsImpl.java:65)
+	at org.jkiss.dbeaver.model.navigator.DBNDataSource.initializeNode(DBNDataSource.java:157)
+	at org.jkiss.dbeaver.model.navigator.DBNDatabaseNode.getChildren(DBNDatabaseNode.java:203)
+	at org.jkiss.dbeaver.model.navigator.DBNDatabaseNode.getChildren(DBNDatabaseNode.java:1)
+	at org.jkiss.dbeaver.model.navigator.DBNUtils.getNodeChildrenFiltered(DBNUtils.java:70)
+	at org.jkiss.dbeaver.ui.navigator.database.load.TreeLoadService.evaluate(TreeLoadService.java:49)
+	at org.jkiss.dbeaver.ui.navigator.database.load.TreeLoadService.evaluate(TreeLoadService.java:1)
+	at org.jkiss.dbeaver.ui.LoadingJob.run(LoadingJob.java:88)
+	at org.jkiss.dbeaver.ui.LoadingJob.run(LoadingJob.java:72)
+	at org.jkiss.dbeaver.model.runtime.AbstractJob.run(AbstractJob.java:105)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+2020-11-30 12:07:36 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: La cantidad de columnas no coincide
+Column count does not match; SQL statement:
+INSERT INTO EMPRESA VALUES (?) [21002-200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:453)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
+	at org.h2.message.DbException.get(DbException.java:205)
+	at org.h2.message.DbException.get(DbException.java:181)
+	at org.h2.message.DbException.get(DbException.java:170)
+	at org.h2.command.dml.Insert.prepare(Insert.java:319)
+	at org.h2.command.Parser.prepareCommand(Parser.java:744)
+	at org.h2.engine.Session.prepareLocal(Session.java:657)
+	at org.h2.engine.Session.prepareCommand(Session.java:595)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1235)
+	at org.h2.jdbc.JdbcPreparedStatement.<init>(JdbcPreparedStatement.java:76)
+	at org.h2.jdbc.JdbcConnection.prepareStatement(JdbcConnection.java:352)
+	at es.salesianos.repository.Repository.insert(Repository.java:24)
+	at es.salesianos.service.Service.insert(Service.java:20)
+	at es.salesianos.servlet.EmpresaServlet.doPost(EmpresaServlet.java:31)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:523)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:590)
+	at org.eclipse.jetty.servlet.ServletHolder$NotAsyncServlet.service(ServletHolder.java:1354)
+	at org.eclipse.jetty.servlet.ServletHolder.handle(ServletHolder.java:724)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1562)
+	at org.eclipse.jetty.websocket.util.server.WebSocketUpgradeFilter.doFilter(WebSocketUpgradeFilter.java:147)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1549)
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:507)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:136)
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:585)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:127)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:228)
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:1577)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:226)
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1309)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:181)
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:450)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:1550)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:179)
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1228)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:134)
+	at org.eclipse.jetty.server.handler.ContextHandlerCollection.handle(ContextHandlerCollection.java:188)
+	at org.eclipse.jetty.server.handler.HandlerList.handle(HandlerList.java:56)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:127)
+	at org.eclipse.jetty.server.Server.handle(Server.java:549)
+	at org.eclipse.jetty.server.HttpChannel.lambda$handle$0(HttpChannel.java:370)
+	at org.eclipse.jetty.server.HttpChannel.dispatch(HttpChannel.java:567)
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:362)
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:290)
+	at org.eclipse.jetty.io.AbstractConnection$ReadCallback.succeeded(AbstractConnection.java:321)
+	at org.eclipse.jetty.io.FillInterest.fillable(FillInterest.java:103)
+	at org.eclipse.jetty.io.SocketChannelEndPoint$1.run(SocketChannelEndPoint.java:104)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.runTask(EatWhatYouKill.java:336)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.doProduce(EatWhatYouKill.java:313)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.tryProduce(EatWhatYouKill.java:171)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.run(EatWhatYouKill.java:129)
+	at org.eclipse.jetty.util.thread.ReservedThreadExecutor$ReservedThread.run(ReservedThreadExecutor.java:375)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:823)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$Runner.run(QueuedThreadPool.java:945)
+	at java.base/java.lang.Thread.run(Thread.java:832)
+2020-11-30 12:07:57 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: La cantidad de columnas no coincide
+Column count does not match; SQL statement:
+INSERT INTO EMPRESA VALUES (?) [21002-200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:453)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
+	at org.h2.message.DbException.get(DbException.java:205)
+	at org.h2.message.DbException.get(DbException.java:181)
+	at org.h2.message.DbException.get(DbException.java:170)
+	at org.h2.command.dml.Insert.prepare(Insert.java:319)
+	at org.h2.command.Parser.prepareCommand(Parser.java:744)
+	at org.h2.engine.Session.prepareLocal(Session.java:657)
+	at org.h2.engine.Session.prepareCommand(Session.java:595)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1235)
+	at org.h2.jdbc.JdbcPreparedStatement.<init>(JdbcPreparedStatement.java:76)
+	at org.h2.jdbc.JdbcConnection.prepareStatement(JdbcConnection.java:352)
+	at es.salesianos.repository.Repository.insert(Repository.java:24)
+	at es.salesianos.service.Service.insert(Service.java:20)
+	at es.salesianos.servlet.EmpresaServlet.doPost(EmpresaServlet.java:31)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:523)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:590)
+	at org.eclipse.jetty.servlet.ServletHolder$NotAsyncServlet.service(ServletHolder.java:1354)
+	at org.eclipse.jetty.servlet.ServletHolder.handle(ServletHolder.java:724)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1562)
+	at org.eclipse.jetty.websocket.util.server.WebSocketUpgradeFilter.doFilter(WebSocketUpgradeFilter.java:147)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1549)
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:507)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:136)
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:585)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:127)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:228)
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:1577)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:226)
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1309)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:181)
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:450)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:1550)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:179)
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1228)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:134)
+	at org.eclipse.jetty.server.handler.ContextHandlerCollection.handle(ContextHandlerCollection.java:188)
+	at org.eclipse.jetty.server.handler.HandlerList.handle(HandlerList.java:56)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:127)
+	at org.eclipse.jetty.server.Server.handle(Server.java:549)
+	at org.eclipse.jetty.server.HttpChannel.lambda$handle$0(HttpChannel.java:370)
+	at org.eclipse.jetty.server.HttpChannel.dispatch(HttpChannel.java:567)
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:362)
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:290)
+	at org.eclipse.jetty.io.AbstractConnection$ReadCallback.succeeded(AbstractConnection.java:321)
+	at org.eclipse.jetty.io.FillInterest.fillable(FillInterest.java:103)
+	at org.eclipse.jetty.io.SocketChannelEndPoint$1.run(SocketChannelEndPoint.java:104)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.runTask(EatWhatYouKill.java:336)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.doProduce(EatWhatYouKill.java:313)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.tryProduce(EatWhatYouKill.java:171)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.run(EatWhatYouKill.java:129)
+	at org.eclipse.jetty.util.thread.ReservedThreadExecutor$ReservedThread.run(ReservedThreadExecutor.java:375)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:823)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$Runner.run(QueuedThreadPool.java:945)
+	at java.base/java.lang.Thread.run(Thread.java:832)
+2020-11-30 12:08:10 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "INSERT INTO ([*]NOMBRE) EMPRESA VALUES (?)"; se esperaba "identifier"
+Syntax error in SQL statement "INSERT INTO ([*]NOMBRE) EMPRESA VALUES (?)"; expected "identifier"; SQL statement:
+INSERT INTO (nombre) EMPRESA VALUES (?) [42001-200]
+2020-11-30 12:08:21 jdbc[3]: exception
+java.sql.SQLClientInfoException: Client info name 'ApplicationName' not supported.
+	at org.h2.jdbc.JdbcConnection.setClientInfo(JdbcConnection.java:1749)
+	at org.jkiss.dbeaver.ext.generic.model.GenericDataSource.populateClientAppName(GenericDataSource.java:164)
+	at org.jkiss.dbeaver.ext.generic.model.GenericDataSource.openConnection(GenericDataSource.java:127)
+	at org.jkiss.dbeaver.ext.h2.model.H2DataSource.openConnection(H2DataSource.java:74)
+	at org.jkiss.dbeaver.model.impl.jdbc.JDBCExecutionContext.connect(JDBCExecutionContext.java:101)
+	at org.jkiss.dbeaver.model.impl.jdbc.JDBCRemoteInstance.initializeMainContext(JDBCRemoteInstance.java:95)
+	at org.jkiss.dbeaver.model.impl.jdbc.JDBCRemoteInstance.<init>(JDBCRemoteInstance.java:57)
+	at org.jkiss.dbeaver.model.impl.jdbc.JDBCDataSource.initializeRemoteInstance(JDBCDataSource.java:110)
+	at org.jkiss.dbeaver.ext.generic.model.GenericDataSource.<init>(GenericDataSource.java:106)
+	at org.jkiss.dbeaver.ext.h2.model.H2DataSource.<init>(H2DataSource.java:43)
+	at org.jkiss.dbeaver.ext.h2.model.H2MetaModel.createDataSourceImpl(H2MetaModel.java:47)
+	at org.jkiss.dbeaver.ext.generic.GenericDataSourceProvider.openDataSource(GenericDataSourceProvider.java:106)
+	at org.jkiss.dbeaver.registry.DataSourceDescriptor.connect(DataSourceDescriptor.java:880)
+	at org.jkiss.dbeaver.runtime.jobs.ConnectJob.run(ConnectJob.java:70)
+	at org.jkiss.dbeaver.runtime.jobs.ConnectJob.runSync(ConnectJob.java:98)
+	at org.jkiss.dbeaver.ui.actions.datasource.DataSourceHandler.connectToDataSource(DataSourceHandler.java:106)
+	at org.jkiss.dbeaver.ui.actions.datasource.UIServiceConnectionsImpl.initConnection(UIServiceConnectionsImpl.java:65)
+	at org.jkiss.dbeaver.model.navigator.DBNDataSource.initializeNode(DBNDataSource.java:157)
+	at org.jkiss.dbeaver.model.navigator.DBNDatabaseNode.getChildren(DBNDatabaseNode.java:203)
+	at org.jkiss.dbeaver.model.navigator.DBNDatabaseNode.getChildren(DBNDatabaseNode.java:1)
+	at org.jkiss.dbeaver.model.navigator.DBNUtils.getNodeChildrenFiltered(DBNUtils.java:70)
+	at org.jkiss.dbeaver.ui.navigator.database.load.TreeLoadService.evaluate(TreeLoadService.java:49)
+	at org.jkiss.dbeaver.ui.navigator.database.load.TreeLoadService.evaluate(TreeLoadService.java:1)
+	at org.jkiss.dbeaver.ui.LoadingJob.run(LoadingJob.java:88)
+	at org.jkiss.dbeaver.ui.LoadingJob.run(LoadingJob.java:72)
+	at org.jkiss.dbeaver.model.runtime.AbstractJob.run(AbstractJob.java:105)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+2020-11-30 12:12:35 jdbc[3]: exception
+java.sql.SQLClientInfoException: Client info name 'ApplicationName' not supported.
+	at org.h2.jdbc.JdbcConnection.setClientInfo(JdbcConnection.java:1749)
+	at org.jkiss.dbeaver.ext.generic.model.GenericDataSource.populateClientAppName(GenericDataSource.java:164)
+	at org.jkiss.dbeaver.ext.generic.model.GenericDataSource.openConnection(GenericDataSource.java:127)
+	at org.jkiss.dbeaver.ext.h2.model.H2DataSource.openConnection(H2DataSource.java:74)
+	at org.jkiss.dbeaver.model.impl.jdbc.JDBCExecutionContext.connect(JDBCExecutionContext.java:101)
+	at org.jkiss.dbeaver.model.impl.jdbc.JDBCRemoteInstance.initializeMainContext(JDBCRemoteInstance.java:95)
+	at org.jkiss.dbeaver.model.impl.jdbc.JDBCRemoteInstance.<init>(JDBCRemoteInstance.java:57)
+	at org.jkiss.dbeaver.model.impl.jdbc.JDBCDataSource.initializeRemoteInstance(JDBCDataSource.java:110)
+	at org.jkiss.dbeaver.ext.generic.model.GenericDataSource.<init>(GenericDataSource.java:106)
+	at org.jkiss.dbeaver.ext.h2.model.H2DataSource.<init>(H2DataSource.java:43)
+	at org.jkiss.dbeaver.ext.h2.model.H2MetaModel.createDataSourceImpl(H2MetaModel.java:47)
+	at org.jkiss.dbeaver.ext.generic.GenericDataSourceProvider.openDataSource(GenericDataSourceProvider.java:106)
+	at org.jkiss.dbeaver.registry.DataSourceDescriptor.connect(DataSourceDescriptor.java:880)
+	at org.jkiss.dbeaver.runtime.jobs.ConnectJob.run(ConnectJob.java:70)
+	at org.jkiss.dbeaver.runtime.jobs.ConnectJob.runSync(ConnectJob.java:98)
+	at org.jkiss.dbeaver.ui.actions.datasource.DataSourceHandler.connectToDataSource(DataSourceHandler.java:106)
+	at org.jkiss.dbeaver.ui.actions.datasource.UIServiceConnectionsImpl.initConnection(UIServiceConnectionsImpl.java:65)
+	at org.jkiss.dbeaver.model.navigator.DBNDataSource.initializeNode(DBNDataSource.java:157)
+	at org.jkiss.dbeaver.model.navigator.DBNDatabaseNode.getChildren(DBNDatabaseNode.java:203)
+	at org.jkiss.dbeaver.model.navigator.DBNDatabaseNode.getChildren(DBNDatabaseNode.java:1)
+	at org.jkiss.dbeaver.model.navigator.DBNUtils.getNodeChildrenFiltered(DBNUtils.java:70)
+	at org.jkiss.dbeaver.ui.navigator.database.load.TreeLoadService.evaluate(TreeLoadService.java:49)
+	at org.jkiss.dbeaver.ui.navigator.database.load.TreeLoadService.evaluate(TreeLoadService.java:1)
+	at org.jkiss.dbeaver.ui.LoadingJob.run(LoadingJob.java:88)
+	at org.jkiss.dbeaver.ui.LoadingJob.run(LoadingJob.java:72)
+	at org.jkiss.dbeaver.model.runtime.AbstractJob.run(AbstractJob.java:105)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+2020-11-30 12:23:59 jdbc[3]: exception
+java.sql.SQLClientInfoException: Client info name 'ApplicationName' not supported.
+	at org.h2.jdbc.JdbcConnection.setClientInfo(JdbcConnection.java:1749)
+	at org.jkiss.dbeaver.ext.generic.model.GenericDataSource.populateClientAppName(GenericDataSource.java:164)
+	at org.jkiss.dbeaver.ext.generic.model.GenericDataSource.openConnection(GenericDataSource.java:127)
+	at org.jkiss.dbeaver.ext.h2.model.H2DataSource.openConnection(H2DataSource.java:74)
+	at org.jkiss.dbeaver.model.impl.jdbc.JDBCExecutionContext.connect(JDBCExecutionContext.java:101)
+	at org.jkiss.dbeaver.model.impl.jdbc.JDBCRemoteInstance.initializeMainContext(JDBCRemoteInstance.java:95)
+	at org.jkiss.dbeaver.model.impl.jdbc.JDBCRemoteInstance.<init>(JDBCRemoteInstance.java:57)
+	at org.jkiss.dbeaver.model.impl.jdbc.JDBCDataSource.initializeRemoteInstance(JDBCDataSource.java:110)
+	at org.jkiss.dbeaver.ext.generic.model.GenericDataSource.<init>(GenericDataSource.java:106)
+	at org.jkiss.dbeaver.ext.h2.model.H2DataSource.<init>(H2DataSource.java:43)
+	at org.jkiss.dbeaver.ext.h2.model.H2MetaModel.createDataSourceImpl(H2MetaModel.java:47)
+	at org.jkiss.dbeaver.ext.generic.GenericDataSourceProvider.openDataSource(GenericDataSourceProvider.java:106)
+	at org.jkiss.dbeaver.registry.DataSourceDescriptor.connect(DataSourceDescriptor.java:880)
+	at org.jkiss.dbeaver.runtime.jobs.ConnectJob.run(ConnectJob.java:70)
+	at org.jkiss.dbeaver.runtime.jobs.ConnectJob.runSync(ConnectJob.java:98)
+	at org.jkiss.dbeaver.ui.actions.datasource.DataSourceHandler.connectToDataSource(DataSourceHandler.java:106)
+	at org.jkiss.dbeaver.ui.actions.datasource.UIServiceConnectionsImpl.initConnection(UIServiceConnectionsImpl.java:65)
+	at org.jkiss.dbeaver.model.navigator.DBNDataSource.initializeNode(DBNDataSource.java:157)
+	at org.jkiss.dbeaver.model.navigator.DBNDatabaseNode.getChildren(DBNDatabaseNode.java:203)
+	at org.jkiss.dbeaver.model.navigator.DBNDatabaseNode.getChildren(DBNDatabaseNode.java:1)
+	at org.jkiss.dbeaver.model.navigator.DBNUtils.getNodeChildrenFiltered(DBNUtils.java:70)
+	at org.jkiss.dbeaver.ui.navigator.database.load.TreeLoadService.evaluate(TreeLoadService.java:49)
+	at org.jkiss.dbeaver.ui.navigator.database.load.TreeLoadService.evaluate(TreeLoadService.java:1)
+	at org.jkiss.dbeaver.ui.LoadingJob.run(LoadingJob.java:88)
+	at org.jkiss.dbeaver.ui.LoadingJob.run(LoadingJob.java:72)
+	at org.jkiss.dbeaver.model.runtime.AbstractJob.run(AbstractJob.java:105)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+2020-11-30 12:25:29 database: flush
+org.h2.message.DbException: Error General : "java.lang.IllegalStateException: Reading from file nio:/home/jorge/Escritorio/IbanezJorgeServlet/src/main/resources/test.mv.db failed at 28672 (length 24576), read 0, remaining 4096 [1.4.200/1]"
+General error: "java.lang.IllegalStateException: Reading from file nio:/home/jorge/Escritorio/IbanezJorgeServlet/src/main/resources/test.mv.db failed at 28672 (length 24576), read 0, remaining 4096 [1.4.200/1]" [50000-200]
+	at org.h2.message.DbException.get(DbException.java:194)
+	at org.h2.message.DbException.convert(DbException.java:347)
+	at org.h2.mvstore.db.MVTableEngine$1.uncaughtException(MVTableEngine.java:93)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:2877)
+	at org.h2.mvstore.MVStore.writeInBackground(MVStore.java:2813)
+	at org.h2.mvstore.MVStore$BackgroundWriterThread.run(MVStore.java:3290)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: Error General : "java.lang.IllegalStateException: Reading from file nio:/home/jorge/Escritorio/IbanezJorgeServlet/src/main/resources/test.mv.db failed at 28672 (length 24576), read 0, remaining 4096 [1.4.200/1]"
+General error: "java.lang.IllegalStateException: Reading from file nio:/home/jorge/Escritorio/IbanezJorgeServlet/src/main/resources/test.mv.db failed at 28672 (length 24576), read 0, remaining 4096 [1.4.200/1]" [50000-200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:505)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
+	... 6 more
+Caused by: java.lang.IllegalStateException: Reading from file nio:/home/jorge/Escritorio/IbanezJorgeServlet/src/main/resources/test.mv.db failed at 28672 (length 24576), read 0, remaining 4096 [1.4.200/1]
+	at org.h2.mvstore.DataUtils.newIllegalStateException(DataUtils.java:950)
+	at org.h2.mvstore.DataUtils.readFully(DataUtils.java:456)
+	at org.h2.mvstore.FileStore.readFully(FileStore.java:98)
+	at org.h2.mvstore.MVStore.moveChunk(MVStore.java:1915)
+	at org.h2.mvstore.MVStore.compactMoveChunks(MVStore.java:1839)
+	at org.h2.mvstore.MVStore.compactMoveChunks(MVStore.java:1772)
+	at org.h2.mvstore.MVStore.doMaintenance(MVStore.java:2848)
+	at org.h2.mvstore.MVStore.writeInBackground(MVStore.java:2788)
+	... 1 more
+Caused by: java.io.EOFException
+	at org.h2.mvstore.DataUtils.readFully(DataUtils.java:444)
+	... 7 more
+2020-11-30 12:33:14 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLNonTransientException: Error General : "Error General : ""java.lang.IllegalStateException: Reading from file nio:/home/jorge/Escritorio/IbanezJorgeServlet/src/main/resources/test.mv.db failed at 28672 (length 24576), read 0, remaining 4096 [1.4.200/1]""
+General error: ""java.lang.IllegalStateException: Reading from file nio:/home/jorge/Escritorio/IbanezJorgeServlet/src/main/resources/test.mv.db failed at 28672 (length 24576), read 0, remaining 4096 [1.4.200/1]"" [50000-200]"
+General error: "Error General : ""java.lang.IllegalStateException: Reading from file nio:/home/jorge/Escritorio/IbanezJorgeServlet/src/main/resources/test.mv.db failed at 28672 (length 24576), read 0, remaining 4096 [1.4.200/1]""
+General error: ""java.lang.IllegalStateException: Reading from file nio:/home/jorge/Escritorio/IbanezJorgeServlet/src/main/resources/test.mv.db failed at 28672 (length 24576), read 0, remaining 4096 [1.4.200/1]"" [50000-200]"; SQL statement:
+shutdown [50000-200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:505)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
+	at org.h2.message.DbException.get(DbException.java:194)
+	at org.h2.engine.Database.throwLastBackgroundException(Database.java:2221)
+	at org.h2.engine.Session.close(Session.java:945)
+	at org.h2.command.dml.TransactionCommand.update(TransactionCommand.java:96)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:198)
+	at org.h2.command.Command.executeUpdate(Command.java:251)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:228)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:201)
+	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.execute(JDBCStatementImpl.java:327)
+	at org.jkiss.dbeaver.model.impl.jdbc.JDBCUtils.executeStatement(JDBCUtils.java:599)
+	at org.jkiss.dbeaver.ext.generic.model.GenericDataSource.shutdown(GenericDataSource.java:252)
+	at org.jkiss.dbeaver.registry.DataSourceDescriptor.disconnect(DataSourceDescriptor.java:1012)
+	at org.jkiss.dbeaver.registry.DataSourceDescriptor.disconnect(DataSourceDescriptor.java:985)
+	at org.jkiss.dbeaver.runtime.jobs.DisconnectJob.run(DisconnectJob.java:52)
+	at org.jkiss.dbeaver.model.runtime.AbstractJob.run(AbstractJob.java:105)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: org.h2.message.DbException: Error General : "java.lang.IllegalStateException: Reading from file nio:/home/jorge/Escritorio/IbanezJorgeServlet/src/main/resources/test.mv.db failed at 28672 (length 24576), read 0, remaining 4096 [1.4.200/1]"
+General error: "java.lang.IllegalStateException: Reading from file nio:/home/jorge/Escritorio/IbanezJorgeServlet/src/main/resources/test.mv.db failed at 28672 (length 24576), read 0, remaining 4096 [1.4.200/1]" [50000-200]
+	at org.h2.message.DbException.get(DbException.java:194)
+	at org.h2.message.DbException.convert(DbException.java:347)
+	at org.h2.mvstore.db.MVTableEngine$1.uncaughtException(MVTableEngine.java:93)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:2877)
+	at org.h2.mvstore.MVStore.writeInBackground(MVStore.java:2813)
+	at org.h2.mvstore.MVStore$BackgroundWriterThread.run(MVStore.java:3290)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: Error General : "java.lang.IllegalStateException: Reading from file nio:/home/jorge/Escritorio/IbanezJorgeServlet/src/main/resources/test.mv.db failed at 28672 (length 24576), read 0, remaining 4096 [1.4.200/1]"
+General error: "java.lang.IllegalStateException: Reading from file nio:/home/jorge/Escritorio/IbanezJorgeServlet/src/main/resources/test.mv.db failed at 28672 (length 24576), read 0, remaining 4096 [1.4.200/1]" [50000-200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:505)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
+	... 6 more
+Caused by: java.lang.IllegalStateException: Reading from file nio:/home/jorge/Escritorio/IbanezJorgeServlet/src/main/resources/test.mv.db failed at 28672 (length 24576), read 0, remaining 4096 [1.4.200/1]
+	at org.h2.mvstore.DataUtils.newIllegalStateException(DataUtils.java:950)
+	at org.h2.mvstore.DataUtils.readFully(DataUtils.java:456)
+	at org.h2.mvstore.FileStore.readFully(FileStore.java:98)
+	at org.h2.mvstore.MVStore.moveChunk(MVStore.java:1915)
+	at org.h2.mvstore.MVStore.compactMoveChunks(MVStore.java:1839)
+	at org.h2.mvstore.MVStore.compactMoveChunks(MVStore.java:1772)
+	at org.h2.mvstore.MVStore.doMaintenance(MVStore.java:2848)
+	at org.h2.mvstore.MVStore.writeInBackground(MVStore.java:2788)
+	... 1 more
+Caused by: java.io.EOFException
+	at org.h2.mvstore.DataUtils.readFully(DataUtils.java:444)
+	... 7 more
+2020-11-30 12:33:30 jdbc[3]: exception
+java.sql.SQLClientInfoException: Client info name 'ApplicationName' not supported.
+	at org.h2.jdbc.JdbcConnection.setClientInfo(JdbcConnection.java:1749)
+	at org.jkiss.dbeaver.ext.generic.model.GenericDataSource.populateClientAppName(GenericDataSource.java:164)
+	at org.jkiss.dbeaver.ext.generic.model.GenericDataSource.openConnection(GenericDataSource.java:127)
+	at org.jkiss.dbeaver.ext.h2.model.H2DataSource.openConnection(H2DataSource.java:74)
+	at org.jkiss.dbeaver.model.impl.jdbc.JDBCExecutionContext.connect(JDBCExecutionContext.java:101)
+	at org.jkiss.dbeaver.model.impl.jdbc.JDBCRemoteInstance.initializeMainContext(JDBCRemoteInstance.java:95)
+	at org.jkiss.dbeaver.model.impl.jdbc.JDBCRemoteInstance.<init>(JDBCRemoteInstance.java:57)
+	at org.jkiss.dbeaver.model.impl.jdbc.JDBCDataSource.initializeRemoteInstance(JDBCDataSource.java:110)
+	at org.jkiss.dbeaver.ext.generic.model.GenericDataSource.<init>(GenericDataSource.java:106)
+	at org.jkiss.dbeaver.ext.h2.model.H2DataSource.<init>(H2DataSource.java:43)
+	at org.jkiss.dbeaver.ext.h2.model.H2MetaModel.createDataSourceImpl(H2MetaModel.java:47)
+	at org.jkiss.dbeaver.ext.generic.GenericDataSourceProvider.openDataSource(GenericDataSourceProvider.java:106)
+	at org.jkiss.dbeaver.registry.DataSourceDescriptor.connect(DataSourceDescriptor.java:880)
+	at org.jkiss.dbeaver.runtime.jobs.ConnectJob.run(ConnectJob.java:70)
+	at org.jkiss.dbeaver.runtime.jobs.ConnectJob.runSync(ConnectJob.java:98)
+	at org.jkiss.dbeaver.ui.actions.datasource.DataSourceHandler.connectToDataSource(DataSourceHandler.java:106)
+	at org.jkiss.dbeaver.ui.actions.datasource.UIServiceConnectionsImpl.initConnection(UIServiceConnectionsImpl.java:65)
+	at org.jkiss.dbeaver.model.navigator.DBNDataSource.initializeNode(DBNDataSource.java:157)
+	at org.jkiss.dbeaver.model.navigator.DBNDatabaseNode.getChildren(DBNDatabaseNode.java:203)
+	at org.jkiss.dbeaver.model.navigator.DBNDatabaseNode.getChildren(DBNDatabaseNode.java:1)
+	at org.jkiss.dbeaver.model.navigator.DBNUtils.getNodeChildrenFiltered(DBNUtils.java:70)
+	at org.jkiss.dbeaver.ui.navigator.database.load.TreeLoadService.evaluate(TreeLoadService.java:49)
+	at org.jkiss.dbeaver.ui.navigator.database.load.TreeLoadService.evaluate(TreeLoadService.java:1)
+	at org.jkiss.dbeaver.ui.LoadingJob.run(LoadingJob.java:88)
+	at org.jkiss.dbeaver.ui.LoadingJob.run(LoadingJob.java:72)
+	at org.jkiss.dbeaver.model.runtime.AbstractJob.run(AbstractJob.java:105)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+2020-11-30 12:49:56 database: flush
+org.h2.message.DbException: Error General : "java.lang.IllegalStateException: Reading from file nio:/home/jorge/Escritorio/IbanezJorgeServlet/src/main/resources/test.mv.db failed at 28672 (length 20480), read 0, remaining 4096 [1.4.200/1]"
+General error: "java.lang.IllegalStateException: Reading from file nio:/home/jorge/Escritorio/IbanezJorgeServlet/src/main/resources/test.mv.db failed at 28672 (length 20480), read 0, remaining 4096 [1.4.200/1]" [50000-200]
+	at org.h2.message.DbException.get(DbException.java:194)
+	at org.h2.message.DbException.convert(DbException.java:347)
+	at org.h2.mvstore.db.MVTableEngine$1.uncaughtException(MVTableEngine.java:93)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:2877)
+	at org.h2.mvstore.MVStore.writeInBackground(MVStore.java:2813)
+	at org.h2.mvstore.MVStore$BackgroundWriterThread.run(MVStore.java:3290)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: Error General : "java.lang.IllegalStateException: Reading from file nio:/home/jorge/Escritorio/IbanezJorgeServlet/src/main/resources/test.mv.db failed at 28672 (length 20480), read 0, remaining 4096 [1.4.200/1]"
+General error: "java.lang.IllegalStateException: Reading from file nio:/home/jorge/Escritorio/IbanezJorgeServlet/src/main/resources/test.mv.db failed at 28672 (length 20480), read 0, remaining 4096 [1.4.200/1]" [50000-200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:505)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
+	... 6 more
+Caused by: java.lang.IllegalStateException: Reading from file nio:/home/jorge/Escritorio/IbanezJorgeServlet/src/main/resources/test.mv.db failed at 28672 (length 20480), read 0, remaining 4096 [1.4.200/1]
+	at org.h2.mvstore.DataUtils.newIllegalStateException(DataUtils.java:950)
+	at org.h2.mvstore.DataUtils.readFully(DataUtils.java:456)
+	at org.h2.mvstore.FileStore.readFully(FileStore.java:98)
+	at org.h2.mvstore.MVStore.moveChunk(MVStore.java:1915)
+	at org.h2.mvstore.MVStore.compactMoveChunks(MVStore.java:1839)
+	at org.h2.mvstore.MVStore.compactMoveChunks(MVStore.java:1772)
+	at org.h2.mvstore.MVStore.doMaintenance(MVStore.java:2848)
+	at org.h2.mvstore.MVStore.writeInBackground(MVStore.java:2788)
+	... 1 more
+Caused by: java.io.EOFException
+	at org.h2.mvstore.DataUtils.readFully(DataUtils.java:444)
+	... 7 more
+2020-11-30 12:56:34 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLNonTransientException: Error General : "Error General : ""java.lang.IllegalStateException: Reading from file nio:/home/jorge/Escritorio/IbanezJorgeServlet/src/main/resources/test.mv.db failed at 28672 (length 20480), read 0, remaining 4096 [1.4.200/1]""
+General error: ""java.lang.IllegalStateException: Reading from file nio:/home/jorge/Escritorio/IbanezJorgeServlet/src/main/resources/test.mv.db failed at 28672 (length 20480), read 0, remaining 4096 [1.4.200/1]"" [50000-200]"
+General error: "Error General : ""java.lang.IllegalStateException: Reading from file nio:/home/jorge/Escritorio/IbanezJorgeServlet/src/main/resources/test.mv.db failed at 28672 (length 20480), read 0, remaining 4096 [1.4.200/1]""
+General error: ""java.lang.IllegalStateException: Reading from file nio:/home/jorge/Escritorio/IbanezJorgeServlet/src/main/resources/test.mv.db failed at 28672 (length 20480), read 0, remaining 4096 [1.4.200/1]"" [50000-200]"; SQL statement:
+shutdown [50000-200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:505)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
+	at org.h2.message.DbException.get(DbException.java:194)
+	at org.h2.engine.Database.throwLastBackgroundException(Database.java:2221)
+	at org.h2.engine.Session.close(Session.java:945)
+	at org.h2.command.dml.TransactionCommand.update(TransactionCommand.java:96)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:198)
+	at org.h2.command.Command.executeUpdate(Command.java:251)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:228)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:201)
+	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.execute(JDBCStatementImpl.java:327)
+	at org.jkiss.dbeaver.model.impl.jdbc.JDBCUtils.executeStatement(JDBCUtils.java:599)
+	at org.jkiss.dbeaver.ext.generic.model.GenericDataSource.shutdown(GenericDataSource.java:252)
+	at org.jkiss.dbeaver.registry.DataSourceDescriptor.disconnect(DataSourceDescriptor.java:1012)
+	at org.jkiss.dbeaver.registry.DataSourceDescriptor.disconnect(DataSourceDescriptor.java:985)
+	at org.jkiss.dbeaver.runtime.jobs.DisconnectJob.run(DisconnectJob.java:52)
+	at org.jkiss.dbeaver.model.runtime.AbstractJob.run(AbstractJob.java:105)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: org.h2.message.DbException: Error General : "java.lang.IllegalStateException: Reading from file nio:/home/jorge/Escritorio/IbanezJorgeServlet/src/main/resources/test.mv.db failed at 28672 (length 20480), read 0, remaining 4096 [1.4.200/1]"
+General error: "java.lang.IllegalStateException: Reading from file nio:/home/jorge/Escritorio/IbanezJorgeServlet/src/main/resources/test.mv.db failed at 28672 (length 20480), read 0, remaining 4096 [1.4.200/1]" [50000-200]
+	at org.h2.message.DbException.get(DbException.java:194)
+	at org.h2.message.DbException.convert(DbException.java:347)
+	at org.h2.mvstore.db.MVTableEngine$1.uncaughtException(MVTableEngine.java:93)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:2877)
+	at org.h2.mvstore.MVStore.writeInBackground(MVStore.java:2813)
+	at org.h2.mvstore.MVStore$BackgroundWriterThread.run(MVStore.java:3290)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: Error General : "java.lang.IllegalStateException: Reading from file nio:/home/jorge/Escritorio/IbanezJorgeServlet/src/main/resources/test.mv.db failed at 28672 (length 20480), read 0, remaining 4096 [1.4.200/1]"
+General error: "java.lang.IllegalStateException: Reading from file nio:/home/jorge/Escritorio/IbanezJorgeServlet/src/main/resources/test.mv.db failed at 28672 (length 20480), read 0, remaining 4096 [1.4.200/1]" [50000-200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:505)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
+	... 6 more
+Caused by: java.lang.IllegalStateException: Reading from file nio:/home/jorge/Escritorio/IbanezJorgeServlet/src/main/resources/test.mv.db failed at 28672 (length 20480), read 0, remaining 4096 [1.4.200/1]
+	at org.h2.mvstore.DataUtils.newIllegalStateException(DataUtils.java:950)
+	at org.h2.mvstore.DataUtils.readFully(DataUtils.java:456)
+	at org.h2.mvstore.FileStore.readFully(FileStore.java:98)
+	at org.h2.mvstore.MVStore.moveChunk(MVStore.java:1915)
+	at org.h2.mvstore.MVStore.compactMoveChunks(MVStore.java:1839)
+	at org.h2.mvstore.MVStore.compactMoveChunks(MVStore.java:1772)
+	at org.h2.mvstore.MVStore.doMaintenance(MVStore.java:2848)
+	at org.h2.mvstore.MVStore.writeInBackground(MVStore.java:2788)
+	... 1 more
+Caused by: java.io.EOFException
+	at org.h2.mvstore.DataUtils.readFully(DataUtils.java:444)
+	... 7 more
+2020-11-30 12:56:41 jdbc[3]: exception
+java.sql.SQLClientInfoException: Client info name 'ApplicationName' not supported.
+	at org.h2.jdbc.JdbcConnection.setClientInfo(JdbcConnection.java:1749)
+	at org.jkiss.dbeaver.ext.generic.model.GenericDataSource.populateClientAppName(GenericDataSource.java:164)
+	at org.jkiss.dbeaver.ext.generic.model.GenericDataSource.openConnection(GenericDataSource.java:127)
+	at org.jkiss.dbeaver.ext.h2.model.H2DataSource.openConnection(H2DataSource.java:74)
+	at org.jkiss.dbeaver.model.impl.jdbc.JDBCExecutionContext.connect(JDBCExecutionContext.java:101)
+	at org.jkiss.dbeaver.model.impl.jdbc.JDBCRemoteInstance.initializeMainContext(JDBCRemoteInstance.java:95)
+	at org.jkiss.dbeaver.model.impl.jdbc.JDBCRemoteInstance.<init>(JDBCRemoteInstance.java:57)
+	at org.jkiss.dbeaver.model.impl.jdbc.JDBCDataSource.initializeRemoteInstance(JDBCDataSource.java:110)
+	at org.jkiss.dbeaver.ext.generic.model.GenericDataSource.<init>(GenericDataSource.java:106)
+	at org.jkiss.dbeaver.ext.h2.model.H2DataSource.<init>(H2DataSource.java:43)
+	at org.jkiss.dbeaver.ext.h2.model.H2MetaModel.createDataSourceImpl(H2MetaModel.java:47)
+	at org.jkiss.dbeaver.ext.generic.GenericDataSourceProvider.openDataSource(GenericDataSourceProvider.java:106)
+	at org.jkiss.dbeaver.registry.DataSourceDescriptor.connect(DataSourceDescriptor.java:880)
+	at org.jkiss.dbeaver.runtime.jobs.ConnectJob.run(ConnectJob.java:70)
+	at org.jkiss.dbeaver.runtime.jobs.ConnectJob.runSync(ConnectJob.java:98)
+	at org.jkiss.dbeaver.ui.actions.datasource.DataSourceHandler.connectToDataSource(DataSourceHandler.java:106)
+	at org.jkiss.dbeaver.ui.actions.datasource.UIServiceConnectionsImpl.initConnection(UIServiceConnectionsImpl.java:65)
+	at org.jkiss.dbeaver.model.navigator.DBNDataSource.initializeNode(DBNDataSource.java:157)
+	at org.jkiss.dbeaver.model.navigator.DBNDatabaseNode.getChildren(DBNDatabaseNode.java:203)
+	at org.jkiss.dbeaver.model.navigator.DBNDatabaseNode.getChildren(DBNDatabaseNode.java:1)
+	at org.jkiss.dbeaver.model.navigator.DBNUtils.getNodeChildrenFiltered(DBNUtils.java:70)
+	at org.jkiss.dbeaver.ui.navigator.database.load.TreeLoadService.evaluate(TreeLoadService.java:49)
+	at org.jkiss.dbeaver.ui.navigator.database.load.TreeLoadService.evaluate(TreeLoadService.java:1)
+	at org.jkiss.dbeaver.ui.LoadingJob.run(LoadingJob.java:88)
+	at org.jkiss.dbeaver.ui.LoadingJob.run(LoadingJob.java:72)
+	at org.jkiss.dbeaver.model.runtime.AbstractJob.run(AbstractJob.java:105)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
