@@ -1,4 +1,4 @@
-package Models;
+package models;
 
 public class Alumn {
 
@@ -6,6 +6,7 @@ public class Alumn {
 	private Integer age;
 	private boolean fct;
 	private Integer enterprise;
+	private String asistFct;
 
 	public String getName() {
 		return name;
@@ -37,6 +38,22 @@ public class Alumn {
 
 	public void setEnterprise(Integer enterprise) {
 		this.enterprise = enterprise;
+	}
+
+	public String getAsistFct() {
+		if (isFct())
+			asistFct = "si";
+		else
+			asistFct = "no";
+		return asistFct;
+	}
+
+	public void setAsistFct(String asisteFct) {
+		this.asistFct = asisteFct;
+		if (this.asistFct == "no")
+			this.fct = false;
+		else
+			this.fct = true;
 	}
 
 }

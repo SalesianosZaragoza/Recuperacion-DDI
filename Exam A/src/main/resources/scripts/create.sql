@@ -7,7 +7,7 @@ create table IF NOT EXISTS ALUMN(
 	id bigint auto_increment,
 	name varchar(25),
 	age bigint,
-	asisteFCT boolean,
+	asistFCT boolean,
 	enterprise INT,
 	FOREIGN KEY (enterprise) REFERENCES ENTERPRISE(id)
 );
