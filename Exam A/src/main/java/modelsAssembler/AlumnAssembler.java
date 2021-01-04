@@ -5,7 +5,7 @@ import javax.servlet.http.HttpServletRequest;
 import models.Alumn;
 
 public class AlumnAssembler {
-	public Alumn assembleUserFrom(HttpServletRequest req) {
+	public static Alumn assemblerUserFrom(HttpServletRequest req) {
 		Alumn user = new Alumn();
 		String nombre = req.getParameter("name");
 		Integer age = Integer.parseInt(req.getParameter("age"));
@@ -19,7 +19,7 @@ public class AlumnAssembler {
 		return user;
 	}
 
-	public boolean goingToFct(String value) {
+	public static boolean goingToFct(String value) {
 
 		if (value == "si")
 			return true;
