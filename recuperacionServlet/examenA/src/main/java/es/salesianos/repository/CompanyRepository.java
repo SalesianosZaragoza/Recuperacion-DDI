@@ -88,13 +88,13 @@ public class CompanyRepository extends Repository {
 		}
 	}
 	
-	public void insert(Company empresa) {
+	public void insert(Company company) {
 		Connection conn = manager.open(jdbcUrl);
 		PreparedStatement preparedStatement = null;
 		try {
 			preparedStatement = conn
 					.prepareStatement("INSERT INTO EMPRESA (nombre)" + "VALUES (?)");
-			preparedStatement.setString(1, empresa.getName());
+			preparedStatement.setString(1, company.getName());
 			preparedStatement.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
