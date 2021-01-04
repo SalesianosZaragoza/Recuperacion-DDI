@@ -5,7 +5,7 @@ import javax.servlet.http.HttpServletRequest;
 import models.Enterprise;
 
 public class EnterpriseAssembler {
-	public static Enterprise assembleUserFrom(HttpServletRequest req) {
+	public static Enterprise assemblerUserFrom(HttpServletRequest req) {
 		Enterprise enterprise = new Enterprise();
 		String nombre = req.getParameter("name");
 
