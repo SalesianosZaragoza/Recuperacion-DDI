@@ -9,7 +9,7 @@ import connection.ConnectionH2;
 import connection.ConnectionManager;
 import models.Alumn;
 
-public class Repository {
+public class AlumnRepository {
 	private static final String SQL_SEARCH = "SELECT ALUMN.name, ENTERPRISE.name FROM USER INNER JOIN ENTERPRISE ON ALUMN.enterprise=ENTERPRISE.id;";
 	private static final String jdbcUrl = "jdbc:h2:file:./src/main/resources/test";
 	ConnectionManager manager = new ConnectionH2();
@@ -64,7 +64,7 @@ public class Repository {
 		}
 	}
 
-	public void insert(Alumn userFormulario) {
+	public void insertAlumn(Alumn userFormulario) {
 		Connection conn = manager.open(jdbcUrl);
 		PreparedStatement preparedStatement = null;
 		try {
@@ -85,13 +85,13 @@ public class Repository {
 		manager.close(conn);
 	}
 
-	public void update(Alumn userFormulario) {
+	public void updateAlumn(Alumn userFormulario) {
 		Connection conn = manager.open(jdbcUrl);
 
 		PreparedStatement preparedStatement = null;
 		try {
 			preparedStatement = conn.prepareStatement(
-					"UPDATE USER SET name = ?, age = ?, asistFCT =  ?, enterprise = ? WHERE name = ?");
+					"UPDATE ALUMN SET name = ?, age = ?, asistFCT =  ?, enterprise = ? WHERE name = ?");
 			preparedStatement.setString(1, userFormulario.getName());
 			preparedStatement.setInt(2, userFormulario.getAge());
 			preparedStatement.setBoolean(3, userFormulario.isFct());
