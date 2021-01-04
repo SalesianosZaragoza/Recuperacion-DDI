@@ -59,7 +59,7 @@
 	
 	<servlet-mapping>
 		<servlet-name>CompanyDeleteConfirmServlet</servlet-name>
-		<url-pattern>/borrarConfirmarEmpresa</url-pattern>
+		<url-pattern>/CompanyDeleteConfirmServlet</url-pattern>
 	</servlet-mapping>
 
 	<servlet-mapping>

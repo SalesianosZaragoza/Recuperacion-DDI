@@ -16,7 +16,7 @@ public class CompanyDeleteConfirmServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		Company companies = service.updateEntityFromRequest(req);
-		if (req.getParameter("borrarAlumnos").equals("true")) {
+		if (req.getParameter("deleteStudents").equals("true")) {
 			service.delete(companies, true);
 		} else {			
 			service.delete(companies, false);

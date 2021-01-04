@@ -41,7 +41,7 @@ public class CompanyRepository extends Repository {
 	}
 	
 	public List<Student> getStudents(Company company) {
-		List<Student> listaStudents = new ArrayList<Student>();
+		List<Student> listStudents = new ArrayList<Student>();
 		Connection conn = manager.open(jdbcUrl);
 		ResultSet resultSet = null;
 		PreparedStatement prepareStatement = null;
@@ -58,7 +58,7 @@ public class CompanyRepository extends Repository {
 						resultSet.getInt(5)
 				);
 				student.setObjCompany(company);
-				listaStudents.add(student);
+				listStudents.add(student);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -69,7 +69,7 @@ public class CompanyRepository extends Repository {
 			manager.close(conn);
 		}
 
-		return listaStudents;
+		return listStudents;
 	}
 	
 	public void delete(Company company) {

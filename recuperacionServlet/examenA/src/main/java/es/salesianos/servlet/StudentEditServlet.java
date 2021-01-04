@@ -30,14 +30,14 @@ public class StudentEditServlet extends HttpServlet{
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		Integer id = Integer.parseInt(req.getParameter("id"));
 		Student student = service.findById(id);
-		req.setAttribute("alumno", student);
+		req.setAttribute("student", student);
 		List<Company> companies = t_service.listAll();
-		req.setAttribute("empresas", companies);
+		req.setAttribute("companies", companies);
 		redirect(req,resp);
 	}
 
 	protected void redirect(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/alumno_editar.jsp");
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/student_edit.jsp");
 		dispatcher.forward(req,resp);
 	}
 	

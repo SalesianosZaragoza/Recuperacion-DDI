@@ -122,7 +122,7 @@ public class StudentRepository extends Repository {
 	}
 	
 	public List<Student> listAll() {
-		List<Student> listaStudents = new ArrayList<Student>();
+		List<Student> listStudents = new ArrayList<Student>();
 		Connection conn = manager.open(jdbcUrl);
 		ResultSet resultSet = null;
 		PreparedStatement prepareStatement = null;
@@ -138,7 +138,7 @@ public class StudentRepository extends Repository {
 						resultSet.getInt(5)
 				);
 				student.setObjCompany(new CompanyService().findById(student.getCompany()));
-				listaStudents.add(student);
+				listStudents.add(student);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -149,7 +149,7 @@ public class StudentRepository extends Repository {
 			manager.close(conn);
 		}
 		
-		return listaStudents;
+		return listStudents;
 	}
 	
 	private void close(PreparedStatement prepareStatement) {

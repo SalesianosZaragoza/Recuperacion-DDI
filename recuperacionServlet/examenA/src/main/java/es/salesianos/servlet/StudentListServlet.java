@@ -19,7 +19,7 @@ public class StudentListServlet extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		List<Student> students = service.listAll();
-		req.setAttribute("alumnos", students);
+		req.setAttribute("students", students);
 		redirect(req,resp);
 	}
 
