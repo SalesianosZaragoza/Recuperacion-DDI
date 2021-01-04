@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_3_1.xsd"
+	version="3.1">
+
+	<display-name>Books Warehouse Application</display-name>
+	<description></description>
+
+	<servlet>
+		<servlet-name>InsertBookServlet</servlet-name>
+		<servlet-class>es.salesianos.servlet.InsertBookServlet</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>ListWarehousesServlet</servlet-name>
+		<servlet-class>es.salesianos.servlet.ListWarehousesServlet</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>InsertWarehouseServlet</servlet-name>
+		<servlet-class>es.salesianos.servlet.InsertWarehouseServlet</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>DeleteWarehouseServlet</servlet-name>
+		<servlet-class>es.salesianos.servlet.DeleteWarehouseServlet</servlet-class>
+	</servlet>
+	
+
+	<servlet-mapping>
+		<servlet-name>InsertBookServlet</servlet-name>
+		<url-pattern>/insertBook</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>ListWarehousesServlet</servlet-name>
+		<url-pattern>/listWarehouses</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>InsertWarehouseServlet</servlet-name>
+		<url-pattern>/insertWarehouse</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>DeleteWarehouseServlet</servlet-name>
+		<url-pattern>/deleteWarehouse</url-pattern>
+	</servlet-mapping>
+	
+	
+	
+	<welcome-file-list>
+		<welcome-file>/insert_warehouse.jsp</welcome-file>
+	</welcome-file-list>
+
+</web-app>     

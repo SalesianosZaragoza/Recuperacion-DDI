@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_3_1.xsd"
+	version="3.1">
+
+	<display-name>Examen DDI</display-name>
+	<description></description>
+
+	<servlet>
+		<servlet-name>CompanyDeleteServlet</servlet-name>
+		<servlet-class>es.salesianos.servlet.CompanyDeleteServlet</servlet-class>
+	</servlet>
+
+
+	<servlet>
+		<servlet-name>CompanyDeleteConfirmServlet</servlet-name>
+		<servlet-class>es.salesianos.servlet.CompanyDeleteConfirmServlet</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>CompanyInsertServlet</servlet-name>
+		<servlet-class>es.salesianos.servlet.CompanyInsertServlet</servlet-class>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>CompanyListServlet</servlet-name>
+		<servlet-class>es.salesianos.servlet.CompanyListServlet</servlet-class>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>StudentListServlet</servlet-name>
+		<servlet-class>es.salesianos.servlet.StudentListServlet</servlet-class>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>StudentInsertServlet</servlet-name>
+		<servlet-class>es.salesianos.servlet.StudentInsertServlet</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>StudentEditServlet</servlet-name>
+		<servlet-class>es.salesianos.servlet.StudentEditServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>CompanyInsertServlet</servlet-name>
+		<url-pattern>/insertCompany</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>CompanyListServlet</servlet-name>
+		<url-pattern>/listCompanies</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>CompanyDeleteServlet</servlet-name>
+		<url-pattern>/deleteCompany</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>CompanyDeleteConfirmServlet</servlet-name>
+		<url-pattern>/borrarConfirmarEmpresa</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>StudentListServlet</servlet-name>
+		<url-pattern>/listStudents</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>StudentInsertServlet</servlet-name>
+		<url-pattern>/insertStudent</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>StudentEditServlet</servlet-name>
+		<url-pattern>/editStudent</url-pattern>
+	</servlet-mapping>
+	
+	<welcome-file-list>
+		<welcome-file>/company_insert.jsp</welcome-file>
+	</welcome-file-list>
+
+</web-app>     
