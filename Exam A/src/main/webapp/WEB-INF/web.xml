@@ -9,4 +9,20 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+  <servlet>
+    <servlet-name>EnterpriseServlet</servlet-name>
+    <servlet-class>servlet.EnterpriseServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EnterpriseServlet</servlet-name>
+    <url-pattern>/insertEnterprise</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>AlumnServlet</servlet-name>
+    <servlet-class>servlet.AlumnServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AlumnServlet</servlet-name>
+    <url-pattern>/insertAlumn</url-pattern>
+  </servlet-mapping>
 </web-app>

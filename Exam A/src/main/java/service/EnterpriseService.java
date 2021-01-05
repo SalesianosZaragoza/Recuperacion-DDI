@@ -1,5 +1,7 @@
 package service;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 
 import models.Enterprise;
@@ -29,6 +31,10 @@ public class EnterpriseService {
 
 	public void setEnterpriseRepository(EnterpriseRepository repository) {
 		this.repository = repository;
+	}
+
+	public List<Enterprise> listAllEnterprises() {
+		return repository.searchAll();
 	}
 
 }

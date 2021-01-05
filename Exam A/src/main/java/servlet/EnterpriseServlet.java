@@ -22,7 +22,7 @@ public class EnterpriseServlet extends HttpServlet {
 	}
 
 	protected void redirect(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/enterpriseList.jsp");
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/insertEnterprise.jsp");
 		dispatcher.forward(req, resp);
 	}
 
