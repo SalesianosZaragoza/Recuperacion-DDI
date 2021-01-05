@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_3_1.xsd"
+	version="3.1">
+
+	<display-name>HelloWorld Application</display-name>
+	<description></description>
+	
+	<servlet>
+		<servlet-name>ListEmpresaServlet</servlet-name>
+		<servlet-class>es.salesianos.servlet.ListEmpresaServlet</servlet-class>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>addEmpresaServlet</servlet-name>
+		<servlet-class>es.salesianos.servlet.addEmpresaServlet</servlet-class>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>ConfirmDeleteEmpresaServlet</servlet-name>
+		<servlet-class>es.salesianos.servlet.ConfirmDeleteEmpresaServlet</servlet-class>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>deleteEmpresaServlet</servlet-name>
+		<servlet-class>es.salesianos.servlet.deleteEmpresaServlet</servlet-class>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>recoveryAddIdEmpresaServlet</servlet-name>
+		<servlet-class>es.salesianos.servlet.recoveryAddIdEmpresaServlet</servlet-class>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>addAlumnoServlet</servlet-name>
+		<servlet-class>es.salesianos.servlet.addAlumnoServlet</servlet-class>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>editAlumnoServlet</servlet-name>
+		<servlet-class>es.salesianos.servlet.editAlumnoServlet</servlet-class>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>updateAlumnoServlet</servlet-name>
+		<servlet-class>es.salesianos.servlet.updateAlumnoServlet</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>updateAlumnoServlet</servlet-name>
+		<url-pattern>/updateAlumno</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>editAlumnoServlet</servlet-name>
+		<url-pattern>/editAlumno</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>addAlumnoServlet</servlet-name>
+		<url-pattern>/addAlumno</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>recoveryAddIdEmpresaServlet</servlet-name>
+		<url-pattern>/recoveryAddIdEmpresa</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>ConfirmDeleteEmpresaServlet</servlet-name>
+		<url-pattern>/confirmDeleteEmpresa</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>ListEmpresaServlet</servlet-name>
+		<url-pattern>cargarListado</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>deleteEmpresaServlet</servlet-name>
+		<url-pattern>deleteEmpresa</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>addEmpresaServlet</servlet-name>
+		<url-pattern>inscribirEmpresa</url-pattern>
+	</servlet-mapping>
+
+	<welcome-file-list>
+		<welcome-file>index.jsp</welcome-file>
+	</welcome-file-list>
+
+</web-app>     

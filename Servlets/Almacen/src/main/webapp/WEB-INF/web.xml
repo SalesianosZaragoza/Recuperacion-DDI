@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_3_1.xsd"
+	version="3.1">
+
+	<display-name>HelloWorld Application</display-name>
+	<description></description>
+	
+	<servlet>
+		<servlet-name>listado</servlet-name>
+		<servlet-class>es.salesianos.servlet.ListAlmacenServlet</servlet-class>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>addAlmacenOldServlet</servlet-name>
+		<servlet-class>es.salesianos.servlet.addAlmacenOldServlet</servlet-class>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>addAlmacenNewServlet</servlet-name>
+		<servlet-class>es.salesianos.servlet.addAlmacenNewServlet</servlet-class>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>addLibroNewServlet</servlet-name>
+		<servlet-class>es.salesianos.servlet.addLibroNewServlet</servlet-class>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>addLibroOldServlet</servlet-name>
+		<servlet-class>es.salesianos.servlet.addLibroOldServlet</servlet-class>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>deleteAlmacenOldServlet</servlet-name>
+		<servlet-class>es.salesianos.servlet.deleteAlmacenOldServlet</servlet-class>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>deleteAlmacenNewServlet</servlet-name>
+		<servlet-class>es.salesianos.servlet.deleteAlmacenNewServlet</servlet-class>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>recoveryAddIdAlmacenOldServlet</servlet-name>
+		<servlet-class>es.salesianos.servlet.recoveryAddIdAlmacenOldServlet</servlet-class>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>recoveryAddIdAlmacenNewServlet</servlet-name>
+		<servlet-class>es.salesianos.servlet.recoveryAddIdAlmacenNewServlet</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>recoveryAddIdAlmacenOldServlet</servlet-name>
+		<url-pattern>/recoveryAddIdAlmacenOld</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>recoveryAddIdAlmacenNewServlet</servlet-name>
+		<url-pattern>/recoveryAddIdAlmacenNew</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>addLibroNewServlet</servlet-name>
+		<url-pattern>/addLibroNew</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>addLibroOldServlet</servlet-name>
+		<url-pattern>/addLibroOld</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>deleteAlmacenNewServlet</servlet-name>
+		<url-pattern>/deleteAlmacenNew</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>deleteAlmacenOldServlet</servlet-name>
+		<url-pattern>/deleteAlmacenOld</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>listado</servlet-name>
+		<url-pattern>cargarListado</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>addAlmacenOldServlet</servlet-name>
+		<url-pattern>inscribirAlmacenOld</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>addAlmacenNewServlet</servlet-name>
+		<url-pattern>inscribirAlmacenNew</url-pattern>
+	</servlet-mapping>
+
+	<welcome-file-list>
+		<welcome-file>index.jsp</welcome-file>
+	</welcome-file-list>
+
+</web-app>     
