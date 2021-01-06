@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_3_1.xsd"
+	version="3.1">
+
+	<display-name>Aplicacion de Empresa de FCT</display-name>
+	<description></description>
+
+	<servlet>
+		<servlet-name>StudentListServlet</servlet-name>
+		<servlet-class>es.salesianos.servlet.StudentListServlet</servlet-class>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>StudentEditServlet</servlet-name>
+		<servlet-class>es.salesianos.servlet.StudentEditServlet</servlet-class>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>StudentInsertServlet</servlet-name>
+		<servlet-class>es.salesianos.servlet.StudentInsertServlet</servlet-class>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>StudentDeleteServlet</servlet-name>
+		<servlet-class>es.salesianos.servlet.StudentDeleteServlet</servlet-class>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>BusinessConfirmDeleteServlet</servlet-name>
+		<servlet-class>es.salesianos.servlet.BusinessConfirmDeleteServlet</servlet-class>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>BusinessInsertServlet</servlet-name>
+		<servlet-class>es.salesianos.servlet.BusinessInsertServlet</servlet-class>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>BusinessDeleteServlet</servlet-name>
+		<servlet-class>es.salesianos.servlet.BusinessDeleteServlet</servlet-class>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>BusinessListServlet</servlet-name>
+		<servlet-class>es.salesianos.servlet.BusinessListServlet</servlet-class>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>BusinessEditServlet</servlet-name>
+		<servlet-class>es.salesianos.servlet.BusinessEditServlet</servlet-class>
+	</servlet>
+	
+
+	<servlet-mapping>
+		<servlet-name>StudentEditServlet</servlet-name>
+		<url-pattern>/studentEdit</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>StudentListServlet</servlet-name>
+		<url-pattern>/studentList</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>StudentInsertServlet</servlet-name>
+		<url-pattern>/studentInsert</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>StudentDeleteServlet</servlet-name>
+		<url-pattern>/studentDelete</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>BusinessInsertServlet</servlet-name>
+		<url-pattern>/businessInsert</url-pattern>
+	</servlet-mapping>
+	
+		<servlet-mapping>
+		<servlet-name>BusinessDeleteServlet</servlet-name>
+		<url-pattern>/businessDelete</url-pattern>
+	</servlet-mapping>
+	
+		<servlet-mapping>
+		<servlet-name>BusinessConfirmDeleteServlet</servlet-name>
+		<url-pattern>/businessConfirmDelete</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>BusinessListServlet</servlet-name>
+		<url-pattern>/businessList</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>BusinessEditServlet</servlet-name>
+		<url-pattern>/businessEdit</url-pattern>
+	</servlet-mapping>
+	
+	<welcome-file-list>
+		<welcome-file>/business_insert.jsp</welcome-file>
+	</welcome-file-list>
+
+</web-app>     

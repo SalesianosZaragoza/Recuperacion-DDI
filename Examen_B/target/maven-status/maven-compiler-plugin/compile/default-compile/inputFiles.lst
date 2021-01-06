@@ -1,0 +1,16 @@
+/mnt/c/gradoSuperior/recuperacion/Examen_DDI/Examen_B/src/main/java/es/salesianos/servlet/WarehouseListServlet.java
+/mnt/c/gradoSuperior/recuperacion/Examen_DDI/Examen_B/src/main/java/es/salesianos/connection/ConnectionManager.java
+/mnt/c/gradoSuperior/recuperacion/Examen_DDI/Examen_B/src/main/java/es/salesianos/model/assembler/BookAssembler.java
+/mnt/c/gradoSuperior/recuperacion/Examen_DDI/Examen_B/src/main/java/es/salesianos/model/Warehouse.java
+/mnt/c/gradoSuperior/recuperacion/Examen_DDI/Examen_B/src/main/java/es/salesianos/servlet/WarehouseInsertServlet.java
+/mnt/c/gradoSuperior/recuperacion/Examen_DDI/Examen_B/src/main/java/es/salesianos/servlet/WarehouseDeleteServlet.java
+/mnt/c/gradoSuperior/recuperacion/Examen_DDI/Examen_B/src/main/java/es/salesianos/servlet/WarehouseEditServlet.java
+/mnt/c/gradoSuperior/recuperacion/Examen_DDI/Examen_B/src/main/java/es/salesianos/repository/BookRepository.java
+/mnt/c/gradoSuperior/recuperacion/Examen_DDI/Examen_B/src/main/java/es/salesianos/repository/Repository.java
+/mnt/c/gradoSuperior/recuperacion/Examen_DDI/Examen_B/src/main/java/es/salesianos/model/Book.java
+/mnt/c/gradoSuperior/recuperacion/Examen_DDI/Examen_B/src/main/java/es/salesianos/service/WarehouseService.java
+/mnt/c/gradoSuperior/recuperacion/Examen_DDI/Examen_B/src/main/java/es/salesianos/model/assembler/WarehouseAssembler.java
+/mnt/c/gradoSuperior/recuperacion/Examen_DDI/Examen_B/src/main/java/es/salesianos/repository/WarehouseRepository.java
+/mnt/c/gradoSuperior/recuperacion/Examen_DDI/Examen_B/src/main/java/es/salesianos/connection/ConnectionH2.java
+/mnt/c/gradoSuperior/recuperacion/Examen_DDI/Examen_B/src/main/java/es/salesianos/service/BookService.java
+/mnt/c/gradoSuperior/recuperacion/Examen_DDI/Examen_B/src/main/java/es/salesianos/servlet/BookInsertServlet.java
