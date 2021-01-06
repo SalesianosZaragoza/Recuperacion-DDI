@@ -20,15 +20,15 @@ public class AlumnServlet extends HttpServlet {
 	private EnterpriseService eService = new EnterpriseService();
 
 	public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		Alumn enterprise = service.assembleUserFromRequest(req);
-		service.insertOrUpdate(enterprise);
+		Alumn alumn = service.assembleUserFromRequest(req);
+		service.insertOrUpdate(alumn);
 		List<Enterprise> listAllEnterprises = eService.listAllEnterprises();
 		req.setAttribute("listAllEnterprises", listAllEnterprises);
 		redirect(req, resp);
 	}
 
 	protected void redirect(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/alumnList.jsp");
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/insertAlumn.jsp");
 		dispatcher.forward(req, resp);
 	}
 

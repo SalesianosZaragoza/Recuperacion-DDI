@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import connection.ConnectionH2;
 import connection.ConnectionManager;
@@ -69,7 +71,7 @@ public class AlumnRepository {
 		PreparedStatement preparedStatement = null;
 		try {
 			preparedStatement = conn
-					.prepareStatement("INSERT INTO ALUMN (name, age, asistFCT, enerprise)" + "VALUES (?, ?, ?, ?)");
+					.prepareStatement("INSERT INTO ALUMN (name, age, asistFCT, enterprise)" + "VALUES (?, ?, ?, ?)");
 			preparedStatement.setString(1, userFormulario.getName());
 			preparedStatement.setInt(2, userFormulario.getAge());
 			preparedStatement.setBoolean(3, userFormulario.isFct());
@@ -108,4 +110,30 @@ public class AlumnRepository {
 
 	}
 
+	public List<Alumn> searchAll() {
+		List<Alumn> listAlumns = new ArrayList<Alumn>();
+		Connection conn = manager.open(jdbcUrl);
+		ResultSet resultSet = null;
+		PreparedStatement prepareStatement = null;
+		try {
+			prepareStatement = conn.prepareStatement("SELECT * FROM ALUMN");
+			resultSet = prepareStatement.executeQuery();
+			while (resultSet.next()) {
+				Alumn dto = new Alumn();
+				dto.setName(resultSet.getString(1));
+				listAlumns.add(dto);
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new RuntimeException(e);
+		} finally {
+			close(resultSet);
+			close(prepareStatement);
+			manager.close(conn);
+		}
+
+		return listAlumns;
+
+	}
 }

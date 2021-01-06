@@ -29,9 +29,11 @@
 		<span>Empresa: </span>
 		<select>
 			<c:forEach var="enterprise" items="${listAllEnterprises}">
-				<option value=""> ${enterprise.name}
+				<option value="">${enterprise.name}
 			</c:forEach>
-		</select>
+		</select> <br>
+		
+		<input type="submit" value="insertar alumno">
 	</form>
 </body>
 </html>

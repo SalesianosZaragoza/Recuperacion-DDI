@@ -1,5 +1,7 @@
 package service;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 
 import models.Alumn;
@@ -28,5 +30,9 @@ public class AlumnService {
 
 	public void setAlumnRepository(AlumnRepository repository) {
 		this.repository = repository;
+	}
+
+	public List<Alumn> listAllAlumns() {
+		return repository.searchAll();
 	}
 }

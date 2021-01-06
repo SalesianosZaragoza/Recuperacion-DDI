@@ -25,4 +25,12 @@
     <servlet-name>AlumnServlet</servlet-name>
     <url-pattern>/insertAlumn</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>AlumnList</servlet-name>
+    <servlet-class>servlet.AlumnList</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AlumnList</servlet-name>
+    <url-pattern>/alumnList</url-pattern>
+  </servlet-mapping>
 </web-app>

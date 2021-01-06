@@ -9,5 +9,6 @@
 <body>
 	<a href="insertEnterprise.jsp">Insertar Empresa</a>
 	<a href="insertAlumn.jsp">Insertar Alumno</a>
+	<a href="alumnList.jsp">lista de alumnos</a>
 </body>
 </html>

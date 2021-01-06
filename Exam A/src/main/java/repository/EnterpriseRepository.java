@@ -109,7 +109,7 @@ public class EnterpriseRepository {
 		ResultSet resultSet = null;
 		PreparedStatement prepareStatement = null;
 		try {
-			prepareStatement = conn.prepareStatement("SELECT *  FROM ENTERPRISE");
+			prepareStatement = conn.prepareStatement("SELECT * FROM ENTERPRISE");
 			resultSet = prepareStatement.executeQuery();
 			while (resultSet.next()) {
 				Enterprise dto = new Enterprise();
