@@ -15,7 +15,7 @@
 			  	<a class="navbar-brand">Inserta un nuevo Almacen</a>
 				<ul class="navbar-nav ml-auto">
 					<li class="nav-item p-1">
-						<a href='/listadoAlmacenes' class="btn btn-primary" role="button" aria-disabled="true">Volver</a>
+						<a href='/warehouseList' class="btn btn-primary" role="button" aria-disabled="true">Volver</a>
 					</li>
 				</ul>
 			</nav>

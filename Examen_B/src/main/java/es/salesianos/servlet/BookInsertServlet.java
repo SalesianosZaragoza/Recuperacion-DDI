@@ -31,17 +31,17 @@ public class BookInsertServlet extends HttpServlet{
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		List<Warehouse> oldWarehouses = warehouse_service.listOld();
 		List<Warehouse> newWarehouses = warehouse_service.listNew();
-		req.setAttribute("almacenes_old", oldWarehouses);
-		req.setAttribute("almacenes_new", newWarehouses);
+		req.setAttribute("warehouse_old", oldWarehouses);
+		req.setAttribute("warehouse_new", newWarehouses);
 		redirect(req,resp);
 	}
 
 	protected void dredirect(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
-		resp.sendRedirect("/insertarLibro");
+		resp.sendRedirect("/bookInsert");
 	}
 	
 	protected void redirect(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/libros_insertar.jsp");
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/book_insert.jsp");
 		dispatcher.forward(req,resp);
 	}
 }

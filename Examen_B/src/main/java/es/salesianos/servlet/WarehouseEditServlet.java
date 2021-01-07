@@ -39,12 +39,12 @@ public class WarehouseEditServlet extends HttpServlet{
 	}
 
 	protected void redirect(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/almacen_editar.jsp");
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/warehouse_edit.jsp");
 		dispatcher.forward(req,resp);
 	}
 	
 	protected void dredirect(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
-		resp.sendRedirect("/listadoAlmacenes");
+		resp.sendRedirect("/warehouseList");
 	}
 
 }

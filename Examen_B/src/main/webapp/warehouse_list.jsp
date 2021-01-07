@@ -39,7 +39,7 @@
 			  	<%
 			  	List<Warehouse> almacenes_old = (List<Warehouse>)request.getAttribute("oldWarehouses");
 			  	%>
-				<c:forEach var="warehouse" items="${almacenes_old}">
+				<c:forEach var="warehouse" items="${warehouse_old}">
 					<tr>
 						<td><c:out value="${warehouse.getId()}"/></td>
 						<td><c:out value="${warehouse.getName()}"/></td>
@@ -48,8 +48,8 @@
 								<option><c:out value="${book.getIsbn()}"/></option>
 							</c:forEach>
 					 	</select></td>
-					 	<td class="col-1 text-right"><a href='/editarAlmacen?id=${warehouse.getId()}&type=old' class="btn btn-success" role="button" aria-disabled="true">Editar</a></td>
-					 	<td class="col-1 text-left"><a href='/borrarAlmacen?id=${warehouse.getId()}&type=old' class="btn btn-danger" role="button" aria-disabled="true">Borrar</a></td>
+					 	<td class="col-1 text-right"><a href='/warehouseEdit?id=${warehouse.getId()}&type=old' class="btn btn-success" role="button" aria-disabled="true">Editar</a></td>
+					 	<td class="col-1 text-left"><a href='/warehouseDelete?id=${warehouse.getId()}&type=old' class="btn btn-danger" role="button" aria-disabled="true">Borrar</a></td>
 			    	</tr>
 				</c:forEach>
 			  </tbody>
@@ -72,7 +72,7 @@
 			  	<%
 			  	List<Warehouse> almacenes_new = (List<Warehouse>)request.getAttribute("newWarehouses");
 			  	%>
-				<c:forEach var="warehouse" items="${almacenes_new}">
+				<c:forEach var="warehouse" items="${warehouse_new}">
 					<tr>
 						<td><c:out value="${warehouse.getId()}"/></td>
 						<td><c:out value="${warehouse.getName()}"/></td>
@@ -81,7 +81,7 @@
 								<option><c:out value="${book.getIsbn()}"/></option>
 							</c:forEach>
 					 	</select></td>
-					 	<td class="col-1 text-right"><a href='/editarAlmacen?id=${warehouse.getId()}&type=new' class="btn btn-success" role="button" aria-disabled="true">Editar</a></td>
+					 	<td class="col-1 text-right"><a href='/warehouseEdit?id=${warehouse.getId()}&type=new' class="btn btn-success" role="button" aria-disabled="true">Editar</a></td>
 			    	</tr>
 				</c:forEach>
 			  </tbody>

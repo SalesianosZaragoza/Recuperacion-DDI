@@ -17,14 +17,14 @@
 			  	<a class="navbar-brand">Insertar un nuevo Libro</a>
 				<ul class="navbar-nav ml-auto">
 					<li class="nav-item p-1">
-						<a href='/listadoLibros' class="btn btn-primary" role="button" aria-disabled="true">Volver</a>
+						<a href='/bookList' class="btn btn-primary" role="button" aria-disabled="true">Volver</a>
 					</li>
 				</ul>
 			</nav>
 		</div>
 		<div class="p-4">
 			<p>Rellena el formulario a continuación.</p>
-			<form action="insertarLibro" method="post">
+			<form action="bookInsert" method="post">
 				<div>
 					<span for="isbn">Isbn</span>
 					<input id="isbn" type="text" name="isbn">
@@ -39,7 +39,7 @@
 						<option>- Selecciona una fecha primero -</option>
 					</select>
 					<% List<Warehouse> oldWarehouses = (List<Warehouse>) request.getAttribute("oldWarehouses"); %>
-					<select id="oldWarehouses" name="oldWarehouses" style="display: none" disabled>
+					<select id="warehouse_old" name="warehouse_old" style="display: none" disabled>
 						<c:forEach var="warehouse" items="${oldWarehouses}">
 							<option value="${warehouse.getId()}">
 								<c:out value="${warehouse.getName()}" />
@@ -47,7 +47,7 @@
 						</c:forEach>
 					</select>
 					<% List<Warehouse> newWarehouses = (List<Warehouse>) request.getAttribute("newWarehouses"); %>
-					<select id="newWarehouses" name="newWarehouses" style="display: none" disabled>
+					<select id="warehouse_new" name="warehouse_new" style="display: none" disabled>
 						<c:forEach var="warehouse" items="${newWarehouses}">
 							<option value="${warehouse.getId()}">
 								<c:out value="${warehouse.getName()}" />

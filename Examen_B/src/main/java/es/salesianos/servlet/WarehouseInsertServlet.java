@@ -23,7 +23,7 @@ public class WarehouseInsertServlet extends HttpServlet{
 	}
 
 	protected void redirect(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
-		resp.sendRedirect("/listadoAlmacenes");
+		resp.sendRedirect("/warehouseList");
 	}
 	
 }

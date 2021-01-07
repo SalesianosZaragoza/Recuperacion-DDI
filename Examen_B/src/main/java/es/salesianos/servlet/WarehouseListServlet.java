@@ -19,15 +19,15 @@ public class WarehouseListServlet extends HttpServlet{
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		List<Warehouse> almacenes_old = service.listOld();
-		List<Warehouse> almacenes_new = service.listNew();
-		req.setAttribute("almacenes_old", almacenes_old);
-		req.setAttribute("almacenes_new", almacenes_new);
+		List<Warehouse> newWarehouses = service.listOld();
+		List<Warehouse> oldWarehouses = service.listNew();
+		req.setAttribute("warehouse_old", newWarehouses);
+		req.setAttribute("warehouse_new", oldWarehouses);
 		redirect(req,resp);
 	}
 
 	protected void redirect(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/almacen_listado.jsp");
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/warehouse_list.jsp");
 		dispatcher.forward(req,resp);
 	}
 
