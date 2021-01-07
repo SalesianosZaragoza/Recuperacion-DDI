@@ -3,6 +3,7 @@ package servlet;
 import java.io.IOException;
 import java.util.List;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -17,5 +18,11 @@ public class AlumnList extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		List<Alumn> listAllAlumns = service.listAllAlumns();
 		request.setAttribute("listAllAlumns", listAllAlumns);
+		redirect(request, response);
+	}
+
+	protected void redirect(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/enterpriseList.jsp");
+		dispatcher.forward(req, resp);
 	}
 }

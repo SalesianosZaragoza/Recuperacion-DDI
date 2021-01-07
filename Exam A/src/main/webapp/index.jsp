@@ -7,8 +7,9 @@
 <title>FCT</title>
 </head>
 <body>
-	<a href="insertEnterprise.jsp">Insertar Empresa</a>
-	<a href="insertAlumn.jsp">Insertar Alumno</a>
-	<a href="alumnList.jsp">lista de alumnos</a>
+	<a href="insertEnterprise.jsp">Insertar Empresa</a><br>
+	<a href="insertAlumn.jsp">Insertar Alumno</a><br>
+	<a href="alumnList.jsp">Lista de alumnos</a><br>
+	<a href="enterpriseList.jsp">Lista de empresas</a><br>
 </body>
 </html>

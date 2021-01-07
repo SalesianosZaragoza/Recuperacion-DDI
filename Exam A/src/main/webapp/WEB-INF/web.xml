@@ -33,4 +33,12 @@
     <servlet-name>AlumnList</servlet-name>
     <url-pattern>/alumnList</url-pattern>
   </servlet-mapping>
+   <servlet>
+    <servlet-name>EnterpriseList</servlet-name>
+    <servlet-class>servlet.EnterpriseList</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EnterpriseList</servlet-name>
+    <url-pattern>/enterpriseList</url-pattern>
+  </servlet-mapping>
 </web-app>
