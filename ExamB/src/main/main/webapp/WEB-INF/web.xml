@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_3_1.xsd"
+    version="3.1">
+	<display-name>Warehouses'books Web Application</display-name>
+		<description>Es una aplicación de almacenes de libros separados por antiguedad de edición por antes del año 2000 o después</description>
+	
+	<servlet>
+		<servlet-name>WelcomeServlet</servlet-name>
+		<servlet-class>com.mycompany.servlet.WelcomeServlet</servlet-class>
+	</servlet>
+	<servlet>
+        <servlet-name>DeleteWarehouseServlet</servlet-name>
+        <servlet-class>com.mycompany.servlet.DeleteWarehouseServlet</servlet-class>
+    </servlet>
+	<servlet>
+        <servlet-name>DeleteBookServlet</servlet-name>
+        <servlet-class>com.mycompany.servlet.DeleteBookServlet</servlet-class>
+    </servlet>
+	<servlet>
+        <servlet-name>InsertWarehouseServlet</servlet-name>
+        <servlet-class>com.mycompany.servlet.InsertWarehouseServlet</servlet-class>
+    </servlet>
+	<servlet>
+        <servlet-name>InsertBookServlet</servlet-name>
+        <servlet-class>com.mycompany.servlet.InsertBookServlet</servlet-class>
+    </servlet>
+	
+	<servlet>
+		<servlet-name>ListWarehouseServlet</servlet-name>
+		<servlet-class>com.mycompany.servlet.ListWarehouseServlet</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>ListBookServlet</servlet-name>
+		<servlet-class>com.mycompany.servlet.ListBookServlet</servlet-class>
+	</servlet>
+	
+	
+	<servlet-mapping>
+        <servlet-name>DeleteWarehouseServlet</servlet-name>
+        <servlet-class>com.mycompany.servlet.DeleteWarehouseServlet</servlet-class>
+    </servlet-mapping>
+	<servlet-mapping>
+        <servlet-name>DeleteBookServlet</servlet-name>
+        <servlet-class>com.mycompany.servlet.DeleteBookServlet</servlet-class>
+    </servlet-mapping>
+	<servlet-mapping>
+        <servlet-name>InsertWarehouseServlet</servlet-name>
+        <servlet-class>com.mycompany.servlet.InsertWarehouseServlet</servlet-class>
+    </servlet-mapping>
+	<servlet-mapping>
+        <servlet-name>InsertBookServlet</servlet-name>
+        <servlet-class>com.mycompany.servlet.InsertBookServlet</servlet-class>
+    </servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>ListWarehouseServlet</servlet-name>
+		<servlet-class>com.mycompany.servlet.ListWarehouseServlet</servlet-class>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>ListBookServlet</servlet-name>
+		<servlet-class>com.mycompany.servlet.ListBookServlet</servlet-class>
+	</servlet-mapping>
+
+	
+	<welcome-file-list>
+		<welcome-file>ListWarehouse.jsp</welcome-file>
+	</welcome-file-list>
+
+</web-app>
