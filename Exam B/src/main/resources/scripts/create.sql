@@ -1,19 +1,19 @@
-create table IF NOT EXISTS ALMACEN_OLD(
+create table IF NOT EXISTS OLDSTOREHOUSE(
 	id bigint auto_increment,
-    nombre varchar(25)
+    name varchar(25)
 );
 
-create table IF NOT EXISTS ALMACEN_NEW(
+create table IF NOT EXISTS NEWSTOREHOUSE(
 	id bigint auto_increment,
-    nombre varchar(25)
+    name varchar(25)
 );
 
-create table IF NOT EXISTS LIBRO(
+create table IF NOT EXISTS BOOK(
 	id bigint auto_increment,
 	isbn varchar(25),
-	fechaEdicion date,
-	almacen_old INT,
-	almacen_new INT,
-	FOREIGN KEY (almacen_old  ) REFERENCES ALMACEN_OLD(id),
-	FOREIGN KEY (almacen_new  ) REFERENCES ALMACEN_NEW(id)
+	editionDate date,
+	oldStorehouse INT,
+	newStorehouse INT,
+	FOREIGN KEY (oldStorehouse  ) REFERENCES OLDSTOREHOUSE(id),
+	FOREIGN KEY (newStorehouse  ) REFERENCES NEWSTOREHOUSE(id)
 );

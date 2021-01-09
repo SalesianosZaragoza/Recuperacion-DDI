@@ -1,6 +1,7 @@
 package repository;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -9,25 +10,25 @@ import java.util.List;
 
 import connection.ConnectionH2;
 import connection.ConnectionManager;
-import models.Enterprise;
+import model.Book;
 
-public class EnterpriseRepository {
-	private static final String SQL_SEARCH = "SELECT ALUMN.name, ENTERPRISE.name FROM USER INNER JOIN ENTERPRISE ON ALUMN.enterprise=ENTERPRISE.id;";
+public class BookRepository {
+
 	private static final String jdbcUrl = "jdbc:h2:file:./src/main/resources/test";
 	ConnectionManager manager = new ConnectionH2();
 
-	public Enterprise searchEnterprise(Enterprise enterpriseForm) {
-		Enterprise userInDatabase = null;
+	public Book searchBook(Book bookForm) {
+		Book bookDataBase = null;
 		ResultSet resultSet = null;
 		PreparedStatement prepareStatement = null;
 		Connection conn = manager.open(jdbcUrl);
 		try {
-			prepareStatement = conn.prepareStatement("SELECT * FROM ENTERPRISE WHERE name = ?");
-			prepareStatement.setString(1, enterpriseForm.getName());
+			prepareStatement = conn.prepareStatement("SELECT * FROM BOOK WHERE isbn = ?");
+			prepareStatement.setString(1, bookForm.getIsbn());
 			resultSet = prepareStatement.executeQuery();
 			while (resultSet.next()) {
-				userInDatabase = new Enterprise();
-				userInDatabase.setName(resultSet.getString(1));
+				bookDataBase = new Book();
+				bookDataBase.setIsbn(resultSet.getString(1));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -38,7 +39,7 @@ public class EnterpriseRepository {
 
 		}
 		manager.close(conn);
-		return userInDatabase;
+		return bookDataBase;
 	}
 
 	private void close(PreparedStatement prepareStatement) {
@@ -64,13 +65,17 @@ public class EnterpriseRepository {
 		}
 	}
 
-	public void insertEnterprise(Enterprise enterpriseFormulario) {
+	public void insertBook(Book BookForm) {
 		Connection conn = manager.open(jdbcUrl);
 		PreparedStatement preparedStatement = null;
 		try {
-			preparedStatement = conn
-					.prepareStatement("INSERT INTO ENTERPRISE (name)" + "VALUES (?)");
-			preparedStatement.setString(1, enterpriseFormulario.getName());
+			preparedStatement = conn.prepareStatement(
+					"INSERT INTO BOOK (isbn, editionDate, oldStorehouse, newStorehouse)" + "VALUES (?,?,?,?)");
+			preparedStatement.setString(1, BookForm.getIsbn());
+			preparedStatement.setDate(2, (Date) BookForm.getEditionDate());
+			preparedStatement.setInt(3, BookForm.getOldStorehouse());
+			preparedStatement.setInt(3, BookForm.getNewStorehouse());
+
 			preparedStatement.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -82,15 +87,14 @@ public class EnterpriseRepository {
 		manager.close(conn);
 	}
 
-	public void updateEnterprise(Enterprise enterpriseFormulario) {
+	public void updateOldStoreupdateBook(Book book) {
 		Connection conn = manager.open(jdbcUrl);
 
 		PreparedStatement preparedStatement = null;
 		try {
-			preparedStatement = conn.prepareStatement(
-					"UPDATE ENTERPRISE SET name = ? WHERE name = ?");
-			preparedStatement.setString(1, enterpriseFormulario.getName());
-			preparedStatement.setString(2, enterpriseFormulario.getName());
+			preparedStatement = conn.prepareStatement("UPDATE BOOK SET isbn = ? WHERE isbn = ?");
+			preparedStatement.setString(1, book.getIsbn());
+			preparedStatement.setString(2, book.getIsbn());
 
 			preparedStatement.executeUpdate();
 		} catch (SQLException e) {
@@ -103,18 +107,21 @@ public class EnterpriseRepository {
 
 	}
 
-	public List<Enterprise> searchAll() {
-		List<Enterprise> listEnterprises = new ArrayList<Enterprise>();
+	public List<Book> searchAll() {
+		List<Book> listBooks = new ArrayList<Book>();
 		Connection conn = manager.open(jdbcUrl);
 		ResultSet resultSet = null;
 		PreparedStatement prepareStatement = null;
 		try {
-			prepareStatement = conn.prepareStatement("SELECT * FROM ENTERPRISE");
+			prepareStatement = conn.prepareStatement("SELECT * FROM OLDSTOREHOUSE");
 			resultSet = prepareStatement.executeQuery();
 			while (resultSet.next()) {
-				Enterprise dto = new Enterprise();
-				dto.setName(resultSet.getString(1));
-				listEnterprises.add(dto);
+				Book dto = new Book();
+				dto.setIsbn(resultSet.getString(1));
+				dto.setEditionDate(resultSet.getDate(2));
+				dto.setOldStorehouse(resultSet.getInt(3));
+				dto.setNewStorehouse(resultSet.getInt(4));
+				listBooks.add(dto);
 			}
 
 		} catch (SQLException e) {
@@ -126,7 +133,6 @@ public class EnterpriseRepository {
 			manager.close(conn);
 		}
 
-		return listEnterprises;
+		return listBooks;
 	}
-
 }

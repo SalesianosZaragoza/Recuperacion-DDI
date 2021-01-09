@@ -17,7 +17,7 @@
 	</form>
 
 	<%
-		List<Enterprise> enterprises = (List<Enterprise>) request.getAttribute("listAllEnterprises");
+	List<Enterprise> enterprises = (List<Enterprise>) request.getAttribute("listAllEnterprises");
 		out.println(enterprises);
 		pageContext.setAttribute("enterprises", enterprises);
 	%>

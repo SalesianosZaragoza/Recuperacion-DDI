@@ -36,7 +36,6 @@ public class BookAssembler {
 			book.setNewStorehouse(storehouse);
 		}
 		
-
 		return book;
 	}
 }

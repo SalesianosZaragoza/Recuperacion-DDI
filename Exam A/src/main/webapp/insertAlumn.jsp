@@ -13,8 +13,8 @@
 <body>
 	<form action="insertAlumn"  method="post">
 	<%
-		List<Enterprise> enterprises = (List<Enterprise>)request.getAttribute("listAllEnterprises");
- 		pageContext.setAttribute("enterprises", enterprises);
+	List<Enterprise> enterprises = (List<Enterprise>)request.getAttribute("listAllEnterprises");
+		 		pageContext.setAttribute("enterprises", enterprises);
 	%>
 		<span>Nombre: </span>
 		<input type="text" name="name"> <br/>
