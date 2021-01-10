@@ -16,7 +16,7 @@ public class NewStorehouseRepository {
 	private static final String jdbcUrl = "jdbc:h2:file:./src/main/resources/test";
 	ConnectionManager manager = new ConnectionH2();
 
-	public NewStorehouse searchStorehuse(NewStorehouse storehouseForm) {
+	public NewStorehouse searchStorehouse(NewStorehouse storehouseForm) {
 		NewStorehouse storehouseDatabase = null;
 		ResultSet resultSet = null;
 		PreparedStatement prepareStatement = null;
@@ -68,7 +68,7 @@ public class NewStorehouseRepository {
 		Connection conn = manager.open(jdbcUrl);
 		PreparedStatement preparedStatement = null;
 		try {
-			preparedStatement = conn.prepareStatement("INSERT INTO NEWSOTREHOUSE (name)" + "VALUES (?)");
+			preparedStatement = conn.prepareStatement("INSERT INTO NEWSTOREHOUSE (name)" + "VALUES (?)");
 			preparedStatement.setString(1, storehouseForm.getName());
 			preparedStatement.executeUpdate();
 		} catch (SQLException e) {

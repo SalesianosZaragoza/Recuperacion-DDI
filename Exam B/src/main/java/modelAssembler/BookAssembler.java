@@ -12,7 +12,7 @@ public class BookAssembler {
 	public static Book assemblerBookFrom(HttpServletRequest req) {
 		Book book = new Book();
 		
-		String isbn = req.getParameter("name");
+		String isbn = req.getParameter("isbn");
 		String date = req.getParameter("editionDate");
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		Date convert = null;

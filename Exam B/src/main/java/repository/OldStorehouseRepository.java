@@ -16,7 +16,7 @@ public class OldStorehouseRepository {
 	private static final String jdbcUrl = "jdbc:h2:file:./src/main/resources/test";
 	ConnectionManager manager = new ConnectionH2();
 
-	public OldStorehouse searchStorehuse(OldStorehouse storehouseForm) {
+	public OldStorehouse searchStorehouse(OldStorehouse storehouseForm) {
 		OldStorehouse storehouseDatabase = null;
 		ResultSet resultSet = null;
 		PreparedStatement prepareStatement = null;

@@ -6,7 +6,7 @@ import model.NewStorehouse;
 
 public class NewStorehouseAssembler {
 
-	public NewStorehouse assemblerNewStorehouseFrom(HttpServletRequest req) {
+	public static NewStorehouse assemblerNewStorehouseFrom(HttpServletRequest req) {
 		NewStorehouse storehouse = new NewStorehouse();
 		String name = req.getParameter("name");
 

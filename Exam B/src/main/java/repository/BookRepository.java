@@ -87,7 +87,7 @@ public class BookRepository {
 		manager.close(conn);
 	}
 
-	public void updateOldStoreupdateBook(Book book) {
+	public void updateBook(Book book) {
 		Connection conn = manager.open(jdbcUrl);
 
 		PreparedStatement preparedStatement = null;

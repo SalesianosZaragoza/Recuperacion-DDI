@@ -1,0 +1,4 @@
+2021-01-10 21:15:54 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "NEWSOTREHOUSE" no encontrada
+Table "NEWSOTREHOUSE" not found; SQL statement:
+INSERT INTO NEWSOTREHOUSE (name)VALUES (?) [42102-200]

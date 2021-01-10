@@ -9,4 +9,28 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+  <servlet>
+    <servlet-name>NewStorehouseServlet</servlet-name>
+    <servlet-class>servlet.NewStorehouseServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>NewStorehouseServlet</servlet-name>
+    <url-pattern>/insertNewStorehouse</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>OldStorehouseServlet</servlet-name>
+    <servlet-class>servlet.OldStorehouseServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>OldStorehouseServlet</servlet-name>
+    <url-pattern>/insertOldStorehouse</url-pattern>
+  </servlet-mapping>
+   <servlet>
+    <servlet-name>BookServlet</servlet-name>
+    <servlet-class>servlet.BookServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>BookServlet</servlet-name>
+    <url-pattern>/insertBook</url-pattern>
+  </servlet-mapping>
 </web-app>
