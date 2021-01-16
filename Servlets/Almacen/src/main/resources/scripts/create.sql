@@ -1,17 +1,17 @@
 create table IF NOT EXISTS ALMACEN_OLD(
 	id bigint auto_increment,
-    nombre varchar(25)
+    name varchar(25)
 );
 
 create table IF NOT EXISTS ALMACEN_NEW(
 	id bigint auto_increment,
-    nombre varchar(25)
+    name varchar(25)
 );
 
-create table IF NOT EXISTS LIBRO(
+create table IF NOT EXISTS BOOK(
 	id bigint auto_increment,
 	isbn varchar(25),
-	fechaEdicion date,
+	dateEdition date,
 	almacen_old INT,
 	almacen_new INT,
 	FOREIGN KEY (almacen_old  ) REFERENCES ALMACEN_OLD(id),

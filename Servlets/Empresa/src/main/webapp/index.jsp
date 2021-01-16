@@ -8,10 +8,10 @@
 </head>
 <body>
 	<div>
-		<a href="addEmpresa.jsp">Quiero añadir una empresa</a>
+		<a href="addCompany.jsp">Quiero añadir una empresa</a>
 	</div>
 	<div>
-		<a href="listEmpresa.jsp">Listado alumnos</a>
+		<a href="listCompany.jsp">Listado empresas</a>
 	</div>
 </body>
 </html>

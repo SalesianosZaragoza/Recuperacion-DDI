@@ -7,83 +7,83 @@
 	<description></description>
 	
 	<servlet>
-		<servlet-name>ListEmpresaServlet</servlet-name>
-		<servlet-class>es.salesianos.servlet.ListEmpresaServlet</servlet-class>
+		<servlet-name>ListCompanyServlet</servlet-name>
+		<servlet-class>es.salesianos.servlet.ListCompanyServlet</servlet-class>
 	</servlet>
 	
 	<servlet>
-		<servlet-name>addEmpresaServlet</servlet-name>
-		<servlet-class>es.salesianos.servlet.addEmpresaServlet</servlet-class>
+		<servlet-name>AddCompanyServlet</servlet-name>
+		<servlet-class>es.salesianos.servlet.AddCompanyServlet</servlet-class>
 	</servlet>
 	
 	<servlet>
-		<servlet-name>ConfirmDeleteEmpresaServlet</servlet-name>
-		<servlet-class>es.salesianos.servlet.ConfirmDeleteEmpresaServlet</servlet-class>
+		<servlet-name>ConfirmDeleteCompanyServlet</servlet-name>
+		<servlet-class>es.salesianos.servlet.ConfirmDeleteCompanyServlet</servlet-class>
 	</servlet>
 	
 	<servlet>
-		<servlet-name>deleteEmpresaServlet</servlet-name>
-		<servlet-class>es.salesianos.servlet.deleteEmpresaServlet</servlet-class>
+		<servlet-name>DeleteCompanyServlet</servlet-name>
+		<servlet-class>es.salesianos.servlet.DeleteCompanyServlet</servlet-class>
 	</servlet>
 	
 	<servlet>
-		<servlet-name>recoveryAddIdEmpresaServlet</servlet-name>
-		<servlet-class>es.salesianos.servlet.recoveryAddIdEmpresaServlet</servlet-class>
+		<servlet-name>RecoveryAddIdCompanyServlet</servlet-name>
+		<servlet-class>es.salesianos.servlet.RecoveryAddIdCompanyServlet</servlet-class>
 	</servlet>
 	
 	<servlet>
-		<servlet-name>addAlumnoServlet</servlet-name>
-		<servlet-class>es.salesianos.servlet.addAlumnoServlet</servlet-class>
+		<servlet-name>AddStudentServlet</servlet-name>
+		<servlet-class>es.salesianos.servlet.AddStudentServlet</servlet-class>
 	</servlet>
 	
 	<servlet>
-		<servlet-name>editAlumnoServlet</servlet-name>
-		<servlet-class>es.salesianos.servlet.editAlumnoServlet</servlet-class>
+		<servlet-name>EditStudentServlet</servlet-name>
+		<servlet-class>es.salesianos.servlet.EditStudentServlet</servlet-class>
 	</servlet>
 	
 	<servlet>
-		<servlet-name>updateAlumnoServlet</servlet-name>
-		<servlet-class>es.salesianos.servlet.updateAlumnoServlet</servlet-class>
+		<servlet-name>UpdateStudentServlet</servlet-name>
+		<servlet-class>es.salesianos.servlet.UpdateStudentServlet</servlet-class>
 	</servlet>
 	
 	<servlet-mapping>
-		<servlet-name>updateAlumnoServlet</servlet-name>
-		<url-pattern>/updateAlumno</url-pattern>
+		<servlet-name>UpdateStudentServlet</servlet-name>
+		<url-pattern>updateStudent</url-pattern>
 	</servlet-mapping>
 	
 	<servlet-mapping>
-		<servlet-name>editAlumnoServlet</servlet-name>
-		<url-pattern>/editAlumno</url-pattern>
+		<servlet-name>EditStudentServlet</servlet-name>
+		<url-pattern>editStudent</url-pattern>
 	</servlet-mapping>
 	
 	<servlet-mapping>
-		<servlet-name>addAlumnoServlet</servlet-name>
-		<url-pattern>/addAlumno</url-pattern>
+		<servlet-name>AddStudentServlet</servlet-name>
+		<url-pattern>addStudent</url-pattern>
 	</servlet-mapping>
 	
 	<servlet-mapping>
-		<servlet-name>recoveryAddIdEmpresaServlet</servlet-name>
-		<url-pattern>/recoveryAddIdEmpresa</url-pattern>
+		<servlet-name>RecoveryAddIdCompanyServlet</servlet-name>
+		<url-pattern>recoveryAddIdCompany</url-pattern>
 	</servlet-mapping>
 	
 	<servlet-mapping>
-		<servlet-name>ConfirmDeleteEmpresaServlet</servlet-name>
-		<url-pattern>/confirmDeleteEmpresa</url-pattern>
+		<servlet-name>ConfirmDeleteCompanyServlet</servlet-name>
+		<url-pattern>confirmDeleteCompany</url-pattern>
 	</servlet-mapping>
 	
 	<servlet-mapping>
-		<servlet-name>ListEmpresaServlet</servlet-name>
-		<url-pattern>cargarListado</url-pattern>
+		<servlet-name>ListCompanyServlet</servlet-name>
+		<url-pattern>loadList</url-pattern>
 	</servlet-mapping>
 	
 	<servlet-mapping>
-		<servlet-name>deleteEmpresaServlet</servlet-name>
-		<url-pattern>deleteEmpresa</url-pattern>
+		<servlet-name>DeleteCompanyServlet</servlet-name>
+		<url-pattern>deleteCompany</url-pattern>
 	</servlet-mapping>
 	
 	<servlet-mapping>
-		<servlet-name>addEmpresaServlet</servlet-name>
-		<url-pattern>inscribirEmpresa</url-pattern>
+		<servlet-name>AddCompanyServlet</servlet-name>
+		<url-pattern>addCompany</url-pattern>
 	</servlet-mapping>
 
 	<welcome-file-list>

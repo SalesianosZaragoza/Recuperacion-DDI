@@ -9,8 +9,8 @@ import java.util.List;
 
 import es.salesianos.connection.ConnectionH2;
 import es.salesianos.connection.ConnectionManager;
-import es.salesianos.model.Alumno;
-import es.salesianos.model.Empresa;
+import es.salesianos.model.Student;
+import es.salesianos.model.Company;
 
 
 
@@ -20,8 +20,8 @@ public class Repository {
 	ConnectionManager manager = new ConnectionH2();
 
 	
-	public Alumno search(Integer id) {
-		Alumno userInDatabase = null;
+	public Student search(Integer id) {
+		Student sudentInDatabase = null;
 		ResultSet resultSet = null;
 		PreparedStatement prepareStatement = null;
 		Connection conn = manager.open(jdbcUrl);
@@ -30,11 +30,11 @@ public class Repository {
 			prepareStatement.setInt(1, id);
 			resultSet = prepareStatement.executeQuery();
 			while (resultSet.next()) {
-				userInDatabase = new Alumno();
-				userInDatabase.setId(resultSet.getInt(1));
-				userInDatabase.setName(resultSet.getString(2));
-				userInDatabase.setAsisteFCT(resultSet.getBoolean(3));
-				userInDatabase.setEmpresa(resultSet.getInt(4));
+				sudentInDatabase = new Student();
+				sudentInDatabase.setId(resultSet.getInt(1));
+				sudentInDatabase.setName(resultSet.getString(2));
+				sudentInDatabase.setAsisteFCT(resultSet.getBoolean(3));
+				sudentInDatabase.setCompany(resultSet.getInt(4));
 				
 			}
 		} catch (SQLException e) {
@@ -46,7 +46,7 @@ public class Repository {
 
 		}
 		manager.close(conn);
-		return userInDatabase;
+		return sudentInDatabase;
 	}
 
 	private void close(PreparedStatement prepareStatement) {
@@ -72,13 +72,13 @@ public class Repository {
 		}
 	}
 
-	public void insert(Empresa userFormulario) {
+	public void insert(Company company) {
 		Connection conn = manager.open(jdbcUrl);
 		PreparedStatement preparedStatement = null;
 		try {
 			preparedStatement = conn
 					.prepareStatement("INSERT INTO EMPRESA (nombre)" + "VALUES (?)");
-			preparedStatement.setString(1, userFormulario.getName());
+			preparedStatement.setString(1, company.getName());
 			
 			preparedStatement.executeUpdate();
 		} catch (SQLException e) {
@@ -91,16 +91,16 @@ public class Repository {
 		manager.close(conn);
 	}
 	
-	public void insert(Alumno userFormulario) {
+	public void insert(Student student) {
 		Connection conn = manager.open(jdbcUrl);
 		PreparedStatement preparedStatement = null;
 		try {
 			preparedStatement = conn
-					.prepareStatement("INSERT INTO ALUMNO (nombre ,edad ,asisteFCT ,empresa )" + "VALUES (?)");
-			preparedStatement.setString(1, userFormulario.getName());
-			preparedStatement.setInt(2,  userFormulario.getEdad());
-			preparedStatement.setBoolean(3, userFormulario.isAsisteFCT());				
-			preparedStatement.setInt(4, userFormulario.getEmpresa());
+					.prepareStatement("INSERT INTO ALUMNO (nombre ,edad ,asisteFCT ,empresa )" + "VALUES (?,?,?,?)");
+			preparedStatement.setString(1, student.getName());
+			preparedStatement.setInt(2,  student.getAge());
+			preparedStatement.setBoolean(3, student.isAsisteFCT());				
+			preparedStatement.setInt(4, student.getCompany());
 			
 			preparedStatement.executeUpdate();
 		} catch (SQLException e) {
@@ -113,14 +113,14 @@ public class Repository {
 		manager.close(conn);
 	}
 
-	public void update(Alumno userFormulario) {
+	public void update(Student student) {
 		Connection conn = manager.open(jdbcUrl);
 		PreparedStatement preparedStatement = null;
 		try {
 			preparedStatement = conn
 					.prepareStatement("UPDATE ALUMNO SET asisteFCT  = ? WHERE id = ?");
-			preparedStatement.setBoolean(1, userFormulario.isAsisteFCT());
-			preparedStatement.setInt(2, userFormulario.getId());
+			preparedStatement.setBoolean(1, student.isAsisteFCT());
+			preparedStatement.setInt(2, student.getId());
 
 			preparedStatement.executeUpdate();
 		} catch (SQLException e) {
@@ -136,8 +136,8 @@ public class Repository {
 	
 	
 	
-	public List<Empresa> searchAllEmpresa() {
-		List<Empresa> listEmpresa = new ArrayList<Empresa>();
+	public List<Company> searchAllCompany() {
+		List<Company> listCompany = new ArrayList<Company>();
 		Connection conn = manager.open(jdbcUrl);
 		ResultSet resultSet = null;
 		PreparedStatement prepareStatement = null;
@@ -146,25 +146,26 @@ public class Repository {
 			prepareStatement = conn.prepareStatement("SELECT * FROM EMPRESA");
 			resultSet = prepareStatement.executeQuery();
 			while (resultSet.next()) {
-				Empresa EmpresaInDatabase = new Empresa();
+				Company CompanyInDatabase = new Company();
 				
-				EmpresaInDatabase.setId(resultSet.getInt(1));
-				EmpresaInDatabase.setName(resultSet.getString(2));
+				CompanyInDatabase.setId(resultSet.getInt(1));
+				CompanyInDatabase.setName(resultSet.getString(2));
 				
-				listEmpresa.add(EmpresaInDatabase);
+				listCompany.add(CompanyInDatabase);
 			}
 
-			for (Empresa empresa : listEmpresa) {
+			for (Company company : listCompany) {
 				
 				prepareStatement = conn.prepareStatement(
-						"SELECT * FROM ALUMNO where empresa="+empresa.getId());
+						"SELECT * FROM ALUMNO where empresa="+company.getId());
 				resultSet = prepareStatement.executeQuery();
 				while (resultSet.next()) {
-					Alumno alumno = new Alumno();
-					alumno.setName(resultSet.getString(1));
-					alumno.setEdad(resultSet.getInt(2));
-					alumno.setAsisteFCT(resultSet.getBoolean(3));
-					empresa.getAlumno().add(alumno);
+					Student alumno = new Student();
+					alumno.setId(resultSet.getInt(1));
+					alumno.setName(resultSet.getString(2));
+					alumno.setAge(resultSet.getInt(3));
+					alumno.setAsisteFCT(resultSet.getBoolean(4));
+					company.getStudents().add(alumno);
 				}
 			}
 			
@@ -177,17 +178,20 @@ public class Repository {
 			manager.close(conn);
 		}
 
-		return listEmpresa;
+		return listCompany;
 	}
 	
-	public void deleteNew(Integer id, String answer) {
+	public void delete(Integer id, String answer) {
 		Connection conn = manager.open(jdbcUrl);
 		PreparedStatement preparedStatement = null;
 		try {
 			if(answer.equals("SI")) {
-				preparedStatement = deleteAlumno(id, conn);}
-			
-			preparedStatement = deleteNew(id, conn);
+				preparedStatement = deleteStudent(id, conn);
+				preparedStatement = deleteCompany(id, conn);
+			}else {
+				preparedStatement = newId (id, conn);
+				preparedStatement = deleteCompany(id, conn);
+			}		
 
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -200,7 +204,7 @@ public class Repository {
 	}
 	
 	
-	private PreparedStatement deleteNew (Integer id, Connection conn) throws SQLException {
+	private PreparedStatement deleteCompany (Integer id, Connection conn) throws SQLException {
 		PreparedStatement preparedStatement;
 		preparedStatement = conn
 				.prepareStatement("DELETE FROM EMPRESA WHERE id = ?");
@@ -209,8 +213,18 @@ public class Repository {
 		return preparedStatement;
 	}
 	
+	private PreparedStatement newId (Integer id, Connection conn) throws SQLException {
+		PreparedStatement preparedStatement;
+		preparedStatement = conn
+				.prepareStatement("UPDATE ALUMNO SET empresa  = ? WHERE empresa = ?");
+		preparedStatement.setNull(1, java.sql.Types.NULL);
+		preparedStatement.setInt(2, id);
+		preparedStatement.executeUpdate();
+		return preparedStatement;
+	}
+	
 
-	private PreparedStatement deleteAlumno (Integer id, Connection conn) throws SQLException {
+	private PreparedStatement deleteStudent (Integer id, Connection conn) throws SQLException {
 		PreparedStatement preparedStatement;
 		preparedStatement = conn
 				.prepareStatement("DELETE FROM ALUMNO WHERE empresa = ?");

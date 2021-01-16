@@ -7,93 +7,93 @@
 	<description></description>
 	
 	<servlet>
-		<servlet-name>listado</servlet-name>
-		<servlet-class>es.salesianos.servlet.ListAlmacenServlet</servlet-class>
+		<servlet-name>ListWarehouseServlet</servlet-name>
+		<servlet-class>es.salesianos.servlet.ListWarehouseServlet</servlet-class>
 	</servlet>
 	
 	<servlet>
-		<servlet-name>addAlmacenOldServlet</servlet-name>
-		<servlet-class>es.salesianos.servlet.addAlmacenOldServlet</servlet-class>
+		<servlet-name>addWarehouseOldServlet</servlet-name>
+		<servlet-class>es.salesianos.servlet.AddWarehouseOldServlet</servlet-class>
 	</servlet>
 	
 	<servlet>
-		<servlet-name>addAlmacenNewServlet</servlet-name>
-		<servlet-class>es.salesianos.servlet.addAlmacenNewServlet</servlet-class>
+		<servlet-name>addWarehouseNewServlet</servlet-name>
+		<servlet-class>es.salesianos.servlet.AddWarehouseNewServlet</servlet-class>
 	</servlet>
 	
 	<servlet>
-		<servlet-name>addLibroNewServlet</servlet-name>
-		<servlet-class>es.salesianos.servlet.addLibroNewServlet</servlet-class>
+		<servlet-name>addBookNewServlet</servlet-name>
+		<servlet-class>es.salesianos.servlet.AddBookNewServlet</servlet-class>
 	</servlet>
 	
 	<servlet>
-		<servlet-name>addLibroOldServlet</servlet-name>
-		<servlet-class>es.salesianos.servlet.addLibroOldServlet</servlet-class>
+		<servlet-name>addBookOldServlet</servlet-name>
+		<servlet-class>es.salesianos.servlet.AddBookOldServlet</servlet-class>
 	</servlet>
 	
 	<servlet>
-		<servlet-name>deleteAlmacenOldServlet</servlet-name>
-		<servlet-class>es.salesianos.servlet.deleteAlmacenOldServlet</servlet-class>
+		<servlet-name>deleteWarehouseOldServlet</servlet-name>
+		<servlet-class>es.salesianos.servlet.DeleteWarehouseOldServlet</servlet-class>
 	</servlet>
 	
 	<servlet>
-		<servlet-name>deleteAlmacenNewServlet</servlet-name>
-		<servlet-class>es.salesianos.servlet.deleteAlmacenNewServlet</servlet-class>
+		<servlet-name>deleteWarehouseNewServlet</servlet-name>
+		<servlet-class>es.salesianos.servlet.DeleteWarehouseNewServlet</servlet-class>
 	</servlet>
 	
 	<servlet>
-		<servlet-name>recoveryAddIdAlmacenOldServlet</servlet-name>
-		<servlet-class>es.salesianos.servlet.recoveryAddIdAlmacenOldServlet</servlet-class>
+		<servlet-name>recoveryAddIdWarehouseOldServlet</servlet-name>
+		<servlet-class>es.salesianos.servlet.RecoveryAddIdWarehouseOldServlet</servlet-class>
 	</servlet>
 	
 	<servlet>
-		<servlet-name>recoveryAddIdAlmacenNewServlet</servlet-name>
-		<servlet-class>es.salesianos.servlet.recoveryAddIdAlmacenNewServlet</servlet-class>
+		<servlet-name>recoveryAddIdWarehouseNewServlet</servlet-name>
+		<servlet-class>es.salesianos.servlet.RecoveryAddIdWarehouseNewServlet</servlet-class>
 	</servlet>
 	
 	<servlet-mapping>
-		<servlet-name>recoveryAddIdAlmacenOldServlet</servlet-name>
-		<url-pattern>/recoveryAddIdAlmacenOld</url-pattern>
+		<servlet-name>recoveryAddIdWarehouseOldServlet</servlet-name>
+		<url-pattern>/recoveryAddIdWarehouseOld</url-pattern>
 	</servlet-mapping>
 	
 	<servlet-mapping>
-		<servlet-name>recoveryAddIdAlmacenNewServlet</servlet-name>
-		<url-pattern>/recoveryAddIdAlmacenNew</url-pattern>
+		<servlet-name>recoveryAddIdWarehouseNewServlet</servlet-name>
+		<url-pattern>/recoveryAddIdWarehouseNew</url-pattern>
 	</servlet-mapping>
 	
 	<servlet-mapping>
-		<servlet-name>addLibroNewServlet</servlet-name>
-		<url-pattern>/addLibroNew</url-pattern>
+		<servlet-name>addBookNewServlet</servlet-name>
+		<url-pattern>/addBookNew</url-pattern>
 	</servlet-mapping>
 	
 	<servlet-mapping>
-		<servlet-name>addLibroOldServlet</servlet-name>
-		<url-pattern>/addLibroOld</url-pattern>
+		<servlet-name>addBookOldServlet</servlet-name>
+		<url-pattern>/addBookOld</url-pattern>
 	</servlet-mapping>
 	
 	<servlet-mapping>
-		<servlet-name>deleteAlmacenNewServlet</servlet-name>
-		<url-pattern>/deleteAlmacenNew</url-pattern>
+		<servlet-name>deleteWarehouseNewServlet</servlet-name>
+		<url-pattern>/deleteWarehouseNew</url-pattern>
 	</servlet-mapping>
 	
 	<servlet-mapping>
-		<servlet-name>deleteAlmacenOldServlet</servlet-name>
-		<url-pattern>/deleteAlmacenOld</url-pattern>
-	</servlet-mapping>
-	
-	<servlet-mapping>
-		<servlet-name>listado</servlet-name>
-		<url-pattern>cargarListado</url-pattern>
+		<servlet-name>deleteWarehouseOldServlet</servlet-name>
+		<url-pattern>/deleteWarehouseOld</url-pattern>
 	</servlet-mapping>
 
 	<servlet-mapping>
-		<servlet-name>addAlmacenOldServlet</servlet-name>
-		<url-pattern>inscribirAlmacenOld</url-pattern>
+		<servlet-name>addWarehouseOldServlet</servlet-name>
+		<url-pattern>/insertWarehouseOld</url-pattern>
 	</servlet-mapping>
 	
 	<servlet-mapping>
-		<servlet-name>addAlmacenNewServlet</servlet-name>
-		<url-pattern>inscribirAlmacenNew</url-pattern>
+		<servlet-name>addWarehouseNewServlet</servlet-name>
+		<url-pattern>/insertWarehouseNew</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>ListWarehouseServlet</servlet-name>
+		<url-pattern>loadList</url-pattern>
 	</servlet-mapping>
 
 	<welcome-file-list>

@@ -8,13 +8,13 @@
 </head>
 <body>
 	<div>
-		<a href="addAlmacenNew.jsp">Quiero añadir un almacen nuevo</a>
+		<a href="addWarehouseNew.jsp">Quiero añadir un almacen nuevo</a>
 	</div>
 	<div>
-		<a href="addAlmacenOld.jsp">Quiero añadir un almacen viejo</a>
+		<a href="addWarehouseOld.jsp">Quiero añadir un almacen viejo</a>
 	</div>
 	<div>
-		<a href="listAlmacen.jsp">Listado almacen</a>
+		<a href="listWarehouse.jsp">Listado almacenes</a>
 	</div>
 </body>
 </html>
