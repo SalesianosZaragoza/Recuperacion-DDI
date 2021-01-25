@@ -18,8 +18,7 @@ public class AddBookOldServlet extends HttpServlet{
 	
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		Book book = BookAssembler.assembleBookFrom(req);
-		if(book.getDateEdition().getYear() <  2000)
-			service.addBook(book);
+		service.dateEditionLower(book);
 		redirect(req, resp);
 	}
 	protected void redirect(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {

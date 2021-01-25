@@ -7,7 +7,7 @@ public class Book {
 	
 	private Integer id;
 	private String isbn;
-	private LocalDate dateEdition ;
+	private LocalDate dateEdition;
 	private Integer warehouseOld;
 	private Integer warehouseNew;
 

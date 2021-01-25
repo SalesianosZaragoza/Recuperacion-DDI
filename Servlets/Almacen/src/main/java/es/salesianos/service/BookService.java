@@ -16,6 +16,15 @@ public class BookService {
 	
 	public void addBook(Book book) {
 		repository.insert(book);
-		
+	}
+
+	public void dateEditionhHigher(Book book) {
+		if(book.getDateEdition().getYear() >=  2000)
+			addBook(book);
+	}
+
+	public void dateEditionLower(Book book) {
+		if(book.getDateEdition().getYear() <  2000)
+			addBook(book);
 	}
 }

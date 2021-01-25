@@ -116,31 +116,9 @@ public class Repository {
 		Connection conn = manager.open(jdbcUrl);
 		ResultSet resultSet = null;
 		PreparedStatement prepareStatement = null;
-		try {
-			
-			prepareStatement = conn.prepareStatement("SELECT * FROM ALMACEN_OLD");
-			resultSet = prepareStatement.executeQuery();
-			while (resultSet.next()) {
-				WarehouseOld WarehouseOldInDatabase = new WarehouseOld();
-				
-				WarehouseOldInDatabase.setId(resultSet.getInt(1));
-				WarehouseOldInDatabase.setName(resultSet.getString(2));
-				
-				listWarehouseOld.add(WarehouseOldInDatabase);
-			}
-
-			for (WarehouseOld warehouseOld : listWarehouseOld) {
-				
-				prepareStatement = conn.prepareStatement(
-						"SELECT * FROM BOOK where almacen_old="+warehouseOld.getId());
-				resultSet = prepareStatement.executeQuery();
-				while (resultSet.next()) {
-					Book book = new Book();
-					book.setIsbn(resultSet.getString(2));
-					book.setDateEdition(resultSet.getDate(3).toLocalDate());
-					warehouseOld.getBooks().add(book);
-				}
-			}
+		try {			
+			selectAlmacenOld(prepareStatement,conn,resultSet,listWarehouseOld);
+			selectBookOld(prepareStatement,conn,resultSet,listWarehouseOld);
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -153,37 +131,40 @@ public class Repository {
 
 		return listWarehouseOld;
 	}
+
+	public void selectAlmacenOld(PreparedStatement prepareStatement ,Connection conn,ResultSet resultSet, List<WarehouseOld> listWarehouseOld) throws SQLException{
+		prepareStatement = conn.prepareStatement("SELECT * FROM ALMACEN_OLD");
+			resultSet = prepareStatement.executeQuery();
+			while (resultSet.next()) {
+				WarehouseOld WarehouseOldInDatabase = new WarehouseOld();		
+				WarehouseOldInDatabase.setId(resultSet.getInt(1));
+				WarehouseOldInDatabase.setName(resultSet.getString(2));			
+				listWarehouseOld.add(WarehouseOldInDatabase);
+			}
+	}
+
+	public void selectBookOld(PreparedStatement prepareStatement ,Connection conn,ResultSet resultSet, List<WarehouseOld> listWarehouseOld) throws SQLException{		
+			for (WarehouseOld warehouseOld : listWarehouseOld) {				
+				prepareStatement = conn.prepareStatement(
+						"SELECT * FROM BOOK where almacen_old="+warehouseOld.getId());
+				resultSet = prepareStatement.executeQuery();
+				while (resultSet.next()) {
+					Book book = new Book();
+					book.setIsbn(resultSet.getString(2));
+					book.setDateEdition(resultSet.getDate(3).toLocalDate());
+					warehouseOld.getBooks().add(book);
+				}
+			}
+	}
 	
 	public List<WarehouseNew> searchAllNew() {
 		List<WarehouseNew> listWarehouseNew = new ArrayList<WarehouseNew>();
 		Connection conn = manager.open(jdbcUrl);
 		ResultSet resultSet = null;
 		PreparedStatement prepareStatement = null;
-		try {
-			
-			prepareStatement = conn.prepareStatement("SELECT * FROM ALMACEN_NEW");
-			resultSet = prepareStatement.executeQuery();
-			while (resultSet.next()) {
-				WarehouseNew WarehouseNewInDatabase = new WarehouseNew();
-				
-				WarehouseNewInDatabase.setId(resultSet.getInt(1));
-				WarehouseNewInDatabase.setName(resultSet.getString(2));
-				
-				listWarehouseNew.add(WarehouseNewInDatabase);
-			}
-
-			for (WarehouseNew warehouseNew : listWarehouseNew) {
-				
-				prepareStatement = conn.prepareStatement(
-						"SELECT * FROM BOOK where almacen_new="+warehouseNew.getId());
-				resultSet = prepareStatement.executeQuery();
-				while (resultSet.next()) {
-					Book book = new Book();
-					book.setIsbn(resultSet.getString(2));
-					book.setDateEdition(resultSet.getDate(3).toLocalDate());
-					warehouseNew.getBooks().add(book);
-				}
-			}
+		try {			
+			selectWarehouseNew(prepareStatement,conn,resultSet,listWarehouseNew);
+			selectBookNew(prepareStatement,conn,resultSet,listWarehouseNew);			
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -197,15 +178,38 @@ public class Repository {
 		return listWarehouseNew;
 	}
 	
+	public void selectWarehouseNew(PreparedStatement prepareStatement ,Connection conn,ResultSet resultSet, List<WarehouseNew> listWarehouseNew) throws SQLException {
+		prepareStatement = conn.prepareStatement("SELECT * FROM ALMACEN_NEW");
+		resultSet = prepareStatement.executeQuery();
+		while (resultSet.next()) {
+			WarehouseNew WarehouseNewInDatabase = new WarehouseNew();		
+			WarehouseNewInDatabase.setId(resultSet.getInt(1));
+			WarehouseNewInDatabase.setName(resultSet.getString(2));			
+			listWarehouseNew.add(WarehouseNewInDatabase);
+		}
+	}
+	
+	public void selectBookNew(PreparedStatement prepareStatement ,Connection conn,ResultSet resultSet, List<WarehouseNew> listWarehouseNew) throws SQLException {
+		for (WarehouseNew warehouseNew : listWarehouseNew) {
+			
+			prepareStatement = conn.prepareStatement(
+					"SELECT * FROM BOOK where almacen_new="+warehouseNew.getId());
+			resultSet = prepareStatement.executeQuery();
+			while (resultSet.next()) {
+				Book book = new Book();
+				book.setIsbn(resultSet.getString(2));
+				book.setDateEdition(resultSet.getDate(3).toLocalDate());
+				warehouseNew.getBooks().add(book);
+			}
+		}
+	}
+	
 	public void deleteNew(Integer id) {
 		Connection conn = manager.open(jdbcUrl);
 		PreparedStatement preparedStatement = null;
-		try {
-			
-			preparedStatement = deleteBooksNew(id, conn);
-			
+		try {		
+			preparedStatement = deleteBooksNew(id, conn);		
 			preparedStatement = deleteWarehouseNew(id, conn);
-
 		} catch (SQLException e) {
 			e.printStackTrace();
 			throw new RuntimeException(e);
@@ -219,12 +223,9 @@ public class Repository {
 	public void deleteOld(Integer id) {
 		Connection conn = manager.open(jdbcUrl);
 		PreparedStatement preparedStatement = null;
-		try {
-			
-			preparedStatement = deleteBooksOld(id, conn);
-			
+		try {		
+			preparedStatement = deleteBooksOld(id, conn);		
 			preparedStatement = deleteWarehouseOld(id, conn);
-
 		} catch (SQLException e) {
 			e.printStackTrace();
 			throw new RuntimeException(e);

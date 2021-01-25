@@ -142,33 +142,8 @@ public class Repository {
 		ResultSet resultSet = null;
 		PreparedStatement prepareStatement = null;
 		try {
-			
-			prepareStatement = conn.prepareStatement("SELECT * FROM EMPRESA");
-			resultSet = prepareStatement.executeQuery();
-			while (resultSet.next()) {
-				Company CompanyInDatabase = new Company();
-				
-				CompanyInDatabase.setId(resultSet.getInt(1));
-				CompanyInDatabase.setName(resultSet.getString(2));
-				
-				listCompany.add(CompanyInDatabase);
-			}
-
-			for (Company company : listCompany) {
-				
-				prepareStatement = conn.prepareStatement(
-						"SELECT * FROM ALUMNO where empresa="+company.getId());
-				resultSet = prepareStatement.executeQuery();
-				while (resultSet.next()) {
-					Student alumno = new Student();
-					alumno.setId(resultSet.getInt(1));
-					alumno.setName(resultSet.getString(2));
-					alumno.setAge(resultSet.getInt(3));
-					alumno.setAsisteFCT(resultSet.getBoolean(4));
-					company.getStudents().add(alumno);
-				}
-			}
-			
+			selectCompany(listCompany,conn,resultSet,prepareStatement);
+			selectStudent(listCompany,conn,resultSet,prepareStatement);			
 		} catch (SQLException e) {
 			e.printStackTrace();
 			throw new RuntimeException(e);
@@ -179,6 +154,36 @@ public class Repository {
 		}
 
 		return listCompany;
+	}
+	
+	public void selectCompany(List<Company> listCompany,Connection conn,ResultSet resultSet,PreparedStatement prepareStatement) throws SQLException {
+		prepareStatement = conn.prepareStatement("SELECT * FROM EMPRESA");
+		resultSet = prepareStatement.executeQuery();
+		while (resultSet.next()) {
+			Company CompanyInDatabase = new Company();
+			
+			CompanyInDatabase.setId(resultSet.getInt(1));
+			CompanyInDatabase.setName(resultSet.getString(2));
+			
+			listCompany.add(CompanyInDatabase);
+		}
+	}
+	
+	public void selectStudent(List<Company> listCompany,Connection conn,ResultSet resultSet,PreparedStatement prepareStatement) throws SQLException {
+		for (Company company : listCompany) {
+			
+			prepareStatement = conn.prepareStatement(
+					"SELECT * FROM ALUMNO where empresa="+company.getId());
+			resultSet = prepareStatement.executeQuery();
+			while (resultSet.next()) {
+				Student alumno = new Student();
+				alumno.setId(resultSet.getInt(1));
+				alumno.setName(resultSet.getString(2));
+				alumno.setAge(resultSet.getInt(3));
+				alumno.setAsisteFCT(resultSet.getBoolean(4));
+				company.getStudents().add(alumno);
+			}
+		}
 	}
 	
 	public void delete(Integer id, String answer) {

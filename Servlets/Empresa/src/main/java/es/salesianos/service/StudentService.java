@@ -16,17 +16,14 @@ public class StudentService {
 	}
 	
 	public void addStudent(Student student) {
-		repository.insert(student);
-		
+		repository.insert(student);		
 	}
 	
 	public void update(Student student) {
-		repository.update(student);
-		
+		repository.update(student);	
 	}
 	
 	public Student search(Integer id) {
-		return repository.search(id);
-		
+		return repository.search(id);		
 	}
 }
