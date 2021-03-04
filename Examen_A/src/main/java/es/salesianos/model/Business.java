@@ -1,6 +1,5 @@
 package es.salesianos.model;
 
-import java.util.List;
 
 public class Business {
 
@@ -14,6 +13,11 @@ public class Business {
 	public Business(Integer id, String name) {
 		this(name);
 		setId(id);
+	}
+	
+	public Business()
+	{
+		
 	}
 	
 	public String getName() {

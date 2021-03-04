@@ -9,7 +9,7 @@ nombre varchar(25),
 edad bigint,
 asisteFCT boolean,
 empresa INT,
-FOREIGN KEY (empresa ) REFERENCES EMPRESA(id)
+FOREIGN KEY (empresa) REFERENCES EMPRESA(id)
 );
 
 

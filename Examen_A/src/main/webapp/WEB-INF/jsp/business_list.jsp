@@ -23,8 +23,9 @@
 				</ul>
 			</nav>
 		</div>
-		<div class="p-4">
-			<table class="table table-striped">
+		<div>
+		<h1>List of Business</h1>
+		<table class="table table-striped">
 			  <thead>
 			    <tr>
 			      <th scope="col">id</th>
@@ -33,19 +34,17 @@
 			      <th scope="col"></th>
 			    </tr>
 			  </thead>
-			  <tbody>
-			  	<% List<Business> business = (List<Business>)request.getAttribute("business"); %>
-				<c:forEach var="business" items="${business}">
+			 <tbody>
+				<c:forEach items="${list}" var="business">
 					<tr>
-						<td><c:out value="${business.getId()}"/></td>
-						<td><c:out value="${business.getName()}"/></td>
-						<td class="col-1 text-right"><a href='/businessEdit?id=${business.getId()}' class="btn btn-success" role="button" aria-disabled="true">Editar</a></td>
-						<td class="col-1 text-right"><a href='/businessDelete?id=${business.getId()}' class="btn btn-danger" role="button" aria-disabled="true">Borrar</a></td>
+						<td><c:out value="${business.id}"/></td>
+						<td><c:out value="${business.name}"/></td>
+						<td class="col-1 text-right"><a href='/businessEdit?id=${business.id}' class="btn btn-success" role="button" aria-disabled="true">Editar</a></td>
+						<td class="col-1 text-right"><a href='/businessDelete?id=${business.id}' class="btn btn-danger" role="button" aria-disabled="true">Borrar</a></td>
 			    	</tr>
 				</c:forEach>
-			  </tbody>
-			</table>
-		</div>
+			</tbody>
+		</table>
 	</div>
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>

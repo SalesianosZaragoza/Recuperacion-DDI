@@ -1,7 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
+
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
     <%@ page import="es.salesianos.model.Business,java.util.List,es.salesianos.model.Business" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -22,19 +25,13 @@
 			</nav>
 		</div>
 		<div class="p-4">
-			<p>Modifica los campos que quieras cambiar/p>
+			<p>Modifica los campos que quieras cambiar</p>
 			<% Business business = (Business)request.getAttribute("business"); %>
-			<form action="businessEdit" method="post">
-				<div class="form-group">
-					<label for="id">id</label>
-					<input id="id" type="text" name="id" value="<%=business.getId()%>" readonly>
-				</div>
-				<div class="form-group">
-					<label for="name">Nombre:</label>
-					<input id="name" type="text" name="name" value="<%=business.getName()%>">
-				</div>
+			<form:form action="businessEdit" method="post" modelAttribute="business">
+				Id: <form:input type="text" path="id" readonly="true" />
+				Nombre: <form:input type="text" path="name" />
 				<button type="submit" class="btn btn-primary">Actualizar</button>
-			</form>
+			</form:form>
 		</div>
 	</div>
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

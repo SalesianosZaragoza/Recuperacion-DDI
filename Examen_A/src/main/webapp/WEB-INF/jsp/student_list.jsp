@@ -37,16 +37,15 @@
 			    </tr>
 			  </thead>
 			  <tbody>
-			  	<% List<Student> student = (List<Student>)request.getAttribute("student"); %>
-				<c:forEach var="student" items="${student}">
+				<c:forEach var="student" items="${list}">
 					<tr>
-						<td><c:out value="${student.getId()}"/></td>
-						<td><c:out value="${student.getName()}"/></td>
-						<td><c:out value="${student.getAge()}"/></td>
-						<td><c:out value="${student.isAssistsFCT() ? 'Si' : 'No'}"/></td>
-						<td><c:out value="${student.getBusinessobj().getName()}"/></td>
-						<td class="col-1 text-right"><a href='/studentEdit?id=${student.getId()}' class="btn btn-success" role="button" aria-disabled="true">Editar</a></td>
-						<td class="col-1 text-right"><a href='/studentDelete?id=${student.getId()}' class="btn btn-danger" role="button" aria-disabled="true">Borrar</a></td>
+						<td><c:out value="${student.id}"/></td>
+						<td><c:out value="${student.name}"/></td>
+						<td><c:out value="${student.age}"/></td>
+						<td><c:out value="${student.AssistsFCT ? 'Si' : 'No'}"/></td>
+						<td><c:out value="${student.getBusinessobj.getName}"/></td>
+						<td class="col-1 text-right"><a href='/studentEdit?id=${student.id}' class="btn btn-success" role="button" aria-disabled="true">Editar</a></td>
+						<td class="col-1 text-right"><a href='/studentDelete?id=${student.id}' class="btn btn-danger" role="button" aria-disabled="true">Borrar</a></td>
 			    	</tr>
 				</c:forEach>
 			  </tbody>

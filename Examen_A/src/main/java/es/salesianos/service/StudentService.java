@@ -2,33 +2,24 @@ package es.salesianos.service;
 
 import java.util.List;
 
-
-import javax.servlet.http.HttpServletRequest;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import es.salesianos.model.Student;
-import es.salesianos.model.assembler.StudentAssembler;
 import es.salesianos.repository.StudentRepository;
 
+@Service
 public class StudentService {
-	private StudentAssembler assembler = new StudentAssembler();
-	private StudentRepository repository = new StudentRepository();
-	
-	public Student createNewEntityFromRequest(HttpServletRequest req) {
-		Student student = assembler.assembleFrom(req);
-		return student;
-	}
-	
-	public Student updateEntityFromRequest(HttpServletRequest req) {
-		Student student = assembler.assembleFromExistent(req);
-		return student;
-	}
+
+	@Autowired 
+	private StudentRepository repository;
 	
 	public void insert(Student student) {
 		repository.insert(student);
 	}
 	
-	public void delete(Student student) {
-		repository.delete(student);
+	public void delete(Integer id) {
+		repository.delete(id);
 	}
 	
 	public void setNull(Student student) {

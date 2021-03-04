@@ -3,53 +3,55 @@ package es.salesianos.repository;
 import java.sql.Connection;
 
 
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-
-import javax.management.RuntimeErrorException;
-
 import es.salesianos.model.Business;
 import es.salesianos.model.Student;
 
+@org.springframework.stereotype.Repository("BusinessRepository")
+
 public class BusinessRepository extends Repository {
 	
-	public void delete(Business business) {
-		Connection conn = manager.open(jdbcUrl);
+	public void delete(Integer id) {
+		Connection conn = createConnection();
 		PreparedStatement prepareStatement = null;
+		
 		try {
 			prepareStatement = conn.prepareStatement("DELETE FROM EMPRESA WHERE id=?");
-			prepareStatement.setInt(1, business.getId());
+			prepareStatement.setInt(1, id);
 			prepareStatement.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
 			throw new RuntimeException(e);
 		} finally {
 			close(prepareStatement);
-			manager.close(conn);
 		}
+
+		closeConnection(conn);
 	}
-	public void update(Business business) {
-		Connection conn = manager.open(jdbcUrl);
+
+	public void update(Business businessForm) {
+		Connection conn = createConnection();
 		PreparedStatement preparedStatement = null;
 		try {
 			preparedStatement = conn.prepareStatement("UPDATE EMPRESA SET nombre=? WHERE id=?");
-			preparedStatement.setString(1, business.getName());
-			preparedStatement.setInt(2, business.getId());
+			preparedStatement.setString(1, businessForm.getName());
+			preparedStatement.setInt(2, businessForm.getId());
 			preparedStatement.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
 			throw new RuntimeException(e);
 		} finally {
 			close(preparedStatement);
-			manager.close(conn);
 		}
+		closeConnection(conn);
 	}
 	public void insert(Business business) {
-		Connection conn = manager.open(jdbcUrl);
+		Connection conn = createConnection();
 		PreparedStatement preparedStatement = null;
 		try {
 			preparedStatement = conn
@@ -61,13 +63,13 @@ public class BusinessRepository extends Repository {
 			throw new RuntimeException(e);
 		} finally {
 			close(preparedStatement);
-			manager.close(conn);
 		}
+		closeConnection(conn);
 	}
 	
 	public Business findById(Integer id) {
 		Business business = null;
-		Connection conn = manager.open(jdbcUrl);
+		Connection conn = createConnection();
 		ResultSet resultSet = null;
 		PreparedStatement prepareStatement = null;
 		try {
@@ -86,14 +88,13 @@ public class BusinessRepository extends Repository {
 		} finally {
 			close(resultSet);
 			close(prepareStatement);
-			manager.close(conn);
 		}
-
+		closeConnection(conn);
 		return business;
 	}
 	public List<Student> getStudents(Business business) {
 		List<Student> studentList = new ArrayList<Student>();
-		Connection conn = manager.open(jdbcUrl);
+		Connection conn = createConnection();
 		ResultSet resultSet = null;
 		PreparedStatement prepareStatement = null;
 		try {
@@ -117,14 +118,13 @@ public class BusinessRepository extends Repository {
 		} finally {
 			close(resultSet);
 			close(prepareStatement);
-			manager.close(conn);
 		}
-
+		closeConnection(conn);
 		return studentList;
 	}
 	public List<Business> listAll() {
 		List<Business> businessList = new ArrayList<Business>();
-		Connection conn = manager.open(jdbcUrl);
+		Connection conn = createConnection();
 		ResultSet resultSet = null;
 		PreparedStatement prepareStatement = null;
 		try {
@@ -139,35 +139,12 @@ public class BusinessRepository extends Repository {
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
-			throw new RuntimeException(e);
 		} finally {
 			close(resultSet);
 			close(prepareStatement);
-			manager.close(conn);
+			
 		}
-		
+		closeConnection(conn);
 		return businessList;
-	}
-	private void close(PreparedStatement prepareStatement) {
-		if (null != prepareStatement) {
-			try {
-				prepareStatement.close();
-			} catch (SQLException e) {
-				e.printStackTrace();
-				throw new RuntimeException(e);
-			}
-		}
-	}
-	
-	private void close(ResultSet resultSet) {
-		if (null != resultSet) {
-
-			try {
-				resultSet.close();
-			} catch (SQLException e) {
-				e.printStackTrace();
-				throw new RuntimeException(e);
-			}
-		}
 	}
 }

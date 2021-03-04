@@ -1,8 +1,6 @@
 package es.salesianos.model;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+
 
 public class Student {
 	private Integer id;
@@ -25,6 +23,10 @@ public class Student {
 		setId(id);
 	}
 	
+	public Student() {
+		
+	}
+
 	public Integer getId() {
 		return id;
 	}

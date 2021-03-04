@@ -1,33 +1,75 @@
-package es.salesianos.servlet;
+package es.salesianos.controller;
 
 import java.io.IOException;
-
-
-import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 import es.salesianos.model.Business;
 import es.salesianos.service.BusinessService;
 
-
-public class BusinessConfirmDeleteServlet extends HttpServlet{
+@Controller
+public class BusinessController {
 	
-	private BusinessService service = new BusinessService();
-	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		Business business = service.updateEntityFromRequest(req);
-		if (req.getParameter("studentDelete").equals("true")) {
-			service.delete(business, true);
-		} else {			
-			service.delete(business, false);
-		}
-		dredirect(req,resp);
+	@Autowired
+	private BusinessService service;
+	
+	@GetMapping("/businessList")
+	public ModelAndView getBusinessList() {
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.addObject("list", service.listAll());
+		modelAndView.setViewName("business_list");
+		return modelAndView;
 	}
 	
-	protected void dredirect(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
-		resp.sendRedirect("/businessList");
+	@GetMapping("/businessInsert")
+	public ModelAndView businessInsert() {
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.setViewName("business_insert");
+		modelAndView.addObject("business", new Business());
+		return modelAndView;
+	}
+	
+	@PostMapping("/businessInsert")
+	public void insertBusiness(@ModelAttribute("business")Business business, HttpServletResponse httpResponse) {
+		service.insert(business);
+		try {
+			httpResponse.sendRedirect("/businessList");
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+	@GetMapping("/businessDelete")
+	public void deleteBusiness(@RequestParam Integer id, HttpServletResponse httpResponse) {
+		service.delete(id);
+		try {
+			httpResponse.sendRedirect("/businessList");
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	@GetMapping("/businessEdit")
+	public ModelAndView getEditBusiness(@RequestParam Integer id) {
+		Business business = service.findById(id);
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.setViewName("business_edit");
+		modelAndView.addObject("business", business);
+		return modelAndView;
+	}
+
+	@PostMapping("/businessEdit")
+	public void editBusiness(@ModelAttribute("business") Business businessForm, HttpServletResponse httpResponse) {
+		service.update(businessForm);
+		try {
+			httpResponse.sendRedirect("/businessList");
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 }

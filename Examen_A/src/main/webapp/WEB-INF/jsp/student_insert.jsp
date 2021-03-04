@@ -24,35 +24,23 @@
 		</div>
 		<div class="p-4">
 			<p>Rellena el formulario</p>
-			<form action="studentInsert" method="post">
-				<div class="form-group">
-					<label for="name">Nombre:</label>
-					<input id="name" type="text" name="name">
-				</div>
-				<div class="form-group">
-					<label for="age">Edad:</label>
-					<input id="age" type="text" name="age">
-				</div>
-				<div class="form-group">
-					<label for="assistsFCT">Asiste FCT:</label>
-					<select id="assistsFCT" name="assistsFCT">
-						<option value="false">No</option>
-						<option value="true">Si</option>
-					</select>
-				</div>
-				<div class="form-group">
-					<label>Empresa:</label>
-					<% List<Business> business = (List<Business>)request.getAttribute("business"); %>
+			<form:form action="studentInsert" method="POST" modelAttribute="student">
+				Nombre: <form:input type="text" path="name" />
+				Age: <form:input type="text" path="age" />
+				assistsFCT: <form:select type="text" path="assistsFCT">
+					<form:option value="true">Yes</form:option>
+	    			<form:option value="false">No</form:option>
+	    		</form:select>
+				<% List<Business> business = (List<Business>)request.getAttribute("business"); %>
 					<select id="business" name="business">
 						<c:forEach var="business" items="${business}">
-							<option value="${business.getId()}">
-								<c:out value="${business.getName()}"/>
+							<option value="${business.id}">
+								<c:out value="${business.name}"/>
 					    	</option>
 						</c:forEach>
 					</select>
-				</div>
-	 			<button type="submit" class="btn btn-primary">Insertar</button>
-			</form>
+				<button type="submit" class="btn btn-primary">Insertar</button>
+			</form:form>
 		</div>
 	</div>
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
