@@ -26,7 +26,7 @@ public class BusinessRepository extends Repository {
 			prepareStatement.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
-			throw new RuntimeException(e);
+			
 		} finally {
 			close(prepareStatement);
 		}
@@ -44,7 +44,7 @@ public class BusinessRepository extends Repository {
 			preparedStatement.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
-			throw new RuntimeException(e);
+			
 		} finally {
 			close(preparedStatement);
 		}
@@ -60,7 +60,7 @@ public class BusinessRepository extends Repository {
 			preparedStatement.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
-			throw new RuntimeException(e);
+			
 		} finally {
 			close(preparedStatement);
 		}
@@ -84,7 +84,7 @@ public class BusinessRepository extends Repository {
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
-			throw new RuntimeException(e);
+			
 		} finally {
 			close(resultSet);
 			close(prepareStatement);
@@ -106,15 +106,13 @@ public class BusinessRepository extends Repository {
 						resultSet.getInt(1),
 						resultSet.getString(2),
 						resultSet.getInt(3),
-						resultSet.getBoolean(4),
-						resultSet.getInt(5)
+						resultSet.getBoolean(4)
 				);
-				student.setBusinessobj(business);
 				studentList.add(student);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
-			throw new RuntimeException(e);
+			
 		} finally {
 			close(resultSet);
 			close(prepareStatement);

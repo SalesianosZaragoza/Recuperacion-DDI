@@ -7,19 +7,16 @@ public class Student {
 	private String name;
 	private Integer age;
 	private boolean assistsFCT;
-
-	private Integer business;
-	private Business businessobj;
 	
-	public Student(String name, Integer age, boolean assistFCT, Integer business) {
+	public Student(String name, Integer age, boolean assistFCT) {
 		setName(name);
 		setAge(age);
 		setAssistsFCT(assistsFCT);
-		setBusiness(business);
+		
 	}
 	
-	public Student(Integer id, String name, Integer age, boolean assistFCT, Integer business) {
-		this(name, age, assistFCT, business);
+	public Student(Integer id, String name, Integer age, boolean assistFCT) {
+		this(name, age, assistFCT);
 		setId(id);
 	}
 	
@@ -59,19 +56,4 @@ public class Student {
 		this.assistsFCT = assistsFCT;
 	}
 
-	public Integer getBusiness() {
-		return business;
-	}
-
-	public void setBusiness(Integer business) {
-		this.business = business;
-	}
-
-	public Business getBusinessobj() {
-		return businessobj;
-	}
-
-	public void setBusinessobj(Business businessobj) {
-		this.businessobj = businessobj;
-	}
 }

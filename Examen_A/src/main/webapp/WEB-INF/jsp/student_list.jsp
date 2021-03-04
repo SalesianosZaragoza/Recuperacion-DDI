@@ -31,7 +31,6 @@
 			      <th scope="col">nombre</th>
 			      <th scope="col">edad</th>
 			      <th scope="col">asisteFCT</th>
-			      <th scope="col">empresa</th>
 			      <th scope="col"></th>
 			      <th scope="col"></th>
 			    </tr>
@@ -42,8 +41,7 @@
 						<td><c:out value="${student.id}"/></td>
 						<td><c:out value="${student.name}"/></td>
 						<td><c:out value="${student.age}"/></td>
-						<td><c:out value="${student.AssistsFCT ? 'Si' : 'No'}"/></td>
-						<td><c:out value="${student.getBusinessobj.getName}"/></td>
+						<td><c:out value="${student.assistsFCT ? 'Si' : 'No'}"/></td>
 						<td class="col-1 text-right"><a href='/studentEdit?id=${student.id}' class="btn btn-success" role="button" aria-disabled="true">Editar</a></td>
 						<td class="col-1 text-right"><a href='/studentDelete?id=${student.id}' class="btn btn-danger" role="button" aria-disabled="true">Borrar</a></td>
 			    	</tr>

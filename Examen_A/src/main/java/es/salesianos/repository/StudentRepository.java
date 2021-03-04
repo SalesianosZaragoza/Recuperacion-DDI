@@ -22,7 +22,7 @@ public class StudentRepository extends Repository {
 			prepareStatement.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
-			throw new RuntimeException(e);
+
 		} finally {
 			close(prepareStatement);
 		}
@@ -38,11 +38,10 @@ public class StudentRepository extends Repository {
 			preparedStatement.setString(1, student.getName());
 			preparedStatement.setInt(2, student.getAge());
 			preparedStatement.setBoolean(3, student.isAssistsFCT());
-			preparedStatement.setInt(4, student.getBusiness());
 			preparedStatement.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
-			throw new RuntimeException(e);
+			
 		} finally {
 			close(preparedStatement);
 		}
@@ -57,16 +56,11 @@ public class StudentRepository extends Repository {
 			preparedStatement.setString(1, student.getName());
 			preparedStatement.setInt(2, student.getAge());
 			preparedStatement.setBoolean(3, student.isAssistsFCT());
-			if (student.getBusiness() != null) {
-				preparedStatement.setInt(4, student.getBusiness());				
-			} else {
-				preparedStatement.setNull(4, java.sql.Types.NULL); 
-			}
-			preparedStatement.setInt(5, student.getId());
+			preparedStatement.setInt(4, student.getId());
 			preparedStatement.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
-			throw new RuntimeException(e);
+			
 		} finally {
 			close(preparedStatement);
 		}
@@ -83,7 +77,7 @@ public class StudentRepository extends Repository {
 			preparedStatement.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
-			throw new RuntimeException(e);
+			
 		} finally {
 			close(preparedStatement);
 		}
@@ -104,14 +98,13 @@ public class StudentRepository extends Repository {
 						resultSet.getInt(1),
 						resultSet.getString(2),
 						resultSet.getInt(3),
-						resultSet.getBoolean(4),
-						resultSet.getInt(5)
+						resultSet.getBoolean(4)
+						
 				);
-				student.setBusinessobj(new BusinessService().findById(student.getBusiness()));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
-			throw new RuntimeException(e);
+			
 		} finally {
 			close(resultSet);
 			close(prepareStatement);
@@ -133,15 +126,12 @@ public class StudentRepository extends Repository {
 						resultSet.getInt(1),
 						resultSet.getString(2),
 						resultSet.getInt(3),
-						resultSet.getBoolean(4),
-						resultSet.getInt(5)
+						resultSet.getBoolean(4)
 				);
-				student.setBusinessobj(new BusinessService().findById(student.getBusiness()));
 				StudentList.add(student);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
-			throw new RuntimeException(e);
 		} finally {
 			close(resultSet);
 			close(prepareStatement);
