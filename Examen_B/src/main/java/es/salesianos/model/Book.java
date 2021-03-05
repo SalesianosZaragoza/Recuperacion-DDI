@@ -8,12 +8,15 @@ public class Book {
 	private Integer id;
 	private String isbn;
 	private Date editionDate;
+	private String dateString;
 	private SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 	
 	private Integer warehouseId;
+	private Integer warehouseOldId;
+	private Integer warehouseNewId;
 	private boolean isWarehouseOld;
 	private Warehouse warehouse;
-	//crear warehouseObj para poder tener las otras paginas
+	
 	
 	public Book(String isbn, String editionDate, Integer warehouseId, boolean isWarehouseOld) {
 		setIsbn(isbn);
@@ -34,6 +37,20 @@ public class Book {
 		setId(id);
 	}
 	
+	public Book(Integer id, String isbn, String editionDate, Integer almacen_old, Integer almacen_new) {
+		boolean isOld = almacen_old != 0;
+		Integer almacenId = (isOld) ? almacen_old : almacen_new;
+		setId(id);
+		setIsbn(isbn);
+		setEditionDate(editionDate);
+		setWarehouseId(almacenId);
+		setWarehouseOld(isOld);
+	}
+	
+	public Book() {
+		
+	}
+
 	public Integer getId() {
 		return id;
 	}
@@ -71,6 +88,10 @@ public class Book {
 		}
 	}
 	
+	public void setEditionDate(Date editionDate) {
+		this.editionDate = editionDate;
+	}
+	
 	public Warehouse getWarehouse() {
 		return warehouse;
 	}
@@ -93,5 +114,29 @@ public class Book {
 
 	public void setWarehouseOld(boolean isWarehouseOld) {
 		this.isWarehouseOld = isWarehouseOld;
+	}
+
+	public String getDateString() {
+		return dateString;
+	}
+
+	public void setDateString(String dateString) {
+		this.dateString = dateString;
+	}
+
+	public Integer getWarehouseOldId() {
+		return warehouseOldId;
+	}
+
+	public void setWarehouseOldId(Integer warehouseOldId) {
+		this.warehouseOldId = warehouseOldId;
+	}
+
+	public Integer getWarehouseNewId() {
+		return warehouseNewId;
+	}
+
+	public void setWarehouseNewId(Integer warehouseNewId) {
+		this.warehouseNewId = warehouseNewId;
 	}
 }

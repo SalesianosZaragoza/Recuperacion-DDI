@@ -17,8 +17,8 @@
 			  	<a class="navbar-brand">Listado de Libros</a>
 				<ul class="navbar-nav ml-auto">
 					<li class="nav-item p-1">
-						<a href='/bookInsert' class="btn btn-info" role="button" aria-disabled="true">Insertar</a>
-						<a href='/warehouseList' class="btn btn-primary" role="button" aria-disabled="true">Almacenes</a>
+						<a href='/BookInsert' class="btn btn-info" role="button" aria-disabled="true">Insertar</a>
+						<a href='/WarehouseList' class="btn btn-primary" role="button" aria-disabled="true">Almacenes</a>
 					</li>
 				</ul>
 			</nav>
@@ -35,17 +35,13 @@
 			    </tr>
 			  </thead>
 			  <tbody>
-			  	<%
-			  	List<Book> books = (List<Book>)request.getAttribute("books");
-			  	%>
-				<c:forEach var="book" items="${books}">
+				<c:forEach items="${list}" var="book">
 					<tr>
-						<td><c:out value="${book.getId()}"/></td>
-						<td><c:out value="${book.getIsbn()}"/></td>
-						<td><c:out value="${book.getShortDate()}"/></td>
+						<td><c:out value="${book.id}"/></td>
+						<td><c:out value="${book.isbn}"/></td>
+						<td><c:out value="${book.editionDate}"/></td>
 						<td><c:out value="${book.getWarehouse().getName()}"/></td>
-						<td class="col-1 text-right"><a href='/bookEdit?id=${book.getId()}' class="btn btn-success" role="button" aria-disabled="true">Editar</a></td>
-						<td class="col-1 text-left"><a href='/bookDelete?id=${book.getId()}' class="btn btn-danger" role="button" aria-disabled="true">Borrar</a></td>
+						<td class="col-1 text-left"><a href='/BookDelete?id=${book.id}' class="btn btn-danger" role="button" aria-disabled="true">Borrar</a></td>
 			    	</tr>
 				</c:forEach>
 			  </tbody>

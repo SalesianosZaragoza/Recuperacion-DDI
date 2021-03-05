@@ -1,29 +1,18 @@
 package es.salesianos.service;
 
 import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
-
-import javax.servlet.http.HttpServletRequest;
 import es.salesianos.model.Book;
 import es.salesianos.model.Warehouse;
-import es.salesianos.model.assembler.WarehouseAssembler;
 import es.salesianos.repository.WarehouseRepository;
-
+@Service
 public class WarehouseService {
 
-	private WarehouseAssembler assembler = new WarehouseAssembler();
+	@Autowired
 	private WarehouseRepository repository = new WarehouseRepository();
-	
-	public Warehouse createNewEntityFromRequest(HttpServletRequest req) {
-		Warehouse warehouse = assembler.assembleFrom(req);
-		return warehouse;
-	}
-	
-	public Warehouse updateEntityFromRequest(HttpServletRequest req) {
-		Warehouse warehouse = assembler.assembleFrom(req);
-		return warehouse;
-	}
-	
+		
 	public void insert(Warehouse warehouse) {
 		repository.insert(warehouse);
 	}
@@ -39,7 +28,7 @@ public class WarehouseService {
 	public List<Warehouse> listNew() {
 		return repository.listNew();
 	}
-	
+
 	public Warehouse findByOld(Integer id) {
 		return repository.findByOld(id);
 	}
@@ -48,7 +37,17 @@ public class WarehouseService {
 		return repository.findByNew(id);
 	}
 	
-	public void delete(Warehouse warehouse) {
+	public void deleteOld(Integer id) {
+		Warehouse warehouse = findByOld(id);
+		BookService book_service = new BookService();
+		for (Book book : warehouse.getBooks()) {
+			book_service.delete(book);
+		}
+		repository.delete(warehouse);
+	}
+
+	public void deleteNew(Integer id) {
+		Warehouse warehouse = findByNew(id);
 		BookService book_service = new BookService();
 		for (Book book : warehouse.getBooks()) {
 			book_service.delete(book);

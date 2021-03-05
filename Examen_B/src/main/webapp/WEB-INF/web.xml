@@ -3,58 +3,10 @@
 	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_3_1.xsd"
 	version="3.1">
 
-	<display-name>Aplicacion de Almacen de Libros</display-name>
+	<display-name>Aplicacion de Almacenes</display-name>
 	<description></description>
 
-	<servlet>
-		<servlet-name>BookInsertServlet</servlet-name>
-		<servlet-class>es.salesianos.servlet.BookInsertServlet</servlet-class>
-	</servlet>
 
-	<servlet>
-		<servlet-name>WarehouseInsertServlet</servlet-name>
-		<servlet-class>es.salesianos.servlet.WarehouseInsertServlet</servlet-class>
-	</servlet>
-
-	<servlet>
-		<servlet-name>WarehouseListServlet</servlet-name>
-		<servlet-class>es.salesianos.servlet.WarehouseListServlet</servlet-class>
-	</servlet>
-	
-	<servlet>
-		<servlet-name>WarehouseEditServlet</servlet-name>
-		<servlet-class>es.salesianos.servlet.WarehouseEditServlet</servlet-class>
-	</servlet>
-	<servlet>
-		<servlet-name>WarehouseDeleteServlet</servlet-name>
-		<servlet-class>es.salesianos.servlet.WarehouseDeleteServlet</servlet-class>
-	</servlet>
-	
-	<servlet-mapping>
-		<servlet-name>BookInsertServlet</servlet-name>
-		<url-pattern>/bookInsert</url-pattern>
-	</servlet-mapping>
-	
-	<servlet-mapping>
-		<servlet-name>WarehouseListServlet</servlet-name>
-		<url-pattern>/warehouseList</url-pattern>
-	</servlet-mapping>
-
-	<servlet-mapping>
-		<servlet-name>WarehouseInsertServlet</servlet-name>
-		<url-pattern>/warehouseInsert</url-pattern>
-	</servlet-mapping>
-	
-	<servlet-mapping>
-		<servlet-name>WarehouseDeleteServlet</servlet-name>
-		<url-pattern>/warehouseDelete</url-pattern>
-	</servlet-mapping>
-	
-	<servlet-mapping>
-		<servlet-name>WarehouseEditServlet</servlet-name>
-		<url-pattern>/warehouseEdit</url-pattern>
-	</servlet-mapping>
-	
 	<welcome-file-list>
 		<welcome-file>/warehouse_insert.jsp</welcome-file>
 	</welcome-file-list>

@@ -13,11 +13,11 @@ import javax.management.RuntimeErrorException;
 
 import es.salesianos.model.Book;
 import es.salesianos.model.Warehouse;
-
+@org.springframework.stereotype.Repository("WarehouseRepository")
 public class WarehouseRepository extends Repository {
 	
 	public void insert(Warehouse warehouse) {
-		Connection conn = manager.open(jdbcUrl);
+		Connection conn = createConnection();
 		PreparedStatement preparedStatement = null;
 		try {
 			preparedStatement = conn.prepareStatement(String.format("INSERT INTO %s(nombre) VALUES (?)", getWarehouseTableName(warehouse.isOld())));
@@ -30,11 +30,11 @@ public class WarehouseRepository extends Repository {
 			close(preparedStatement);
 		}
 
-		manager.close(conn);
+		closeConnection(conn);
 	}
 	
 	public void delete(Warehouse warehouse) {
-		Connection conn = manager.open(jdbcUrl);
+		Connection conn = createConnection();
 		PreparedStatement prepareStatement = null;
 		try {
 			prepareStatement = conn.prepareStatement(String.format("DELETE FROM %s WHERE id=?", getWarehouseTableName(warehouse.isOld())));
@@ -45,12 +45,12 @@ public class WarehouseRepository extends Repository {
 			throw new RuntimeException(e);
 		} finally {
 			close(prepareStatement);
-			manager.close(conn);
 		}
+		closeConnection(conn);
 	}
 	
 	public void update(Warehouse warehouse) {
-		Connection conn = manager.open(jdbcUrl);
+		Connection conn = createConnection();
 		PreparedStatement preparedStatement = null;
 		try {
 			preparedStatement = conn.prepareStatement(String.format("UPDATE %s SET nombre=? WHERE id=?" , getWarehouseTableName(warehouse.isOld())));
@@ -62,7 +62,7 @@ public class WarehouseRepository extends Repository {
 			throw new RuntimeException(e);
 		} finally {
 			close(preparedStatement);
-			manager.close(conn);
+			closeConnection(conn);
 		}
 	}
 	public String getWarehouseTableName(boolean isOldWarehouse) {
@@ -71,7 +71,7 @@ public class WarehouseRepository extends Repository {
 	
 	public Warehouse findByOld(Integer id) {
 		Warehouse warehouse = null;
-		Connection conn = manager.open(jdbcUrl);
+		Connection conn = createConnection();
 		ResultSet resultSet = null;
 		PreparedStatement prepareStatement = null;
 		try {
@@ -88,20 +88,20 @@ public class WarehouseRepository extends Repository {
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
-			throw new RuntimeException(e);
 		} finally {
 			close(resultSet);
 			close(prepareStatement);
-			manager.close(conn);
+			
 		}
-
+		closeConnection(conn);
 		return warehouse;
+		
 	}
 	
 	
 	public Warehouse findByNew(Integer id) {
 		Warehouse warehouse = null;
-		Connection conn = manager.open(jdbcUrl);
+		Connection conn = createConnection();
 		ResultSet resultSet = null;
 		PreparedStatement prepareStatement = null;
 		try {
@@ -118,20 +118,20 @@ public class WarehouseRepository extends Repository {
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
-			throw new RuntimeException(e);
 		} finally {
 			close(resultSet);
 			close(prepareStatement);
-			manager.close(conn);
+			
 		}
-
+		closeConnection(conn);
 		return warehouse;
+		
 	}
 	
 	
 	public List<Warehouse> listOld() {
 		List<Warehouse> listWarehouses = new ArrayList<Warehouse>();
-		Connection conn = manager.open(jdbcUrl);
+		Connection conn = createConnection();
 		ResultSet resultSet = null;
 		PreparedStatement prepareStatement = null;
 		try {
@@ -152,15 +152,16 @@ public class WarehouseRepository extends Repository {
 		} finally {
 			close(resultSet);
 			close(prepareStatement);
-			manager.close(conn);
+			
 		}
-
+		closeConnection(conn);
 		return listWarehouses;
+		
 	}
 	
 	public List<Warehouse> listNew() {
 		List<Warehouse> listWarehouses = new ArrayList<Warehouse>();
-		Connection conn = manager.open(jdbcUrl);
+		Connection conn = createConnection();
 		ResultSet resultSet = null;
 		PreparedStatement prepareStatement = null;
 		try {
@@ -181,15 +182,16 @@ public class WarehouseRepository extends Repository {
 		} finally {
 			close(resultSet);
 			close(prepareStatement);
-			manager.close(conn);
+			
 		}
-
+		closeConnection(conn);
 		return listWarehouses;
+		
 	}
 	
 	public List<Book> getBooks(Warehouse warehouse) {
 		List<Book> listBooks = new ArrayList<Book>();
-		Connection conn = manager.open(jdbcUrl);
+		Connection conn = createConnection();
 		ResultSet resultSet = null;
 		PreparedStatement prepareStatement = null;
 		try {
@@ -211,9 +213,9 @@ public class WarehouseRepository extends Repository {
 		} finally {
 			close(resultSet);
 			close(prepareStatement);
-			manager.close(conn);
+			
 		}
-
+		closeConnection(conn);
 		return listBooks;
 	}
 	public String getWarehouseColumnName(boolean isOldWarehouse) {
@@ -221,26 +223,5 @@ public class WarehouseRepository extends Repository {
 	}
 	
 
-	private void close(PreparedStatement prepareStatement) {
-		if (null != prepareStatement) {
-			try {
-				prepareStatement.close();
-			} catch (SQLException e) {
-				e.printStackTrace();
-				throw new RuntimeException(e);
-			}
-		}
-	}
 	
-	private void close(ResultSet resultSet) {
-		if (null != resultSet) {
-
-			try {
-				resultSet.close();
-			} catch (SQLException e) {
-				e.printStackTrace();
-				throw new RuntimeException(e);
-			}
-		}
-	}
 }

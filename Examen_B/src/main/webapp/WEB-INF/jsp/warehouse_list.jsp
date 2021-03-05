@@ -17,8 +17,8 @@
 			  	<a class="navbar-brand">Listado de Almacenes</a>
 				<ul class="navbar-nav ml-auto">
 					<li class="nav-item p-1">
-						<a href='/almacen_insertar.jsp' class="btn btn-info" role="button" aria-disabled="true">Insertar</a>
-						<a href='/libros_listado.jsp' class="btn btn-primary" role="button" aria-disabled="true">Libros</a>
+						<a href='/WarehouseInsert' class="btn btn-info" role="button" aria-disabled="true">Insertar</a>
+						<a href='/BookList' class="btn btn-primary" role="button" aria-disabled="true">Libros</a>
 					</li>
 				</ul>
 			</nav>
@@ -36,20 +36,17 @@
 			    </tr>
 			  </thead>
 			  <tbody>
-			  	<%
-			  	List<Warehouse> almacenes_old = (List<Warehouse>)request.getAttribute("oldWarehouses");
-			  	%>
-				<c:forEach var="warehouse" items="${warehouse_old}">
+				<c:forEach var="warehouse" items="${listOld}">
 					<tr>
-						<td><c:out value="${warehouse.getId()}"/></td>
-						<td><c:out value="${warehouse.getName()}"/></td>
+						<td><c:out value="${warehouse.id}"/></td>
+						<td><c:out value="${warehouse.name}"/></td>
 					 	<td><select class="custom-select" multiple readonly>
 							<c:forEach var="book" items="${warehouse.getBooks()}">
-								<option><c:out value="${book.getIsbn()}"/></option>
+								<option><c:out value="${book.isbn}"/></option>
 							</c:forEach>
 					 	</select></td>
-					 	<td class="col-1 text-right"><a href='/warehouseEdit?id=${warehouse.getId()}&type=old' class="btn btn-success" role="button" aria-disabled="true">Editar</a></td>
-					 	<td class="col-1 text-left"><a href='/warehouseDelete?id=${warehouse.getId()}&type=old' class="btn btn-danger" role="button" aria-disabled="true">Borrar</a></td>
+					 	
+					 	<td class="col-1 text-left"><a href='/WarehouseDeleteOld?id=${warehouse.id}' class="btn btn-danger" role="button" aria-disabled="true">Borrar</a></td>
 			    	</tr>
 				</c:forEach>
 			  </tbody>
@@ -69,19 +66,16 @@
 			    </tr>
 			  </thead>
 			  <tbody>
-			  	<%
-			  	List<Warehouse> almacenes_new = (List<Warehouse>)request.getAttribute("newWarehouses");
-			  	%>
-				<c:forEach var="warehouse" items="${warehouse_new}">
+				<c:forEach var="warehouse" items="${listNew}">
 					<tr>
-						<td><c:out value="${warehouse.getId()}"/></td>
-						<td><c:out value="${warehouse.getName()}"/></td>
+						<td><c:out value="${warehouse.id}"/></td>
+						<td><c:out value="${warehouse.name}"/></td>
 					 	<td><select class="custom-select" multiple readonly>
 							<c:forEach var="book" items="${warehouse.getBooks()}">
-								<option><c:out value="${book.getIsbn()}"/></option>
+								<option><c:out value="${book.isbn}"/></option>
 							</c:forEach>
 					 	</select></td>
-					 	<td class="col-1 text-right"><a href='/warehouseEdit?id=${warehouse.getId()}&type=new' class="btn btn-success" role="button" aria-disabled="true">Editar</a></td>
+					 	<td class="col-1 text-left"><a href='/WarehouseDeleteNew?id=${warehouse.id}' class="btn btn-danger" role="button" aria-disabled="true">Borrar</a></td>
 			    	</tr>
 				</c:forEach>
 			  </tbody>

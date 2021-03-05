@@ -7,6 +7,7 @@ public class Warehouse {
 	private Integer id;
 	private String name;
 	private boolean isOld;
+	private String tipo;
 	
 	private List<Book> books;
 	
@@ -20,6 +21,10 @@ public class Warehouse {
 		setId(id);
 	}
 	
+	public Warehouse() {
+
+	}
+
 	public String getName() {
 		return name;
 	}
@@ -50,5 +55,13 @@ public class Warehouse {
 	
 	public void setBooks(List<Book> books) {
 		this.books = books;
+	}
+
+	public String getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
 	}
 }
