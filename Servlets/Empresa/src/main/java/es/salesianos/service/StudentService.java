@@ -1,29 +1,34 @@
 package es.salesianos.service;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 
-import es.salesianos.model.Student;
-import es.salesianos.model.assembler.StudentAssembler;
-import es.salesianos.repository.Repository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+import es.salesianos.model.Student;
+import es.salesianos.repository.Repositoryy;
+
+@Service
 public class StudentService {
 
-	private Repository repository = new Repository();
+	@Autowired 
+	private Repositoryy repository;
 	
-	
-	public Student assembleStudentFromRequest(HttpServletRequest req) {
-		return StudentAssembler.assembleStudentFrom(req);
-	}
-	
-	public void addStudent(Student student) {
-		repository.insert(student);		
+	public void insert(Student student) {
+		repository.insert(student);
 	}
 	
 	public void update(Student student) {
-		repository.update(student);	
+		repository.update(student);
 	}
 	
-	public Student search(Integer id) {
-		return repository.search(id);		
+	public Student searchStudent(Integer id) {
+		return repository.searchStudent(id);	
+	}
+
+	public List<Student> searchAll() {
+		return repository.searchAllStudent();
 	}
 }

@@ -9,7 +9,7 @@
 
 <body>
 
-	<form action="deleteCompany" method="get">
+	<form action="/deleteCompany" method="GET">
 		<div>¿Quiere borrar tambien los alumnos?</div>
 		<input type="submit" name="answer" value="SI" />
 		<input type="submit" name="answer" value="NO" />

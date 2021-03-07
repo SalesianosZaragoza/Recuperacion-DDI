@@ -2,6 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,20 +10,16 @@
 <title>Insertar nuevo alumno</title>
 </head>
 
-<%
- request.getAttribute("company");
-%>
-
 <body>
-	<form action="addStudent" method="post">
-		<input type="text" name="id" value="<c:out value="${company.id}"/>" style="display:none" >
-		<span>Nombre:</span><input type="text" name="name">
-		<br/>
-		<span>Edad :</span><input type="text" name="age">
-		<br/>
-		<span>¿Asiste a la FCT?</span>
-		<input type="submit" name="asisteFCT" value="SI">
-		<input type="submit" name="asisteFCT" value="NO">
-	</form>
+	<form:form action="studentInsert" method="POST" modelAttribute="student">
+				Nombre: <form:input type="text" path="name" />
+				<br/>
+				Edad: <form:input type="text" path="age" />
+				<br/>
+				AsisteFct <form:input type="text" path="asisteFCT" />	
+				<br/>
+				Id.empresa <form:input type="text" path="company" />			
+				<button type="submit">Insertar</button>
+	</form:form>
 </body>
 </html>

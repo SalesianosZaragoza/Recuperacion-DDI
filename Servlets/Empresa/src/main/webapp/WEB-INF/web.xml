@@ -1,90 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<web-app xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_3_1.xsd"
 	version="3.1">
 
-	<display-name>HelloWorld Application</display-name>
-	<description></description>
 	
-	<servlet>
-		<servlet-name>ListCompanyServlet</servlet-name>
-		<servlet-class>es.salesianos.servlet.ListCompanyServlet</servlet-class>
-	</servlet>
-	
-	<servlet>
-		<servlet-name>AddCompanyServlet</servlet-name>
-		<servlet-class>es.salesianos.servlet.AddCompanyServlet</servlet-class>
-	</servlet>
-	
-	<servlet>
-		<servlet-name>ConfirmDeleteCompanyServlet</servlet-name>
-		<servlet-class>es.salesianos.servlet.ConfirmDeleteCompanyServlet</servlet-class>
-	</servlet>
-	
-	<servlet>
-		<servlet-name>DeleteCompanyServlet</servlet-name>
-		<servlet-class>es.salesianos.servlet.DeleteCompanyServlet</servlet-class>
-	</servlet>
-	
-	<servlet>
-		<servlet-name>RecoveryAddIdCompanyServlet</servlet-name>
-		<servlet-class>es.salesianos.servlet.RecoveryAddIdCompanyServlet</servlet-class>
-	</servlet>
-	
-	<servlet>
-		<servlet-name>AddStudentServlet</servlet-name>
-		<servlet-class>es.salesianos.servlet.AddStudentServlet</servlet-class>
-	</servlet>
-	
-	<servlet>
-		<servlet-name>EditStudentServlet</servlet-name>
-		<servlet-class>es.salesianos.servlet.EditStudentServlet</servlet-class>
-	</servlet>
-	
-	<servlet>
-		<servlet-name>UpdateStudentServlet</servlet-name>
-		<servlet-class>es.salesianos.servlet.UpdateStudentServlet</servlet-class>
-	</servlet>
-	
-	<servlet-mapping>
-		<servlet-name>UpdateStudentServlet</servlet-name>
-		<url-pattern>updateStudent</url-pattern>
-	</servlet-mapping>
-	
-	<servlet-mapping>
-		<servlet-name>EditStudentServlet</servlet-name>
-		<url-pattern>editStudent</url-pattern>
-	</servlet-mapping>
-	
-	<servlet-mapping>
-		<servlet-name>AddStudentServlet</servlet-name>
-		<url-pattern>addStudent</url-pattern>
-	</servlet-mapping>
-	
-	<servlet-mapping>
-		<servlet-name>RecoveryAddIdCompanyServlet</servlet-name>
-		<url-pattern>recoveryAddIdCompany</url-pattern>
-	</servlet-mapping>
-	
-	<servlet-mapping>
-		<servlet-name>ConfirmDeleteCompanyServlet</servlet-name>
-		<url-pattern>confirmDeleteCompany</url-pattern>
-	</servlet-mapping>
-	
-	<servlet-mapping>
-		<servlet-name>ListCompanyServlet</servlet-name>
-		<url-pattern>loadList</url-pattern>
-	</servlet-mapping>
-	
-	<servlet-mapping>
-		<servlet-name>DeleteCompanyServlet</servlet-name>
-		<url-pattern>deleteCompany</url-pattern>
-	</servlet-mapping>
-	
-	<servlet-mapping>
-		<servlet-name>AddCompanyServlet</servlet-name>
-		<url-pattern>addCompany</url-pattern>
-	</servlet-mapping>
 
 	<welcome-file-list>
 		<welcome-file>index.jsp</welcome-file>

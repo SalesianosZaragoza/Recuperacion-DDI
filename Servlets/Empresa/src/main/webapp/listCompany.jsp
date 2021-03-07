@@ -42,19 +42,19 @@ List<Company> company = (List<Company>)request.getAttribute("listAllCompany");
 		</tr>
 	</thead>
 	<tbody>
-		<c:forEach var="company1" items="${listAllCompany}">
+		<c:forEach var="company1" items="${list}">
 			<tr>
 				<td><c:out value="${company1.id}"/> </td>
 				<td><c:out value="${company1.name}"/> </td>
 				<td><a href="confirmDeleteCompany?id=${company1.id}">DELETE</a> </td>
-				<td><a href="recoveryAddIdCompany?id=${company1.id}">Añadir alumno</a> </td>
+				<td><a href="/insertStudent">Añadir alumno</a> </td>
 	    		<td>
 	    			<c:forEach var="student" items="${company1.students}">
 	    				<div>
 		    				<c:out value="${student.name } "/>
 		    				<c:out value="${student.age } "/>
 		    				<c:out value="${student.asisteFCT  } "/>
-		    				<a href="editStudent?id=${student.id}">EDIT</a>
+		    				<a href="/studentEdit?id=${student.id}">EDIT</a>
 	    				</div>
 	    			</c:forEach>
 	    		</td>

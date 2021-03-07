@@ -1,27 +1,18 @@
 package es.salesianos.service;
 
 import java.util.List;
-import javax.servlet.http.HttpServletRequest;
-import es.salesianos.model.Company;
-import es.salesianos.model.assembler.CompanyAssembler;
-import es.salesianos.repository.Repository;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import es.salesianos.model.Company;
+import es.salesianos.repository.Repositoryy;
+
+@Service
 public class CompanyService {
 	
-	
-	private Repository repository = new Repository();
-	
-	public Repository getRepository() {
-		return repository;
-	}
-
-	public void setRepository(Repository repository) {
-		this.repository = repository;
-	}
-	
-	public Company assembleCompanyFromRequest(HttpServletRequest req) {
-		return CompanyAssembler.assembleCompanyFrom(req);
-	}
+	@Autowired 
+	private Repositoryy repository;
 	
 	public void addCompany(Company company) {
 		repository.insert(company);
