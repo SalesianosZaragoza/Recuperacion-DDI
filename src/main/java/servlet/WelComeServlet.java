@@ -15,15 +15,17 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 public class WelComeServlet extends HttpServlet{
-private String jdbcUrl = "jdbc:h2:file:~/testdb";
+private String jdbcUrl = "jdbc:h2:file:./testdb";
 
 
 @Override
 protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-	String nombre = req.getParameter("nombre");
+	String nombre = req.getParameter("Nombre");
 	System.out.println(nombre);
-	System.out.println(req.getParameter("apellido"));
-	System.out.println(req.getParameter("dni"));
+	String apellidos = req.getParameter("Apellidos");
+	System.out.println(apellidos);
+	String dni = req.getParameter("DNI");
+	System.out.println(dni);
 	
 	Connection conn;
 		try {
@@ -36,24 +38,26 @@ protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws S
 		PreparedStatement preparedStatement = null;
 		try {
 			
-			preparedStatement = conn.prepareStatement("CREATE TABLE IF NOT EXISTS USER (nombre VARCHAR(100) )");
+			preparedStatement = conn.prepareStatement("CREATE TABLE IF NOT EXISTS USER (nombre VARCHAR(100), apellidos VARCHAR(100), DNI VARCHAR(9), horaEntrada TIME, horaSalida TIME)");
 			preparedStatement.executeUpdate();
 			preparedStatement.close();
-			preparedStatement = conn.prepareStatement("INSERT INTO USER VALUES ?");
+			preparedStatement = conn.prepareStatement("INSERT INTO USER (nombre, apellidos, DNI) VALUES (?, ?, ?)");
 			preparedStatement.setString(1, nombre);
+			preparedStatement.setString(2, apellidos);
+			preparedStatement.setString(3, dni);
 			preparedStatement.executeUpdate();
 			preparedStatement.close();
 			System.out.println("IMPRIMIENDO LISTADO");
 			preparedStatement = conn.prepareStatement("SELECT * FROM USER");
 			ResultSet resultSet = preparedStatement.executeQuery();
 			
-			ArrayList<String> listNombres = new ArrayList<String>();
+			ArrayList<String> listAlumnos = new ArrayList<String>();
 			while (resultSet.next()) {
 				String string = resultSet.getString(1);
-				listNombres.add(string);
+				listAlumnos.add(string);
 				System.out.println(string);
 			} 
-			req.setAttribute("nombres", listNombres);
+			req.setAttribute("nombres", listAlumnos);
 			preparedStatement.close();
 			conn.close();
 		} catch (SQLException e) {
