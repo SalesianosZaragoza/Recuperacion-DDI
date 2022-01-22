@@ -11,6 +11,8 @@
 		<span>nombre:</span> <input type="text" name="Nombre"> <br />
 		<span>apellido:</span> <input type="text" name="Apellidos"> <br />
 		<span>dni:</span> <input type="text" name="DNI"> <br />
+		<span>horaEntrada:</span> <input type="time" name="HoraEntrada" min="08:00" max="08:00" value="08:00"> <br />
+		<span>horaSalida:</span> <input type="time" name="HoraSalida" min="13:10" max="14:00"> <br />
 		<input type="submit">
 	</form>
 	<a href="Listado.jsp">Listado</a>

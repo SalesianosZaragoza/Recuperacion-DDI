@@ -21,11 +21,11 @@ private String jdbcUrl = "jdbc:h2:file:./testdb";
 @Override
 protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 	String nombre = req.getParameter("Nombre");
-	System.out.println(nombre);
 	String apellidos = req.getParameter("Apellidos");
-	System.out.println(apellidos);
 	String dni = req.getParameter("DNI");
-	System.out.println(dni);
+	String horaEntrada = req.getParameter("HoraEntrada");
+	String horaSalida = req.getParameter("HoraSalida");
+
 	
 	Connection conn;
 		try {
@@ -41,10 +41,12 @@ protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws S
 			preparedStatement = conn.prepareStatement("CREATE TABLE IF NOT EXISTS USER (nombre VARCHAR(100), apellidos VARCHAR(100), DNI VARCHAR(9), horaEntrada TIME, horaSalida TIME)");
 			preparedStatement.executeUpdate();
 			preparedStatement.close();
-			preparedStatement = conn.prepareStatement("INSERT INTO USER (nombre, apellidos, DNI) VALUES (?, ?, ?)");
+			preparedStatement = conn.prepareStatement("INSERT INTO USER (nombre, apellidos, DNI, horaEntrada, horaSalida) VALUES (?, ?, ?, ?, ?)");
 			preparedStatement.setString(1, nombre);
 			preparedStatement.setString(2, apellidos);
 			preparedStatement.setString(3, dni);
+			preparedStatement.setString(4, horaEntrada);
+			preparedStatement.setString(5, horaSalida);
 			preparedStatement.executeUpdate();
 			preparedStatement.close();
 			System.out.println("IMPRIMIENDO LISTADO");
