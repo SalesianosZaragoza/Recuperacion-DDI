@@ -15,6 +15,6 @@
 		<span>horaSalida:</span> <input type="time" name="HoraSalida" min="13:10" max="14:00"> <br />
 		<input type="submit">
 	</form>
-	<a href="Listado.jsp">Listado</a>
+	<a href="welcome">Listado</a>
 </body>
 </html>

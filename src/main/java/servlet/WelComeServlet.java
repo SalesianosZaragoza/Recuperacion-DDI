@@ -17,6 +17,59 @@ import javax.servlet.http.HttpServletResponse;
 public class WelComeServlet extends HttpServlet{
 private String jdbcUrl = "jdbc:h2:file:./testdb";
 
+@Override
+protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	Connection conn;
+	try {
+		Class.forName("org.h2.Driver");
+		conn = DriverManager.getConnection(jdbcUrl , "sa", "");
+	} catch (Exception e) {
+		e.printStackTrace();
+		throw new RuntimeException(e);
+	}
+	PreparedStatement preparedStatement = null;
+	try {
+
+		preparedStatement = conn.prepareStatement("CREATE TABLE IF NOT EXISTS USER (nombre VARCHAR(100), apellidos VARCHAR(100), DNI VARCHAR(9), horaEntrada TIME, horaSalida TIME)");
+		preparedStatement.executeUpdate();
+		preparedStatement.close();
+		preparedStatement = conn.prepareStatement("SELECT * FROM USER");
+		ResultSet resultSet = preparedStatement.executeQuery();
+
+		ArrayList<String[]> listAlumnos = new ArrayList<String[]>();
+		while (resultSet.next()) {
+			String string = resultSet.getString(1);
+			String datosAlumno[] = {resultSet.getString(1), resultSet.getString(2), resultSet.getString(3), resultSet.getString(4),resultSet.getString(5)};
+			listAlumnos.add(datosAlumno);
+			System.out.println(string);
+		}
+		req.setAttribute("alumnos", listAlumnos);
+		preparedStatement.close();
+		conn.close();
+	} catch (SQLException e) {
+		e.printStackTrace();
+		throw new RuntimeException(e);
+	} finally {
+		if (null != conn) {
+			try {
+				conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+				throw new RuntimeException(e);
+			}
+		}
+		if (preparedStatement != null) {
+			try {
+				preparedStatement.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+
+	RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/listado.jsp");
+	dispatcher.forward(req, resp);
+}
 
 @Override
 protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -53,13 +106,14 @@ protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws S
 			preparedStatement = conn.prepareStatement("SELECT * FROM USER");
 			ResultSet resultSet = preparedStatement.executeQuery();
 			
-			ArrayList<String> listAlumnos = new ArrayList<String>();
+			ArrayList<String[]> listAlumnos = new ArrayList<String[]>();
 			while (resultSet.next()) {
 				String string = resultSet.getString(1);
-				listAlumnos.add(string);
+				String datosAlumno[] = {resultSet.getString(1), resultSet.getString(2), resultSet.getString(3), resultSet.getString(4),resultSet.getString(5)};
+				listAlumnos.add(datosAlumno);
 				System.out.println(string);
 			} 
-			req.setAttribute("nombres", listAlumnos);
+			req.setAttribute("alumnos", listAlumnos);
 			preparedStatement.close();
 			conn.close();
 		} catch (SQLException e) {
@@ -82,11 +136,8 @@ protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws S
 				}
 			}
 		}
-
 	
-	
-	
-	RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/fin.jsp");
+	RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/listado.jsp");
 	dispatcher.forward(req, resp);
-}
+	}
 }
