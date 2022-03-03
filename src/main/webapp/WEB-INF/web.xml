@@ -14,6 +14,16 @@
 		<url-pattern>/welcome</url-pattern>
 	</servlet-mapping>
 
+	<servlet>
+		<servlet-name>ValidationServlet</servlet-name>
+		<servlet-class>servlet.ValidationServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>ValidationServlet</servlet-name>
+		<url-pattern>/validation</url-pattern>
+	</servlet-mapping>
+
 	<welcome-file-list>
 		<welcome-file>index.jsp</welcome-file>
 	</welcome-file-list>
