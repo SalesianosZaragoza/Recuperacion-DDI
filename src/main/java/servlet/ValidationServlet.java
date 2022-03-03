@@ -52,6 +52,7 @@ public class ValidationServlet extends HttpServlet{
             req.setAttribute("alumno", nombreAlumnoSelec);
             req.setAttribute("apellidos", apellidosAlumnoSelec);
 
+
             preparedStatement.executeUpdate();
             preparedStatement.close();
             conn.close();
@@ -80,5 +81,6 @@ public class ValidationServlet extends HttpServlet{
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/comprobacionForm.jsp");
         dispatcher.forward(req, resp);
     }
+
 }
 
