@@ -40,7 +40,7 @@
                     ${salida}
                 </td>
                 <td>
-                    Entrada
+                    ${permiso}
                 </td>
             </tr>
         </table>

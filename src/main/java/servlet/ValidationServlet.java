@@ -1,12 +1,9 @@
 package servlet;
 
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
+import java.sql.*;
+import java.time.LocalTime;
+import java.time.ZoneId;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -19,12 +16,8 @@ public class ValidationServlet extends HttpServlet{
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String nombre = req.getParameter("Nombre");
-        String apellidos = req.getParameter("Apellidos");
-        String dni = req.getParameter("DNI");
-        String horaEntrada = req.getParameter("HoraEntrada");
-        String horaSalida = req.getParameter("HoraSalida");
 
+        String dni = req.getParameter("DNI");
 
         Connection conn;
         try {
@@ -44,6 +37,8 @@ public class ValidationServlet extends HttpServlet{
             String apellidosAlumnoSelec = new String();
             String entradaAlumnoSelec = new String();
             String salidaAlumnoSelec = new String();
+            String permiso= new String();
+
 
             while (resultSet.next()) {
                 String string1 = resultSet.getString(1);
@@ -54,11 +49,14 @@ public class ValidationServlet extends HttpServlet{
                 entradaAlumnoSelec = string3;
                 String string4 = resultSet.getString(4);
                 salidaAlumnoSelec = string4;
+                permiso = PermisoEntrada(entradaAlumnoSelec ,salidaAlumnoSelec);
+
             }
             req.setAttribute("nombre", nombreAlumnoSelec);
             req.setAttribute("apellidos", apellidosAlumnoSelec);
             req.setAttribute("entrada", entradaAlumnoSelec);
             req.setAttribute("salida", salidaAlumnoSelec);
+            req.setAttribute("permiso", permiso);
 
             preparedStatement.execute();
             preparedStatement.close();
@@ -87,6 +85,18 @@ public class ValidationServlet extends HttpServlet{
 
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/permiso.jsp");
         dispatcher.forward(req, resp);
+    }
+
+    public String PermisoEntrada(String hentrada, String hsalida){
+        LocalTime hentradaTime= LocalTime.parse(hentrada);
+        LocalTime hsalidaTime= LocalTime.parse(hsalida);
+        ZoneId zona = ZoneId.of("Europe/Paris");
+        LocalTime actual =LocalTime.now(zona);
+        if((actual.isAfter(hentradaTime))&&(actual.isBefore(hsalidaTime)))
+            return "Permitida";
+        else
+            return "Denegada";
+
     }
 
 }
