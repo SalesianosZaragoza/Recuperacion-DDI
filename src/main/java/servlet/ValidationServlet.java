@@ -36,24 +36,31 @@ public class ValidationServlet extends HttpServlet{
         }
         PreparedStatement preparedStatement = null;
         try {
-            preparedStatement = conn.prepareStatement("SELECT u.nombre, u.apellidos FROM USER as u WHERE u.DNI == ?");
+            preparedStatement = conn.prepareStatement("SELECT u.nombre, u.apellidos, u.horaEntrada, u.horaSalida FROM USER as u WHERE u.DNI = ?");
             preparedStatement.setString(1, dni);
             ResultSet resultSet = preparedStatement.executeQuery();
 
             String nombreAlumnoSelec = new String();
             String apellidosAlumnoSelec = new String();
+            String entradaAlumnoSelec = new String();
+            String salidaAlumnoSelec = new String();
 
             while (resultSet.next()) {
                 String string1 = resultSet.getString(1);
                 nombreAlumnoSelec = string1;
                 String string2 = resultSet.getString(2);
                 apellidosAlumnoSelec = string2;
+                String string3 = resultSet.getString(3);
+                entradaAlumnoSelec = string3;
+                String string4 = resultSet.getString(4);
+                salidaAlumnoSelec = string4;
             }
-            req.setAttribute("alumno", nombreAlumnoSelec);
+            req.setAttribute("nombre", nombreAlumnoSelec);
             req.setAttribute("apellidos", apellidosAlumnoSelec);
+            req.setAttribute("entrada", entradaAlumnoSelec);
+            req.setAttribute("salida", salidaAlumnoSelec);
 
-
-            preparedStatement.executeUpdate();
+            preparedStatement.execute();
             preparedStatement.close();
             conn.close();
             System.out.println("IMPRIMIENDO LISTADO");
@@ -78,7 +85,7 @@ public class ValidationServlet extends HttpServlet{
             }
         }
 
-        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/comprobacionForm.jsp");
+        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/permiso.jsp");
         dispatcher.forward(req, resp);
     }
 

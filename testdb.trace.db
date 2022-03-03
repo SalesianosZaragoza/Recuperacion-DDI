@@ -166,3 +166,128 @@ java.sql.SQLClientInfoException: Client info name 'ApplicationName' not supporte
 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
 	at java.base/java.lang.Thread.run(Thread.java:829)
+2022-03-03 09:14:23 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "SELECT U.NOMBRE, U.APELLIDOS FROM USER AS U WHERE U.DNI[*] == ?"
+Syntax error in SQL statement "SELECT U.NOMBRE, U.APELLIDOS FROM USER AS U WHERE U.DNI[*] == ?"; SQL statement:
+SELECT u.nombre, u.apellidos FROM USER as u WHERE u.DNI == ? [42000-200]
+2022-03-03 09:15:01 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "SELECT U.NOMBRE, U.APELLIDOS FROM USER AS U WHERE U.DNI[*] == ?"
+Syntax error in SQL statement "SELECT U.NOMBRE, U.APELLIDOS FROM USER AS U WHERE U.DNI[*] == ?"; SQL statement:
+SELECT u.nombre, u.apellidos FROM USER as u WHERE u.DNI == ? [42000-200]
+2022-03-03 09:15:05 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "SELECT U.NOMBRE, U.APELLIDOS FROM USER AS U WHERE U.DNI[*] == ?"
+Syntax error in SQL statement "SELECT U.NOMBRE, U.APELLIDOS FROM USER AS U WHERE U.DNI[*] == ?"; SQL statement:
+SELECT u.nombre, u.apellidos FROM USER as u WHERE u.DNI == ? [42000-200]
+2022-03-03 09:15:31 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "SELECT U.NOMBRE, U.APELLIDOS FROM USER AS U WHERE U.DNI[*] == ?"
+Syntax error in SQL statement "SELECT U.NOMBRE, U.APELLIDOS FROM USER AS U WHERE U.DNI[*] == ?"; SQL statement:
+SELECT u.nombre, u.apellidos FROM USER as u WHERE u.DNI == ? [42000-200]
+2022-03-03 09:16:38 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLNonTransientException: Metodo no permitido en un query. Use execute ó executeQuery en lugar de executeUpdate
+Method is not allowed for a query. Use execute or executeQuery instead of executeUpdate; SQL statement:
+SELECT u.nombre, u.apellidos FROM USER as u WHERE u.DNI = ? [90001-200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:505)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
+	at org.h2.message.DbException.get(DbException.java:205)
+	at org.h2.message.DbException.get(DbException.java:181)
+	at org.h2.message.DbException.get(DbException.java:170)
+	at org.h2.command.Prepared.update(Prepared.java:219)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:198)
+	at org.h2.command.Command.executeUpdate(Command.java:251)
+	at org.h2.jdbc.JdbcPreparedStatement.executeUpdateInternal(JdbcPreparedStatement.java:191)
+	at org.h2.jdbc.JdbcPreparedStatement.executeUpdate(JdbcPreparedStatement.java:152)
+	at servlet.ValidationServlet.doPost(ValidationServlet.java:55)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:523)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:590)
+	at org.eclipse.jetty.servlet.ServletHolder$NotAsyncServlet.service(ServletHolder.java:1354)
+	at org.eclipse.jetty.servlet.ServletHolder.handle(ServletHolder.java:724)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1562)
+	at org.eclipse.jetty.websocket.util.server.WebSocketUpgradeFilter.doFilter(WebSocketUpgradeFilter.java:147)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1549)
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:507)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:136)
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:585)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:127)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:228)
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:1577)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:226)
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1309)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:181)
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:450)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:1550)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:179)
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1228)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:134)
+	at org.eclipse.jetty.server.handler.ContextHandlerCollection.handle(ContextHandlerCollection.java:188)
+	at org.eclipse.jetty.server.handler.HandlerList.handle(HandlerList.java:56)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:127)
+	at org.eclipse.jetty.server.Server.handle(Server.java:549)
+	at org.eclipse.jetty.server.HttpChannel.lambda$handle$0(HttpChannel.java:370)
+	at org.eclipse.jetty.server.HttpChannel.dispatch(HttpChannel.java:567)
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:362)
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:290)
+	at org.eclipse.jetty.io.AbstractConnection$ReadCallback.succeeded(AbstractConnection.java:321)
+	at org.eclipse.jetty.io.FillInterest.fillable(FillInterest.java:103)
+	at org.eclipse.jetty.io.SocketChannelEndPoint$1.run(SocketChannelEndPoint.java:104)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.runTask(EatWhatYouKill.java:336)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.doProduce(EatWhatYouKill.java:313)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.tryProduce(EatWhatYouKill.java:171)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.run(EatWhatYouKill.java:129)
+	at org.eclipse.jetty.util.thread.ReservedThreadExecutor$ReservedThread.run(ReservedThreadExecutor.java:375)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:823)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$Runner.run(QueuedThreadPool.java:945)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+2022-03-03 09:18:39 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLNonTransientException: Metodo no permitido en un query. Use execute ó executeQuery en lugar de executeUpdate
+Method is not allowed for a query. Use execute or executeQuery instead of executeUpdate; SQL statement:
+SELECT u.nombre, u.apellidos FROM USER as u WHERE u.DNI = ? [90001-200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:505)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
+	at org.h2.message.DbException.get(DbException.java:205)
+	at org.h2.message.DbException.get(DbException.java:181)
+	at org.h2.message.DbException.get(DbException.java:170)
+	at org.h2.command.Prepared.update(Prepared.java:219)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:198)
+	at org.h2.command.Command.executeUpdate(Command.java:251)
+	at org.h2.jdbc.JdbcPreparedStatement.executeUpdateInternal(JdbcPreparedStatement.java:191)
+	at org.h2.jdbc.JdbcPreparedStatement.executeUpdate(JdbcPreparedStatement.java:152)
+	at servlet.ValidationServlet.doPost(ValidationServlet.java:55)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:523)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:590)
+	at org.eclipse.jetty.servlet.ServletHolder$NotAsyncServlet.service(ServletHolder.java:1354)
+	at org.eclipse.jetty.servlet.ServletHolder.handle(ServletHolder.java:724)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1562)
+	at org.eclipse.jetty.websocket.util.server.WebSocketUpgradeFilter.doFilter(WebSocketUpgradeFilter.java:147)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1549)
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:507)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:136)
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:585)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:127)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:228)
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:1577)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:226)
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1309)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:181)
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:450)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:1550)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:179)
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1228)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:134)
+	at org.eclipse.jetty.server.handler.ContextHandlerCollection.handle(ContextHandlerCollection.java:188)
+	at org.eclipse.jetty.server.handler.HandlerList.handle(HandlerList.java:56)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:127)
+	at org.eclipse.jetty.server.Server.handle(Server.java:549)
+	at org.eclipse.jetty.server.HttpChannel.lambda$handle$0(HttpChannel.java:370)
+	at org.eclipse.jetty.server.HttpChannel.dispatch(HttpChannel.java:567)
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:362)
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:290)
+	at org.eclipse.jetty.io.AbstractConnection$ReadCallback.succeeded(AbstractConnection.java:321)
+	at org.eclipse.jetty.io.FillInterest.fillable(FillInterest.java:103)
+	at org.eclipse.jetty.io.SocketChannelEndPoint$1.run(SocketChannelEndPoint.java:104)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.runTask(EatWhatYouKill.java:336)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.doProduce(EatWhatYouKill.java:313)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.tryProduce(EatWhatYouKill.java:171)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.produce(EatWhatYouKill.java:135)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:823)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$Runner.run(QueuedThreadPool.java:945)
+	at java.base/java.lang.Thread.run(Thread.java:834)

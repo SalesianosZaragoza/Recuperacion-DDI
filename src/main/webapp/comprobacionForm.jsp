@@ -7,9 +7,13 @@
 <title>Comprobación Horarios</title>
 </head>
 <body>
-	<form action="/welcome" method="post">
-		<span>DNI:</span> <input type="text" name="DNI"> <br />
+<h1>Comprobación de entrada del alumno</h1>
+	<form action="/validation" method="post">
+		<span>DNI:</span> <input type="text" name="DNI">
 		<input type="submit" value="Buscar!">
 	</form>
+	<br/>
+    <br/>
+    <a href="welcome">Listado de alumnos</a>
 </body>
 </html>
