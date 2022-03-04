@@ -46,6 +46,12 @@
 			<td>
 				${alumno[4]}
 			</td>
+			<td>
+                <form method="post" action="/delete">
+                    <input type="hidden" name="DNI" value="${alumno[2]}">
+                    <input type="submit" value="Eliminar">
+                </form>
+            </td>
 		</tr>
 	</c:forEach>
 </table>

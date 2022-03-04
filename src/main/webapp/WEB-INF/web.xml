@@ -24,6 +24,16 @@
 		<url-pattern>/validation</url-pattern>
 	</servlet-mapping>
 
+	<servlet>
+		<servlet-name>DeleteServlet</servlet-name>
+		<servlet-class>servlet.DeleteServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>DeleteServlet</servlet-name>
+		<url-pattern>/delete</url-pattern>
+	</servlet-mapping>
+
 	<welcome-file-list>
 		<welcome-file>index.jsp</welcome-file>
 	</welcome-file-list>
