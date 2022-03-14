@@ -52,7 +52,7 @@
 			<td>
                 <form method="post" action="/delete">
                     <input type="hidden" name="DNI" value="${alumno[2]}">
-                    <input type="submit" value="Eliminar">
+					<input class="btn btn-outline-danger btn-sm" type="submit" value="Eliminar">
                 </form>
             </td>
 		</tr>
