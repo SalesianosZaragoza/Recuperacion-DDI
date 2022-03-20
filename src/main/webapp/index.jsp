@@ -25,7 +25,7 @@
             </div>
         </form>
         <a class="mx-3  link-secondary" href="welcome">Listado de alumnos</a>
-        <a class="mx-3  link-secondary" href="votar">Votar delegado</a>
+        <a class="mx-3  link-secondary" href="ListaVotar">Votar delegado</a>
         <a class="mx-3  link-secondary" href="editar.jsp">Editar alumnos</a>
     </body>
 </html>

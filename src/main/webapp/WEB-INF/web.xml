@@ -13,6 +13,17 @@
 		<servlet-name>WelcomeServlet</servlet-name>
 		<url-pattern>/welcome</url-pattern>
 	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>ListVoteServlet</servlet-name>
+		<servlet-class>servlet.ListVoteServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>ListVoteServlet</servlet-name>
+		<url-pattern>/ListaVotar</url-pattern>
+	</servlet-mapping>
+
 	<servlet>
 		<servlet-name>VoteServlet</servlet-name>
 		<servlet-class>servlet.VoteServlet</servlet-class>

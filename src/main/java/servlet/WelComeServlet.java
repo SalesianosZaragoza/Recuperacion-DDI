@@ -30,7 +30,7 @@ public class WelComeServlet extends HttpServlet {
 			preparedStatement.executeUpdate();
 			preparedStatement.close();*/
 			preparedStatement = conn.prepareStatement(
-					"CREATE TABLE IF NOT EXISTS USER (nombre VARCHAR(100), apellidos VARCHAR(100), DNI VARCHAR(9), horaEntrada TIME, horaSalida TIME, curso VARCHAR(9))");
+					"CREATE TABLE IF NOT EXISTS USER (nombre VARCHAR(100), apellidos VARCHAR(100), DNI VARCHAR(9), horaEntrada TIME, horaSalida TIME, curso VARCHAR(9), voto int)");
 			preparedStatement.executeUpdate();
 			preparedStatement.close();
 			preparedStatement = conn.prepareStatement("SELECT * FROM USER");
@@ -40,7 +40,7 @@ public class WelComeServlet extends HttpServlet {
 			while (resultSet.next()) {
 				String string = resultSet.getString(1);
 				String datosAlumno[] = { resultSet.getString(1), resultSet.getString(2), resultSet.getString(3),
-						resultSet.getString(4), resultSet.getString(5), resultSet.getString(6)};
+						resultSet.getString(4), resultSet.getString(5), resultSet.getString(6), resultSet.getString(7)};
 				listAlumnos.add(datosAlumno);
 				System.out.println(string);
 			}
@@ -93,17 +93,18 @@ public class WelComeServlet extends HttpServlet {
 		try {
 
 			preparedStatement = conn.prepareStatement(
-					"CREATE TABLE IF NOT EXISTS USER (nombre VARCHAR(100), apellidos VARCHAR(100), DNI VARCHAR(9), horaEntrada TIME, horaSalida TIME, curso VARCHAR(9))");
+					"CREATE TABLE IF NOT EXISTS USER (nombre VARCHAR(100), apellidos VARCHAR(100), DNI VARCHAR(9), horaEntrada TIME, horaSalida TIME, curso VARCHAR(9), voto int)");
 			preparedStatement.executeUpdate();
 			preparedStatement.close();
 			preparedStatement = conn.prepareStatement(
-					"INSERT INTO USER (nombre, apellidos, DNI, horaEntrada, horaSalida, curso) VALUES (?, ?, ?, ?, ?, ?)");
+					"INSERT INTO USER (nombre, apellidos, DNI, horaEntrada, horaSalida, curso, voto) VALUES (?, ?, ?, ?, ?, ?, ?)");
 			preparedStatement.setString(1, nombre);
 			preparedStatement.setString(2, apellidos);
 			preparedStatement.setString(3, dni);
 			preparedStatement.setString(4, horaEntrada);
 			preparedStatement.setString(5, horaSalida);
 			preparedStatement.setString(6, curso);
+			preparedStatement.setInt(7, 0);
 			preparedStatement.executeUpdate();
 			preparedStatement.close();
 			System.out.println("IMPRIMIENDO LISTADO");
@@ -114,7 +115,7 @@ public class WelComeServlet extends HttpServlet {
 			while (resultSet.next()) {
 				String string = resultSet.getString(1);
 				String datosAlumno[] = { resultSet.getString(1), resultSet.getString(2), resultSet.getString(3),
-						resultSet.getString(4), resultSet.getString(5),  resultSet.getString(6)};
+						resultSet.getString(4), resultSet.getString(5),  resultSet.getString(6), resultSet.getString(7)};
 				listAlumnos.add(datosAlumno);
 				System.out.println(string);
 			}
