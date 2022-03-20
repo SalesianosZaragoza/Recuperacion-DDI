@@ -42,7 +42,7 @@
 			<td>
                 <form method="post" action="/votar">
                     <input type="hidden" name="DNI" value="${alumno[2]}">
-					<input class="btn btn-outline-danger btn-sm" type="submit" value="Votar">
+					<input class="btn btn-outline-success btn-sm" type="submit" value="Votar">
                 </form>
             </td>
 		</tr>
