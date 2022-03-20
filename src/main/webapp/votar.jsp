@@ -74,4 +74,16 @@
 <a type="button" class="btn btn-outline-success" href="comprobacionForm.jsp">Comprobar entrada</a>
 <a type="button" class="btn btn-outline-warning" href="editar.jsp">Editar alumno</a>
 </body>
+<body>
+
+<select class="form-select" aria-label="Default select example">
+    <option selected="yes">Seleccione un alumno a votar</option>
+    <c:forEach items="${alumnos}" var="alumno">
+        <option>
+                ${alumno[0]} ${alumno[1]}
+        </option>
+    </c:forEach>
+</select>
+<button type="button" class="btn btn-outline-info">Vota</button>
+</body>
 </html>

@@ -13,6 +13,15 @@
 		<servlet-name>WelcomeServlet</servlet-name>
 		<url-pattern>/welcome</url-pattern>
 	</servlet-mapping>
+	<servlet>
+		<servlet-name>VoteServlet</servlet-name>
+		<servlet-class>servlet.VoteServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>VoteServlet</servlet-name>
+		<url-pattern>/votar</url-pattern>
+	</servlet-mapping>
 
 	<servlet>
 		<servlet-name>ValidationServlet</servlet-name>
