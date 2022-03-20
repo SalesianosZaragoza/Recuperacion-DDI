@@ -14,23 +14,27 @@
 </head>
 <body>
 <h1>Lista de alumnos</h1>
-<table>
+<table class="table table-striped">
 	<tr>
-		<td>
+		<th>
 			Nombre
-		</td>
-		<td>
+		</th>
+		<th>
 			Apellido
-		</td>
-		<td>
+		</th>
+		<th>
 			DNI
-		</td>
-		<td>
+		</th>
+		<th>
 			Hora de entrada
-		</td>
-		<td>
+		</th>
+		<th>
 			Hora de salida
-		</td>
+		</th>
+		<th>
+			Curso
+		</th>
+		<th></th>
 	</tr>
 	<c:forEach items="${alumnos}" var="alumno">
 		<tr>
@@ -50,6 +54,9 @@
 				${alumno[4]}
 			</td>
 			<td>
+				${alumno[5]}
+			</td>
+			<td>
                 <form method="post" action="/delete">
                     <input type="hidden" name="DNI" value="${alumno[2]}">
 					<input class="btn btn-outline-danger btn-sm" type="submit" value="Eliminar">
@@ -62,5 +69,6 @@
 <br />
 <a type="button" class="btn btn-outline-info" href="index.jsp">Nuevo alumno</a>
 <a type="button" class="btn btn-outline-success" href="comprobacionForm.jsp">Comprobar entrada</a>
+<a type="button" class="btn btn-outline-warning" href="editar.jsp">Editar alumno</a>
 </body>
 </html>
