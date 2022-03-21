@@ -30,15 +30,15 @@ public class ListVoteServlet extends HttpServlet {
 			preparedStatement.executeUpdate();
 			preparedStatement.close();*/
             preparedStatement = conn.prepareStatement(
-                    "CREATE TABLE IF NOT EXISTS USER (nombre VARCHAR(100), apellidos VARCHAR(100), DNI VARCHAR(9), horaEntrada TIME, horaSalida TIME, curso VARCHAR(9), voto int)");
+                    "CREATE TABLE IF NOT EXISTS USER (nombre VARCHAR(100), apellidos VARCHAR(100), DNI VARCHAR(9), horaEntrada TIME, horaSalida TIME, curso VARCHAR(9), voto INTEGER)");
             preparedStatement.executeUpdate();
             preparedStatement.close();
-            preparedStatement = conn.prepareStatement("SELECT * FROM USER");
+            preparedStatement = conn.prepareStatement("SELECT * FROM USER ORDER BY voto DESC");
             ResultSet resultSet = preparedStatement.executeQuery();
 
             ArrayList<String[]> listAlumnos = new ArrayList<String[]>();
             while (resultSet.next()) {
-                String string = resultSet.getString(1);
+                String string = resultSet.getString(7);
                 String datosAlumno[] = { resultSet.getString(1), resultSet.getString(2), resultSet.getString(3),
                         resultSet.getString(4), resultSet.getString(5), resultSet.getString(6), resultSet.getString(7)};
                 listAlumnos.add(datosAlumno);
@@ -80,6 +80,7 @@ public class ListVoteServlet extends HttpServlet {
         String horaEntrada = req.getParameter("HoraEntrada");
         String horaSalida = req.getParameter("HoraSalida");
         String curso = req.getParameter("Curso");
+        Integer voto = 0;
 
         Connection conn;
         try {
@@ -104,16 +105,16 @@ public class ListVoteServlet extends HttpServlet {
             preparedStatement.setString(4, horaEntrada);
             preparedStatement.setString(5, horaSalida);
             preparedStatement.setString(6, curso);
-            preparedStatement.setInt(7, 0);
+            preparedStatement.setInt(7, voto);
             preparedStatement.executeUpdate();
             preparedStatement.close();
             System.out.println("IMPRIMIENDO LISTADO");
-            preparedStatement = conn.prepareStatement("SELECT * FROM USER");
+            preparedStatement = conn.prepareStatement("SELECT * FROM USER ORDER BY voto DESC");
             ResultSet resultSet = preparedStatement.executeQuery();
 
             ArrayList<String[]> listAlumnos = new ArrayList<String[]>();
             while (resultSet.next()) {
-                String string = resultSet.getString(1);
+                String string = resultSet.getString(7);
                 String datosAlumno[] = { resultSet.getString(1), resultSet.getString(2), resultSet.getString(3),
                         resultSet.getString(4), resultSet.getString(5),  resultSet.getString(6), resultSet.getString(7)};
                 listAlumnos.add(datosAlumno);

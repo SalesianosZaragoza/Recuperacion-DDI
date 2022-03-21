@@ -16,9 +16,9 @@ public class VoteServlet extends HttpServlet{
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String dni = req.getParameter("DNI");
-        String voto = req.getParameter("voto") ;
+        String voto = req.getParameter("VOTO") ;
 
-//        Integer votoNum = Integer.parseInt(voto);
+        int votoNum = Integer.parseInt(voto) + 1;
 
         Connection conn;
         try {
@@ -30,8 +30,8 @@ public class VoteServlet extends HttpServlet{
         }
         PreparedStatement preparedStatement = null;
         try {
-            preparedStatement = conn.prepareStatement("UPDATE USER SET nombre = ? WHERE DNI = ?");
-            preparedStatement.setString(1, voto);
+            preparedStatement = conn.prepareStatement("UPDATE USER SET voto = ? WHERE DNI = ?");
+            preparedStatement.setInt(1, votoNum);
             preparedStatement.setString(2, dni);
             preparedStatement.executeUpdate();
             preparedStatement.close();

@@ -80,6 +80,7 @@ public class WelComeServlet extends HttpServlet {
 		String horaEntrada = req.getParameter("HoraEntrada");
 		String horaSalida = req.getParameter("HoraSalida");
 		String curso = req.getParameter("Curso");
+		Integer voto = 0;
 
 		Connection conn;
 		try {
@@ -104,7 +105,7 @@ public class WelComeServlet extends HttpServlet {
 			preparedStatement.setString(4, horaEntrada);
 			preparedStatement.setString(5, horaSalida);
 			preparedStatement.setString(6, curso);
-			preparedStatement.setInt(7, 0);
+			preparedStatement.setInt(7, voto);
 			preparedStatement.executeUpdate();
 			preparedStatement.close();
 			System.out.println("IMPRIMIENDO LISTADO");

@@ -34,6 +34,9 @@
 		<th>
 			Curso
 		</th>
+		<th>
+            Votos delegado
+        </th>
 		<th></th>
 	</tr>
 	<c:forEach items="${alumnos}" var="alumno">

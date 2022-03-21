@@ -13,7 +13,7 @@
 	<title>Lista</title>
 </head>
 <body>
-<h1>Lista de alumnos</h1>
+<h1>Votos para Delegado</h1>
 <table class="table table-striped">
 	<tr>
 		<th>
@@ -42,6 +42,7 @@
 			<td>
                 <form method="post" action="/votar">
                     <input type="hidden" name="DNI" value="${alumno[2]}">
+                    <input type="hidden" name="VOTO" value="${alumno[6]}">
 					<input class="btn btn-outline-success btn-sm" type="submit" value="Votar">
                 </form>
             </td>
@@ -50,7 +51,7 @@
 </table>
 <br />
 <br />
-<a type="button" class="btn btn-outline-info" href="index.jsp">Nuevo alumno</a>
+<a type="button" class="btn btn-outline-info" href="index.jsp">Volver</a>
 </body>
 
 </html>
