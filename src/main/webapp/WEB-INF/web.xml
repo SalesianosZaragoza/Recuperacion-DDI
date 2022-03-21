@@ -15,26 +15,6 @@
 	</servlet-mapping>
 
 	<servlet>
-		<servlet-name>ListVoteServlet</servlet-name>
-		<servlet-class>servlet.ListVoteServlet</servlet-class>
-	</servlet>
-
-	<servlet-mapping>
-		<servlet-name>ListVoteServlet</servlet-name>
-		<url-pattern>/ListaVotar</url-pattern>
-	</servlet-mapping>
-
-	<servlet>
-		<servlet-name>VoteServlet</servlet-name>
-		<servlet-class>servlet.VoteServlet</servlet-class>
-	</servlet>
-
-	<servlet-mapping>
-		<servlet-name>VoteServlet</servlet-name>
-		<url-pattern>/votar</url-pattern>
-	</servlet-mapping>
-
-	<servlet>
 		<servlet-name>ValidationServlet</servlet-name>
 		<servlet-class>servlet.ValidationServlet</servlet-class>
 	</servlet>
@@ -67,5 +47,22 @@
 	<welcome-file-list>
 		<welcome-file>index.jsp</welcome-file>
 	</welcome-file-list>
+
+	<servlet>
+		<servlet-name>ListVoteServlet</servlet-name>
+		<servlet-class>servlet.ListVoteServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ListVoteServlet</servlet-name>
+		<url-pattern>/ListaVotar</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>VoteServlet</servlet-name>
+		<servlet-class>servlet.VoteServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>VoteServlet</servlet-name>
+		<url-pattern>/votar</url-pattern>
+	</servlet-mapping>
 
 </web-app>

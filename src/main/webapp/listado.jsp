@@ -34,9 +34,6 @@
 		<th>
 			Curso
 		</th>
-		<th>
-            Votos delegado
-        </th>
 		<th></th>
 	</tr>
 	<c:forEach items="${alumnos}" var="alumno">
@@ -59,9 +56,6 @@
 			<td>
 				${alumno[5]}
 			</td>
-			<td>
-                ${alumno[6]}
-            </td>
 			<td>
                 <form method="post" action="/delete">
                     <input type="hidden" name="DNI" value="${alumno[2]}">

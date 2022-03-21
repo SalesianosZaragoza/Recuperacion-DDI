@@ -30,7 +30,7 @@ public class WelComeServlet extends HttpServlet {
 			preparedStatement.executeUpdate();
 			preparedStatement.close();*/
 			preparedStatement = conn.prepareStatement(
-					"CREATE TABLE IF NOT EXISTS USER (nombre VARCHAR(100), apellidos VARCHAR(100), DNI VARCHAR(9), horaEntrada TIME, horaSalida TIME, curso VARCHAR(9), voto int)");
+					"CREATE TABLE IF NOT EXISTS USER (nombre VARCHAR(100), apellidos VARCHAR(100), DNI VARCHAR(9), horaEntrada TIME, horaSalida TIME, curso VARCHAR(9), voto INTEGER)");
 			preparedStatement.executeUpdate();
 			preparedStatement.close();
 			preparedStatement = conn.prepareStatement("SELECT * FROM USER");
@@ -94,7 +94,7 @@ public class WelComeServlet extends HttpServlet {
 		try {
 
 			preparedStatement = conn.prepareStatement(
-					"CREATE TABLE IF NOT EXISTS USER (nombre VARCHAR(100), apellidos VARCHAR(100), DNI VARCHAR(9), horaEntrada TIME, horaSalida TIME, curso VARCHAR(9), voto int)");
+					"CREATE TABLE IF NOT EXISTS USER (nombre VARCHAR(100), apellidos VARCHAR(100), DNI VARCHAR(9), horaEntrada TIME, horaSalida TIME, curso VARCHAR(9), voto INTEGER)");
 			preparedStatement.executeUpdate();
 			preparedStatement.close();
 			preparedStatement = conn.prepareStatement(
